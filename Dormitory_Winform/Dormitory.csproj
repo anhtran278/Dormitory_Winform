@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{11E0CA41-3843-4017-8F75-3394E02DFEDE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Dormitory_Winform</RootNamespace>
+    <AssemblyName>Dormitory_Winform</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin.cs">
+      <DependentUpon>QuanLi_Domitory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Class\AdminService.cs" />
+    <Compile Include="Class\RoomService.cs" />
+    <Compile Include="Class\StudentService.cs" />
+    <Compile Include="Form\FormDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormDashboard.Designer.cs">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HaoPhi.cs">
+      <DependentUpon>QuanLi_Domitory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoanPhi.cs">
+      <DependentUpon>QuanLi_Domitory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NguoiThan.cs">
+      <DependentUpon>QuanLi_Domitory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Phong.cs">
+      <DependentUpon>QuanLi_Domitory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuanLi_Domitory.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLi_Domitory.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLi_Domitory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLi_Domitory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLi_Domitory.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLi_Domitory.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SinhVien.cs">
+      <DependentUpon>QuanLi_Domitory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ThietBi.cs">
+      <DependentUpon>QuanLi_Domitory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlConsume.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlConsume.Designer.cs">
+      <DependentUpon>UserControlConsume.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlDevices.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlDevices.Designer.cs">
+      <DependentUpon>UserControlDevices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlFee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlFee.Designer.cs">
+      <DependentUpon>UserControlFee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlRelatives.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlRelatives.Designer.cs">
+      <DependentUpon>UserControlRelatives.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlRoom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlRoom.Designer.cs">
+      <DependentUpon>UserControlRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlAdmins.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlAdmins.Designer.cs">
+      <DependentUpon>UserControlAdmins.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlStatistical.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlStatistical.Designer.cs">
+      <DependentUpon>UserControlStatistical.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlStudents.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlStudents.Designer.cs">
+      <DependentUpon>UserControlStudents.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form\FormDashboard.resx">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlConsume.resx">
+      <DependentUpon>UserControlConsume.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlDevices.resx">
+      <DependentUpon>UserControlDevices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlFee.resx">
+      <DependentUpon>UserControlFee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlRelatives.resx">
+      <DependentUpon>UserControlRelatives.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlRoom.resx">
+      <DependentUpon>UserControlRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlAdmins.resx">
+      <DependentUpon>UserControlAdmins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlStatistical.resx">
+      <DependentUpon>UserControlStatistical.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlStudents.resx">
+      <DependentUpon>UserControlStudents.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="QuanLi_Domitory.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLi_Domitory.edmx</DependentUpon>
+      <LastGenOutput>QuanLi_Domitory.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="QuanLi_Domitory.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLi_Domitory.edmx</DependentUpon>
+      <LastGenOutput>QuanLi_Domitory.cs</LastGenOutput>
+    </Content>
+    <Content Include="Resources\C#.png" />
+    <Content Include="Resources\domitory.png" />
+    <Content Include="Resources\hide-pass.png" />
+    <Content Include="Resources\IconBlack\Group 65.png" />
+    <Content Include="Resources\IconBlack\🦆 icon _coin_.png" />
+    <Content Include="Resources\IconBlack\🦆 icon _Education_.png" />
+    <Content Include="Resources\IconBlack\🦆 icon _room_.png" />
+    <Content Include="Resources\IconBlack\🦆 icon _user admin_.png" />
+    <Content Include="Resources\iconWhite\family.png" />
+    <Content Include="Resources\iconWhite\🦆 icon _coin_.png" />
+    <Content Include="Resources\iconWhite\🦆 icon _Education_.png" />
+    <Content Include="Resources\iconWhite\🦆 icon _room_.png" />
+    <Content Include="Resources\iconWhite\🦆 icon _user admin_.png" />
+    <Content Include="Resources\show-pass.png" />
+    <Content Include="Resources\Vector1.png" />
+    <Content Include="Resources\x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="QuanLi_Domitory.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuanLi_Domitory.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="QuanLi_Domitory.edmx.diagram">
+      <DependentUpon>QuanLi_Domitory.edmx</DependentUpon>
+    </None>
+    <None Include="Resources\Wavy Buddies Avatar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
