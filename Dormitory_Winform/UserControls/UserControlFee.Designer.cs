@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlFee));
             this.tabControlFee = new System.Windows.Forms.TabControl();
             this.tabPageAddFee = new System.Windows.Forms.TabPage();
-            this.cbBoxAddMaSvFee = new System.Windows.Forms.ComboBox();
+            this.cbBoxAddMaSVFee = new System.Windows.Forms.ComboBox();
             this.btnAddFee = new System.Windows.Forms.Button();
-            this.txtAddTienDienFee = new System.Windows.Forms.TextBox();
+            this.txtAddTienDienNuocFee = new System.Windows.Forms.TextBox();
             this.txtAddTienGuiXeFee = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -46,22 +46,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataTimeAddNgayThanhToanFee = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeAddNgayThanhToanFee = new System.Windows.Forms.DateTimePicker();
             this.tabPageSearchRoom = new System.Windows.Forms.TabPage();
             this.dataGridViewFee = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearchMaKPFee = new System.Windows.Forms.TextBox();
             this.lblSearchFee = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPageUpDeFee = new System.Windows.Forms.TabPage();
             this.dateTimeUpAnDeFee = new System.Windows.Forms.DateTimePicker();
-            this.cbBoxUpAndDeMaSVFee = new System.Windows.Forms.ComboBox();
             this.txtUpAndDeTienDienFee = new System.Windows.Forms.TextBox();
             this.txtUpAndDeTienGuiXeFee = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -77,6 +69,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnDeleteFee = new System.Windows.Forms.Button();
             this.btnUpdateFee = new System.Windows.Forms.Button();
+            this.txtUpAndDeMaSVFee = new System.Windows.Forms.TextBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlFee.SuspendLayout();
             this.tabPageAddFee.SuspendLayout();
             this.tabPageSearchRoom.SuspendLayout();
@@ -100,9 +100,9 @@
             // 
             // tabPageAddFee
             // 
-            this.tabPageAddFee.Controls.Add(this.cbBoxAddMaSvFee);
+            this.tabPageAddFee.Controls.Add(this.cbBoxAddMaSVFee);
             this.tabPageAddFee.Controls.Add(this.btnAddFee);
-            this.tabPageAddFee.Controls.Add(this.txtAddTienDienFee);
+            this.tabPageAddFee.Controls.Add(this.txtAddTienDienNuocFee);
             this.tabPageAddFee.Controls.Add(this.txtAddTienGuiXeFee);
             this.tabPageAddFee.Controls.Add(this.label9);
             this.tabPageAddFee.Controls.Add(this.label16);
@@ -115,7 +115,7 @@
             this.tabPageAddFee.Controls.Add(this.label3);
             this.tabPageAddFee.Controls.Add(this.label2);
             this.tabPageAddFee.Controls.Add(this.label1);
-            this.tabPageAddFee.Controls.Add(this.dataTimeAddNgayThanhToanFee);
+            this.tabPageAddFee.Controls.Add(this.dateTimeAddNgayThanhToanFee);
             this.tabPageAddFee.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPageAddFee.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tabPageAddFee.Location = new System.Drawing.Point(4, 4);
@@ -126,13 +126,13 @@
             this.tabPageAddFee.Text = "Add";
             this.tabPageAddFee.UseVisualStyleBackColor = true;
             // 
-            // cbBoxAddMaSvFee
+            // cbBoxAddMaSVFee
             // 
-            this.cbBoxAddMaSvFee.FormattingEnabled = true;
-            this.cbBoxAddMaSvFee.Location = new System.Drawing.Point(627, 87);
-            this.cbBoxAddMaSvFee.Name = "cbBoxAddMaSvFee";
-            this.cbBoxAddMaSvFee.Size = new System.Drawing.Size(263, 25);
-            this.cbBoxAddMaSvFee.TabIndex = 7;
+            this.cbBoxAddMaSVFee.FormattingEnabled = true;
+            this.cbBoxAddMaSVFee.Location = new System.Drawing.Point(627, 85);
+            this.cbBoxAddMaSVFee.Name = "cbBoxAddMaSVFee";
+            this.cbBoxAddMaSVFee.Size = new System.Drawing.Size(263, 25);
+            this.cbBoxAddMaSVFee.TabIndex = 7;
             // 
             // btnAddFee
             // 
@@ -150,13 +150,13 @@
             this.btnAddFee.Text = "Add";
             this.btnAddFee.UseVisualStyleBackColor = false;
             // 
-            // txtAddTienDienFee
+            // txtAddTienDienNuocFee
             // 
-            this.txtAddTienDienFee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAddTienDienFee.Location = new System.Drawing.Point(627, 245);
-            this.txtAddTienDienFee.Name = "txtAddTienDienFee";
-            this.txtAddTienDienFee.Size = new System.Drawing.Size(263, 23);
-            this.txtAddTienDienFee.TabIndex = 3;
+            this.txtAddTienDienNuocFee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAddTienDienNuocFee.Location = new System.Drawing.Point(627, 245);
+            this.txtAddTienDienNuocFee.Name = "txtAddTienDienNuocFee";
+            this.txtAddTienDienNuocFee.Size = new System.Drawing.Size(263, 23);
+            this.txtAddTienDienNuocFee.TabIndex = 3;
             // 
             // txtAddTienGuiXeFee
             // 
@@ -172,9 +172,9 @@
             this.label9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(627, 213);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(70, 16);
+            this.label9.Size = new System.Drawing.Size(126, 16);
             this.label9.TabIndex = 2;
-            this.label9.Text = "Tien dien:";
+            this.label9.Text = "Tien dien va nuoc:";
             // 
             // label16
             // 
@@ -271,12 +271,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Add Fee:";
             // 
-            // dataTimeAddNgayThanhToanFee
+            // dateTimeAddNgayThanhToanFee
             // 
-            this.dataTimeAddNgayThanhToanFee.Location = new System.Drawing.Point(258, 167);
-            this.dataTimeAddNgayThanhToanFee.Name = "dataTimeAddNgayThanhToanFee";
-            this.dataTimeAddNgayThanhToanFee.Size = new System.Drawing.Size(260, 23);
-            this.dataTimeAddNgayThanhToanFee.TabIndex = 10;
+            this.dateTimeAddNgayThanhToanFee.Location = new System.Drawing.Point(258, 167);
+            this.dateTimeAddNgayThanhToanFee.Name = "dateTimeAddNgayThanhToanFee";
+            this.dateTimeAddNgayThanhToanFee.Size = new System.Drawing.Size(260, 23);
+            this.dateTimeAddNgayThanhToanFee.TabIndex = 10;
             // 
             // tabPageSearchRoom
             // 
@@ -296,6 +296,7 @@
             // 
             this.dataGridViewFee.AllowUserToAddRows = false;
             this.dataGridViewFee.AllowUserToDeleteRows = false;
+            this.dataGridViewFee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewFee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -310,63 +311,6 @@
             this.dataGridViewFee.ReadOnly = true;
             this.dataGridViewFee.Size = new System.Drawing.Size(1030, 244);
             this.dataGridViewFee.TabIndex = 6;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column1.DataPropertyName = "Fee_MaKP";
-            this.Column1.HeaderText = "Ma Khoan Phi";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 112;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.DataPropertyName = "Fee_MaSV";
-            this.Column2.HeaderText = "Ma SV";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.DataPropertyName = "Fee_NgayThanhToan";
-            this.Column3.HeaderText = "Ngay Thanh Toan";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.DataPropertyName = "Fee_TienPhong";
-            this.Column4.HeaderText = "Tien Phong";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column5.DataPropertyName = "Fee_TienInternet";
-            this.Column5.HeaderText = "Tien Internet";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column6.DataPropertyName = "Fee_TienGuiXe";
-            this.Column6.HeaderText = "Tien Gui Xe";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column7.DataPropertyName = "Fee_TienDien";
-            this.Column7.HeaderText = "Tien Dien";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
             // 
             // txtSearchMaKPFee
             // 
@@ -401,7 +345,6 @@
             // tabPageUpDeFee
             // 
             this.tabPageUpDeFee.Controls.Add(this.dateTimeUpAnDeFee);
-            this.tabPageUpDeFee.Controls.Add(this.cbBoxUpAndDeMaSVFee);
             this.tabPageUpDeFee.Controls.Add(this.txtUpAndDeTienDienFee);
             this.tabPageUpDeFee.Controls.Add(this.txtUpAndDeTienGuiXeFee);
             this.tabPageUpDeFee.Controls.Add(this.label10);
@@ -410,6 +353,7 @@
             this.tabPageUpDeFee.Controls.Add(this.label12);
             this.tabPageUpDeFee.Controls.Add(this.txtUpAndDeTienInternetFee);
             this.tabPageUpDeFee.Controls.Add(this.label13);
+            this.tabPageUpDeFee.Controls.Add(this.txtUpAndDeMaSVFee);
             this.tabPageUpDeFee.Controls.Add(this.txtUpAndDeMaKPFee);
             this.tabPageUpDeFee.Controls.Add(this.label14);
             this.tabPageUpDeFee.Controls.Add(this.label15);
@@ -431,14 +375,6 @@
             this.dateTimeUpAnDeFee.Name = "dateTimeUpAnDeFee";
             this.dateTimeUpAnDeFee.Size = new System.Drawing.Size(260, 23);
             this.dateTimeUpAnDeFee.TabIndex = 25;
-            // 
-            // cbBoxUpAndDeMaSVFee
-            // 
-            this.cbBoxUpAndDeMaSVFee.FormattingEnabled = true;
-            this.cbBoxUpAndDeMaSVFee.Location = new System.Drawing.Point(627, 87);
-            this.cbBoxUpAndDeMaSVFee.Name = "cbBoxUpAndDeMaSVFee";
-            this.cbBoxUpAndDeMaSVFee.Size = new System.Drawing.Size(263, 25);
-            this.cbBoxUpAndDeMaSVFee.TabIndex = 24;
             // 
             // txtUpAndDeTienDienFee
             // 
@@ -593,6 +529,75 @@
             this.btnUpdateFee.Text = "Update";
             this.btnUpdateFee.UseVisualStyleBackColor = false;
             // 
+            // txtUpAndDeMaSVFee
+            // 
+            this.txtUpAndDeMaSVFee.BackColor = System.Drawing.Color.White;
+            this.txtUpAndDeMaSVFee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUpAndDeMaSVFee.Location = new System.Drawing.Point(627, 86);
+            this.txtUpAndDeMaSVFee.Name = "txtUpAndDeMaSVFee";
+            this.txtUpAndDeMaSVFee.ReadOnly = true;
+            this.txtUpAndDeMaSVFee.Size = new System.Drawing.Size(263, 23);
+            this.txtUpAndDeMaSVFee.TabIndex = 22;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.DataPropertyName = "MaKhoanPhi";
+            this.Column1.HeaderText = "Ma Khoan Phi";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.DataPropertyName = "MaSV";
+            this.Column2.HeaderText = "Ma SV";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.DataPropertyName = "NgayThanhToan";
+            this.Column3.HeaderText = "Ngay Thanh Toan";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column4.DataPropertyName = "TienPhong";
+            this.Column4.HeaderText = "Tien Phong";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 103;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column5.DataPropertyName = "TienInternet";
+            this.Column5.HeaderText = "Tien Internet";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 110;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column6.DataPropertyName = "TienGuiXe";
+            this.Column6.HeaderText = "Tien Gui Xe";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 103;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column7.DataPropertyName = "TienDienVaNuoc";
+            this.Column7.HeaderText = "Tien Dien Va Nuoc";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
             // UserControlFee
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -600,6 +605,7 @@
             this.Controls.Add(this.tabControlFee);
             this.Name = "UserControlFee";
             this.Size = new System.Drawing.Size(1156, 438);
+            this.Load += new System.EventHandler(this.UserControlRooms_Load);
             this.tabControlFee.ResumeLayout(false);
             this.tabPageAddFee.ResumeLayout(false);
             this.tabPageAddFee.PerformLayout();
@@ -616,7 +622,7 @@
 
         private System.Windows.Forms.TabControl tabControlFee;
         private System.Windows.Forms.TabPage tabPageAddFee;
-        private System.Windows.Forms.ComboBox cbBoxAddMaSvFee;
+        private System.Windows.Forms.ComboBox cbBoxAddMaSVFee;
         private System.Windows.Forms.Button btnAddFee;
         private System.Windows.Forms.TextBox txtAddTienInternetFee;
         private System.Windows.Forms.TextBox txtAddMaKPFee;
@@ -633,14 +639,13 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnDeleteFee;
         private System.Windows.Forms.Button btnUpdateFee;
-        private System.Windows.Forms.TextBox txtAddTienDienFee;
+        private System.Windows.Forms.TextBox txtAddTienDienNuocFee;
         private System.Windows.Forms.TextBox txtAddTienGuiXeFee;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtAddTienPhongFee;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cbBoxUpAndDeMaSVFee;
         private System.Windows.Forms.TextBox txtUpAndDeTienDienFee;
         private System.Windows.Forms.TextBox txtUpAndDeTienGuiXeFee;
         private System.Windows.Forms.Label label10;
@@ -653,6 +658,9 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.DateTimePicker dateTimeAddNgayThanhToanFee;
+        private System.Windows.Forms.DateTimePicker dateTimeUpAnDeFee;
+        private System.Windows.Forms.TextBox txtUpAndDeMaSVFee;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -660,7 +668,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DateTimePicker dataTimeAddNgayThanhToanFee;
-        private System.Windows.Forms.DateTimePicker dateTimeUpAnDeFee;
     }
 }

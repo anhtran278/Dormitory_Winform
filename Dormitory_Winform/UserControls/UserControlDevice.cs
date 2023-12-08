@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Dormitory_Winform.UserControls
+{
+    public partial class UserControlDevice : UserControl
+    {
+        public UserControlDevice()
+        {
+            InitializeComponent();
+        }
+
+        private void tabPageAddDevices_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddDevices_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

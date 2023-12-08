@@ -198,7 +198,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Navy;
-            this.label5.Location = new System.Drawing.Point(548, 499);
+            this.label5.Location = new System.Drawing.Point(547, 471);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(475, 41);
             this.label5.TabIndex = 12;
@@ -233,7 +233,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(539, 113);
+            this.pictureBox1.Location = new System.Drawing.Point(538, 85);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(501, 341);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

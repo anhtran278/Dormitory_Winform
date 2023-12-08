@@ -62,6 +62,7 @@
             this.txtUpAndDeGiaPhongRoom = new System.Windows.Forms.TextBox();
             this.txtUpAndDeKiHieuRoom = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.txtUpAndDeMaSVRoom = new System.Windows.Forms.TextBox();
             this.txtUpAndDeMaPhongRoom = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -70,7 +71,6 @@
             this.btnDeleteRoom = new System.Windows.Forms.Button();
             this.btnUpdateRoom = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtUpAndDeMaSVRoom = new System.Windows.Forms.TextBox();
             this.tabControlRoom.SuspendLayout();
             this.tabPageAddRoom.SuspendLayout();
             this.tabPageSearchRoom.SuspendLayout();
@@ -143,7 +143,6 @@
             // cbBoxAddLoaiPhongRoom
             // 
             this.cbBoxAddLoaiPhongRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBoxAddLoaiPhongRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbBoxAddLoaiPhongRoom.FormattingEnabled = true;
             this.cbBoxAddLoaiPhongRoom.Items.AddRange(new object[] {
             "Please select ...",
@@ -259,7 +258,6 @@
             // cbBoxAddMaSvRoom
             // 
             this.cbBoxAddMaSvRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBoxAddMaSvRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbBoxAddMaSvRoom.FormattingEnabled = true;
             this.cbBoxAddMaSvRoom.Items.AddRange(new object[] {
             "Please select ..."});
@@ -457,6 +455,16 @@
             this.label17.TabIndex = 12;
             this.label17.Text = "Gia Phong:";
             // 
+            // txtUpAndDeMaSVRoom
+            // 
+            this.txtUpAndDeMaSVRoom.BackColor = System.Drawing.Color.White;
+            this.txtUpAndDeMaSVRoom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUpAndDeMaSVRoom.Location = new System.Drawing.Point(194, 201);
+            this.txtUpAndDeMaSVRoom.Name = "txtUpAndDeMaSVRoom";
+            this.txtUpAndDeMaSVRoom.ReadOnly = true;
+            this.txtUpAndDeMaSVRoom.Size = new System.Drawing.Size(263, 23);
+            this.txtUpAndDeMaSVRoom.TabIndex = 16;
+            // 
             // txtUpAndDeMaPhongRoom
             // 
             this.txtUpAndDeMaPhongRoom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -549,16 +557,6 @@
             this.label12.Size = new System.Drawing.Size(84, 16);
             this.label12.TabIndex = 11;
             this.label12.Text = "Loai phong:";
-            // 
-            // txtUpAndDeMaSVRoom
-            // 
-            this.txtUpAndDeMaSVRoom.BackColor = System.Drawing.Color.White;
-            this.txtUpAndDeMaSVRoom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUpAndDeMaSVRoom.Location = new System.Drawing.Point(194, 201);
-            this.txtUpAndDeMaSVRoom.Name = "txtUpAndDeMaSVRoom";
-            this.txtUpAndDeMaSVRoom.ReadOnly = true;
-            this.txtUpAndDeMaSVRoom.Size = new System.Drawing.Size(263, 23);
-            this.txtUpAndDeMaSVRoom.TabIndex = 16;
             // 
             // UserControlRooms
             // 

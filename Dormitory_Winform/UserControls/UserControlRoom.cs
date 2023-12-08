@@ -26,7 +26,6 @@ namespace Dormitory_Winform.UserControls
             loadDataIntoDataGridView();
             cbBoxAddMaSvRoom.SelectedIndex = -1;
             cbBoxAddLoaiPhongRoom.SelectedIndex = 0;
-            cbBoxAddMaSvRoom.SelectedIndex = 0;
             cbBoxUpAndDeLoaiPhongRoom.SelectedIndex = 0;
             GetMaSVIntoComboBox();
         }
@@ -131,7 +130,7 @@ namespace Dormitory_Winform.UserControls
             }
             else
             {
-                loadDataIntoDataGridView();
+                RefreshDataGridView();
             }
         }
 

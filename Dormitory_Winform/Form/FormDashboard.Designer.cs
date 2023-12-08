@@ -59,14 +59,14 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.userControlStudents1 = new Dormitory_Winform.UserControls.UserControlStudents();
-            this.userControlAdmins1 = new Dormitory_Winform.UserControlAdmins();
+            this.userControlStudents1 = new Dormitory_Winform.UserControls.UserControlStudent();
+            this.userControlAdmins1 = new Dormitory_Winform.UserControlAdmin();
             this.userControlStatistical1 = new Dormitory_Winform.UserControls.UserControlStatistical();
             this.userControlConsume1 = new Dormitory_Winform.UserControls.UserControlConsume();
-            this.userControlDevices1 = new Dormitory_Winform.UserControls.UserControlDevices();
+            this.userControlDevices1 = new Dormitory_Winform.UserControls.UserControlDevice();
             this.userControlFee1 = new Dormitory_Winform.UserControls.UserControlFee();
             this.userControlRooms1 = new Dormitory_Winform.UserControls.UserControlRooms();
-            this.userControlRelatives1 = new Dormitory_Winform.UserControls.UserControlRelatives();
+            this.userControlRelatives1 = new Dormitory_Winform.UserControls.UserControlRelative();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -652,12 +652,12 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button btnConsume;
         private System.Windows.Forms.Label label5;
-        private UserControlAdmins userControlAdmins1;
-        private UserControls.UserControlStudents userControlStudents1;
-        private UserControls.UserControlRelatives userControlRelatives1;
+        private UserControlAdmin userControlAdmins1;
+        private UserControls.UserControlStudent userControlStudents1;
+        private UserControls.UserControlRelative userControlRelatives1;
         private UserControls.UserControlFee userControlFee1;
         private UserControls.UserControlRooms userControlRooms1;
-        private UserControls.UserControlDevices userControlDevices1;
+        private UserControls.UserControlDevice userControlDevices1;
         private UserControls.UserControlConsume userControlConsume1;
         private UserControls.UserControlStatistical userControlStatistical1;
     }

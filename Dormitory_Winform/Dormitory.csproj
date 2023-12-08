@@ -64,9 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.cs">
-      <DependentUpon>QuanLi_Domitory.tt</DependentUpon>
+      <DependentUpon>QuanLi_Dormitory.tt</DependentUpon>
     </Compile>
     <Compile Include="Class\AdminService.cs" />
+    <Compile Include="Class\DeviceService.cs" />
+    <Compile Include="Class\FeeService.cs" />
+    <Compile Include="Class\RelativeService.cs" />
     <Compile Include="Class\RoomService.cs" />
     <Compile Include="Class\StudentService.cs" />
     <Compile Include="Form\FormDashboard.cs">
@@ -82,39 +85,39 @@
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="HaoPhi.cs">
-      <DependentUpon>QuanLi_Domitory.tt</DependentUpon>
+      <DependentUpon>QuanLi_Dormitory.tt</DependentUpon>
     </Compile>
     <Compile Include="KhoanPhi.cs">
-      <DependentUpon>QuanLi_Domitory.tt</DependentUpon>
+      <DependentUpon>QuanLi_Dormitory.tt</DependentUpon>
     </Compile>
     <Compile Include="NguoiThan.cs">
-      <DependentUpon>QuanLi_Domitory.tt</DependentUpon>
+      <DependentUpon>QuanLi_Dormitory.tt</DependentUpon>
     </Compile>
     <Compile Include="Phong.cs">
-      <DependentUpon>QuanLi_Domitory.tt</DependentUpon>
+      <DependentUpon>QuanLi_Dormitory.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuanLi_Domitory.Context.cs">
+    <Compile Include="QuanLi_Dormitory.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLi_Domitory.Context.tt</DependentUpon>
+      <DependentUpon>QuanLi_Dormitory.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="QuanLi_Domitory.cs">
+    <Compile Include="QuanLi_Dormitory.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLi_Domitory.tt</DependentUpon>
+      <DependentUpon>QuanLi_Dormitory.tt</DependentUpon>
     </Compile>
-    <Compile Include="QuanLi_Domitory.Designer.cs">
+    <Compile Include="QuanLi_Dormitory.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLi_Domitory.edmx</DependentUpon>
+      <DependentUpon>QuanLi_Dormitory.edmx</DependentUpon>
     </Compile>
     <Compile Include="SinhVien.cs">
-      <DependentUpon>QuanLi_Domitory.tt</DependentUpon>
+      <DependentUpon>QuanLi_Dormitory.tt</DependentUpon>
     </Compile>
     <Compile Include="ThietBi.cs">
-      <DependentUpon>QuanLi_Domitory.tt</DependentUpon>
+      <DependentUpon>QuanLi_Dormitory.tt</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UserControlConsume.cs">
       <SubType>UserControl</SubType>
@@ -122,11 +125,11 @@
     <Compile Include="UserControls\UserControlConsume.Designer.cs">
       <DependentUpon>UserControlConsume.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UserControlDevices.cs">
+    <Compile Include="UserControls\UserControlDevice.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UserControlDevices.Designer.cs">
-      <DependentUpon>UserControlDevices.cs</DependentUpon>
+    <Compile Include="UserControls\UserControlDevice.Designer.cs">
+      <DependentUpon>UserControlDevice.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UserControlFee.cs">
       <SubType>UserControl</SubType>
@@ -134,11 +137,11 @@
     <Compile Include="UserControls\UserControlFee.Designer.cs">
       <DependentUpon>UserControlFee.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UserControlRelatives.cs">
+    <Compile Include="UserControls\UserControlRelative.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UserControlRelatives.Designer.cs">
-      <DependentUpon>UserControlRelatives.cs</DependentUpon>
+    <Compile Include="UserControls\UserControlRelative.Designer.cs">
+      <DependentUpon>UserControlRelative.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UserControlRoom.cs">
       <SubType>UserControl</SubType>
@@ -146,11 +149,11 @@
     <Compile Include="UserControls\UserControlRoom.Designer.cs">
       <DependentUpon>UserControlRoom.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UserControlAdmins.cs">
+    <Compile Include="UserControls\UserControlAdmin.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UserControlAdmins.Designer.cs">
-      <DependentUpon>UserControlAdmins.cs</DependentUpon>
+    <Compile Include="UserControls\UserControlAdmin.Designer.cs">
+      <DependentUpon>UserControlAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UserControlStatistical.cs">
       <SubType>UserControl</SubType>
@@ -158,11 +161,11 @@
     <Compile Include="UserControls\UserControlStatistical.Designer.cs">
       <DependentUpon>UserControlStatistical.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UserControlStudents.cs">
+    <Compile Include="UserControls\UserControlStudent.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UserControlStudents.Designer.cs">
-      <DependentUpon>UserControlStudents.cs</DependentUpon>
+    <Compile Include="UserControls\UserControlStudent.Designer.cs">
+      <DependentUpon>UserControlStudent.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form\FormDashboard.resx">
       <DependentUpon>FormDashboard.cs</DependentUpon>
@@ -178,26 +181,26 @@
     <EmbeddedResource Include="UserControls\UserControlConsume.resx">
       <DependentUpon>UserControlConsume.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UserControlDevices.resx">
-      <DependentUpon>UserControlDevices.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\UserControlDevice.resx">
+      <DependentUpon>UserControlDevice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserControlFee.resx">
       <DependentUpon>UserControlFee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UserControlRelatives.resx">
-      <DependentUpon>UserControlRelatives.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\UserControlRelative.resx">
+      <DependentUpon>UserControlRelative.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserControlRoom.resx">
       <DependentUpon>UserControlRoom.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UserControlAdmins.resx">
-      <DependentUpon>UserControlAdmins.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\UserControlAdmin.resx">
+      <DependentUpon>UserControlAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserControlStatistical.resx">
       <DependentUpon>UserControlStatistical.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UserControlStudents.resx">
-      <DependentUpon>UserControlStudents.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\UserControlStudent.resx">
+      <DependentUpon>UserControlStudent.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.Config" />
     <None Include="packages.config" />
@@ -217,15 +220,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="QuanLi_Domitory.Context.tt">
+    <Content Include="QuanLi_Dormitory.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuanLi_Domitory.edmx</DependentUpon>
-      <LastGenOutput>QuanLi_Domitory.Context.cs</LastGenOutput>
+      <DependentUpon>QuanLi_Dormitory.edmx</DependentUpon>
+      <LastGenOutput>QuanLi_Dormitory.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="QuanLi_Domitory.tt">
+    <Content Include="QuanLi_Dormitory.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuanLi_Domitory.edmx</DependentUpon>
-      <LastGenOutput>QuanLi_Domitory.cs</LastGenOutput>
+      <DependentUpon>QuanLi_Dormitory.edmx</DependentUpon>
+      <LastGenOutput>QuanLi_Dormitory.cs</LastGenOutput>
     </Content>
     <Content Include="Resources\C#.png" />
     <Content Include="Resources\domitory.png" />
@@ -245,12 +248,12 @@
     <Content Include="Resources\x.png" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="QuanLi_Domitory.edmx">
+    <EntityDeploy Include="QuanLi_Dormitory.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QuanLi_Domitory.Designer.cs</LastGenOutput>
+      <LastGenOutput>QuanLi_Dormitory.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="QuanLi_Domitory.edmx.diagram">
-      <DependentUpon>QuanLi_Domitory.edmx</DependentUpon>
+    <None Include="QuanLi_Dormitory.edmx.diagram">
+      <DependentUpon>QuanLi_Dormitory.edmx</DependentUpon>
     </None>
     <None Include="Resources\Wavy Buddies Avatar1.png" />
   </ItemGroup>

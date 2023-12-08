@@ -20,8 +20,7 @@ namespace Dormitory_Winform
         public decimal TienPhong { get; set; }
         public decimal TienInternet { get; set; }
         public decimal TienGuiXe { get; set; }
-        public decimal TienDien { get; set; }
-        public decimal TienNuoc { get; set; }
+        public decimal TienDienVaNuoc { get; set; }
     
         public virtual SinhVien SinhVien { get; set; }
     }
