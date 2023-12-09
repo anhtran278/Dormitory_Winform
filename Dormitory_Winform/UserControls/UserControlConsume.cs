@@ -16,7 +16,6 @@ namespace Dormitory_Winform.UserControls
         QuanLi_DormitoryEntities db;
         ConsumeService consumeService;
         private BindingSource bindingSource;
-        private Timer dataRefreshTimer;
 
         public UserControlConsume()
         {
@@ -27,5 +26,6 @@ namespace Dormitory_Winform.UserControls
             dataGridViewConsume.DataSource = bindingSource;
             dataGridViewConsume.AutoGenerateColumns = false;
         }
+
     }
 }

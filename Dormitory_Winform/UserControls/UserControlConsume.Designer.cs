@@ -40,9 +40,7 @@
             this.txtAddTienBaoTriPhongConsume = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtAddMaHaoPhiConsume = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.tabPageSearchConsume = new System.Windows.Forms.TabPage();
             this.dataGridViewConsume = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,19 +52,17 @@
             this.lblSearch = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPageUpDeConsume = new System.Windows.Forms.TabPage();
-            this.cbBoxUpAndDeMaThietBiConsume = new System.Windows.Forms.ComboBox();
-            this.cbBoxUpAndDeMaPhongConsumee = new System.Windows.Forms.ComboBox();
             this.txtUpAndDeTienBaoTriThietBiConsume = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtUpAndDeTienBaoTriPhongConsume = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtUpAndDeMaHaoPhiConsume = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnDeleteConsume = new System.Windows.Forms.Button();
             this.btnUpdateConsume = new System.Windows.Forms.Button();
+            this.txtUpAndDeMaPhongConsume = new System.Windows.Forms.TextBox();
+            this.txtUpAndDeMaThietBiConsume = new System.Windows.Forms.TextBox();
             label1 = new System.Windows.Forms.Label();
             this.tabControlConsume.SuspendLayout();
             this.tabPageAddConsume.SuspendLayout();
@@ -111,9 +107,7 @@
             this.tabPageAddConsume.Controls.Add(this.txtAddTienBaoTriPhongConsume);
             this.tabPageAddConsume.Controls.Add(this.label15);
             this.tabPageAddConsume.Controls.Add(this.label7);
-            this.tabPageAddConsume.Controls.Add(this.txtAddMaHaoPhiConsume);
             this.tabPageAddConsume.Controls.Add(this.label3);
-            this.tabPageAddConsume.Controls.Add(this.label2);
             this.tabPageAddConsume.Controls.Add(label1);
             this.tabPageAddConsume.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPageAddConsume.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -128,7 +122,7 @@
             // cbBoxAddMaThietBiConsume
             // 
             this.cbBoxAddMaThietBiConsume.FormattingEnabled = true;
-            this.cbBoxAddMaThietBiConsume.Location = new System.Drawing.Point(255, 195);
+            this.cbBoxAddMaThietBiConsume.Location = new System.Drawing.Point(255, 115);
             this.cbBoxAddMaThietBiConsume.Name = "cbBoxAddMaThietBiConsume";
             this.cbBoxAddMaThietBiConsume.Size = new System.Drawing.Size(263, 25);
             this.cbBoxAddMaThietBiConsume.TabIndex = 7;
@@ -150,9 +144,9 @@
             this.btnAddConsume.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddConsume.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddConsume.ForeColor = System.Drawing.Color.White;
-            this.btnAddConsume.Location = new System.Drawing.Point(624, 278);
+            this.btnAddConsume.Location = new System.Drawing.Point(255, 278);
             this.btnAddConsume.Name = "btnAddConsume";
-            this.btnAddConsume.Size = new System.Drawing.Size(111, 41);
+            this.btnAddConsume.Size = new System.Drawing.Size(109, 41);
             this.btnAddConsume.TabIndex = 4;
             this.btnAddConsume.Text = "Add";
             this.btnAddConsume.UseVisualStyleBackColor = false;
@@ -160,7 +154,7 @@
             // txtAddTienBaoTriThietBiConsume
             // 
             this.txtAddTienBaoTriThietBiConsume.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAddTienBaoTriThietBiConsume.Location = new System.Drawing.Point(255, 278);
+            this.txtAddTienBaoTriThietBiConsume.Location = new System.Drawing.Point(255, 198);
             this.txtAddTienBaoTriThietBiConsume.Name = "txtAddTienBaoTriThietBiConsume";
             this.txtAddTienBaoTriThietBiConsume.Size = new System.Drawing.Size(263, 23);
             this.txtAddTienBaoTriThietBiConsume.TabIndex = 3;
@@ -169,7 +163,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(255, 246);
+            this.label6.Location = new System.Drawing.Point(255, 163);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(133, 16);
             this.label6.TabIndex = 2;
@@ -178,7 +172,7 @@
             // txtAddTienBaoTriPhongConsume
             // 
             this.txtAddTienBaoTriPhongConsume.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAddTienBaoTriPhongConsume.Location = new System.Drawing.Point(624, 195);
+            this.txtAddTienBaoTriPhongConsume.Location = new System.Drawing.Point(624, 198);
             this.txtAddTienBaoTriPhongConsume.Name = "txtAddTienBaoTriPhongConsume";
             this.txtAddTienBaoTriPhongConsume.Size = new System.Drawing.Size(263, 23);
             this.txtAddTienBaoTriPhongConsume.TabIndex = 3;
@@ -187,7 +181,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(255, 163);
+            this.label15.Location = new System.Drawing.Point(255, 80);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(81, 16);
             this.label15.TabIndex = 2;
@@ -203,14 +197,6 @@
             this.label7.TabIndex = 2;
             this.label7.Text = "Tien bao tri phong:";
             // 
-            // txtAddMaHaoPhiConsume
-            // 
-            this.txtAddMaHaoPhiConsume.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAddMaHaoPhiConsume.Location = new System.Drawing.Point(255, 115);
-            this.txtAddMaHaoPhiConsume.Name = "txtAddMaHaoPhiConsume";
-            this.txtAddMaHaoPhiConsume.Size = new System.Drawing.Size(263, 23);
-            this.txtAddMaHaoPhiConsume.TabIndex = 3;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -220,16 +206,6 @@
             this.label3.Size = new System.Drawing.Size(78, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "Ma phong:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(255, 81);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 16);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Ma hao phi:";
             // 
             // tabPageSearchConsume
             // 
@@ -317,9 +293,9 @@
             this.lblSearch.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearch.Location = new System.Drawing.Point(295, 43);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(85, 16);
+            this.lblSearch.Size = new System.Drawing.Size(148, 16);
             this.lblSearch.TabIndex = 4;
-            this.lblSearch.Text = "Ma Hao Phi:";
+            this.lblSearch.Text = "Ma Thiet Bi Va Phong:";
             // 
             // label4
             // 
@@ -334,16 +310,14 @@
             // 
             // tabPageUpDeConsume
             // 
-            this.tabPageUpDeConsume.Controls.Add(this.cbBoxUpAndDeMaThietBiConsume);
-            this.tabPageUpDeConsume.Controls.Add(this.cbBoxUpAndDeMaPhongConsumee);
+            this.tabPageUpDeConsume.Controls.Add(this.txtUpAndDeMaThietBiConsume);
             this.tabPageUpDeConsume.Controls.Add(this.txtUpAndDeTienBaoTriThietBiConsume);
+            this.tabPageUpDeConsume.Controls.Add(this.txtUpAndDeMaPhongConsume);
             this.tabPageUpDeConsume.Controls.Add(this.label8);
             this.tabPageUpDeConsume.Controls.Add(this.txtUpAndDeTienBaoTriPhongConsume);
             this.tabPageUpDeConsume.Controls.Add(this.label9);
             this.tabPageUpDeConsume.Controls.Add(this.label10);
-            this.tabPageUpDeConsume.Controls.Add(this.txtUpAndDeMaHaoPhiConsume);
             this.tabPageUpDeConsume.Controls.Add(this.label11);
-            this.tabPageUpDeConsume.Controls.Add(this.label12);
             this.tabPageUpDeConsume.Controls.Add(this.label5);
             this.tabPageUpDeConsume.Controls.Add(this.btnDeleteConsume);
             this.tabPageUpDeConsume.Controls.Add(this.btnUpdateConsume);
@@ -355,26 +329,10 @@
             this.tabPageUpDeConsume.Text = "Update and Delete ";
             this.tabPageUpDeConsume.UseVisualStyleBackColor = true;
             // 
-            // cbBoxUpAndDeMaThietBiConsume
-            // 
-            this.cbBoxUpAndDeMaThietBiConsume.FormattingEnabled = true;
-            this.cbBoxUpAndDeMaThietBiConsume.Location = new System.Drawing.Point(255, 195);
-            this.cbBoxUpAndDeMaThietBiConsume.Name = "cbBoxUpAndDeMaThietBiConsume";
-            this.cbBoxUpAndDeMaThietBiConsume.Size = new System.Drawing.Size(263, 25);
-            this.cbBoxUpAndDeMaThietBiConsume.TabIndex = 20;
-            // 
-            // cbBoxUpAndDeMaPhongConsumee
-            // 
-            this.cbBoxUpAndDeMaPhongConsumee.FormattingEnabled = true;
-            this.cbBoxUpAndDeMaPhongConsumee.Location = new System.Drawing.Point(624, 115);
-            this.cbBoxUpAndDeMaPhongConsumee.Name = "cbBoxUpAndDeMaPhongConsumee";
-            this.cbBoxUpAndDeMaPhongConsumee.Size = new System.Drawing.Size(263, 25);
-            this.cbBoxUpAndDeMaPhongConsumee.TabIndex = 21;
-            // 
             // txtUpAndDeTienBaoTriThietBiConsume
             // 
             this.txtUpAndDeTienBaoTriThietBiConsume.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUpAndDeTienBaoTriThietBiConsume.Location = new System.Drawing.Point(255, 278);
+            this.txtUpAndDeTienBaoTriThietBiConsume.Location = new System.Drawing.Point(255, 198);
             this.txtUpAndDeTienBaoTriThietBiConsume.Name = "txtUpAndDeTienBaoTriThietBiConsume";
             this.txtUpAndDeTienBaoTriThietBiConsume.Size = new System.Drawing.Size(263, 23);
             this.txtUpAndDeTienBaoTriThietBiConsume.TabIndex = 16;
@@ -383,7 +341,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(255, 246);
+            this.label8.Location = new System.Drawing.Point(255, 163);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(133, 16);
             this.label8.TabIndex = 11;
@@ -392,7 +350,7 @@
             // txtUpAndDeTienBaoTriPhongConsume
             // 
             this.txtUpAndDeTienBaoTriPhongConsume.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUpAndDeTienBaoTriPhongConsume.Location = new System.Drawing.Point(624, 195);
+            this.txtUpAndDeTienBaoTriPhongConsume.Location = new System.Drawing.Point(624, 198);
             this.txtUpAndDeTienBaoTriPhongConsume.Name = "txtUpAndDeTienBaoTriPhongConsume";
             this.txtUpAndDeTienBaoTriPhongConsume.Size = new System.Drawing.Size(263, 23);
             this.txtUpAndDeTienBaoTriPhongConsume.TabIndex = 17;
@@ -401,7 +359,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(255, 163);
+            this.label9.Location = new System.Drawing.Point(255, 80);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(81, 16);
             this.label9.TabIndex = 12;
@@ -417,14 +375,6 @@
             this.label10.TabIndex = 13;
             this.label10.Text = "Tien bao tri phong:";
             // 
-            // txtUpAndDeMaHaoPhiConsume
-            // 
-            this.txtUpAndDeMaHaoPhiConsume.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUpAndDeMaHaoPhiConsume.Location = new System.Drawing.Point(255, 115);
-            this.txtUpAndDeMaHaoPhiConsume.Name = "txtUpAndDeMaHaoPhiConsume";
-            this.txtUpAndDeMaHaoPhiConsume.Size = new System.Drawing.Size(263, 23);
-            this.txtUpAndDeMaHaoPhiConsume.TabIndex = 18;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -434,16 +384,6 @@
             this.label11.Size = new System.Drawing.Size(78, 16);
             this.label11.TabIndex = 14;
             this.label11.Text = "Ma phong:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(255, 81);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(86, 16);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "Ma hao phi:";
             // 
             // label5
             // 
@@ -465,7 +405,7 @@
             this.btnDeleteConsume.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteConsume.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteConsume.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteConsume.Location = new System.Drawing.Point(768, 278);
+            this.btnDeleteConsume.Location = new System.Drawing.Point(399, 278);
             this.btnDeleteConsume.Name = "btnDeleteConsume";
             this.btnDeleteConsume.Size = new System.Drawing.Size(111, 41);
             this.btnDeleteConsume.TabIndex = 9;
@@ -481,12 +421,32 @@
             this.btnUpdateConsume.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateConsume.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateConsume.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateConsume.Location = new System.Drawing.Point(624, 278);
+            this.btnUpdateConsume.Location = new System.Drawing.Point(255, 278);
             this.btnUpdateConsume.Name = "btnUpdateConsume";
             this.btnUpdateConsume.Size = new System.Drawing.Size(111, 41);
             this.btnUpdateConsume.TabIndex = 9;
             this.btnUpdateConsume.Text = "Update";
             this.btnUpdateConsume.UseVisualStyleBackColor = false;
+            // 
+            // txtUpAndDeMaPhongConsume
+            // 
+            this.txtUpAndDeMaPhongConsume.BackColor = System.Drawing.Color.White;
+            this.txtUpAndDeMaPhongConsume.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUpAndDeMaPhongConsume.Location = new System.Drawing.Point(624, 117);
+            this.txtUpAndDeMaPhongConsume.Name = "txtUpAndDeMaPhongConsume";
+            this.txtUpAndDeMaPhongConsume.ReadOnly = true;
+            this.txtUpAndDeMaPhongConsume.Size = new System.Drawing.Size(263, 23);
+            this.txtUpAndDeMaPhongConsume.TabIndex = 17;
+            // 
+            // txtUpAndDeMaThietBiConsume
+            // 
+            this.txtUpAndDeMaThietBiConsume.BackColor = System.Drawing.Color.White;
+            this.txtUpAndDeMaThietBiConsume.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUpAndDeMaThietBiConsume.Location = new System.Drawing.Point(255, 117);
+            this.txtUpAndDeMaThietBiConsume.Name = "txtUpAndDeMaThietBiConsume";
+            this.txtUpAndDeMaThietBiConsume.ReadOnly = true;
+            this.txtUpAndDeMaThietBiConsume.Size = new System.Drawing.Size(263, 23);
+            this.txtUpAndDeMaThietBiConsume.TabIndex = 16;
             // 
             // UserControlConsume
             // 
@@ -516,9 +476,7 @@
         private System.Windows.Forms.TextBox txtAddTienBaoTriPhongConsume;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtAddMaHaoPhiConsume;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabPageSearchConsume;
         private System.Windows.Forms.DataGridView dataGridViewConsume;
         private System.Windows.Forms.TextBox txtSearchMaHaoPhiConsum;
@@ -531,20 +489,18 @@
         private System.Windows.Forms.ComboBox cbBoxAddMaThietBiConsume;
         private System.Windows.Forms.TextBox txtAddTienBaoTriThietBiConsume;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbBoxUpAndDeMaThietBiConsume;
-        private System.Windows.Forms.ComboBox cbBoxUpAndDeMaPhongConsumee;
         private System.Windows.Forms.TextBox txtUpAndDeTienBaoTriThietBiConsume;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtUpAndDeTienBaoTriPhongConsume;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtUpAndDeMaHaoPhiConsume;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.TextBox txtUpAndDeMaThietBiConsume;
+        private System.Windows.Forms.TextBox txtUpAndDeMaPhongConsume;
     }
 }
