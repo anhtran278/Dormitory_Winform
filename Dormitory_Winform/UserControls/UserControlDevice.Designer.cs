@@ -32,10 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlDevice));
             this.tabControlDevices = new System.Windows.Forms.TabControl();
             this.tabPageAddDevices = new System.Windows.Forms.TabPage();
-            this.cbBoxAddMaSvRelatives = new System.Windows.Forms.ComboBox();
+            this.cbBoxAddMaPhongDevice = new System.Windows.Forms.ComboBox();
             this.btnAddDevices = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtAddTenRelatives = new System.Windows.Forms.TextBox();
+            this.txtAdTenTBDevice = new System.Windows.Forms.TextBox();
+            this.txtAddSoLuongDevice = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtAddMaNTRelatives = new System.Windows.Forms.TextBox();
@@ -106,10 +106,10 @@
             // 
             // tabPageAddDevices
             // 
-            this.tabPageAddDevices.Controls.Add(this.cbBoxAddMaSvRelatives);
+            this.tabPageAddDevices.Controls.Add(this.cbBoxAddMaPhongDevice);
             this.tabPageAddDevices.Controls.Add(this.btnAddDevices);
-            this.tabPageAddDevices.Controls.Add(this.textBox1);
-            this.tabPageAddDevices.Controls.Add(this.txtAddTenRelatives);
+            this.tabPageAddDevices.Controls.Add(this.txtAdTenTBDevice);
+            this.tabPageAddDevices.Controls.Add(this.txtAddSoLuongDevice);
             this.tabPageAddDevices.Controls.Add(this.label15);
             this.tabPageAddDevices.Controls.Add(this.label7);
             this.tabPageAddDevices.Controls.Add(this.txtAddMaNTRelatives);
@@ -125,19 +125,19 @@
             this.tabPageAddDevices.Location = new System.Drawing.Point(4, 4);
             this.tabPageAddDevices.Name = "tabPageAddDevices";
             this.tabPageAddDevices.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAddDevices.Size = new System.Drawing.Size(1148, 401);
+            this.tabPageAddDevices.Size = new System.Drawing.Size(1148, 400);
             this.tabPageAddDevices.TabIndex = 0;
             this.tabPageAddDevices.Text = "Add";
             this.tabPageAddDevices.UseVisualStyleBackColor = true;
-            this.tabPageAddDevices.Click += new System.EventHandler(this.tabPageAddDevices_Click);
             // 
-            // cbBoxAddMaSvRelatives
+            // cbBoxAddMaPhongDevice
             // 
-            this.cbBoxAddMaSvRelatives.FormattingEnabled = true;
-            this.cbBoxAddMaSvRelatives.Location = new System.Drawing.Point(627, 92);
-            this.cbBoxAddMaSvRelatives.Name = "cbBoxAddMaSvRelatives";
-            this.cbBoxAddMaSvRelatives.Size = new System.Drawing.Size(263, 24);
-            this.cbBoxAddMaSvRelatives.TabIndex = 7;
+            this.cbBoxAddMaPhongDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBoxAddMaPhongDevice.FormattingEnabled = true;
+            this.cbBoxAddMaPhongDevice.Location = new System.Drawing.Point(627, 92);
+            this.cbBoxAddMaPhongDevice.Name = "cbBoxAddMaPhongDevice";
+            this.cbBoxAddMaPhongDevice.Size = new System.Drawing.Size(263, 25);
+            this.cbBoxAddMaPhongDevice.TabIndex = 7;
             // 
             // btnAddDevices
             // 
@@ -154,23 +154,22 @@
             this.btnAddDevices.TabIndex = 4;
             this.btnAddDevices.Text = "Add";
             this.btnAddDevices.UseVisualStyleBackColor = false;
-            this.btnAddDevices.Click += new System.EventHandler(this.btnAddDevices_Click);
             // 
-            // textBox1
+            // txtAdTenTBDevice
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(258, 172);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(263, 22);
-            this.textBox1.TabIndex = 3;
+            this.txtAdTenTBDevice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAdTenTBDevice.Location = new System.Drawing.Point(258, 172);
+            this.txtAdTenTBDevice.Name = "txtAdTenTBDevice";
+            this.txtAdTenTBDevice.Size = new System.Drawing.Size(263, 23);
+            this.txtAdTenTBDevice.TabIndex = 3;
             // 
-            // txtAddTenRelatives
+            // txtAddSoLuongDevice
             // 
-            this.txtAddTenRelatives.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAddTenRelatives.Location = new System.Drawing.Point(627, 172);
-            this.txtAddTenRelatives.Name = "txtAddTenRelatives";
-            this.txtAddTenRelatives.Size = new System.Drawing.Size(263, 22);
-            this.txtAddTenRelatives.TabIndex = 3;
+            this.txtAddSoLuongDevice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAddSoLuongDevice.Location = new System.Drawing.Point(627, 172);
+            this.txtAddSoLuongDevice.Name = "txtAddSoLuongDevice";
+            this.txtAddSoLuongDevice.Size = new System.Drawing.Size(263, 23);
+            this.txtAddSoLuongDevice.TabIndex = 3;
             // 
             // label15
             // 
@@ -178,7 +177,7 @@
             this.label15.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(258, 140);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(88, 16);
+            this.label15.Size = new System.Drawing.Size(82, 16);
             this.label15.TabIndex = 2;
             this.label15.Text = "Ten thiet bi:";
             // 
@@ -188,7 +187,7 @@
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(627, 140);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 16);
+            this.label7.Size = new System.Drawing.Size(63, 16);
             this.label7.TabIndex = 2;
             this.label7.Text = "So luong";
             // 
@@ -197,7 +196,7 @@
             this.txtAddMaNTRelatives.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAddMaNTRelatives.Location = new System.Drawing.Point(258, 92);
             this.txtAddMaNTRelatives.Name = "txtAddMaNTRelatives";
-            this.txtAddMaNTRelatives.Size = new System.Drawing.Size(263, 22);
+            this.txtAddMaNTRelatives.Size = new System.Drawing.Size(263, 23);
             this.txtAddMaNTRelatives.TabIndex = 3;
             // 
             // label6
@@ -206,7 +205,7 @@
             this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(258, 218);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 16);
+            this.label6.Size = new System.Drawing.Size(76, 16);
             this.label6.TabIndex = 2;
             this.label6.Text = "Tinh trang:";
             // 
@@ -216,7 +215,7 @@
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(627, 57);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 16);
+            this.label3.Size = new System.Drawing.Size(76, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "Ma Phong:";
             // 
@@ -226,7 +225,7 @@
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(258, 58);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 16);
+            this.label2.Size = new System.Drawing.Size(81, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Ma thiet bi:";
             // 
@@ -235,7 +234,7 @@
             this.rdbAddHoatDongDevices.AutoSize = true;
             this.rdbAddHoatDongDevices.Location = new System.Drawing.Point(258, 253);
             this.rdbAddHoatDongDevices.Name = "rdbAddHoatDongDevices";
-            this.rdbAddHoatDongDevices.Size = new System.Drawing.Size(90, 20);
+            this.rdbAddHoatDongDevices.Size = new System.Drawing.Size(98, 21);
             this.rdbAddHoatDongDevices.TabIndex = 12;
             this.rdbAddHoatDongDevices.TabStop = true;
             this.rdbAddHoatDongDevices.Text = "Hoat Dong";
@@ -246,7 +245,7 @@
             this.rdbAddHongDevices.AutoSize = true;
             this.rdbAddHongDevices.Location = new System.Drawing.Point(370, 253);
             this.rdbAddHongDevices.Name = "rdbAddHongDevices";
-            this.rdbAddHongDevices.Size = new System.Drawing.Size(58, 20);
+            this.rdbAddHongDevices.Size = new System.Drawing.Size(61, 21);
             this.rdbAddHongDevices.TabIndex = 13;
             this.rdbAddHongDevices.TabStop = true;
             this.rdbAddHongDevices.Text = "Hong";
@@ -257,7 +256,7 @@
             this.rdbAddBaoTriDevices.AutoSize = true;
             this.rdbAddBaoTriDevices.Location = new System.Drawing.Point(451, 253);
             this.rdbAddBaoTriDevices.Name = "rdbAddBaoTriDevices";
-            this.rdbAddBaoTriDevices.Size = new System.Drawing.Size(69, 20);
+            this.rdbAddBaoTriDevices.Size = new System.Drawing.Size(67, 21);
             this.rdbAddBaoTriDevices.TabIndex = 13;
             this.rdbAddBaoTriDevices.TabStop = true;
             this.rdbAddBaoTriDevices.Text = "Bao Tri";
@@ -272,7 +271,7 @@
             this.tabPageSearchDevices.Location = new System.Drawing.Point(4, 4);
             this.tabPageSearchDevices.Name = "tabPageSearchDevices";
             this.tabPageSearchDevices.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSearchDevices.Size = new System.Drawing.Size(1148, 401);
+            this.tabPageSearchDevices.Size = new System.Drawing.Size(1148, 400);
             this.tabPageSearchDevices.TabIndex = 1;
             this.tabPageSearchDevices.Text = "Search";
             this.tabPageSearchDevices.UseVisualStyleBackColor = true;
@@ -340,7 +339,7 @@
             this.txtSearchMaThietBiDevices.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearchMaThietBiDevices.Location = new System.Drawing.Point(295, 77);
             this.txtSearchMaThietBiDevices.Name = "txtSearchMaThietBiDevices";
-            this.txtSearchMaThietBiDevices.Size = new System.Drawing.Size(263, 22);
+            this.txtSearchMaThietBiDevices.Size = new System.Drawing.Size(263, 23);
             this.txtSearchMaThietBiDevices.TabIndex = 5;
             // 
             // lblSearch
@@ -349,7 +348,7 @@
             this.lblSearch.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearch.Location = new System.Drawing.Point(295, 43);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(89, 16);
+            this.lblSearch.Size = new System.Drawing.Size(82, 16);
             this.lblSearch.TabIndex = 4;
             this.lblSearch.Text = "Ma Thiet Bi:";
             // 
@@ -360,7 +359,7 @@
             this.label4.ForeColor = System.Drawing.Color.Navy;
             this.label4.Location = new System.Drawing.Point(4, 4);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(136, 18);
+            this.label4.Size = new System.Drawing.Size(131, 18);
             this.label4.TabIndex = 0;
             this.label4.Text = "Search Devices: ";
             // 
@@ -384,7 +383,7 @@
             this.tabPageUpDeDevices.Location = new System.Drawing.Point(4, 4);
             this.tabPageUpDeDevices.Name = "tabPageUpDeDevices";
             this.tabPageUpDeDevices.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageUpDeDevices.Size = new System.Drawing.Size(1148, 401);
+            this.tabPageUpDeDevices.Size = new System.Drawing.Size(1148, 400);
             this.tabPageUpDeDevices.TabIndex = 2;
             this.tabPageUpDeDevices.Text = "Update and Delete ";
             this.tabPageUpDeDevices.UseVisualStyleBackColor = true;
@@ -394,7 +393,7 @@
             this.cbBoxUpAndDeMaPhongDevices.FormattingEnabled = true;
             this.cbBoxUpAndDeMaPhongDevices.Location = new System.Drawing.Point(627, 92);
             this.cbBoxUpAndDeMaPhongDevices.Name = "cbBoxUpAndDeMaPhongDevices";
-            this.cbBoxUpAndDeMaPhongDevices.Size = new System.Drawing.Size(263, 24);
+            this.cbBoxUpAndDeMaPhongDevices.Size = new System.Drawing.Size(263, 25);
             this.cbBoxUpAndDeMaPhongDevices.TabIndex = 21;
             // 
             // txtUpAndDeTenTBDevices
@@ -402,7 +401,7 @@
             this.txtUpAndDeTenTBDevices.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUpAndDeTenTBDevices.Location = new System.Drawing.Point(258, 172);
             this.txtUpAndDeTenTBDevices.Name = "txtUpAndDeTenTBDevices";
-            this.txtUpAndDeTenTBDevices.Size = new System.Drawing.Size(263, 22);
+            this.txtUpAndDeTenTBDevices.Size = new System.Drawing.Size(263, 23);
             this.txtUpAndDeTenTBDevices.TabIndex = 17;
             // 
             // txtUpAndDeSoLuongDevices
@@ -410,7 +409,7 @@
             this.txtUpAndDeSoLuongDevices.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUpAndDeSoLuongDevices.Location = new System.Drawing.Point(627, 172);
             this.txtUpAndDeSoLuongDevices.Name = "txtUpAndDeSoLuongDevices";
-            this.txtUpAndDeSoLuongDevices.Size = new System.Drawing.Size(263, 22);
+            this.txtUpAndDeSoLuongDevices.Size = new System.Drawing.Size(263, 23);
             this.txtUpAndDeSoLuongDevices.TabIndex = 18;
             // 
             // label8
@@ -419,7 +418,7 @@
             this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(258, 140);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(88, 16);
+            this.label8.Size = new System.Drawing.Size(82, 16);
             this.label8.TabIndex = 12;
             this.label8.Text = "Ten thiet bi:";
             // 
@@ -429,7 +428,7 @@
             this.label9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(627, 140);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(68, 16);
+            this.label9.Size = new System.Drawing.Size(63, 16);
             this.label9.TabIndex = 13;
             this.label9.Text = "So luong";
             // 
@@ -438,7 +437,7 @@
             this.txtUpAndDeMaTBDevices.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUpAndDeMaTBDevices.Location = new System.Drawing.Point(258, 92);
             this.txtUpAndDeMaTBDevices.Name = "txtUpAndDeMaTBDevices";
-            this.txtUpAndDeMaTBDevices.Size = new System.Drawing.Size(263, 22);
+            this.txtUpAndDeMaTBDevices.Size = new System.Drawing.Size(263, 23);
             this.txtUpAndDeMaTBDevices.TabIndex = 19;
             // 
             // label10
@@ -447,7 +446,7 @@
             this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(258, 218);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(80, 16);
+            this.label10.Size = new System.Drawing.Size(76, 16);
             this.label10.TabIndex = 14;
             this.label10.Text = "Tinh trang:";
             // 
@@ -457,7 +456,7 @@
             this.label11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(627, 57);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(80, 16);
+            this.label11.Size = new System.Drawing.Size(76, 16);
             this.label11.TabIndex = 15;
             this.label11.Text = "Ma Phong:";
             // 
@@ -467,7 +466,7 @@
             this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(258, 58);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(82, 16);
+            this.label12.Size = new System.Drawing.Size(81, 16);
             this.label12.TabIndex = 16;
             this.label12.Text = "Ma thiet bi:";
             // 
@@ -478,7 +477,7 @@
             this.label5.ForeColor = System.Drawing.Color.Navy;
             this.label5.Location = new System.Drawing.Point(3, 3);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(216, 18);
+            this.label5.Size = new System.Drawing.Size(215, 18);
             this.label5.TabIndex = 10;
             this.label5.Text = "Update and Delete Devices:";
             // 
@@ -519,7 +518,7 @@
             this.rdbUpAnDeDevices.AutoSize = true;
             this.rdbUpAnDeDevices.Location = new System.Drawing.Point(259, 252);
             this.rdbUpAnDeDevices.Name = "rdbUpAnDeDevices";
-            this.rdbUpAnDeDevices.Size = new System.Drawing.Size(90, 20);
+            this.rdbUpAnDeDevices.Size = new System.Drawing.Size(98, 21);
             this.rdbUpAnDeDevices.TabIndex = 25;
             this.rdbUpAnDeDevices.TabStop = true;
             this.rdbUpAnDeDevices.Text = "Hoat Dong";
@@ -530,7 +529,7 @@
             this.rdbUpAndDeHongDevices.AutoSize = true;
             this.rdbUpAndDeHongDevices.Location = new System.Drawing.Point(371, 252);
             this.rdbUpAndDeHongDevices.Name = "rdbUpAndDeHongDevices";
-            this.rdbUpAndDeHongDevices.Size = new System.Drawing.Size(58, 20);
+            this.rdbUpAndDeHongDevices.Size = new System.Drawing.Size(61, 21);
             this.rdbUpAndDeHongDevices.TabIndex = 26;
             this.rdbUpAndDeHongDevices.TabStop = true;
             this.rdbUpAndDeHongDevices.Text = "Hong";
@@ -541,18 +540,18 @@
             this.rdbUpAndDeBaoTriDevices.AutoSize = true;
             this.rdbUpAndDeBaoTriDevices.Location = new System.Drawing.Point(452, 252);
             this.rdbUpAndDeBaoTriDevices.Name = "rdbUpAndDeBaoTriDevices";
-            this.rdbUpAndDeBaoTriDevices.Size = new System.Drawing.Size(69, 20);
+            this.rdbUpAndDeBaoTriDevices.Size = new System.Drawing.Size(67, 21);
             this.rdbUpAndDeBaoTriDevices.TabIndex = 27;
             this.rdbUpAndDeBaoTriDevices.TabStop = true;
             this.rdbUpAndDeBaoTriDevices.Text = "Bao Tri";
             this.rdbUpAndDeBaoTriDevices.UseVisualStyleBackColor = true;
             // 
-            // UserControlDevices
+            // UserControlDevice
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tabControlDevices);
-            this.Name = "UserControlDevices";
+            this.Name = "UserControlDevice";
             this.Size = new System.Drawing.Size(1156, 438);
             this.tabControlDevices.ResumeLayout(false);
             this.tabPageAddDevices.ResumeLayout(false);
@@ -570,9 +569,9 @@
 
         private System.Windows.Forms.TabControl tabControlDevices;
         private System.Windows.Forms.TabPage tabPageAddDevices;
-        private System.Windows.Forms.ComboBox cbBoxAddMaSvRelatives;
+        private System.Windows.Forms.ComboBox cbBoxAddMaPhongDevice;
         private System.Windows.Forms.Button btnAddDevices;
-        private System.Windows.Forms.TextBox txtAddTenRelatives;
+        private System.Windows.Forms.TextBox txtAddSoLuongDevice;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtAddMaNTRelatives;
         private System.Windows.Forms.Label label6;
@@ -587,7 +586,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnDeleteDevices;
         private System.Windows.Forms.Button btnUpdateDevices;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtAdTenTBDevice;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;

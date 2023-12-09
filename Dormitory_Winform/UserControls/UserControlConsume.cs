@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dormitory_Winform.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,19 @@ namespace Dormitory_Winform.UserControls
 {
     public partial class UserControlConsume : UserControl
     {
+        QuanLi_DormitoryEntities db;
+        ConsumeService consumeService;
+        private BindingSource bindingSource;
+        private Timer dataRefreshTimer;
+
         public UserControlConsume()
         {
             InitializeComponent();
-        }
-
-        private void txtAddMaHaoPhiConsume_TextChanged(object sender, EventArgs e)
-        {
-
+            db = new QuanLi_DormitoryEntities();
+            consumeService = new ConsumeService(db);
+            bindingSource = new BindingSource();
+            dataGridViewConsume.DataSource = bindingSource;
+            dataGridViewConsume.AutoGenerateColumns = false;
         }
     }
 }

@@ -210,7 +210,6 @@
             this.txtAddMaHaoPhiConsume.Name = "txtAddMaHaoPhiConsume";
             this.txtAddMaHaoPhiConsume.Size = new System.Drawing.Size(263, 23);
             this.txtAddMaHaoPhiConsume.TabIndex = 3;
-            this.txtAddMaHaoPhiConsume.TextChanged += new System.EventHandler(this.txtAddMaHaoPhiConsume_TextChanged);
             // 
             // label3
             // 

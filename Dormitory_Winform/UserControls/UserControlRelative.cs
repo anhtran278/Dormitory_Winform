@@ -36,18 +36,6 @@ namespace Dormitory_Winform.UserControls
         }
         public void GetMaSVIntoComboBox()
         {
-            List<string> maSVList = db.SinhViens
-            .Where(s => s.TrangThaiDki == "Duyet")
-            .Select(s => s.MaSV.ToString())
-            .ToList();
-            cbBoxAddMaSvRelatives.Items.Clear();
-            foreach (string maSV in maSVList)
-            {
-                cbBoxAddMaSvRelatives.Items.Add(maSV);
-            }
-        }
-        private void LoadDataIntoDataGridView()
-        {
             try
             {
                 if (db == null)
@@ -55,7 +43,33 @@ namespace Dormitory_Winform.UserControls
                     return;
                 }
 
-                if (dataGridViewRelatives == null)
+                List<string> maSVList = db.SinhViens
+                    .Where(s => s.TrangThaiDki == "Duyet")
+                    .Select(s => s.MaSV.ToString())
+                    .ToList();
+
+                if (cbBoxAddMaSvRelatives == null)
+                {
+                    return;
+                }
+
+                cbBoxAddMaSvRelatives.Items.Clear();
+                foreach (string maSV in maSVList)
+                {
+                    cbBoxAddMaSvRelatives.Items.Add(maSV);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while populating the ComboBox. Error details: " + ex.Message);
+            }
+        }
+
+        private void LoadDataIntoDataGridView()
+        {
+            try
+            {
+                if (db == null)
                 {
                     return;
                 }

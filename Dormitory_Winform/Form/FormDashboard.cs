@@ -89,7 +89,7 @@ namespace Dormitory_Winform
         private void btnFee_Click(object sender, EventArgs e)
         {
             movePanel(btnFee);
-            //userControlFee1.Clear();
+            userControlFee1.Clear();
             userControlFee1.Show();
             userControlAdmins1.Hide();
             userControlRooms1.Hide();
@@ -103,7 +103,7 @@ namespace Dormitory_Winform
         private void btnRelatives_Click(object sender, EventArgs e)
         {
             movePanel(btnRelatives);
-            //userControlRelatives1.Clear();
+            userControlRelatives1.ClearFields();
             userControlRelatives1.Show();
             userControlAdmins1.Hide();
             userControlRooms1.Hide();
@@ -164,7 +164,7 @@ namespace Dormitory_Winform
             userControlRelatives1.Hide();
             userControlFee1.Hide();
             userControlRooms1.Hide();
-            userControlConsume1.Hide();
+            userControlDevices1.Hide();
             userControlStatistical1.Hide();
         }
 

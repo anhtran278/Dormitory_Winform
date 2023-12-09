@@ -16,15 +16,15 @@ namespace Dormitory_Winform.Class
         {
             db = dbContext;
         }
-        public List<Phong> SearchRoom(string keyword)
+        public List<Phong> SearchRoom(string searchRoom)
         {
             try
             {
                 return db.Phongs
-                    .Where(r => r.MaPhong.ToString().Contains(keyword)
-                             || r.LoaiPhong.Contains(keyword)
-                             || r.KiHieu.Contains(keyword)
-                             || r.GiaPhong.ToString().Contains(keyword))
+                    .Where(r => r.MaPhong.ToString().Contains(searchRoom)
+                             || r.LoaiPhong.Contains(searchRoom)
+                             || r.KiHieu.Contains(searchRoom)
+                             || r.GiaPhong.ToString().Contains(searchRoom))
                     .ToList();
             }
             catch (Exception ex)

@@ -41,11 +41,6 @@ namespace Dormitory_Winform
                 {
                     return;
                 }
-
-                if (dataGridViewUser == null)
-                {
-                    return;
-                }
                 var data = db.Admins.ToList();
 
                 if (data == null)

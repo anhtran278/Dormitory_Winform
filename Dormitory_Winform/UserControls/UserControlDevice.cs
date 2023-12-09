@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dormitory_Winform.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,19 +13,18 @@ namespace Dormitory_Winform.UserControls
 {
     public partial class UserControlDevice : UserControl
     {
+        QuanLi_DormitoryEntities db;
+        DevicesService devicesService;
+        private BindingSource bindingSource;
         public UserControlDevice()
         {
             InitializeComponent();
+            db = new QuanLi_DormitoryEntities();
+            devicesService = new DevicesService(db);
+            bindingSource = new BindingSource();
+            dataGridViewDevices.DataSource = bindingSource;
+            dataGridViewDevices.AutoGenerateColumns = false;
         }
 
-        private void tabPageAddDevices_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAddDevices_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

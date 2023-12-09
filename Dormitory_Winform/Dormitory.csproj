@@ -67,6 +67,7 @@
       <DependentUpon>QuanLi_Dormitory.tt</DependentUpon>
     </Compile>
     <Compile Include="Class\AdminService.cs" />
+    <Compile Include="Class\ConsumeService.cs" />
     <Compile Include="Class\DeviceService.cs" />
     <Compile Include="Class\FeeService.cs" />
     <Compile Include="Class\RelativeService.cs" />

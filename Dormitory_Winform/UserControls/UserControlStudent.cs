@@ -17,7 +17,7 @@ namespace Dormitory_Winform.UserControls
         StudentService studentService;
         private BindingSource bindingSource;
 
-        private string ChuaDuyet = "", TrangThaiDki = "";
+        private string TrangThaiDki = "";
         public UserControlStudent()
         {
             InitializeComponent();
@@ -41,10 +41,6 @@ namespace Dormitory_Winform.UserControls
                     return;
                 }
 
-                if (dataGridViewStudent == null)
-                {
-                    return;
-                }
                 var data = db.SinhViens.ToList();
 
                 if (data == null)
@@ -91,7 +87,6 @@ namespace Dormitory_Winform.UserControls
             txtUpAndDeDiaChiStudent.Clear();
             rdbUpAndDeChuaDuyetStudent.Checked = false;
             rdbUpAndDeDuyetStudent.Checked = false;
-            ChuaDuyet = "";
         }
 
         private void tabPageAddStudent_Leave(object sender, EventArgs e)
@@ -138,6 +133,11 @@ namespace Dormitory_Winform.UserControls
                     if (roomsControl != null)
                     {
                         roomsControl.GetMaSVIntoComboBox();
+                    }
+                    var feemsControl = FindForm().Controls.Find("userControlFee1", true).FirstOrDefault() as UserControlFee;
+                    if (feemsControl != null)
+                    {
+                        feemsControl.GetMaSVIntoComboBox();
                     }
                 }
             }

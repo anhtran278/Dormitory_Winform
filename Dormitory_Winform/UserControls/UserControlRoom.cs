@@ -31,20 +31,6 @@ namespace Dormitory_Winform.UserControls
         }
         public void GetMaSVIntoComboBox()
         {
-            List<string> maSVList = db.SinhViens
-            .Where(s => s.TrangThaiDki == "Duyet")
-            .Select(s => s.MaSV.ToString())
-            .ToList();
-
-            cbBoxAddMaSvRoom.Items.Clear();
-            foreach (string maSV in maSVList)
-            {
-                cbBoxAddMaSvRoom.Items.Add(maSV);
-            }
-        }
-
-        private void loadDataIntoDataGridView()
-        {
             try
             {
                 if (db == null)
@@ -52,7 +38,34 @@ namespace Dormitory_Winform.UserControls
                     return;
                 }
 
-                if (dataGridViewRoom == null)
+                List<string> maSVList = db.SinhViens
+                    .Where(s => s.TrangThaiDki == "Duyet")
+                    .Select(s => s.MaSV.ToString())
+                    .ToList();
+
+                if (cbBoxAddMaSvRoom == null)
+                {
+                    return;
+                }
+
+                cbBoxAddMaSvRoom.Items.Clear();
+                foreach (string maSV in maSVList)
+                {
+                    cbBoxAddMaSvRoom.Items.Add(maSV);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while populating the ComboBox. Error details: " + ex.Message);
+            }
+        }
+
+
+        private void loadDataIntoDataGridView()
+        {
+            try
+            {
+                if (db == null)
                 {
                     return;
                 }
@@ -137,18 +150,16 @@ namespace Dormitory_Winform.UserControls
         private void btnAddRoom_Click(object sender, EventArgs e)
         {
 
-            if (!string.IsNullOrEmpty(txtAddMaPhongRoom.Text) && !string.IsNullOrEmpty(txtAddGiaPhongRoom.Text) && !string.IsNullOrEmpty(txtAddKiHieuRoom.Text))
+            if (!string.IsNullOrEmpty(txtAddMaPhongRoom.Text) 
+                && !string.IsNullOrEmpty(txtAddGiaPhongRoom.Text) 
+                && !string.IsNullOrEmpty(txtAddKiHieuRoom.Text))
             {
                 bool check = roomService.AddRoom(txtAddMaPhongRoom.Text.Trim(), cbBoxAddLoaiPhongRoom.SelectedItem.ToString(), cbBoxAddMaSvRoom.SelectedItem.ToString(), txtAddKiHieuRoom.Text.Trim(), txtAddGiaPhongRoom.Text.Trim());
                 if (check)
                 {
                     Clear();
                     RefreshDataGridView();
-                    var roomsControl = FindForm().Controls.Find("userControlRooms1", true).FirstOrDefault() as UserControlRooms;
-                    if (roomsControl != null)
-                    {
-                        roomsControl.GetMaSVIntoComboBox();
-                    }
+                    
                 }
             }
             else
@@ -174,11 +185,6 @@ namespace Dormitory_Winform.UserControls
                 {
                     Clear1();
                     RefreshDataGridView();
-                    var roomsControl = FindForm().Controls.Find("userControlRooms1", true).FirstOrDefault() as UserControlRooms;
-                    if (roomsControl != null)
-                    {
-                        roomsControl.GetMaSVIntoComboBox();
-                    }
                 }
             }
             else
