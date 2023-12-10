@@ -60,6 +60,7 @@ namespace Dormitory_Winform
             pictureBoxShow.Show();
         }
 
+
         private void btnLogIn_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text;
@@ -94,6 +95,11 @@ namespace Dormitory_Winform
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+
+        private void btnLogIn_Enter(object sender, EventArgs e)
+        {
+            btnLogIn_Click(sender, e);
         }
     }
 }

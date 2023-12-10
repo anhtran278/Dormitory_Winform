@@ -124,20 +124,34 @@ namespace Dormitory_Winform.UserControls
 
             if (!string.IsNullOrEmpty(txtAddMaSVStudent.Text) && !string.IsNullOrEmpty(txtAddTenStudent.Text))
             {
-                check = studentService.AddSinhVien(txtAddMaSVStudent.Text.Trim(), txtAddTenStudent.Text.Trim(), txtAddDTStudent.Text.Trim(), dateTimeUpAndDeNgaySinhStudent.Value.ToString(), txtAddDiaChiStudent.Text.Trim(), chuaDuyet);
+                check = studentService.AddSinhVien(txtAddMaSVStudent.Text.Trim(), 
+                    txtAddTenStudent.Text.Trim(), txtAddDTStudent.Text.Trim(), 
+                    dateTimeUpAndDeNgaySinhStudent.Value.ToString(), 
+                    txtAddDiaChiStudent.Text.Trim(), 
+                    chuaDuyet);
                 if (check)
                 {
                     Clear();
                     RefreshDataGridView();
+                    //room
                     var roomsControl = FindForm().Controls.Find("userControlRooms1", true).FirstOrDefault() as UserControlRooms;
                     if (roomsControl != null)
                     {
                         roomsControl.GetMaSVIntoComboBox();
                     }
-                    var feemsControl = FindForm().Controls.Find("userControlFee1", true).FirstOrDefault() as UserControlFee;
-                    if (feemsControl != null)
+
+                    //rl
+                    var relativesControl = FindForm().Controls.Find("userControlRelative1", true).FirstOrDefault() as UserControlRelative;
+                    if (relativesControl != null)
                     {
-                        feemsControl.GetMaSVIntoComboBox();
+                        relativesControl.GetMaSVIntoComboBox();
+                    }
+
+                    //fee
+                    var feesControl = FindForm().Controls.Find("userControlFee1", true).FirstOrDefault() as UserControlFee;
+                    if (feesControl != null)
+                    {
+                        feesControl.GetMaSVIntoComboBox();
                     }
                 }
             }
@@ -160,6 +174,26 @@ namespace Dormitory_Winform.UserControls
                 {
                     Clear1();
                     RefreshDataGridView();
+                    //room
+                    var roomsControl = FindForm().Controls.Find("userControlRooms1", true).FirstOrDefault() as UserControlRooms;
+                    if (roomsControl != null)
+                    {
+                        roomsControl.GetMaSVIntoComboBox();
+                    }
+
+                    //rl
+                    var relativesControl = FindForm().Controls.Find("userControlRelative1", true).FirstOrDefault() as UserControlRelative;
+                    if (relativesControl != null)
+                    {
+                        relativesControl.GetMaSVIntoComboBox();
+                    }
+
+                    //fee
+                    var feesControl = FindForm().Controls.Find("userControlFee1", true).FirstOrDefault() as UserControlFee;
+                    if (feesControl != null)
+                    {
+                        feesControl.GetMaSVIntoComboBox();
+                    }
                 }
             }
             else
@@ -182,6 +216,26 @@ namespace Dormitory_Winform.UserControls
                     {
                         Clear1();
                         RefreshDataGridView();
+                        //room
+                        var roomsControl = FindForm().Controls.Find("userControlRooms1", true).FirstOrDefault() as UserControlRooms;
+                        if (roomsControl != null)
+                        {
+                            roomsControl.GetMaSVIntoComboBox();
+                        }
+
+                        //rl
+                        var relativesControl = FindForm().Controls.Find("userControlRelative1", true).FirstOrDefault() as UserControlRelative;
+                        if (relativesControl != null)
+                        {
+                            relativesControl.GetMaSVIntoComboBox();
+                        }
+
+                        //fee
+                        var feesControl = FindForm().Controls.Find("userControlFee1", true).FirstOrDefault() as UserControlFee;
+                        if (feesControl != null)
+                        {
+                            feesControl.GetMaSVIntoComboBox();
+                        }
                     }
                 }
             }

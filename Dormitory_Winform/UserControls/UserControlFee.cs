@@ -154,10 +154,13 @@ namespace Dormitory_Winform.UserControls
         {
 
             if (!string.IsNullOrEmpty(txtAddTienPhongFee.Text) &&
-                !string.IsNullOrEmpty(cbBoxAddMaSVFee.Text) && !string.IsNullOrEmpty(txtAddTienDienNuocFee.Text) &&
-                !string.IsNullOrEmpty(txtAddTienInternetFee.Text) && !string.IsNullOrEmpty(txtAddTienGuiXeFee.Text))
+                !string.IsNullOrEmpty(cbBoxAddMaSVFee.Text) && 
+                !string.IsNullOrEmpty(txtAddTienDienNuocFee.Text) &&
+                !string.IsNullOrEmpty(txtAddTienInternetFee.Text) && 
+                !string.IsNullOrEmpty(txtAddTienGuiXeFee.Text))
             {
-                bool check = feeService.AddFee(dateTimeAddNgayThanhToanFee.Text.Trim(),
+                bool check = feeService.AddFee(
+                    dateTimeAddNgayThanhToanFee.Text.Trim(),
                     txtAddTienPhongFee.Text.Trim(), 
                     cbBoxAddMaSVFee.Text.Trim(), 
                     txtAddTienDienNuocFee.Text.Trim(), 

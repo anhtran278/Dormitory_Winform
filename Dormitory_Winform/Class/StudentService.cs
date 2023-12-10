@@ -21,7 +21,9 @@ namespace Dormitory_Winform.Class
         {
             try
             {
-                var searchResult = db.SinhViens.Where(s => s.MaSV.ToString().Contains(searchText)).ToList();
+                var searchResult = db.SinhViens.
+                    Where(s => s.MaSV.ToString().Contains(searchText))
+                    .ToList();
                 return searchResult;
             }
             catch (Exception ex)

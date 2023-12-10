@@ -48,6 +48,7 @@
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -73,6 +74,21 @@
     <Compile Include="Class\RelativeService.cs" />
     <Compile Include="Class\RoomService.cs" />
     <Compile Include="Class\StudentService.cs" />
+    <Compile Include="DbFeeChart.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbFeeChart.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DbConsumeChart.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbConsumeChart.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DbStudentPerYear.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbStudentPerYear.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Form\FormDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +220,30 @@
       <DependentUpon>UserControlStudent.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.Config" />
+    <None Include="DbFeeChart.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DbFeeChart.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DbFeeChart.dbml.layout">
+      <DependentUpon>DbFeeChart.dbml</DependentUpon>
+    </None>
+    <None Include="DbConsumeChart.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DbConsumeChart.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DbConsumeChart.dbml.layout">
+      <DependentUpon>DbConsumeChart.dbml</DependentUpon>
+    </None>
+    <None Include="DbStudentPerYear.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DbStudentPerYear.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DbStudentPerYear.dbml.layout">
+      <DependentUpon>DbStudentPerYear.dbml</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -259,6 +299,7 @@
     <None Include="Resources\Wavy Buddies Avatar1.png" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

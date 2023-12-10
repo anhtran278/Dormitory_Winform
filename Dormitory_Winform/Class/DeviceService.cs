@@ -6,24 +6,22 @@ using System.Windows.Forms;
 
 namespace Dormitory_Winform.Class
 {
-    public class DevicesService
+    public class DeviceService
     {
         private QuanLi_DormitoryEntities db;
 
-        public DevicesService(QuanLi_DormitoryEntities dbContext)
+        public DeviceService(QuanLi_DormitoryEntities dbContext)
         {
             db = dbContext;
         }
 
-        public List<ThietBi> SearchDevice(string keyword)
+        public List<ThietBi> SearchDevice(string searchDevice)
         {
             try
             {
                 return db.ThietBis
-                    .Where(t => t.MaThietBi.ToString().Contains(keyword)
-                             || t.TenThietBi.Contains(keyword)
-                             || t.SoLuong.ToString().Contains(keyword)
-                             || t.TinhTrang.Contains(keyword))
+                    .Where(t => t.TenThietBi.Contains(searchDevice)
+                             || t.TinhTrang.Contains(searchDevice))
                     .ToList();
             }
             catch (Exception ex)
@@ -33,36 +31,21 @@ namespace Dormitory_Winform.Class
             }
         }
 
-        public bool AddDevice(string maThietBi, string tenThietBi, string maPhong, int soLuong, string tinhTrang)
+        public bool AddDevice(string tenThietBi, string maPhong, string soLuong, string tinhTrang)
         {
             try
             {
-                int parsedMaThietBi;
-                if (!int.TryParse(maThietBi, out parsedMaThietBi))
+                if (!int.TryParse(maPhong, out int parsedMaPhong) || !int.TryParse(soLuong, out int parsedSoLuong))
                 {
-                    MessageBox.Show("Invalid Device ID. Please enter a valid integer.", "Invalid Device ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
-                if (db.ThietBis.Any(u => u.MaThietBi == parsedMaThietBi))
-                {
-                    MessageBox.Show("Device already exists. Please choose a different Device ID.", "Duplicate Device ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
-                int parsedMaPhong;
-                if (!int.TryParse(maPhong, out parsedMaPhong))
-                {
-                    MessageBox.Show("Invalid SoLuong. Please enter a valid integer.", "Invalid SoLuong", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Invalid input. Please enter valid integers for MaPhong and SoLuong.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
 
                 ThietBi newDevice = new ThietBi
                 {
-                    MaThietBi = parsedMaThietBi,
                     TenThietBi = tenThietBi,
                     MaPhong = parsedMaPhong,
-                    SoLuong = soLuong,
+                    SoLuong = parsedSoLuong,
                     TinhTrang = tinhTrang
                 };
 
@@ -75,80 +58,63 @@ namespace Dormitory_Winform.Class
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while adding the Device. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred while adding the Device. Error details: " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
-
-        public bool UpdateDevice(string maThietBi, string tenThietBi, string maPhong, string soLuong, string tinhTrang)
+        public bool UpdateDevice(string tenThietBi, string maPhong, string soLuong, string tinhTrang)
         {
             try
             {
-                int parsedMaThietBi;
-                if (!int.TryParse(maThietBi, out parsedMaThietBi) || parsedMaThietBi <= 0)
+                if (string.IsNullOrWhiteSpace(tenThietBi))
                 {
-                    MessageBox.Show("Please first select a device from the table.", "Selection of Device", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Invalid TenThietBi. Please enter a valid device name.");
                     return false;
                 }
 
-                ThietBi existingDevice = db.ThietBis.Find(parsedMaThietBi);
-
-                if (existingDevice == null)
+                if (!int.TryParse(maPhong, out int parsedMaPhong) || !int.TryParse(soLuong, out int parsedSoLuong))
                 {
-                    MessageBox.Show("Device not found in the database.", "Device Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Invalid input. Please enter valid integers for MaPhong and SoLuong.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
 
-                existingDevice.TenThietBi = tenThietBi;
-                existingDevice.TinhTrang = tinhTrang;
+                ThietBi deviceToUpdate = db.ThietBis.FirstOrDefault(d => d.TenThietBi == tenThietBi);
 
-                int parsedMaPhong;
-                if (!int.TryParse(maPhong, out parsedMaPhong))
+                if (deviceToUpdate == null)
                 {
-                    MessageBox.Show("Invalid MaSV. Please enter a valid integer.", "Invalid MaSV", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Device not found for the given name.", "Device Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
-                existingDevice.MaPhong = parsedMaPhong;
 
-                int parsedSoLuong;
-                if (!int.TryParse(soLuong, out parsedSoLuong))
-                {
-                    MessageBox.Show("Invalid SoLuong. Please enter a valid decimal number.", "Invalid GiaPhong", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-                existingDevice.SoLuong = parsedSoLuong;
+                deviceToUpdate.MaPhong = parsedMaPhong;
+                deviceToUpdate.SoLuong = parsedSoLuong;
+                deviceToUpdate.TinhTrang = tinhTrang;
 
                 db.SaveChanges();
 
-                MessageBox.Show("Room updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Device updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while updating the room. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred while updating the Device. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
 
-        public bool DeleteDevice(string maThietBi)
+        public bool DeleteDevice(string tenThietBi)
         {
             try
             {
-                int parsedMaThietBi;
-                if (!int.TryParse(maThietBi, out parsedMaThietBi) || parsedMaThietBi <= 0)
-                {
-                    MessageBox.Show("Please first select a device from the table.", "Selection of Device", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return false;
-                }
-
-                ThietBi deviceToDelete = db.ThietBis.Find(parsedMaThietBi);
+                ThietBi deviceToDelete = db.ThietBis.FirstOrDefault(d => d.TenThietBi == tenThietBi);
 
                 if (deviceToDelete == null)
                 {
-                    MessageBox.Show("Device not found in the database.", "Device Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Device not found for the given name.", "Device Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
+
                 db.ThietBis.Remove(deviceToDelete);
                 db.SaveChanges();
 
@@ -158,9 +124,11 @@ namespace Dormitory_Winform.Class
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while deleting the device. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred while deleting the Device. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
+
+
     }
 }

@@ -105,9 +105,8 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                decimal parsedTienPhong, parsedTienDienNuoc, parsedTienInternet, parsedTienGuiXe;
-                if (!decimal.TryParse(tienPhong, out parsedTienPhong) || !decimal.TryParse(tienDienNuoc, out parsedTienDienNuoc) ||
-                    !decimal.TryParse(tienInternet, out parsedTienInternet) || !decimal.TryParse(tienGuiXe, out parsedTienGuiXe))
+                if (!decimal.TryParse(tienPhong, out decimal parsedTienPhong) || !decimal.TryParse(tienDienNuoc, out decimal parsedTienDienNuoc) ||
+                    !decimal.TryParse(tienInternet, out decimal parsedTienInternet) || !decimal.TryParse(tienGuiXe, out decimal parsedTienGuiXe))
                 {
                     MessageBox.Show("Invalid fee amount. Please enter a valid decimal number.", "Invalid Amount", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLi_Dormitory" Class="DbFeeChartDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-1B55MD1L\SQLEXPRESS;Initial Catalog=QuanLi_Dormitory;Integrated Security=True" SettingsObjectName="Dormitory_Winform.Properties.Settings" SettingsPropertyName="QuanLi_DormitoryConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.vwFee" Member="vwFees">
+    <Type Name="vwFee">
+      <Column Name="Ngay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TongPhi" Type="System.Decimal" DbType="Decimal(13,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

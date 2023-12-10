@@ -89,6 +89,7 @@
             this.btnLogIn.Text = "Submit";
             this.btnLogIn.UseVisualStyleBackColor = false;
             this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
+            this.btnLogIn.Enter += new System.EventHandler(this.btnLogIn_Enter);
             // 
             // panel2
             // 

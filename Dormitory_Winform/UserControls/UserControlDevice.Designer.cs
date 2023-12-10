@@ -34,15 +34,15 @@
             this.tabPageAddDevices = new System.Windows.Forms.TabPage();
             this.cbBoxAddMaPhongDevice = new System.Windows.Forms.ComboBox();
             this.btnAddDevices = new System.Windows.Forms.Button();
-            this.txtAdTenTBDevice = new System.Windows.Forms.TextBox();
+            this.txtAddTenTBDevice = new System.Windows.Forms.TextBox();
             this.txtAddSoLuongDevice = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.rdbAddHoatDongDevices = new System.Windows.Forms.RadioButton();
-            this.rdbAddHongDevices = new System.Windows.Forms.RadioButton();
-            this.rdbAddBaoTriDevices = new System.Windows.Forms.RadioButton();
+            this.rdbAddHoatDongDevice = new System.Windows.Forms.RadioButton();
+            this.rdbAddHongDevice = new System.Windows.Forms.RadioButton();
+            this.rdbAddBaoTriDevice = new System.Windows.Forms.RadioButton();
             this.tabPageSearchDevices = new System.Windows.Forms.TabPage();
             this.dataGridViewDevices = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +54,7 @@
             this.lblSearch = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPageUpDeDevices = new System.Windows.Forms.TabPage();
+            this.txtUpAndDeMaPhongDevice = new System.Windows.Forms.TextBox();
             this.txtUpAndDeTenTBDevices = new System.Windows.Forms.TextBox();
             this.txtUpAndDeSoLuongDevices = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -63,10 +64,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnDeleteDevices = new System.Windows.Forms.Button();
             this.btnUpdateDevices = new System.Windows.Forms.Button();
-            this.rdbUpAnDeDevices = new System.Windows.Forms.RadioButton();
+            this.rdbUpAndDeHoatDongDevices = new System.Windows.Forms.RadioButton();
             this.rdbUpAndDeHongDevices = new System.Windows.Forms.RadioButton();
             this.rdbUpAndDeBaoTriDevices = new System.Windows.Forms.RadioButton();
-            this.txtUpAndDeMaPhongDevice = new System.Windows.Forms.TextBox();
             label1 = new System.Windows.Forms.Label();
             this.tabControlDevices.SuspendLayout();
             this.tabPageAddDevices.SuspendLayout();
@@ -104,16 +104,16 @@
             // 
             this.tabPageAddDevices.Controls.Add(this.cbBoxAddMaPhongDevice);
             this.tabPageAddDevices.Controls.Add(this.btnAddDevices);
-            this.tabPageAddDevices.Controls.Add(this.txtAdTenTBDevice);
+            this.tabPageAddDevices.Controls.Add(this.txtAddTenTBDevice);
             this.tabPageAddDevices.Controls.Add(this.txtAddSoLuongDevice);
             this.tabPageAddDevices.Controls.Add(this.label15);
             this.tabPageAddDevices.Controls.Add(this.label7);
             this.tabPageAddDevices.Controls.Add(this.label6);
             this.tabPageAddDevices.Controls.Add(this.label3);
             this.tabPageAddDevices.Controls.Add(label1);
-            this.tabPageAddDevices.Controls.Add(this.rdbAddHoatDongDevices);
-            this.tabPageAddDevices.Controls.Add(this.rdbAddHongDevices);
-            this.tabPageAddDevices.Controls.Add(this.rdbAddBaoTriDevices);
+            this.tabPageAddDevices.Controls.Add(this.rdbAddHoatDongDevice);
+            this.tabPageAddDevices.Controls.Add(this.rdbAddHongDevice);
+            this.tabPageAddDevices.Controls.Add(this.rdbAddBaoTriDevice);
             this.tabPageAddDevices.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPageAddDevices.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tabPageAddDevices.Location = new System.Drawing.Point(4, 4);
@@ -123,6 +123,7 @@
             this.tabPageAddDevices.TabIndex = 0;
             this.tabPageAddDevices.Text = "Add";
             this.tabPageAddDevices.UseVisualStyleBackColor = true;
+            this.tabPageAddDevices.Leave += new System.EventHandler(this.tabPageAddDevices_Leave);
             // 
             // cbBoxAddMaPhongDevice
             // 
@@ -148,14 +149,15 @@
             this.btnAddDevices.TabIndex = 4;
             this.btnAddDevices.Text = "Add";
             this.btnAddDevices.UseVisualStyleBackColor = false;
+            this.btnAddDevices.Click += new System.EventHandler(this.btnAddDevices_Click);
             // 
-            // txtAdTenTBDevice
+            // txtAddTenTBDevice
             // 
-            this.txtAdTenTBDevice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAdTenTBDevice.Location = new System.Drawing.Point(258, 129);
-            this.txtAdTenTBDevice.Name = "txtAdTenTBDevice";
-            this.txtAdTenTBDevice.Size = new System.Drawing.Size(263, 23);
-            this.txtAdTenTBDevice.TabIndex = 3;
+            this.txtAddTenTBDevice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAddTenTBDevice.Location = new System.Drawing.Point(258, 129);
+            this.txtAddTenTBDevice.Name = "txtAddTenTBDevice";
+            this.txtAddTenTBDevice.Size = new System.Drawing.Size(263, 23);
+            this.txtAddTenTBDevice.TabIndex = 3;
             // 
             // txtAddSoLuongDevice
             // 
@@ -205,38 +207,38 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Ma Phong:";
             // 
-            // rdbAddHoatDongDevices
+            // rdbAddHoatDongDevice
             // 
-            this.rdbAddHoatDongDevices.AutoSize = true;
-            this.rdbAddHoatDongDevices.Location = new System.Drawing.Point(258, 210);
-            this.rdbAddHoatDongDevices.Name = "rdbAddHoatDongDevices";
-            this.rdbAddHoatDongDevices.Size = new System.Drawing.Size(98, 21);
-            this.rdbAddHoatDongDevices.TabIndex = 12;
-            this.rdbAddHoatDongDevices.TabStop = true;
-            this.rdbAddHoatDongDevices.Text = "Hoat Dong";
-            this.rdbAddHoatDongDevices.UseVisualStyleBackColor = true;
+            this.rdbAddHoatDongDevice.AutoSize = true;
+            this.rdbAddHoatDongDevice.Location = new System.Drawing.Point(258, 210);
+            this.rdbAddHoatDongDevice.Name = "rdbAddHoatDongDevice";
+            this.rdbAddHoatDongDevice.Size = new System.Drawing.Size(98, 21);
+            this.rdbAddHoatDongDevice.TabIndex = 12;
+            this.rdbAddHoatDongDevice.TabStop = true;
+            this.rdbAddHoatDongDevice.Text = "Hoat Dong";
+            this.rdbAddHoatDongDevice.UseVisualStyleBackColor = true;
             // 
-            // rdbAddHongDevices
+            // rdbAddHongDevice
             // 
-            this.rdbAddHongDevices.AutoSize = true;
-            this.rdbAddHongDevices.Location = new System.Drawing.Point(370, 210);
-            this.rdbAddHongDevices.Name = "rdbAddHongDevices";
-            this.rdbAddHongDevices.Size = new System.Drawing.Size(61, 21);
-            this.rdbAddHongDevices.TabIndex = 13;
-            this.rdbAddHongDevices.TabStop = true;
-            this.rdbAddHongDevices.Text = "Hong";
-            this.rdbAddHongDevices.UseVisualStyleBackColor = true;
+            this.rdbAddHongDevice.AutoSize = true;
+            this.rdbAddHongDevice.Location = new System.Drawing.Point(370, 210);
+            this.rdbAddHongDevice.Name = "rdbAddHongDevice";
+            this.rdbAddHongDevice.Size = new System.Drawing.Size(61, 21);
+            this.rdbAddHongDevice.TabIndex = 13;
+            this.rdbAddHongDevice.TabStop = true;
+            this.rdbAddHongDevice.Text = "Hong";
+            this.rdbAddHongDevice.UseVisualStyleBackColor = true;
             // 
-            // rdbAddBaoTriDevices
+            // rdbAddBaoTriDevice
             // 
-            this.rdbAddBaoTriDevices.AutoSize = true;
-            this.rdbAddBaoTriDevices.Location = new System.Drawing.Point(451, 210);
-            this.rdbAddBaoTriDevices.Name = "rdbAddBaoTriDevices";
-            this.rdbAddBaoTriDevices.Size = new System.Drawing.Size(67, 21);
-            this.rdbAddBaoTriDevices.TabIndex = 13;
-            this.rdbAddBaoTriDevices.TabStop = true;
-            this.rdbAddBaoTriDevices.Text = "Bao Tri";
-            this.rdbAddBaoTriDevices.UseVisualStyleBackColor = true;
+            this.rdbAddBaoTriDevice.AutoSize = true;
+            this.rdbAddBaoTriDevice.Location = new System.Drawing.Point(451, 210);
+            this.rdbAddBaoTriDevice.Name = "rdbAddBaoTriDevice";
+            this.rdbAddBaoTriDevice.Size = new System.Drawing.Size(67, 21);
+            this.rdbAddBaoTriDevice.TabIndex = 13;
+            this.rdbAddBaoTriDevice.TabStop = true;
+            this.rdbAddBaoTriDevice.Text = "Bao Tri";
+            this.rdbAddBaoTriDevice.UseVisualStyleBackColor = true;
             // 
             // tabPageSearchDevices
             // 
@@ -268,11 +270,12 @@
             this.dataGridViewDevices.ReadOnly = true;
             this.dataGridViewDevices.Size = new System.Drawing.Size(1030, 244);
             this.dataGridViewDevices.TabIndex = 6;
+            this.dataGridViewDevices.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDevice_CellClick);
             // 
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.DataPropertyName = "Devices_MaThietBi";
+            this.Column1.DataPropertyName = "MaThietBi";
             this.Column1.HeaderText = "Ma Thiet Bi";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -280,7 +283,7 @@
             // Column2
             // 
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.DataPropertyName = "Devices_MaPhong";
+            this.Column2.DataPropertyName = "MaPhong";
             this.Column2.HeaderText = "Ma Phong";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -288,7 +291,7 @@
             // Column3
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.DataPropertyName = "Devices_TenThietBi";
+            this.Column3.DataPropertyName = "TenThietBi";
             this.Column3.HeaderText = "Ten Thiet Bi";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -296,7 +299,7 @@
             // Column4
             // 
             this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.DataPropertyName = "Devices_SoLuong";
+            this.Column4.DataPropertyName = "SoLuong";
             this.Column4.HeaderText = "So Luong";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -304,7 +307,7 @@
             // Column5
             // 
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column5.DataPropertyName = "Devices_TinhTrang";
+            this.Column5.DataPropertyName = "TinhTrang";
             this.Column5.HeaderText = "Tinh Trang";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -317,6 +320,8 @@
             this.txtSearchMaThietBiDevices.Name = "txtSearchMaThietBiDevices";
             this.txtSearchMaThietBiDevices.Size = new System.Drawing.Size(263, 23);
             this.txtSearchMaThietBiDevices.TabIndex = 5;
+            this.txtSearchMaThietBiDevices.TextChanged += new System.EventHandler(this.txtSearchMaThietBiDevices_TextChanged);
+            this.txtSearchMaThietBiDevices.Leave += new System.EventHandler(this.txtSearchMaThietBiDevices_Leave);
             // 
             // lblSearch
             // 
@@ -351,7 +356,7 @@
             this.tabPageUpDeDevices.Controls.Add(this.label5);
             this.tabPageUpDeDevices.Controls.Add(this.btnDeleteDevices);
             this.tabPageUpDeDevices.Controls.Add(this.btnUpdateDevices);
-            this.tabPageUpDeDevices.Controls.Add(this.rdbUpAnDeDevices);
+            this.tabPageUpDeDevices.Controls.Add(this.rdbUpAndDeHoatDongDevices);
             this.tabPageUpDeDevices.Controls.Add(this.rdbUpAndDeHongDevices);
             this.tabPageUpDeDevices.Controls.Add(this.rdbUpAndDeBaoTriDevices);
             this.tabPageUpDeDevices.Location = new System.Drawing.Point(4, 4);
@@ -361,6 +366,16 @@
             this.tabPageUpDeDevices.TabIndex = 2;
             this.tabPageUpDeDevices.Text = "Update and Delete ";
             this.tabPageUpDeDevices.UseVisualStyleBackColor = true;
+            this.tabPageUpDeDevices.Leave += new System.EventHandler(this.tabPageUpDeDevices_Leave);
+            // 
+            // txtUpAndDeMaPhongDevice
+            // 
+            this.txtUpAndDeMaPhongDevice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUpAndDeMaPhongDevice.Location = new System.Drawing.Point(627, 129);
+            this.txtUpAndDeMaPhongDevice.Name = "txtUpAndDeMaPhongDevice";
+            this.txtUpAndDeMaPhongDevice.ReadOnly = true;
+            this.txtUpAndDeMaPhongDevice.Size = new System.Drawing.Size(263, 23);
+            this.txtUpAndDeMaPhongDevice.TabIndex = 17;
             // 
             // txtUpAndDeTenTBDevices
             // 
@@ -369,7 +384,6 @@
             this.txtUpAndDeTenTBDevices.Name = "txtUpAndDeTenTBDevices";
             this.txtUpAndDeTenTBDevices.Size = new System.Drawing.Size(263, 23);
             this.txtUpAndDeTenTBDevices.TabIndex = 17;
-            this.txtUpAndDeTenTBDevices.TextChanged += new System.EventHandler(this.txtUpAndDeTenTBDevices_TextChanged);
             // 
             // txtUpAndDeSoLuongDevices
             // 
@@ -388,7 +402,6 @@
             this.label8.Size = new System.Drawing.Size(82, 16);
             this.label8.TabIndex = 12;
             this.label8.Text = "Ten thiet bi:";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -409,7 +422,6 @@
             this.label10.Size = new System.Drawing.Size(76, 16);
             this.label10.TabIndex = 14;
             this.label10.Text = "Tinh trang:";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label11
             // 
@@ -466,17 +478,16 @@
             this.btnUpdateDevices.UseVisualStyleBackColor = false;
             this.btnUpdateDevices.Click += new System.EventHandler(this.btnUpdateDevices_Click);
             // 
-            // rdbUpAnDeDevices
+            // rdbUpAndDeHoatDongDevices
             // 
-            this.rdbUpAnDeDevices.AutoSize = true;
-            this.rdbUpAnDeDevices.Location = new System.Drawing.Point(258, 209);
-            this.rdbUpAnDeDevices.Name = "rdbUpAnDeDevices";
-            this.rdbUpAnDeDevices.Size = new System.Drawing.Size(98, 21);
-            this.rdbUpAnDeDevices.TabIndex = 25;
-            this.rdbUpAnDeDevices.TabStop = true;
-            this.rdbUpAnDeDevices.Text = "Hoat Dong";
-            this.rdbUpAnDeDevices.UseVisualStyleBackColor = true;
-            this.rdbUpAnDeDevices.CheckedChanged += new System.EventHandler(this.rdbUpAnDeDevices_CheckedChanged);
+            this.rdbUpAndDeHoatDongDevices.AutoSize = true;
+            this.rdbUpAndDeHoatDongDevices.Location = new System.Drawing.Point(258, 209);
+            this.rdbUpAndDeHoatDongDevices.Name = "rdbUpAndDeHoatDongDevices";
+            this.rdbUpAndDeHoatDongDevices.Size = new System.Drawing.Size(98, 21);
+            this.rdbUpAndDeHoatDongDevices.TabIndex = 25;
+            this.rdbUpAndDeHoatDongDevices.TabStop = true;
+            this.rdbUpAndDeHoatDongDevices.Text = "Hoat Dong";
+            this.rdbUpAndDeHoatDongDevices.UseVisualStyleBackColor = true;
             // 
             // rdbUpAndDeHongDevices
             // 
@@ -488,7 +499,6 @@
             this.rdbUpAndDeHongDevices.TabStop = true;
             this.rdbUpAndDeHongDevices.Text = "Hong";
             this.rdbUpAndDeHongDevices.UseVisualStyleBackColor = true;
-            this.rdbUpAndDeHongDevices.CheckedChanged += new System.EventHandler(this.rdbUpAndDeHongDevices_CheckedChanged);
             // 
             // rdbUpAndDeBaoTriDevices
             // 
@@ -500,16 +510,6 @@
             this.rdbUpAndDeBaoTriDevices.TabStop = true;
             this.rdbUpAndDeBaoTriDevices.Text = "Bao Tri";
             this.rdbUpAndDeBaoTriDevices.UseVisualStyleBackColor = true;
-            this.rdbUpAndDeBaoTriDevices.CheckedChanged += new System.EventHandler(this.rdbUpAndDeBaoTriDevices_CheckedChanged);
-            // 
-            // txtUpAndDeMaPhongDevice
-            // 
-            this.txtUpAndDeMaPhongDevice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUpAndDeMaPhongDevice.Location = new System.Drawing.Point(627, 129);
-            this.txtUpAndDeMaPhongDevice.Name = "txtUpAndDeMaPhongDevice";
-            this.txtUpAndDeMaPhongDevice.Size = new System.Drawing.Size(263, 23);
-            this.txtUpAndDeMaPhongDevice.TabIndex = 17;
-            this.txtUpAndDeMaPhongDevice.TextChanged += new System.EventHandler(this.txtUpAndDeTenTBDevices_TextChanged);
             // 
             // UserControlDevice
             // 
@@ -518,6 +518,7 @@
             this.Controls.Add(this.tabControlDevices);
             this.Name = "UserControlDevice";
             this.Size = new System.Drawing.Size(1156, 438);
+            this.Load += new System.EventHandler(this.UserControlDevice_Load);
             this.tabControlDevices.ResumeLayout(false);
             this.tabPageAddDevices.ResumeLayout(false);
             this.tabPageAddDevices.PerformLayout();
@@ -549,25 +550,25 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnDeleteDevices;
         private System.Windows.Forms.Button btnUpdateDevices;
-        private System.Windows.Forms.TextBox txtAdTenTBDevice;
+        private System.Windows.Forms.TextBox txtAddTenTBDevice;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.TextBox txtUpAndDeTenTBDevices;
         private System.Windows.Forms.TextBox txtUpAndDeSoLuongDevices;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.RadioButton rdbAddHoatDongDevices;
-        private System.Windows.Forms.RadioButton rdbAddHongDevices;
-        private System.Windows.Forms.RadioButton rdbAddBaoTriDevices;
-        private System.Windows.Forms.RadioButton rdbUpAnDeDevices;
+        private System.Windows.Forms.RadioButton rdbAddHoatDongDevice;
+        private System.Windows.Forms.RadioButton rdbAddHongDevice;
+        private System.Windows.Forms.RadioButton rdbAddBaoTriDevice;
+        private System.Windows.Forms.RadioButton rdbUpAndDeHoatDongDevices;
         private System.Windows.Forms.RadioButton rdbUpAndDeHongDevices;
         private System.Windows.Forms.RadioButton rdbUpAndDeBaoTriDevices;
         private System.Windows.Forms.TextBox txtUpAndDeMaPhongDevice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

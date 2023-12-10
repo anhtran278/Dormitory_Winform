@@ -159,7 +159,21 @@ namespace Dormitory_Winform.UserControls
                 {
                     Clear();
                     RefreshDataGridView();
-                    
+
+                    //device
+                    var devicesControl = FindForm().Controls.Find("userControlDevices1", true).FirstOrDefault() as UserControlDevice;
+                    if (devicesControl != null)
+                    {
+                        devicesControl.GetMaPhongIntoComboBox();
+                    }
+
+                    //comsume
+                    var consumesControl = FindForm().Controls.Find("userControlConsume1", true).FirstOrDefault() as UserControlConsume;
+                    if (consumesControl != null)
+                    {
+                        consumesControl.GetMaPhongIntoComboBox();
+                    }
+
                 }
             }
             else
@@ -185,6 +199,20 @@ namespace Dormitory_Winform.UserControls
                 {
                     Clear1();
                     RefreshDataGridView();
+
+                    // device
+                    var devicesControl = FindForm().Controls.Find("userControlDevices1", true).FirstOrDefault() as UserControlDevice;
+                    if (devicesControl != null)
+                    {
+                        devicesControl.GetMaPhongIntoComboBox();
+                    }
+
+                    //comsume
+                    var consumesControl = FindForm().Controls.Find("userControlConsume1", true).FirstOrDefault() as UserControlConsume;
+                    if (consumesControl != null)
+                    {
+                        consumesControl.GetMaPhongIntoComboBox();
+                    }
                 }
             }
             else
@@ -203,10 +231,18 @@ namespace Dormitory_Winform.UserControls
                 {
                     Clear1();
                     RefreshDataGridView();
-                    var roomsControl = FindForm().Controls.Find("userControlRooms1", true).FirstOrDefault() as UserControlRooms;
-                    if (roomsControl != null)
+                    // device
+                    var devicesControl = FindForm().Controls.Find("userControlDevices1", true).FirstOrDefault() as UserControlDevice;
+                    if (devicesControl != null)
                     {
-                        roomsControl.GetMaSVIntoComboBox();
+                        devicesControl.GetMaPhongIntoComboBox();
+                    }
+
+                    //comsume
+                    var consumesControl = FindForm().Controls.Find("userControlConsume1", true).FirstOrDefault() as UserControlConsume;
+                    if (consumesControl != null)
+                    {
+                        consumesControl.GetMaPhongIntoComboBox();
                     }
                 }
             }
