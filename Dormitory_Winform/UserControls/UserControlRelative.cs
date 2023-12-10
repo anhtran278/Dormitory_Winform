@@ -94,51 +94,47 @@ namespace Dormitory_Winform.UserControls
         }
         public void ClearFields()
         {
-            txtAddMaNTRelatives.Clear();
             txtAddTenRelatives.Clear();
             txtAddDiaChiRelatives.Clear();
+            txtAddSoDTRelatives.Clear();
+        }
+        public void ClearFields1()
+        {
+            txtUpAndDeTenRelatives.Clear();
+            txtUpAndDeDiaChiRelatives.Clear();
             txtAddSoDTRelatives.Clear();
         }
         private void btnAddRelatives_Click(object sender, EventArgs e)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtAddMaNTRelatives.Text) || string.IsNullOrWhiteSpace(txtAddTenRelatives.Text) || string.IsNullOrWhiteSpace(txtAddDiaChiRelatives.Text) || string.IsNullOrWhiteSpace(txtAddDiaChiRelatives.Text) || string.IsNullOrWhiteSpace(txtAddSoDTRelatives.Text))
+                if (!string.IsNullOrEmpty(cbBoxAddMaSvRelatives.Text) &&
+                    !string.IsNullOrEmpty(txtAddTenRelatives.Text) &&
+                    !string.IsNullOrEmpty(txtAddDiaChiRelatives.Text) &&
+                    !string.IsNullOrEmpty(txtAddSoDTRelatives.Text))
                 {
-                    MessageBox.Show("Please fill out all required fields.", "Required fields", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
+                    int studentID = int.Parse(cbBoxAddMaSvRelatives.Text);
+                    DateTime visitDate = dateTimeAddNgayThamRelatives.Value; 
+                    string relativeName = txtAddTenRelatives.Text.Trim();
+                    string address = txtAddDiaChiRelatives.Text.Trim();
+                    string phoneNumber = txtAddSoDTRelatives.Text.Trim();
 
-                if (int.TryParse(cbBoxAddMaSvRelatives.SelectedItem?.ToString(), out int maSinhVien))
-                {
-                    bool check = relativesService.AddRelative(
-                        txtAddMaNTRelatives.Text.Trim(),
-                        maSinhVien,
-                        dateTimeAddNgayThamRelatives.Value,
-                        txtAddTenRelatives.Text.Trim(),
-                        txtAddDiaChiRelatives.Text.Trim(),
-                        txtAddSoDTRelatives.Text.Trim()
-                    );
+                    bool check = relativesService.AddRelative(studentID, visitDate, relativeName, address, phoneNumber);
 
                     if (check)
                     {
-                        MessageBox.Show("Relative added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ClearFields();
                         RefreshDataGridView();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Failed to add relative. Please check the values and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Invalid MaSv value.", "Invalid MaSv", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please fill in all required fields.", "Required Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("An error occurred: " + ex.Message);
             }
         }
 
@@ -149,7 +145,7 @@ namespace Dormitory_Winform.UserControls
 
         private void txtSearchMaNTRelatives_TextChanged(object sender, EventArgs e)
         {
-            string searchText = txtSearchMaNTRelatives.Text.Trim();
+            string searchText = txtSearchMaSVRelatives.Text.Trim();
 
             if (string.IsNullOrEmpty(searchText))
             {
@@ -161,56 +157,40 @@ namespace Dormitory_Winform.UserControls
                 bindingSource.DataSource = searchResult;
             }
         }
-
-
-
         private void btnUpdateRelatives_Click(object sender, EventArgs e)
         {
-            bool check;
-
-            if (!string.IsNullOrEmpty(txtUpAndDeMaNTRelatives.Text) && !string.IsNullOrEmpty(txtAddTenRelatives.Text))
+            try
             {
-                if (!string.IsNullOrEmpty(txtUpAndDeMaSVRelatives.Text))
+                if (!string.IsNullOrEmpty(txtUpAndDeMaSVRelatives.Text) &&
+                    !string.IsNullOrEmpty(txtUpAndDeTenRelatives.Text) &&
+                    !string.IsNullOrEmpty(txtUpAndDeDiaChiRelatives.Text) &&
+                    !string.IsNullOrEmpty(txtUpAndDeSDTRelatives.Text))
                 {
-                    try
-                    {
-                        if (IsDataValid())
-                        {
-                            check = relativesService.UpdateRelative(
-                                txtUpAndDeMaNTRelatives.Text.Trim(),
-                                txtUpAndDeMaSVRelatives.Text.Trim(),
-                                dateTimeUpAnDeNgayThamRelatives.Value,
-                                txtAddTenRelatives.Text.Trim(),
-                                txtUpAndDeDiaChiRelatives.Text.Trim(),
-                                txtUpAndDeSDTRelatives.Text.Trim()
-                            );
+                    int maSinhVien = int.Parse(txtUpAndDeMaSVRelatives.Text);
+                    DateTime ngayTham = dateTimeUpAnDeNgayThamRelatives.Value;
+                    string tenNguoiThan = txtUpAndDeTenRelatives.Text.Trim();
+                    string diaChi = txtUpAndDeDiaChiRelatives.Text.Trim();
+                    string soDienThoai = txtUpAndDeSDTRelatives.Text.Trim();
 
-                            if (check)
-                            {
-                                ClearFields();
-                                RefreshDataGridView();
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Please fill out all required fields.", "Required fields", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-                    catch (Exception ex)
+                    bool check = relativesService.UpdateRelative(maSinhVien, ngayTham, tenNguoiThan, diaChi, soDienThoai);
+
+                    if (check)
                     {
-                        MessageBox.Show("An error occurred during the update: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ClearFields1();
+                        RefreshDataGridView();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Invalid MaSv value.", "Invalid MaSv", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please fill out all required fields.", "Required fields", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Please fill out all required fields.", "Required fields", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine("An error occurred: " + ex.Message);
             }
         }
+
 
         private bool IsDataValid()
         {
@@ -218,28 +198,33 @@ namespace Dormitory_Winform.UserControls
             {
                 return false;
             }
-
-
             return true;
         }
 
         private void btnDeleteRelatives_Click(object sender, EventArgs e)
         {
-            bool check;
-
-            if (!string.IsNullOrEmpty(txtUpAndDeMaNTRelatives.Text))
+            try
             {
-                check = relativesService.DeleteRelative(txtUpAndDeMaNTRelatives.Text.Trim());
-
-                if (check)
+                if (!string.IsNullOrEmpty(txtUpAndDeMaSVRelatives.Text))
                 {
-                    ClearFields();
-                    RefreshDataGridView();
+                    int maSinhVien = int.Parse(txtUpAndDeMaSVRelatives.Text);
+
+                    bool check = relativesService.DeleteRelative(maSinhVien.ToString());
+
+                    if (check)
+                    {
+                        ClearFields1();
+                        RefreshDataGridView();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select a relative to delete.", "Selection required", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Please enter a Relative ID to delete.", "Required field", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine("An error occurred: " + ex.Message);
             }
         }
 
@@ -248,7 +233,6 @@ namespace Dormitory_Winform.UserControls
             if (e.RowIndex != -1)
             {
                 DataGridViewRow row = dataGridViewRelatives.Rows[e.RowIndex];
-                txtUpAndDeMaNTRelatives.Text = row.Cells[0].Value.ToString();
                 txtUpAndDeMaSVRelatives.Text = row.Cells[1].Value.ToString();
                 txtUpAndDeTenRelatives.Text = row.Cells[2].Value.ToString();
                 if (DateTime.TryParse(row.Cells[3].Value.ToString(), out DateTime ngayTham))
@@ -260,8 +244,6 @@ namespace Dormitory_Winform.UserControls
 
             }
         }
-
-
     }
 
 }

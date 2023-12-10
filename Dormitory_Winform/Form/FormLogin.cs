@@ -72,7 +72,6 @@ namespace Dormitory_Winform
                 
                 if (user != null)
                 {
-                    // Đăng nhập thành công
                     LoggedInUser.Username = user.Ten;
                     FormDashboard form2 = new FormDashboard();
                     form2.Show();
@@ -84,7 +83,6 @@ namespace Dormitory_Winform
                 }
                 else
                 {
-                    // Đăng nhập không thành công
                     MessageBox.Show("Invalid Username or Password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtUsername.Clear();
                     txtPassword.Clear();
@@ -97,9 +95,10 @@ namespace Dormitory_Winform
             }
         }
 
-        private void btnLogIn_Enter(object sender, EventArgs e)
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            btnLogIn_Click(sender, e);
+
         }
     }
 }

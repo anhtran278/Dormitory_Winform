@@ -32,33 +32,17 @@ namespace Dormitory_Winform.Class
             }
         }
 
-
-        public bool AddRelative(string maNguoiThan, int maSinhVien, DateTime ngayTham, string tenNguoiThan, string diaChi, string soDienThoai)
+        public bool AddRelative(int studentID, DateTime visitDate, string relativeName, string address, string phoneNumber)
         {
             try
             {
-                int maNguoiThanID;
-
-                if (!int.TryParse(maNguoiThan, out maNguoiThanID))
-                {
-                    MessageBox.Show("Invalid Relative ID. Please enter a valid integer.", "Invalid Relative ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
-                if (db.NguoiThans.Any(r => r.MaNT == maNguoiThanID))
-                {
-                    MessageBox.Show("Relative already exists. Please choose a different Relative ID.", "Duplicate Relative ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
                 NguoiThan newRelative = new NguoiThan
                 {
-                    MaNT = maNguoiThanID,
-                    MaSV = maSinhVien,
-                    NgayTham = ngayTham,
-                    Ten = tenNguoiThan,
-                    DiaChi = diaChi,
-                    DienThoai = soDienThoai
+                    MaSV = studentID,
+                    Ten = relativeName,
+                    NgayTham = visitDate,
+                    DiaChi = address,
+                    DienThoai = phoneNumber
                 };
 
                 db.NguoiThans.Add(newRelative);
@@ -70,44 +54,27 @@ namespace Dormitory_Winform.Class
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while adding the Relative. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred while adding the relative. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
 
-
-        public bool UpdateRelative(string maNguoiThan, string maSinhVien, DateTime ngayTham, string tenNguoiThan, string diaChi, string soDienThoai)
+        public bool UpdateRelative(int maSinhVien, DateTime ngayTham, string tenNguoiThan, string diaChi, string soDienThoai)
         {
             try
             {
-                int maNguoiThanID;
+                NguoiThan relativeToUpdate = db.NguoiThans.FirstOrDefault(r => r.MaSV == maSinhVien);
 
-                if (!int.TryParse(maNguoiThan, out maNguoiThanID))
+                if (relativeToUpdate == null)
                 {
-                    MessageBox.Show("Invalid Relative ID. Please enter a valid integer.", "Invalid Relative ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Relative not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
 
-                NguoiThan existingRelative = db.NguoiThans.FirstOrDefault(r => r.MaNT == maNguoiThanID);
-
-                if (existingRelative == null)
-                {
-                    MessageBox.Show("Relative not found in the database.", "Relative Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
-                int parsedMaSinhVien;
-
-                if (!int.TryParse(maSinhVien, out parsedMaSinhVien))
-                {
-                    MessageBox.Show("Invalid Relative MaSV. Please enter a valid integer.", "Invalid Relative MaSV", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-                existingRelative.MaSV = parsedMaSinhVien;
-                existingRelative.NgayTham = ngayTham;
-                existingRelative.Ten = tenNguoiThan;
-                existingRelative.DiaChi = diaChi;
-                existingRelative.DienThoai = soDienThoai;
+                relativeToUpdate.NgayTham = ngayTham;
+                relativeToUpdate.Ten = tenNguoiThan;
+                relativeToUpdate.DiaChi = diaChi;
+                relativeToUpdate.DienThoai = soDienThoai;
 
                 db.SaveChanges();
 
@@ -117,7 +84,7 @@ namespace Dormitory_Winform.Class
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while updating the Relative. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred while updating the relative. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -126,41 +93,29 @@ namespace Dormitory_Winform.Class
         {
             try
             {
-                if (string.IsNullOrEmpty(maNguoiThan))
-                {
-                    MessageBox.Show("Please enter a Relative ID to delete.", "Required field", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return false;
-                }
+                int maSinhVien = int.Parse(maNguoiThan);
 
-                int maNguoiThanID;
-
-                if (!int.TryParse(maNguoiThan, out maNguoiThanID))
-                {
-                    MessageBox.Show("Invalid Relative ID. Please enter a valid integer.", "Invalid Relative ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
-
-                NguoiThan relativeToDelete = db.NguoiThans.FirstOrDefault(r => r.MaNT == maNguoiThanID);
+                NguoiThan relativeToDelete = db.NguoiThans.FirstOrDefault(r => r.MaSV == maSinhVien);
 
                 if (relativeToDelete == null)
                 {
-                    MessageBox.Show("Relative not found in the database.", "Relative Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Relative not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
 
                 db.NguoiThans.Remove(relativeToDelete);
                 db.SaveChanges();
-                MessageBox.Show("Relative deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                MessageBox.Show("Relative deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while deleting the Relative. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred while deleting the relative. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
+
     }
 }

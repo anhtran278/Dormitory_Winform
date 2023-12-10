@@ -41,10 +41,8 @@
             this.txtAddTenRelatives = new System.Windows.Forms.TextBox();
             this.txtAddDiaChiRelatives = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtAddMaNTRelatives = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.tabPageSearchRelatives = new System.Windows.Forms.TabPage();
             this.dataGridViewRelatives = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +51,7 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtSearchMaNTRelatives = new System.Windows.Forms.TextBox();
+            this.txtSearchMaSVRelatives = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPageUpDeRelatives = new System.Windows.Forms.TabPage();
@@ -65,10 +63,8 @@
             this.txtUpAndDeDiaChiRelatives = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtUpAndDeMaSVRelatives = new System.Windows.Forms.TextBox();
-            this.txtUpAndDeMaNTRelatives = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnDeleteRelatives = new System.Windows.Forms.Button();
             this.btnUpdateRelatives = new System.Windows.Forms.Button();
@@ -116,10 +112,8 @@
             this.tabPageAddRelatives.Controls.Add(this.txtAddTenRelatives);
             this.tabPageAddRelatives.Controls.Add(this.txtAddDiaChiRelatives);
             this.tabPageAddRelatives.Controls.Add(this.label7);
-            this.tabPageAddRelatives.Controls.Add(this.txtAddMaNTRelatives);
             this.tabPageAddRelatives.Controls.Add(this.label6);
             this.tabPageAddRelatives.Controls.Add(this.label3);
-            this.tabPageAddRelatives.Controls.Add(this.label2);
             this.tabPageAddRelatives.Controls.Add(label1);
             this.tabPageAddRelatives.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPageAddRelatives.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -142,7 +136,7 @@
             // 
             this.cbBoxAddMaSvRelatives.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBoxAddMaSvRelatives.FormattingEnabled = true;
-            this.cbBoxAddMaSvRelatives.Location = new System.Drawing.Point(627, 87);
+            this.cbBoxAddMaSvRelatives.Location = new System.Drawing.Point(255, 87);
             this.cbBoxAddMaSvRelatives.Name = "cbBoxAddMaSvRelatives";
             this.cbBoxAddMaSvRelatives.Size = new System.Drawing.Size(263, 25);
             this.cbBoxAddMaSvRelatives.TabIndex = 7;
@@ -156,7 +150,7 @@
             this.btnAddRelatives.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddRelatives.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddRelatives.ForeColor = System.Drawing.Color.White;
-            this.btnAddRelatives.Location = new System.Drawing.Point(258, 307);
+            this.btnAddRelatives.Location = new System.Drawing.Point(627, 245);
             this.btnAddRelatives.Name = "btnAddRelatives";
             this.btnAddRelatives.Size = new System.Drawing.Size(111, 41);
             this.btnAddRelatives.TabIndex = 4;
@@ -167,7 +161,7 @@
             // txtAddSoDTRelatives
             // 
             this.txtAddSoDTRelatives.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAddSoDTRelatives.Location = new System.Drawing.Point(627, 245);
+            this.txtAddSoDTRelatives.Location = new System.Drawing.Point(627, 162);
             this.txtAddSoDTRelatives.Name = "txtAddSoDTRelatives";
             this.txtAddSoDTRelatives.Size = new System.Drawing.Size(263, 23);
             this.txtAddSoDTRelatives.TabIndex = 3;
@@ -176,7 +170,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(627, 213);
+            this.label9.Location = new System.Drawing.Point(627, 130);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(96, 16);
             this.label9.TabIndex = 2;
@@ -195,7 +189,7 @@
             // txtAddTenRelatives
             // 
             this.txtAddTenRelatives.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAddTenRelatives.Location = new System.Drawing.Point(627, 170);
+            this.txtAddTenRelatives.Location = new System.Drawing.Point(627, 87);
             this.txtAddTenRelatives.Name = "txtAddTenRelatives";
             this.txtAddTenRelatives.Size = new System.Drawing.Size(263, 23);
             this.txtAddTenRelatives.TabIndex = 3;
@@ -212,19 +206,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(627, 135);
+            this.label7.Location = new System.Drawing.Point(627, 52);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(33, 16);
             this.label7.TabIndex = 2;
             this.label7.Text = "Ten:";
-            // 
-            // txtAddMaNTRelatives
-            // 
-            this.txtAddMaNTRelatives.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAddMaNTRelatives.Location = new System.Drawing.Point(258, 87);
-            this.txtAddMaNTRelatives.Name = "txtAddMaNTRelatives";
-            this.txtAddMaNTRelatives.Size = new System.Drawing.Size(263, 23);
-            this.txtAddMaNTRelatives.TabIndex = 3;
             // 
             // label6
             // 
@@ -240,26 +226,16 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(627, 52);
+            this.label3.Location = new System.Drawing.Point(255, 52);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "Ma SV:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(258, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 16);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Ma Nguoi Than:";
-            // 
             // tabPageSearchRelatives
             // 
             this.tabPageSearchRelatives.Controls.Add(this.dataGridViewRelatives);
-            this.tabPageSearchRelatives.Controls.Add(this.txtSearchMaNTRelatives);
+            this.tabPageSearchRelatives.Controls.Add(this.txtSearchMaSVRelatives);
             this.tabPageSearchRelatives.Controls.Add(this.lblSearch);
             this.tabPageSearchRelatives.Controls.Add(this.label4);
             this.tabPageSearchRelatives.Location = new System.Drawing.Point(4, 4);
@@ -338,15 +314,15 @@
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
-            // txtSearchMaNTRelatives
+            // txtSearchMaSVRelatives
             // 
-            this.txtSearchMaNTRelatives.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearchMaNTRelatives.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchMaNTRelatives.Location = new System.Drawing.Point(295, 77);
-            this.txtSearchMaNTRelatives.Name = "txtSearchMaNTRelatives";
-            this.txtSearchMaNTRelatives.Size = new System.Drawing.Size(263, 23);
-            this.txtSearchMaNTRelatives.TabIndex = 5;
-            this.txtSearchMaNTRelatives.TextChanged += new System.EventHandler(this.txtSearchMaNTRelatives_TextChanged);
+            this.txtSearchMaSVRelatives.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearchMaSVRelatives.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchMaSVRelatives.Location = new System.Drawing.Point(295, 77);
+            this.txtSearchMaSVRelatives.Name = "txtSearchMaSVRelatives";
+            this.txtSearchMaSVRelatives.Size = new System.Drawing.Size(263, 23);
+            this.txtSearchMaSVRelatives.TabIndex = 5;
+            this.txtSearchMaSVRelatives.TextChanged += new System.EventHandler(this.txtSearchMaNTRelatives_TextChanged);
             // 
             // lblSearch
             // 
@@ -379,10 +355,8 @@
             this.tabPageUpDeRelatives.Controls.Add(this.txtUpAndDeDiaChiRelatives);
             this.tabPageUpDeRelatives.Controls.Add(this.label11);
             this.tabPageUpDeRelatives.Controls.Add(this.txtUpAndDeMaSVRelatives);
-            this.tabPageUpDeRelatives.Controls.Add(this.txtUpAndDeMaNTRelatives);
             this.tabPageUpDeRelatives.Controls.Add(this.label12);
             this.tabPageUpDeRelatives.Controls.Add(this.label13);
-            this.tabPageUpDeRelatives.Controls.Add(this.label14);
             this.tabPageUpDeRelatives.Controls.Add(this.label5);
             this.tabPageUpDeRelatives.Controls.Add(this.btnDeleteRelatives);
             this.tabPageUpDeRelatives.Controls.Add(this.btnUpdateRelatives);
@@ -404,7 +378,7 @@
             // txtUpAndDeTenRelatives
             // 
             this.txtUpAndDeTenRelatives.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUpAndDeTenRelatives.Location = new System.Drawing.Point(627, 171);
+            this.txtUpAndDeTenRelatives.Location = new System.Drawing.Point(627, 88);
             this.txtUpAndDeTenRelatives.Name = "txtUpAndDeTenRelatives";
             this.txtUpAndDeTenRelatives.Size = new System.Drawing.Size(263, 23);
             this.txtUpAndDeTenRelatives.TabIndex = 32;
@@ -412,7 +386,7 @@
             // txtUpAndDeSDTRelatives
             // 
             this.txtUpAndDeSDTRelatives.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUpAndDeSDTRelatives.Location = new System.Drawing.Point(627, 245);
+            this.txtUpAndDeSDTRelatives.Location = new System.Drawing.Point(627, 162);
             this.txtUpAndDeSDTRelatives.Name = "txtUpAndDeSDTRelatives";
             this.txtUpAndDeSDTRelatives.Size = new System.Drawing.Size(263, 23);
             this.txtUpAndDeSDTRelatives.TabIndex = 26;
@@ -421,7 +395,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(627, 213);
+            this.label8.Location = new System.Drawing.Point(627, 130);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(96, 16);
             this.label8.TabIndex = 20;
@@ -449,7 +423,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(627, 135);
+            this.label11.Location = new System.Drawing.Point(627, 52);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(33, 16);
             this.label11.TabIndex = 22;
@@ -459,19 +433,11 @@
             // 
             this.txtUpAndDeMaSVRelatives.BackColor = System.Drawing.Color.White;
             this.txtUpAndDeMaSVRelatives.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUpAndDeMaSVRelatives.Location = new System.Drawing.Point(627, 87);
+            this.txtUpAndDeMaSVRelatives.Location = new System.Drawing.Point(258, 87);
             this.txtUpAndDeMaSVRelatives.Name = "txtUpAndDeMaSVRelatives";
             this.txtUpAndDeMaSVRelatives.ReadOnly = true;
             this.txtUpAndDeMaSVRelatives.Size = new System.Drawing.Size(263, 23);
             this.txtUpAndDeMaSVRelatives.TabIndex = 29;
-            // 
-            // txtUpAndDeMaNTRelatives
-            // 
-            this.txtUpAndDeMaNTRelatives.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUpAndDeMaNTRelatives.Location = new System.Drawing.Point(258, 87);
-            this.txtUpAndDeMaNTRelatives.Name = "txtUpAndDeMaNTRelatives";
-            this.txtUpAndDeMaNTRelatives.Size = new System.Drawing.Size(263, 23);
-            this.txtUpAndDeMaNTRelatives.TabIndex = 29;
             // 
             // label12
             // 
@@ -487,21 +453,11 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(627, 52);
+            this.label13.Location = new System.Drawing.Point(258, 52);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(52, 16);
             this.label13.TabIndex = 24;
             this.label13.Text = "Ma SV:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(258, 53);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(110, 16);
-            this.label14.TabIndex = 25;
-            this.label14.Text = "Ma Nguoi Than:";
             // 
             // label5
             // 
@@ -523,7 +479,7 @@
             this.btnDeleteRelatives.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteRelatives.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteRelatives.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteRelatives.Location = new System.Drawing.Point(399, 307);
+            this.btnDeleteRelatives.Location = new System.Drawing.Point(768, 245);
             this.btnDeleteRelatives.Name = "btnDeleteRelatives";
             this.btnDeleteRelatives.Size = new System.Drawing.Size(111, 41);
             this.btnDeleteRelatives.TabIndex = 9;
@@ -540,7 +496,7 @@
             this.btnUpdateRelatives.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateRelatives.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateRelatives.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateRelatives.Location = new System.Drawing.Point(258, 307);
+            this.btnUpdateRelatives.Location = new System.Drawing.Point(627, 245);
             this.btnUpdateRelatives.Name = "btnUpdateRelatives";
             this.btnUpdateRelatives.Size = new System.Drawing.Size(111, 41);
             this.btnUpdateRelatives.TabIndex = 9;
@@ -548,12 +504,12 @@
             this.btnUpdateRelatives.UseVisualStyleBackColor = false;
             this.btnUpdateRelatives.Click += new System.EventHandler(this.btnUpdateRelatives_Click);
             // 
-            // UserControlRelatives
+            // UserControlRelative
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tabControlRelatives);
-            this.Name = "UserControlRelatives";
+            this.Name = "UserControlRelative";
             this.Size = new System.Drawing.Size(1156, 438);
             this.Load += new System.EventHandler(this.UserControlRelatives_Load);
             this.tabControlRelatives.ResumeLayout(false);
@@ -573,7 +529,7 @@
         private System.Windows.Forms.TabControl tabControlRelatives;
         private System.Windows.Forms.TabPage tabPageSearchRelatives;
         private System.Windows.Forms.DataGridView dataGridViewRelatives;
-        private System.Windows.Forms.TextBox txtSearchMaNTRelatives;
+        private System.Windows.Forms.TextBox txtSearchMaSVRelatives;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabPage tabPageUpDeRelatives;
@@ -585,10 +541,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtUpAndDeDiaChiRelatives;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtUpAndDeMaNTRelatives;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TabPage tabPageAddRelatives;
         private System.Windows.Forms.DateTimePicker dateTimeAddNgayThamRelatives;
         private System.Windows.Forms.ComboBox cbBoxAddMaSvRelatives;
@@ -599,10 +553,8 @@
         private System.Windows.Forms.TextBox txtAddTenRelatives;
         private System.Windows.Forms.TextBox txtAddDiaChiRelatives;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtAddMaNTRelatives;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimeUpAnDeNgayThamRelatives;
         private System.Windows.Forms.TextBox txtUpAndDeTenRelatives;
         private System.Windows.Forms.TextBox txtUpAndDeMaSVRelatives;

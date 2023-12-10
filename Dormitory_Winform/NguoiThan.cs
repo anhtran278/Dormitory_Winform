@@ -15,7 +15,7 @@ namespace Dormitory_Winform
     public partial class NguoiThan
     {
         public int MaNT { get; set; }
-        public Nullable<int> MaSV { get; set; }
+        public int MaSV { get; set; }
         public string Ten { get; set; }
         public System.DateTime NgayTham { get; set; }
         public string DiaChi { get; set; }
