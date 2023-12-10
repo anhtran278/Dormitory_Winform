@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System;
 using System.Drawing;
+using System.Globalization;
 
 namespace Dormitory_Winform.Class
 {
@@ -34,10 +35,15 @@ namespace Dormitory_Winform.Class
             }
         }
 
-        public bool AddRoom(string maPhong, string loaiPhong, string maSV, string kiHieu, string giaPhong)
+        public bool AddRoom(string maPhong, string loaiPhong, string maSV, string kiHieu, string giaPhong, string ngayVao)
         {
             try
             {
+                if (!DateTime.TryParse(ngayVao, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedNgayVao))
+                {
+                    MessageBox.Show("Invalid date format. Please enter a date in the format dd/MM/yyyy.", "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
                 int parsedMaPhong;
                 if (!int.TryParse(maPhong, out parsedMaPhong))
                 {
@@ -69,7 +75,8 @@ namespace Dormitory_Winform.Class
                     MaSV = parsedMaSV, 
                     KiHieu = kiHieu,
                     LoaiPhong = loaiPhong,
-                    GiaPhong = decimal.Parse(giaPhong) 
+                    GiaPhong = decimal.Parse(giaPhong),
+                    NgayVao = parsedNgayVao,
                 };
 
                 db.Phongs.Add(newPhong);
@@ -85,10 +92,15 @@ namespace Dormitory_Winform.Class
                 return false;
             }
         }
-        public bool UpdateRoom(string maPhong, string loaiPhong, string maSV, string kiHieu, string giaPhong)
+        public bool UpdateRoom(string maPhong, string loaiPhong, string maSV, string kiHieu, string giaPhong, string ngayVao)
         {
             try
             {
+                if (!DateTime.TryParse(ngayVao, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedNgayVao))
+                {
+                    MessageBox.Show("Invalid date format. Please enter a date in the format dd/MM/yyyy.", "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
                 int parsedMaPhong;
                 if (!int.TryParse(maPhong, out parsedMaPhong) || parsedMaPhong <= 0)
                 {
@@ -104,6 +116,7 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
+                existingRoom.NgayVao = parsedNgayVao;
                 existingRoom.LoaiPhong = loaiPhong;
                 existingRoom.KiHieu = kiHieu;
 

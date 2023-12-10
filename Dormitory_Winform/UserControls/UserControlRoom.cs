@@ -105,6 +105,7 @@ namespace Dormitory_Winform.UserControls
             txtAddGiaPhongRoom.Clear();
             txtAddMaPhongRoom.Clear();
             cbBoxAddLoaiPhongRoom.SelectedIndex = 0;
+            dateTimeAddNgayVaoRoom.Value = DateTime.Now;
             tabControlRoom.SelectedTab = tabPageAddRoom;
         }
 
@@ -114,6 +115,7 @@ namespace Dormitory_Winform.UserControls
             txtUpAndDeKiHieuRoom.Clear();
             txtUpAndDeGiaPhongRoom.Clear();
             txtUpAndDeMaPhongRoom.Clear();
+            dateTimeUpAndDeNgayVaoRoom.Value = DateTime.Now;
             cbBoxUpAndDeLoaiPhongRoom.SelectedIndex = 0;
         }
 
@@ -154,7 +156,13 @@ namespace Dormitory_Winform.UserControls
                 && !string.IsNullOrEmpty(txtAddGiaPhongRoom.Text) 
                 && !string.IsNullOrEmpty(txtAddKiHieuRoom.Text))
             {
-                bool check = roomService.AddRoom(txtAddMaPhongRoom.Text.Trim(), cbBoxAddLoaiPhongRoom.SelectedItem.ToString(), cbBoxAddMaSvRoom.SelectedItem.ToString(), txtAddKiHieuRoom.Text.Trim(), txtAddGiaPhongRoom.Text.Trim());
+                bool check = roomService.AddRoom(txtAddMaPhongRoom.Text.Trim(), 
+                    cbBoxAddLoaiPhongRoom.SelectedItem.ToString(), 
+                    cbBoxAddMaSvRoom.SelectedItem.ToString(), 
+                    txtAddKiHieuRoom.Text.Trim(), 
+                    txtAddGiaPhongRoom.Text.Trim(),
+                    dateTimeAddNgayVaoRoom.Text.Trim()
+                    );
                 if (check)
                 {
                     Clear();
@@ -193,7 +201,8 @@ namespace Dormitory_Winform.UserControls
                     cbBoxUpAndDeLoaiPhongRoom.SelectedItem.ToString(),
                     txtUpAndDeMaSVRoom.Text.Trim(),
                     txtUpAndDeKiHieuRoom.Text.Trim(),
-                    txtUpAndDeGiaPhongRoom.Text.Trim());
+                    txtUpAndDeGiaPhongRoom.Text.Trim(),
+                    dateTimeAddNgayVaoRoom.Text.Trim());
 
                 if (check)
                 {
@@ -262,6 +271,7 @@ namespace Dormitory_Winform.UserControls
                 txtUpAndDeGiaPhongRoom.Text = row.Cells[2].Value.ToString();
                 txtUpAndDeKiHieuRoom.Text = row.Cells[3].Value.ToString();
                 cbBoxUpAndDeLoaiPhongRoom.SelectedItem = row.Cells[4].Value.ToString();
+                dateTimeUpAndDeNgayVaoRoom.Value = DateTime.Parse(row.Cells[5].Value.ToString());
             }
         }
 

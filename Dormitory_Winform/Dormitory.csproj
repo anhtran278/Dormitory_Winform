@@ -133,6 +133,9 @@
     <Compile Include="SinhVien.cs">
       <DependentUpon>QuanLi_Dormitory.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>QuanLi_Dormitory.tt</DependentUpon>
+    </Compile>
     <Compile Include="ThietBi.cs">
       <DependentUpon>QuanLi_Dormitory.tt</DependentUpon>
     </Compile>

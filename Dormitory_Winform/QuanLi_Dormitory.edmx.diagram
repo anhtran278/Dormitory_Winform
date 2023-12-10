@@ -4,20 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="53535121e0d34357ab3ec54b8d83ae95" Name="Diagram1" ZoomLevel="74">
-        <EntityTypeShape EntityType="QuanLi_DormitoryModel.Admin" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLi_DormitoryModel.HaoPhi" Width="1.5" PointX="7.5" PointY="11" IsExpanded="true" />
+      <Diagram DiagramId="53535121e0d34357ab3ec54b8d83ae95" Name="Diagram1" ZoomLevel="97">
+        <EntityTypeShape EntityType="QuanLi_DormitoryModel.Admin" Width="1.5" PointX="6.625" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLi_DormitoryModel.HaoPhi" Width="1.5" PointX="9.75" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLi_DormitoryModel.KhoanPhi" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLi_DormitoryModel.NguoiThan" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLi_DormitoryModel.Phong" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLi_DormitoryModel.SinhVien" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLi_DormitoryModel.ThietBi" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLi_DormitoryModel.Phong" Width="1.5" PointX="8.625" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLi_DormitoryModel.SinhVien" Width="1.5" PointX="6" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLi_DormitoryModel.ThietBi" Width="1.5" PointX="11.625" PointY="6.25" IsExpanded="true" />
         <AssociationConnector Association="QuanLi_DormitoryModel.FK__HaoPhi__MaPhong__5BE2A6F2" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLi_DormitoryModel.FK__HaoPhi__MaThietB__5CD6CB2B" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLi_DormitoryModel.FK__KhoanPhi__MaSV__4F7CD00D" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLi_DormitoryModel.FK__NguoiThan__MaSV__5535A963" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLi_DormitoryModel.FK__Phong__MaSV__52593CB8" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLi_DormitoryModel.FK__ThietBi__MaPhong__59063A47" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QuanLi_DormitoryModel.vwFeeConsume" Width="1.5" PointX="17" PointY="1.625" />
+        <EntityTypeShape EntityType="QuanLi_DormitoryModel.sysdiagram" Width="1.5" PointX="0.75" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

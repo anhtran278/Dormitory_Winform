@@ -26,6 +26,7 @@ namespace Dormitory_Winform
         public string KiHieu { get; set; }
         public decimal GiaPhong { get; set; }
         public string LoaiPhong { get; set; }
+        public Nullable<System.DateTime> NgayVao { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HaoPhi> HaoPhis { get; set; }

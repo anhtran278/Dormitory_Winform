@@ -32,5 +32,7 @@ namespace Dormitory_Winform
         public virtual DbSet<Phong> Phongs { get; set; }
         public virtual DbSet<SinhVien> SinhViens { get; set; }
         public virtual DbSet<ThietBi> ThietBis { get; set; }
+        public virtual DbSet<vwFeeConsume> vwFeeConsumes { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }
