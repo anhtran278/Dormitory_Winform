@@ -167,12 +167,12 @@ namespace Dormitory_Winform.UserControls
                     !string.IsNullOrEmpty(txtUpAndDeSDTRelatives.Text))
                 {
                     int maSinhVien = int.Parse(txtUpAndDeMaSVRelatives.Text);
-                    DateTime ngayTham = dateTimeUpAnDeNgayThamRelatives.Value;
                     string tenNguoiThan = txtUpAndDeTenRelatives.Text.Trim();
-                    string diaChi = txtUpAndDeDiaChiRelatives.Text.Trim();
+                    DateTime ngayTham = dateTimeUpAnDeNgayThamRelatives.Value;
                     string soDienThoai = txtUpAndDeSDTRelatives.Text.Trim();
+                    string diaChi = txtUpAndDeDiaChiRelatives.Text.Trim();
 
-                    bool check = relativesService.UpdateRelative(maSinhVien, ngayTham, tenNguoiThan, diaChi, soDienThoai);
+                    bool check = relativesService.UpdateRelative(maSinhVien, ngayTham, tenNguoiThan, diaChi, soDienThoai );
 
                     if (check)
                     {
@@ -208,13 +208,16 @@ namespace Dormitory_Winform.UserControls
                 if (!string.IsNullOrEmpty(txtUpAndDeMaSVRelatives.Text))
                 {
                     int maSinhVien = int.Parse(txtUpAndDeMaSVRelatives.Text);
-
-                    bool check = relativesService.DeleteRelative(maSinhVien.ToString());
-
-                    if (check)
+                    DialogResult result = MessageBox.Show("Are you sure you want to delete this room?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
                     {
-                        ClearFields1();
-                        RefreshDataGridView();
+                        bool check = relativesService.DeleteRelative(maSinhVien.ToString());
+
+                        if (check)
+                        {
+                            ClearFields1();
+                            RefreshDataGridView();
+                        }
                     }
                 }
                 else

@@ -192,9 +192,9 @@ namespace Dormitory_Winform.UserControls
                     txtUpAndDeMaSVFee.Text.Trim(),
                     dateTimeUpAndDeNgayThanhToanFee.Text.Trim(),
                     txtUpAndDeTienPhongFee.Text.Trim(),
-                    txtUpAndDeTienDienNuocFee.Text.Trim(),
                     txtUpAndDeTienInternetFee.Text.Trim(),
-                    txtUpAndDeTienGuiXeFee.Text.Trim());
+                    txtUpAndDeTienGuiXeFee.Text.Trim(),
+                    txtUpAndDeTienDienNuocFee.Text.Trim());
 
                 if (check)
                 {

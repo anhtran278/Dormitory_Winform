@@ -153,7 +153,8 @@ namespace Dormitory_Winform.UserControls
         {
             string hongBaotri = rdbAddHongDevice.Checked ? "Hong" : (rdbAddBaoTriDevice.Checked ? "Bao Tri" : "Hoat Dong");
 
-            if (!string.IsNullOrEmpty(txtAddSoLuongDevice.Text) && !string.IsNullOrEmpty(txtAddTenTBDevice.Text))
+            if (!string.IsNullOrEmpty(txtAddSoLuongDevice.Text) 
+                && !string.IsNullOrEmpty(txtAddTenTBDevice.Text))
             {
                 bool check = devicesService.AddDevice(
                     txtAddTenTBDevice.Text.Trim(),
@@ -183,7 +184,8 @@ namespace Dormitory_Winform.UserControls
         {
             string hongBaotri = rdbUpAndDeHongDevices.Checked ? "Hong" : (rdbUpAndDeBaoTriDevices.Checked ? "Bao Tri" : "Hoat Dong");
 
-            if (!string.IsNullOrEmpty(txtUpAndDeTenTBDevices.Text) && !string.IsNullOrEmpty(txtUpAndDeSoLuongDevices.Text))
+            if (!string.IsNullOrEmpty(txtUpAndDeTenTBDevices.Text) && 
+                !string.IsNullOrEmpty(txtUpAndDeSoLuongDevices.Text))
             {
                 if (!int.TryParse(txtUpAndDeSoLuongDevices.Text.Trim(), out int soLuongDevices))
                 {
@@ -199,8 +201,8 @@ namespace Dormitory_Winform.UserControls
 
                 bool check = devicesService.UpdateDevice(
                     txtUpAndDeTenTBDevices.Text.Trim(),
-                    soLuongDevices.ToString(),
                     txtUpAndDeMaPhongDevice.Text.Trim(),
+                    soLuongDevices.ToString(),
                     hongBaotri);
 
                 if (check)
@@ -231,17 +233,21 @@ namespace Dormitory_Winform.UserControls
 
             if (!string.IsNullOrEmpty(deviceNameToDelete))
             {
-                bool check = devicesService.DeleteDevice(deviceNameToDelete);
-
-                if (check)
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this device?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
-                    Clear1();
-                    RefreshDataGridView();
-                    // consume
-                    var consumesControl = FindForm().Controls.Find("userControlConsume1", true).FirstOrDefault() as UserControlConsume;
-                    if (consumesControl != null)
+                    bool check = devicesService.DeleteDevice(deviceNameToDelete);
+
+                    if (check)
                     {
-                        consumesControl.GetMaThietBiIntoComboBox();
+                        Clear1();
+                        RefreshDataGridView();
+                        // consume
+                        var consumesControl = FindForm().Controls.Find("userControlConsume1", true).FirstOrDefault() as UserControlConsume;
+                        if (consumesControl != null)
+                        {
+                            consumesControl.GetMaThietBiIntoComboBox();
+                        }
                     }
                 }
                 else

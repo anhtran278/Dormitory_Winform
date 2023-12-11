@@ -95,10 +95,9 @@ namespace Dormitory_Winform
             }
         }
 
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void lblFotgotPass_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Please contact the developer to retrieve your password !!.", "Forgot Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

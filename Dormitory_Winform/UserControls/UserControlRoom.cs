@@ -152,14 +152,14 @@ namespace Dormitory_Winform.UserControls
         private void btnAddRoom_Click(object sender, EventArgs e)
         {
 
-            if (!string.IsNullOrEmpty(txtAddMaPhongRoom.Text) 
-                && !string.IsNullOrEmpty(txtAddGiaPhongRoom.Text) 
+            if (!string.IsNullOrEmpty(txtAddMaPhongRoom.Text)
+                && !string.IsNullOrEmpty(txtAddGiaPhongRoom.Text)
                 && !string.IsNullOrEmpty(txtAddKiHieuRoom.Text))
             {
-                bool check = roomService.AddRoom(txtAddMaPhongRoom.Text.Trim(), 
-                    cbBoxAddLoaiPhongRoom.SelectedItem.ToString(), 
-                    cbBoxAddMaSvRoom.SelectedItem.ToString(), 
-                    txtAddKiHieuRoom.Text.Trim(), 
+                bool check = roomService.AddRoom(txtAddMaPhongRoom.Text.Trim(),
+                    cbBoxAddLoaiPhongRoom.SelectedItem.ToString(),
+                    cbBoxAddMaSvRoom.SelectedItem.ToString(),
+                    txtAddKiHieuRoom.Text.Trim(),
                     txtAddGiaPhongRoom.Text.Trim(),
                     dateTimeAddNgayVaoRoom.Text.Trim()
                     );
@@ -234,24 +234,22 @@ namespace Dormitory_Winform.UserControls
         {
             if (!string.IsNullOrEmpty(txtUpAndDeMaPhongRoom.Text))
             {
-                bool check = roomService.DeleteRoom(txtUpAndDeMaPhongRoom.Text.Trim());
-
-                if (check)
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this room?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
-                    Clear1();
-                    RefreshDataGridView();
-                    // device
-                    var devicesControl = FindForm().Controls.Find("userControlDevices1", true).FirstOrDefault() as UserControlDevice;
-                    if (devicesControl != null)
-                    {
-                        devicesControl.GetMaPhongIntoComboBox();
-                    }
+                    bool check = roomService.DeleteRoom(txtUpAndDeMaPhongRoom.Text.Trim());
 
-                    //comsume
-                    var consumesControl = FindForm().Controls.Find("userControlConsume1", true).FirstOrDefault() as UserControlConsume;
-                    if (consumesControl != null)
+                    if (check)
                     {
-                        consumesControl.GetMaPhongIntoComboBox();
+                        Clear1();
+                        RefreshDataGridView();
+                        // device
+                        var devicesControl = FindForm().Controls.Find("userControlDevices1", true).FirstOrDefault() as UserControlDevice;
+                        devicesControl?.GetMaPhongIntoComboBox();
+
+                        // comsume
+                        var consumesControl = FindForm().Controls.Find("userControlConsume1", true).FirstOrDefault() as UserControlConsume;
+                        consumesControl?.GetMaPhongIntoComboBox();
                     }
                 }
             }

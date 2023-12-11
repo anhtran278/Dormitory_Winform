@@ -231,16 +231,20 @@ namespace Dormitory_Winform.UserControls
 
         private void btnDeleteConsume_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtUpAndDeMaPhongConsume.Text) && 
+            if (!string.IsNullOrEmpty(txtUpAndDeMaPhongConsume.Text) &&
                 !string.IsNullOrEmpty(txtUpAndDeMaThietBiConsume.Text))
             {
-                bool check = consumeService.DeleteConsume(txtUpAndDeMaThietBiConsume.Text.Trim(), 
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this consume?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    bool check = consumeService.DeleteConsume(txtUpAndDeMaThietBiConsume.Text.Trim(),
                     txtUpAndDeMaPhongConsume.Text.Trim());
 
-                if (check)
-                {
-                    Clear1();
-                    RefreshDataGridView();
+                    if (check)
+                    {
+                        Clear1();
+                        RefreshDataGridView();
+                    }
                 }
             }
             else

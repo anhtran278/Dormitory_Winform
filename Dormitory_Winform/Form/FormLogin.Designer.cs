@@ -70,7 +70,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(506, 588);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnLogIn
             // 
@@ -95,7 +94,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(480, 86);
+            this.panel2.Location = new System.Drawing.Point(482, 86);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(3, 430);
             this.panel2.TabIndex = 0;
@@ -104,6 +103,7 @@
             // 
             this.lblFotgotPass.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblFotgotPass.AutoSize = true;
+            this.lblFotgotPass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblFotgotPass.Font = new System.Drawing.Font("Century Gothic", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFotgotPass.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.lblFotgotPass.Location = new System.Drawing.Point(181, 411);
@@ -111,6 +111,7 @@
             this.lblFotgotPass.Size = new System.Drawing.Size(125, 18);
             this.lblFotgotPass.TabIndex = 15;
             this.lblFotgotPass.Text = "Forgot Password";
+            this.lblFotgotPass.Click += new System.EventHandler(this.lblFotgotPass_Click);
             // 
             // lblPassword
             // 
@@ -199,7 +200,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Navy;
-            this.label5.Location = new System.Drawing.Point(526, 471);
+            this.label5.Location = new System.Drawing.Point(526, 457);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(475, 41);
             this.label5.TabIndex = 12;
@@ -234,7 +235,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(517, 85);
+            this.pictureBox1.Location = new System.Drawing.Point(514, 85);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(501, 341);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
