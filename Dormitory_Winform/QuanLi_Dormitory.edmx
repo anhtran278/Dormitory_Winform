@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QuanLi_DormitoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QuanLi_DormitoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Admins">
           <Key>
             <PropertyRef Name="MaAdmins" />
@@ -89,7 +89,7 @@
           <Property Name="SoLuong" Type="int" Nullable="false" />
           <Property Name="TinhTrang" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__HaoPhi__MaPhong__5BE2A6F2">
+        <Association Name="FK__HaoPhi__MaPhong__160F4887">
           <End Role="Phong" Type="Self.Phong" Multiplicity="1" />
           <End Role="HaoPhi" Type="Self.HaoPhi" Multiplicity="*" />
           <ReferentialConstraint>
@@ -101,7 +101,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__HaoPhi__MaThietB__5CD6CB2B">
+        <Association Name="FK__HaoPhi__MaThietB__17036CC0">
           <End Role="ThietBi" Type="Self.ThietBi" Multiplicity="1" />
           <End Role="HaoPhi" Type="Self.HaoPhi" Multiplicity="*" />
           <ReferentialConstraint>
@@ -170,11 +170,11 @@
           <EntitySet Name="SinhVien" EntityType="Self.SinhVien" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ThietBi" EntityType="Self.ThietBi" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__HaoPhi__MaPhong__5BE2A6F2" Association="Self.FK__HaoPhi__MaPhong__5BE2A6F2">
+          <AssociationSet Name="FK__HaoPhi__MaPhong__160F4887" Association="Self.FK__HaoPhi__MaPhong__160F4887">
             <End Role="Phong" EntitySet="Phong" />
             <End Role="HaoPhi" EntitySet="HaoPhi" />
           </AssociationSet>
-          <AssociationSet Name="FK__HaoPhi__MaThietB__5CD6CB2B" Association="Self.FK__HaoPhi__MaThietB__5CD6CB2B">
+          <AssociationSet Name="FK__HaoPhi__MaThietB__17036CC0" Association="Self.FK__HaoPhi__MaThietB__17036CC0">
             <End Role="ThietBi" EntitySet="ThietBi" />
             <End Role="HaoPhi" EntitySet="HaoPhi" />
           </AssociationSet>
@@ -195,8 +195,7 @@
             <End Role="ThietBi" EntitySet="ThietBi" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QuanLi_DormitoryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">

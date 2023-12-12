@@ -75,7 +75,7 @@ namespace Dormitory_Winform
 	public partial class vwFeeConsume
 	{
 		
-		private int _MaPhong;
+		private System.DateTime _HaoPhi;
 		
 		private System.Nullable<decimal> _TongPhiPhong;
 		
@@ -83,18 +83,18 @@ namespace Dormitory_Winform
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaPhong", DbType="Int NOT NULL")]
-		public int MaPhong
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HaoPhi", DbType="Date NOT NULL")]
+		public System.DateTime HaoPhi
 		{
 			get
 			{
-				return this._MaPhong;
+				return this._HaoPhi;
 			}
 			set
 			{
-				if ((this._MaPhong != value))
+				if ((this._HaoPhi != value))
 				{
-					this._MaPhong = value;
+					this._HaoPhi = value;
 				}
 			}
 		}

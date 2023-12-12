@@ -59,7 +59,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.userControlStudents1 = new Dormitory_Winform.UserControls.UserControlStudent();
             this.userControlAdmins1 = new Dormitory_Winform.UserControlAdmin();
             this.userControlStatistical1 = new Dormitory_Winform.UserControls.UserControlStatistical();
             this.userControlConsume1 = new Dormitory_Winform.UserControls.UserControlConsume();
@@ -67,6 +66,7 @@
             this.userControlFee1 = new Dormitory_Winform.UserControls.UserControlFee();
             this.userControlRooms1 = new Dormitory_Winform.UserControls.UserControlRooms();
             this.userControlRelatives1 = new Dormitory_Winform.UserControls.UserControlRelative();
+            this.userControlStudents1 = new Dormitory_Winform.UserControls.UserControlStudent();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -504,17 +504,6 @@
             this.panel7.Size = new System.Drawing.Size(1332, 531);
             this.panel7.TabIndex = 5;
             // 
-            // userControlStudents1
-            // 
-            this.userControlStudents1.AutoSize = true;
-            this.userControlStudents1.BackColor = System.Drawing.Color.White;
-            this.userControlStudents1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControlStudents1.Location = new System.Drawing.Point(0, 0);
-            this.userControlStudents1.Name = "userControlStudents1";
-            this.userControlStudents1.Size = new System.Drawing.Size(1332, 531);
-            this.userControlStudents1.TabIndex = 1;
-            this.userControlStudents1.Load += new System.EventHandler(this.userControlStudents1_Load);
-            // 
             // userControlAdmins1
             // 
             this.userControlAdmins1.BackColor = System.Drawing.Color.White;
@@ -580,6 +569,17 @@
             this.userControlRelatives1.Name = "userControlRelatives1";
             this.userControlRelatives1.Size = new System.Drawing.Size(1332, 531);
             this.userControlRelatives1.TabIndex = 2;
+            // 
+            // userControlStudents1
+            // 
+            this.userControlStudents1.AutoSize = true;
+            this.userControlStudents1.BackColor = System.Drawing.Color.White;
+            this.userControlStudents1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlStudents1.Location = new System.Drawing.Point(0, 0);
+            this.userControlStudents1.Name = "userControlStudents1";
+            this.userControlStudents1.Size = new System.Drawing.Size(1332, 531);
+            this.userControlStudents1.TabIndex = 1;
+            this.userControlStudents1.Load += new System.EventHandler(this.userControlStudents1_Load);
             // 
             // FormDashboard
             // 
@@ -653,12 +653,12 @@
         private System.Windows.Forms.Button btnConsume;
         private System.Windows.Forms.Label label5;
         private UserControlAdmin userControlAdmins1;
-        private UserControls.UserControlStudent userControlStudents1;
         private UserControls.UserControlRelative userControlRelatives1;
         private UserControls.UserControlFee userControlFee1;
         private UserControls.UserControlRooms userControlRooms1;
         private UserControls.UserControlDevice userControlDevices1;
         private UserControls.UserControlConsume userControlConsume1;
         private UserControls.UserControlStatistical userControlStatistical1;
+        private UserControls.UserControlStudent userControlStudents1;
     }
 }

@@ -2,10 +2,10 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DbFeeConsume">
   <DataContextMoniker Name="/DbFeeConsumeDataContext" />
   <nestedChildShapes>
-    <classShape Id="eb172e21-50f3-43b5-89c6-9e3af0e21300" absoluteBounds="6.25, 1.875, 2, 1.1939925130208333">
+    <classShape Id="74b9a56d-0a70-4ab7-895d-77aea17bd9d4" absoluteBounds="7.125, 1.875, 2, 1.1939925130208333">
       <DataClassMoniker Name="/DbFeeConsumeDataContext/vwFeeConsume" />
       <nestedChildShapes>
-        <elementListCompartment Id="c41b3ce9-1a29-423a-a793-3fc727b2c40e" absoluteBounds="6.265, 2.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="68debe39-58dd-48fd-8b7e-322e6b4f7de9" absoluteBounds="7.14, 2.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

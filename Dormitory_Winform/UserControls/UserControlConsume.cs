@@ -154,7 +154,7 @@ namespace Dormitory_Winform.UserControls
 
         private void txtSearchMaThietBiPhongConsume_Leave(object sender, EventArgs e)
         {
-            txtSearchMaThietBiPhongConsum.Clear();
+            txtSearchMaThietBiPhongConsume.Clear();
         }
 
         private void tabPageUpDeConsume_Leave(object sender, EventArgs e)
@@ -164,7 +164,7 @@ namespace Dormitory_Winform.UserControls
 
         private void txtSearchMaThietBiPhongConsum_TextChanged(object sender, EventArgs e)
         {
-            string searchMaTBPhong = txtSearchMaThietBiPhongConsum.Text.Trim();
+            string searchMaTBPhong = txtSearchMaThietBiPhongConsume.Text.Trim();
 
             if (!string.IsNullOrEmpty(searchMaTBPhong))
             {
@@ -193,7 +193,6 @@ namespace Dormitory_Winform.UserControls
                 {
                     Clear();
                     RefreshDataGridView();
-                    
                 }
             }
             else

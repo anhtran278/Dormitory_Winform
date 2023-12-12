@@ -32,10 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlConsume));
             this.tabControlConsume = new System.Windows.Forms.TabControl();
             this.tabPageAddConsume = new System.Windows.Forms.TabPage();
+            this.dateTimeAddNgayHaoPhiConsume = new System.Windows.Forms.DateTimePicker();
             this.cbBoxAddMaThietBiConsume = new System.Windows.Forms.ComboBox();
             this.cbBoxAddMaPhongConsume = new System.Windows.Forms.ComboBox();
             this.btnAddConsume = new System.Windows.Forms.Button();
             this.txtAddTienBaoTriThietBiConsume = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtAddTienBaoTriPhongConsume = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -43,10 +45,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabPageSearchConsume = new System.Windows.Forms.TabPage();
             this.dataGridViewConsume = new System.Windows.Forms.DataGridView();
-            this.txtSearchMaThietBiPhongConsum = new System.Windows.Forms.TextBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSearchMaThietBiPhongConsume = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPageUpDeConsume = new System.Windows.Forms.TabPage();
+            this.dateTimeUpAndDeNgayHaoPhiConsume = new System.Windows.Forms.DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
             this.txtUpAndDeMaThietBiConsume = new System.Windows.Forms.TextBox();
             this.txtUpAndDeTienBaoTriThietBiConsume = new System.Windows.Forms.TextBox();
             this.txtUpAndDeMaPhongConsume = new System.Windows.Forms.TextBox();
@@ -58,16 +68,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnDeleteConsume = new System.Windows.Forms.Button();
             this.btnUpdateConsume = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimeAddNgayHaoPhiConsume = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimeUpAndDeNgayHaoPhiConsume = new System.Windows.Forms.DateTimePicker();
-            this.label12 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             this.tabControlConsume.SuspendLayout();
             this.tabPageAddConsume.SuspendLayout();
@@ -127,6 +127,13 @@
             this.tabPageAddConsume.UseVisualStyleBackColor = true;
             this.tabPageAddConsume.Leave += new System.EventHandler(this.tabPageAddConsume_Leave);
             // 
+            // dateTimeAddNgayHaoPhiConsume
+            // 
+            this.dateTimeAddNgayHaoPhiConsume.Location = new System.Drawing.Point(255, 279);
+            this.dateTimeAddNgayHaoPhiConsume.Name = "dateTimeAddNgayHaoPhiConsume";
+            this.dateTimeAddNgayHaoPhiConsume.Size = new System.Drawing.Size(263, 23);
+            this.dateTimeAddNgayHaoPhiConsume.TabIndex = 8;
+            // 
             // cbBoxAddMaThietBiConsume
             // 
             this.cbBoxAddMaThietBiConsume.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -169,6 +176,16 @@
             this.txtAddTienBaoTriThietBiConsume.Name = "txtAddTienBaoTriThietBiConsume";
             this.txtAddTienBaoTriThietBiConsume.Size = new System.Drawing.Size(263, 23);
             this.txtAddTienBaoTriThietBiConsume.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(255, 246);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(101, 16);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Ngay hao phi:";
             // 
             // label6
             // 
@@ -221,7 +238,7 @@
             // tabPageSearchConsume
             // 
             this.tabPageSearchConsume.Controls.Add(this.dataGridViewConsume);
-            this.tabPageSearchConsume.Controls.Add(this.txtSearchMaThietBiPhongConsum);
+            this.tabPageSearchConsume.Controls.Add(this.txtSearchMaThietBiPhongConsume);
             this.tabPageSearchConsume.Controls.Add(this.lblSearch);
             this.tabPageSearchConsume.Controls.Add(this.label4);
             this.tabPageSearchConsume.Location = new System.Drawing.Point(4, 4);
@@ -251,16 +268,64 @@
             this.dataGridViewConsume.TabIndex = 6;
             this.dataGridViewConsume.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewConsume_CellClick);
             // 
-            // txtSearchMaThietBiPhongConsum
+            // Column1
             // 
-            this.txtSearchMaThietBiPhongConsum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearchMaThietBiPhongConsum.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchMaThietBiPhongConsum.Location = new System.Drawing.Point(295, 77);
-            this.txtSearchMaThietBiPhongConsum.Name = "txtSearchMaThietBiPhongConsum";
-            this.txtSearchMaThietBiPhongConsum.Size = new System.Drawing.Size(263, 23);
-            this.txtSearchMaThietBiPhongConsum.TabIndex = 5;
-            this.txtSearchMaThietBiPhongConsum.TextChanged += new System.EventHandler(this.txtSearchMaThietBiPhongConsum_TextChanged);
-            this.txtSearchMaThietBiPhongConsum.Leave += new System.EventHandler(this.txtSearchMaThietBiPhongConsume_Leave);
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.DataPropertyName = "MaHaoPhi";
+            this.Column1.HeaderText = "Ma Hao Phi";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.DataPropertyName = "MaPhong";
+            this.Column2.HeaderText = "Ma Phong";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.DataPropertyName = "MaThietBi";
+            this.Column3.HeaderText = "Ma Thiet Bi";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.DataPropertyName = "TienBaoTriPhong";
+            this.Column4.HeaderText = "Tien Bao Tri Phong";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column5.DataPropertyName = "TienBaoTriThietBi";
+            this.Column5.HeaderText = "Tien Bao Tri Thiet Bi";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column6.DataPropertyName = "NgayHaoPhi";
+            this.Column6.HeaderText = "Ngay Bao Tri";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // txtSearchMaThietBiPhongConsume
+            // 
+            this.txtSearchMaThietBiPhongConsume.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearchMaThietBiPhongConsume.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchMaThietBiPhongConsume.Location = new System.Drawing.Point(295, 77);
+            this.txtSearchMaThietBiPhongConsume.Name = "txtSearchMaThietBiPhongConsume";
+            this.txtSearchMaThietBiPhongConsume.Size = new System.Drawing.Size(263, 23);
+            this.txtSearchMaThietBiPhongConsume.TabIndex = 5;
+            this.txtSearchMaThietBiPhongConsume.TextChanged += new System.EventHandler(this.txtSearchMaThietBiPhongConsum_TextChanged);
+            this.txtSearchMaThietBiPhongConsume.Leave += new System.EventHandler(this.txtSearchMaThietBiPhongConsume_Leave);
             // 
             // lblSearch
             // 
@@ -306,6 +371,23 @@
             this.tabPageUpDeConsume.Text = "Update and Delete ";
             this.tabPageUpDeConsume.UseVisualStyleBackColor = true;
             this.tabPageUpDeConsume.Leave += new System.EventHandler(this.tabPageUpDeConsume_Leave);
+            // 
+            // dateTimeUpAndDeNgayHaoPhiConsume
+            // 
+            this.dateTimeUpAndDeNgayHaoPhiConsume.Location = new System.Drawing.Point(255, 278);
+            this.dateTimeUpAndDeNgayHaoPhiConsume.Name = "dateTimeUpAndDeNgayHaoPhiConsume";
+            this.dateTimeUpAndDeNgayHaoPhiConsume.Size = new System.Drawing.Size(263, 23);
+            this.dateTimeUpAndDeNgayHaoPhiConsume.TabIndex = 19;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(255, 245);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(101, 16);
+            this.label12.TabIndex = 18;
+            this.label12.Text = "Ngay hao phi:";
             // 
             // txtUpAndDeMaThietBiConsume
             // 
@@ -428,88 +510,6 @@
             this.btnUpdateConsume.UseVisualStyleBackColor = false;
             this.btnUpdateConsume.Click += new System.EventHandler(this.btnUpdateConsume_Click);
             // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.DataPropertyName = "MaHaoPhi";
-            this.Column1.HeaderText = "Ma Hao Phi";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.DataPropertyName = "MaPhong";
-            this.Column2.HeaderText = "Ma Phong";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.DataPropertyName = "MaThietBi";
-            this.Column3.HeaderText = "Ma Thiet Bi";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.DataPropertyName = "TienBaoTriPhong";
-            this.Column4.HeaderText = "Tien Bao Tri Phong";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column5.DataPropertyName = "TienBaoTriThietBi";
-            this.Column5.HeaderText = "Tien Bao Tri Thiet Bi";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column6.DataPropertyName = "NgayHaoPhi";
-            this.Column6.HeaderText = "Ngay Bao Tri";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // dateTimeAddNgayHaoPhiConsume
-            // 
-            this.dateTimeAddNgayHaoPhiConsume.Location = new System.Drawing.Point(255, 279);
-            this.dateTimeAddNgayHaoPhiConsume.Name = "dateTimeAddNgayHaoPhiConsume";
-            this.dateTimeAddNgayHaoPhiConsume.Size = new System.Drawing.Size(263, 23);
-            this.dateTimeAddNgayHaoPhiConsume.TabIndex = 8;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(255, 246);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 16);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Ngay hao phi:";
-            // 
-            // dateTimeUpAndDeNgayHaoPhiConsume
-            // 
-            this.dateTimeUpAndDeNgayHaoPhiConsume.Location = new System.Drawing.Point(255, 278);
-            this.dateTimeUpAndDeNgayHaoPhiConsume.Name = "dateTimeUpAndDeNgayHaoPhiConsume";
-            this.dateTimeUpAndDeNgayHaoPhiConsume.Size = new System.Drawing.Size(263, 23);
-            this.dateTimeUpAndDeNgayHaoPhiConsume.TabIndex = 19;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(255, 245);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(101, 16);
-            this.label12.TabIndex = 18;
-            this.label12.Text = "Ngay hao phi:";
-            // 
             // UserControlConsume
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -542,7 +542,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabPage tabPageSearchConsume;
         private System.Windows.Forms.DataGridView dataGridViewConsume;
-        private System.Windows.Forms.TextBox txtSearchMaThietBiPhongConsum;
+        private System.Windows.Forms.TextBox txtSearchMaThietBiPhongConsume;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabPage tabPageUpDeConsume;

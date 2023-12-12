@@ -75,16 +75,16 @@ namespace Dormitory_Winform
 	public partial class vwFee
 	{
 		
-		private System.Nullable<System.DateTime> _Ngay;
+		private string _Ngay;
 		
-		private System.Nullable<decimal> _TongPhi;
+		private System.Nullable<decimal> _TongPhiPhong;
 		
 		public vwFee()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ngay", DbType="Date")]
-		public System.Nullable<System.DateTime> Ngay
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ngay", DbType="NVarChar(4000)")]
+		public string Ngay
 		{
 			get
 			{
@@ -99,18 +99,18 @@ namespace Dormitory_Winform
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TongPhi", DbType="Decimal(13,2)")]
-		public System.Nullable<decimal> TongPhi
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TongPhiPhong", DbType="Decimal(13,2)")]
+		public System.Nullable<decimal> TongPhiPhong
 		{
 			get
 			{
-				return this._TongPhi;
+				return this._TongPhiPhong;
 			}
 			set
 			{
-				if ((this._TongPhi != value))
+				if ((this._TongPhiPhong != value))
 				{
-					this._TongPhi = value;
+					this._TongPhiPhong = value;
 				}
 			}
 		}

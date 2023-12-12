@@ -63,7 +63,7 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                if (db.Phongs.Any(p => p.MaSV == parsedMaSV) || parsedMaPhong <= 2)
+                if (db.Phongs.Any(p => p.MaSV == parsedMaSV))
                 {
                     MessageBox.Show("This student is already assigned to a room. One student can only stay in one room.", "Student Assignment Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;

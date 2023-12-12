@@ -198,8 +198,9 @@
             // 
             this.txtAddDiaChiRelatives.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAddDiaChiRelatives.Location = new System.Drawing.Point(258, 245);
+            this.txtAddDiaChiRelatives.Multiline = true;
             this.txtAddDiaChiRelatives.Name = "txtAddDiaChiRelatives";
-            this.txtAddDiaChiRelatives.Size = new System.Drawing.Size(263, 23);
+            this.txtAddDiaChiRelatives.Size = new System.Drawing.Size(263, 105);
             this.txtAddDiaChiRelatives.TabIndex = 3;
             // 
             // label7
@@ -415,8 +416,9 @@
             // 
             this.txtUpAndDeDiaChiRelatives.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUpAndDeDiaChiRelatives.Location = new System.Drawing.Point(258, 245);
+            this.txtUpAndDeDiaChiRelatives.Multiline = true;
             this.txtUpAndDeDiaChiRelatives.Name = "txtUpAndDeDiaChiRelatives";
-            this.txtUpAndDeDiaChiRelatives.Size = new System.Drawing.Size(263, 23);
+            this.txtUpAndDeDiaChiRelatives.Size = new System.Drawing.Size(263, 105);
             this.txtUpAndDeDiaChiRelatives.TabIndex = 28;
             // 
             // label11

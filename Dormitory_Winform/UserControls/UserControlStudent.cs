@@ -141,7 +141,7 @@ namespace Dormitory_Winform.UserControls
                     }
 
                     //rl
-                    var relativesControl = FindForm().Controls.Find("userControlRelative1", true).FirstOrDefault() as UserControlRelative;
+                    var relativesControl = FindForm().Controls.Find("userControlRelatives1", true).FirstOrDefault() as UserControlRelative;
                     if (relativesControl != null)
                     {
                         relativesControl.GetMaSVIntoComboBox();
@@ -182,7 +182,7 @@ namespace Dormitory_Winform.UserControls
                     }
 
                     //rl
-                    var relativesControl = FindForm().Controls.Find("userControlRelative1", true).FirstOrDefault() as UserControlRelative;
+                    var relativesControl = FindForm().Controls.Find("userControlRelatives1", true).FirstOrDefault() as UserControlRelative;
                     if (relativesControl != null)
                     {
                         relativesControl.GetMaSVIntoComboBox();
@@ -224,7 +224,7 @@ namespace Dormitory_Winform.UserControls
                         }
 
                         //rl
-                        var relativesControl = FindForm().Controls.Find("userControlRelative1", true).FirstOrDefault() as UserControlRelative;
+                        var relativesControl = FindForm().Controls.Find("userControlRelatives1", true).FirstOrDefault() as UserControlRelative;
                         if (relativesControl != null)
                         {
                             relativesControl.GetMaSVIntoComboBox();
