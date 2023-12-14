@@ -41,7 +41,7 @@ namespace Dormitory_Winform
                 {
                     return;
                 }
-                var data = db.Admins.ToList();
+                var data = db.ADMINS.ToList();
 
                 if (data == null)
                 {

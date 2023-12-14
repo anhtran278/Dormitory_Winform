@@ -12,7 +12,7 @@ namespace Dormitory_Winform
     using System;
     using System.Collections.Generic;
     
-    public partial class Admin
+    public partial class ADMIN
     {
         public int MaAdmins { get; set; }
         public string Ten { get; set; }

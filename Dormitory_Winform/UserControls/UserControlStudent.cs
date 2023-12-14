@@ -41,7 +41,7 @@ namespace Dormitory_Winform.UserControls
                     return;
                 }
 
-                var data = db.SinhViens.ToList();
+                var data = db.SINHVIENs.ToList();
 
                 if (data == null)
                 {
@@ -59,12 +59,6 @@ namespace Dormitory_Winform.UserControls
         {
             db.SaveChanges();
             loadDataIntoDataGridView();
-        }
-
-        private void RefreshData()
-        {
-            db.SaveChanges();
-            RefreshDataGridView();
         }
         public void Clear()
         {
@@ -133,12 +127,6 @@ namespace Dormitory_Winform.UserControls
                 {
                     Clear();
                     RefreshDataGridView();
-                    //room
-                    var roomsControl = FindForm().Controls.Find("userControlRooms1", true).FirstOrDefault() as UserControlRooms;
-                    if (roomsControl != null)
-                    {
-                        roomsControl.GetMaSVIntoComboBox();
-                    }
 
                     //rl
                     var relativesControl = FindForm().Controls.Find("userControlRelatives1", true).FirstOrDefault() as UserControlRelative;
@@ -174,12 +162,7 @@ namespace Dormitory_Winform.UserControls
                 {
                     Clear1();
                     RefreshDataGridView();
-                    //room
-                    var roomsControl = FindForm().Controls.Find("userControlRooms1", true).FirstOrDefault() as UserControlRooms;
-                    if (roomsControl != null)
-                    {
-                        roomsControl.GetMaSVIntoComboBox();
-                    }
+
 
                     //rl
                     var relativesControl = FindForm().Controls.Find("userControlRelatives1", true).FirstOrDefault() as UserControlRelative;
@@ -216,12 +199,6 @@ namespace Dormitory_Winform.UserControls
                     {
                         Clear1();
                         RefreshDataGridView();
-                        //room
-                        var roomsControl = FindForm().Controls.Find("userControlRooms1", true).FirstOrDefault() as UserControlRooms;
-                        if (roomsControl != null)
-                        {
-                            roomsControl.GetMaSVIntoComboBox();
-                        }
 
                         //rl
                         var relativesControl = FindForm().Controls.Find("userControlRelatives1", true).FirstOrDefault() as UserControlRelative;
@@ -255,7 +232,8 @@ namespace Dormitory_Winform.UserControls
                 txtUpAndDeDTStudent.Text = row.Cells[2].Value.ToString();
                 dateTimeUpAndDeNgaySinhStudent.Value = DateTime.Parse(row.Cells[3].Value.ToString());
                 txtUpAndDeDiaChiStudent.Text = row.Cells[4].Value.ToString();
-                TrangThaiDki = row.Cells[5].Value.ToString();
+                cbBoxUpAndDeLoaiPhongDkiSudent.Text = row.Cells[5].Value.ToString();
+                TrangThaiDki = row.Cells[6].Value.ToString();
 
                 if (TrangThaiDki == "Duyet")
                     rdbUpAndDeDuyetStudent.Checked = true;
@@ -264,7 +242,5 @@ namespace Dormitory_Winform.UserControls
                     rdbUpAndDeChuaDuyetStudent.Checked = true;
             }
         }
-
-
     }
 }

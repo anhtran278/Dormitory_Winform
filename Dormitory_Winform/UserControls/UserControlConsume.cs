@@ -43,7 +43,7 @@ namespace Dormitory_Winform.UserControls
                     return;
                 }
 
-                List<string> maThietBiList = db.ThietBis
+                List<string> maThietBiList = db.THIETBIs
                     .Select(s => s.MaThietBi.ToString())
                     .ToList();
 
@@ -72,7 +72,7 @@ namespace Dormitory_Winform.UserControls
                     return;
                 }
 
-                List<string> maPhongList = db.Phongs
+                List<string> maPhongList = db.PHONGs
                     .Select(s => s.MaPhong.ToString())
                     .ToList();
 
@@ -103,7 +103,7 @@ namespace Dormitory_Winform.UserControls
                     return;
                 }
 
-                var data = db.HaoPhis.ToList();
+                var data = db.HAOPHIs.ToList();
 
                 if (data == null)
                 {
@@ -168,7 +168,7 @@ namespace Dormitory_Winform.UserControls
 
             if (!string.IsNullOrEmpty(searchMaTBPhong))
             {
-                List<HaoPhi> searchResult = consumeService.SearchConsume(searchMaTBPhong);
+                List<HAOPHI> searchResult = consumeService.SearchConsume(searchMaTBPhong);
                 bindingSource.DataSource = searchResult;
             }
             else

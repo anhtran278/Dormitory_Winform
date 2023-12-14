@@ -37,6 +37,7 @@
             this.btnStatistical = new System.Windows.Forms.Button();
             this.btnRelatives = new System.Windows.Forms.Button();
             this.btnFee = new System.Windows.Forms.Button();
+            this.btnIntoRoom = new System.Windows.Forms.Button();
             this.btnRoom = new System.Windows.Forms.Button();
             this.btnStudent = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -59,6 +60,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.userControlStudents1 = new Dormitory_Winform.UserControls.UserControlStudent();
             this.userControlAdmins1 = new Dormitory_Winform.UserControlAdmin();
             this.userControlStatistical1 = new Dormitory_Winform.UserControls.UserControlStatistical();
             this.userControlConsume1 = new Dormitory_Winform.UserControls.UserControlConsume();
@@ -66,7 +68,7 @@
             this.userControlFee1 = new Dormitory_Winform.UserControls.UserControlFee();
             this.userControlRooms1 = new Dormitory_Winform.UserControls.UserControlRooms();
             this.userControlRelatives1 = new Dormitory_Winform.UserControls.UserControlRelative();
-            this.userControlStudents1 = new Dormitory_Winform.UserControls.UserControlStudent();
+            this.userControlIntoRoom1 = new Dormitory_Winform.UserControls.UserControlIntoRoom();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -90,6 +92,7 @@
             this.panel1.Controls.Add(this.btnStatistical);
             this.panel1.Controls.Add(this.btnRelatives);
             this.panel1.Controls.Add(this.btnFee);
+            this.panel1.Controls.Add(this.btnIntoRoom);
             this.panel1.Controls.Add(this.btnRoom);
             this.panel1.Controls.Add(this.btnStudent);
             this.panel1.Controls.Add(this.panel2);
@@ -121,7 +124,7 @@
             this.btnAdmin.ForeColor = System.Drawing.Color.White;
             this.btnAdmin.Image = ((System.Drawing.Image)(resources.GetObject("btnAdmin.Image")));
             this.btnAdmin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdmin.Location = new System.Drawing.Point(40, 589);
+            this.btnAdmin.Location = new System.Drawing.Point(40, 652);
             this.btnAdmin.Name = "btnAdmin";
             this.btnAdmin.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnAdmin.Size = new System.Drawing.Size(229, 49);
@@ -144,7 +147,7 @@
             this.btnDevice.ForeColor = System.Drawing.Color.White;
             this.btnDevice.Image = ((System.Drawing.Image)(resources.GetObject("btnDevice.Image")));
             this.btnDevice.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDevice.Location = new System.Drawing.Point(40, 465);
+            this.btnDevice.Location = new System.Drawing.Point(40, 528);
             this.btnDevice.Name = "btnDevice";
             this.btnDevice.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnDevice.Size = new System.Drawing.Size(229, 49);
@@ -167,7 +170,7 @@
             this.btnStatistical.ForeColor = System.Drawing.Color.White;
             this.btnStatistical.Image = ((System.Drawing.Image)(resources.GetObject("btnStatistical.Image")));
             this.btnStatistical.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStatistical.Location = new System.Drawing.Point(40, 650);
+            this.btnStatistical.Location = new System.Drawing.Point(40, 713);
             this.btnStatistical.Name = "btnStatistical";
             this.btnStatistical.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnStatistical.Size = new System.Drawing.Size(229, 49);
@@ -190,7 +193,7 @@
             this.btnRelatives.ForeColor = System.Drawing.Color.White;
             this.btnRelatives.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatives.Image")));
             this.btnRelatives.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRelatives.Location = new System.Drawing.Point(40, 401);
+            this.btnRelatives.Location = new System.Drawing.Point(40, 464);
             this.btnRelatives.Name = "btnRelatives";
             this.btnRelatives.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnRelatives.Size = new System.Drawing.Size(229, 49);
@@ -213,7 +216,7 @@
             this.btnFee.ForeColor = System.Drawing.Color.White;
             this.btnFee.Image = ((System.Drawing.Image)(resources.GetObject("btnFee.Image")));
             this.btnFee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFee.Location = new System.Drawing.Point(40, 340);
+            this.btnFee.Location = new System.Drawing.Point(40, 403);
             this.btnFee.Name = "btnFee";
             this.btnFee.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnFee.Size = new System.Drawing.Size(229, 49);
@@ -222,6 +225,29 @@
             this.btnFee.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFee.UseVisualStyleBackColor = false;
             this.btnFee.Click += new System.EventHandler(this.btnFee_Click);
+            // 
+            // btnIntoRoom
+            // 
+            this.btnIntoRoom.BackColor = System.Drawing.Color.Navy;
+            this.btnIntoRoom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnIntoRoom.BackgroundImage")));
+            this.btnIntoRoom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnIntoRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnIntoRoom.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnIntoRoom.FlatAppearance.BorderSize = 0;
+            this.btnIntoRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIntoRoom.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIntoRoom.ForeColor = System.Drawing.Color.White;
+            this.btnIntoRoom.Image = ((System.Drawing.Image)(resources.GetObject("btnIntoRoom.Image")));
+            this.btnIntoRoom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnIntoRoom.Location = new System.Drawing.Point(40, 280);
+            this.btnIntoRoom.Name = "btnIntoRoom";
+            this.btnIntoRoom.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnIntoRoom.Size = new System.Drawing.Size(229, 49);
+            this.btnIntoRoom.TabIndex = 1;
+            this.btnIntoRoom.Text = "           Into Room";
+            this.btnIntoRoom.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnIntoRoom.UseVisualStyleBackColor = false;
+            this.btnIntoRoom.Click += new System.EventHandler(this.btnIntoRoom_Click);
             // 
             // btnRoom
             // 
@@ -236,7 +262,7 @@
             this.btnRoom.ForeColor = System.Drawing.Color.White;
             this.btnRoom.Image = ((System.Drawing.Image)(resources.GetObject("btnRoom.Image")));
             this.btnRoom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRoom.Location = new System.Drawing.Point(40, 279);
+            this.btnRoom.Location = new System.Drawing.Point(40, 340);
             this.btnRoom.Name = "btnRoom";
             this.btnRoom.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnRoom.Size = new System.Drawing.Size(229, 49);
@@ -331,7 +357,7 @@
             this.btnConsume.ForeColor = System.Drawing.Color.White;
             this.btnConsume.Image = ((System.Drawing.Image)(resources.GetObject("btnConsume.Image")));
             this.btnConsume.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsume.Location = new System.Drawing.Point(40, 527);
+            this.btnConsume.Location = new System.Drawing.Point(40, 590);
             this.btnConsume.Name = "btnConsume";
             this.btnConsume.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnConsume.Size = new System.Drawing.Size(229, 49);
@@ -498,11 +524,22 @@
             this.panel7.Controls.Add(this.userControlFee1);
             this.panel7.Controls.Add(this.userControlRooms1);
             this.panel7.Controls.Add(this.userControlRelatives1);
+            this.panel7.Controls.Add(this.userControlIntoRoom1);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(268, 192);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1332, 531);
             this.panel7.TabIndex = 5;
+            // 
+            // userControlStudents1
+            // 
+            this.userControlStudents1.AutoSize = true;
+            this.userControlStudents1.BackColor = System.Drawing.Color.White;
+            this.userControlStudents1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlStudents1.Location = new System.Drawing.Point(0, 0);
+            this.userControlStudents1.Name = "userControlStudents1";
+            this.userControlStudents1.Size = new System.Drawing.Size(1332, 531);
+            this.userControlStudents1.TabIndex = 1;
             // 
             // userControlAdmins1
             // 
@@ -570,16 +607,13 @@
             this.userControlRelatives1.Size = new System.Drawing.Size(1332, 531);
             this.userControlRelatives1.TabIndex = 2;
             // 
-            // userControlStudents1
+            // userControlIntoRoom1
             // 
-            this.userControlStudents1.AutoSize = true;
-            this.userControlStudents1.BackColor = System.Drawing.Color.White;
-            this.userControlStudents1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControlStudents1.Location = new System.Drawing.Point(0, 0);
-            this.userControlStudents1.Name = "userControlStudents1";
-            this.userControlStudents1.Size = new System.Drawing.Size(1332, 531);
-            this.userControlStudents1.TabIndex = 1;
-            this.userControlStudents1.Load += new System.EventHandler(this.userControlStudents1_Load);
+            this.userControlIntoRoom1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlIntoRoom1.Location = new System.Drawing.Point(0, 0);
+            this.userControlIntoRoom1.Name = "userControlIntoRoom1";
+            this.userControlIntoRoom1.Size = new System.Drawing.Size(1332, 531);
+            this.userControlIntoRoom1.TabIndex = 8;
             // 
             // FormDashboard
             // 
@@ -660,5 +694,7 @@
         private UserControls.UserControlConsume userControlConsume1;
         private UserControls.UserControlStatistical userControlStatistical1;
         private UserControls.UserControlStudent userControlStudents1;
+        private System.Windows.Forms.Button btnIntoRoom;
+        private UserControls.UserControlIntoRoom userControlIntoRoom1;
     }
 }

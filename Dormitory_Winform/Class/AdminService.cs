@@ -18,18 +18,18 @@ namespace Dormitory_Winform
             db = dbContext;
         }
 
-        public List<Admin> SearchUsers(string searchText)
+        public List<ADMIN> SearchUsers(string searchText)
         {
             try
             {
-                var searchResult = db.Admins.Where(u => u.Ten.Contains(searchText)).ToList();
+                var searchResult = db.ADMINS.Where(u => u.Ten.Contains(searchText)).ToList();
 
                 return searchResult;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while searching for users. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new List<Admin>();
+                return new List<ADMIN>();
             }
         }
 
@@ -37,19 +37,19 @@ namespace Dormitory_Winform
         {
             try
             {
-                if (db.Admins.Any(u => u.Ten == username))
+                if (db.ADMINS.Any(u => u.Ten == username))
                 {
                     MessageBox.Show("Username already exists. Please choose a different username.", "Duplicate Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
 
-                Admin newUser = new Admin
+                ADMIN newUser = new ADMIN
                 {
                     Ten = username,
                     MatKhau = password
                 };
 
-                db.Admins.Add(newUser);
+                db.ADMINS.Add(newUser);
 
                 db.SaveChanges();
 
@@ -74,7 +74,7 @@ namespace Dormitory_Winform
                     return false;
                 }
 
-                Admin existingUser = db.Admins.Find(int.Parse(id));
+                ADMIN existingUser = db.ADMINS.Find(int.Parse(id));
 
                 if (existingUser == null)
                 {
@@ -108,7 +108,7 @@ namespace Dormitory_Winform
                     return false;
                 }
 
-                Admin userToDelete = db.Admins.Find(int.Parse(id));
+                ADMIN userToDelete = db.ADMINS.Find(int.Parse(id));
 
                 if (userToDelete == null)
                 {
@@ -116,7 +116,7 @@ namespace Dormitory_Winform
                     return false;
                 }
 
-                db.Admins.Remove(userToDelete);
+                db.ADMINS.Remove(userToDelete);
 
                 db.SaveChanges();
 

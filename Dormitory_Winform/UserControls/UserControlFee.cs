@@ -41,7 +41,7 @@ namespace Dormitory_Winform.UserControls
                     return;
                 }
 
-                List<string> maSVList = db.SinhViens
+                List<string> maSVList = db.SINHVIENs
                     .Where(s => s.TrangThaiDki == "Duyet")
                     .Select(s => s.MaSV.ToString())
                     .ToList();
@@ -72,7 +72,7 @@ namespace Dormitory_Winform.UserControls
                     return;
                 }
 
-                var data = db.KhoanPhis.ToList();
+                var data = db.KHOANPHIs.ToList();
 
                 if (data == null)
                 {
@@ -142,7 +142,7 @@ namespace Dormitory_Winform.UserControls
 
             if (!string.IsNullOrEmpty(searchKhoanPhi))
             {
-                List<KhoanPhi> searchResult = feeService.SearchFee(searchKhoanPhi);
+                List<KHOANPHI> searchResult = feeService.SearchFee(searchKhoanPhi);
                 bindingSource.DataSource = searchResult;
             }
             else

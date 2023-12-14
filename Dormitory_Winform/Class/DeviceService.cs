@@ -15,11 +15,11 @@ namespace Dormitory_Winform.Class
             db = dbContext;
         }
 
-        public List<ThietBi> SearchDevice(string searchDevice)
+        public List<THIETBI> SearchDevice(string searchDevice)
         {
             try
             {
-                return db.ThietBis
+                return db.THIETBIs
                     .Where(t => t.TenThietBi.Contains(searchDevice)
                              || t.TinhTrang.Contains(searchDevice))
                     .ToList();
@@ -27,29 +27,28 @@ namespace Dormitory_Winform.Class
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while searching for devices. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new List<ThietBi>();
+                return new List<THIETBI>();
             }
         }
 
-        public bool AddDevice(string tenThietBi, string maPhong, string soLuong, string tinhTrang)
+        public bool AddDevice(string tenThietBi, string soLuong, string tinhTrang)
         {
             try
             {
-                if (!int.TryParse(maPhong, out int parsedMaPhong) || !int.TryParse(soLuong, out int parsedSoLuong))
+                if (!int.TryParse(soLuong, out int parsedSoLuong))
                 {
-                    MessageBox.Show("Invalid input. Please enter valid integers for MaPhong and SoLuong.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Invalid input. Please enter valid integers for SoLuong.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
 
-                ThietBi newDevice = new ThietBi
+                THIETBI newDevice = new THIETBI
                 {
                     TenThietBi = tenThietBi,
-                    MaPhong = parsedMaPhong,
                     SoLuong = parsedSoLuong,
                     TinhTrang = tinhTrang
                 };
 
-                db.ThietBis.Add(newDevice);
+                db.THIETBIs.Add(newDevice);
                 db.SaveChanges();
 
                 MessageBox.Show("Device added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -62,7 +61,7 @@ namespace Dormitory_Winform.Class
                 return false;
             }
         }
-        public bool UpdateDevice(string tenThietBi, string maPhong, string soLuong, string tinhTrang)
+        public bool UpdateDevice(string tenThietBi, string soLuong, string tinhTrang)
         {
             try
             {
@@ -72,13 +71,13 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                if (!int.TryParse(maPhong, out int parsedMaPhong) || !int.TryParse(soLuong, out int parsedSoLuong))
+                if (!int.TryParse(soLuong, out int parsedSoLuong))
                 {
                     MessageBox.Show("Invalid input. Please enter valid integers for MaPhong and SoLuong.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
 
-                ThietBi deviceToUpdate = db.ThietBis.FirstOrDefault(d => d.TenThietBi == tenThietBi);
+                THIETBI deviceToUpdate = db.THIETBIs.FirstOrDefault(d => d.TenThietBi == tenThietBi);
 
                 if (deviceToUpdate == null)
                 {
@@ -86,7 +85,6 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                deviceToUpdate.MaPhong = parsedMaPhong;
                 deviceToUpdate.SoLuong = parsedSoLuong;
                 deviceToUpdate.TinhTrang = tinhTrang;
 
@@ -107,7 +105,7 @@ namespace Dormitory_Winform.Class
         {
             try
             {
-                ThietBi deviceToDelete = db.ThietBis.FirstOrDefault(d => d.TenThietBi == tenThietBi);
+                THIETBI deviceToDelete = db.THIETBIs.FirstOrDefault(d => d.TenThietBi == tenThietBi);
 
                 if (deviceToDelete == null)
                 {
@@ -115,7 +113,7 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                db.ThietBis.Remove(deviceToDelete);
+                db.THIETBIs.Remove(deviceToDelete);
                 db.SaveChanges();
 
                 MessageBox.Show("Device deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

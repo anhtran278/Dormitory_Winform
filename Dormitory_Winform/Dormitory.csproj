@@ -64,13 +64,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin.cs">
+    <Compile Include="ADMIN.cs">
       <DependentUpon>QuanLi_Dormitory.tt</DependentUpon>
     </Compile>
     <Compile Include="Class\AdminService.cs" />
     <Compile Include="Class\ConsumeService.cs" />
     <Compile Include="Class\DeviceService.cs" />
     <Compile Include="Class\FeeService.cs" />
+    <Compile Include="Class\IntoRoomService.cs" />
     <Compile Include="Class\RelativeService.cs" />
     <Compile Include="Class\RoomService.cs" />
     <Compile Include="Class\StudentService.cs" />
@@ -104,16 +105,16 @@
     <Compile Include="Form\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="HaoPhi.cs">
+    <Compile Include="HAOPHI.cs">
       <DependentUpon>QuanLi_Dormitory.tt</DependentUpon>
     </Compile>
-    <Compile Include="KhoanPhi.cs">
+    <Compile Include="KHOANPHI.cs">
       <DependentUpon>QuanLi_Dormitory.tt</DependentUpon>
     </Compile>
-    <Compile Include="NguoiThan.cs">
+    <Compile Include="NGUOITHAN.cs">
       <DependentUpon>QuanLi_Dormitory.tt</DependentUpon>
     </Compile>
-    <Compile Include="Phong.cs">
+    <Compile Include="PHONG.cs">
       <DependentUpon>QuanLi_Dormitory.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -133,13 +134,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLi_Dormitory.edmx</DependentUpon>
     </Compile>
-    <Compile Include="SinhVien.cs">
+    <Compile Include="SINHVIEN.cs">
       <DependentUpon>QuanLi_Dormitory.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
+    <Compile Include="SINHVIENVAOPHONG.cs">
       <DependentUpon>QuanLi_Dormitory.tt</DependentUpon>
     </Compile>
-    <Compile Include="ThietBi.cs">
+    <Compile Include="THIETBI.cs">
       <DependentUpon>QuanLi_Dormitory.tt</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UserControlConsume.cs">
@@ -159,6 +160,12 @@
     </Compile>
     <Compile Include="UserControls\UserControlFee.Designer.cs">
       <DependentUpon>UserControlFee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlIntoRoom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlIntoRoom.Designer.cs">
+      <DependentUpon>UserControlIntoRoom.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UserControlRelative.cs">
       <SubType>UserControl</SubType>
@@ -209,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserControlFee.resx">
       <DependentUpon>UserControlFee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlIntoRoom.resx">
+      <DependentUpon>UserControlIntoRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserControlRelative.resx">
       <DependentUpon>UserControlRelative.cs</DependentUpon>

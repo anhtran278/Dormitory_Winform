@@ -12,7 +12,7 @@ namespace Dormitory_Winform
     using System;
     using System.Collections.Generic;
     
-    public partial class KhoanPhi
+    public partial class KHOANPHI
     {
         public int MaKhoanPhi { get; set; }
         public int MaSV { get; set; }
@@ -22,6 +22,6 @@ namespace Dormitory_Winform
         public decimal TienGuiXe { get; set; }
         public decimal TienDienVaNuoc { get; set; }
     
-        public virtual SinhVien SinhVien { get; set; }
+        public virtual SINHVIEN SINHVIEN { get; set; }
     }
 }

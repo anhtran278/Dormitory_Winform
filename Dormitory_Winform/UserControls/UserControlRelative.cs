@@ -43,7 +43,7 @@ namespace Dormitory_Winform.UserControls
                     return;
                 }
 
-                List<string> maSVList = db.SinhViens
+                List<string> maSVList = db.SINHVIENs
                     .Where(s => s.TrangThaiDki == "Duyet")
                     .Select(s => s.MaSV.ToString())
                     .ToList();
@@ -73,7 +73,7 @@ namespace Dormitory_Winform.UserControls
                 {
                     return;
                 }
-                var data = db.NguoiThans.ToList();
+                var data = db.NGUOITHANs.ToList();
 
                 if (data == null)
                 {
@@ -190,8 +190,6 @@ namespace Dormitory_Winform.UserControls
                 Console.WriteLine("An error occurred: " + ex.Message);
             }
         }
-
-
         private bool IsDataValid()
         {
             if (string.IsNullOrEmpty(txtUpAndDeDiaChiRelatives.Text) || string.IsNullOrEmpty(txtUpAndDeSDTRelatives.Text))

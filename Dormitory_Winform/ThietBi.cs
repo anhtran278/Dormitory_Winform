@@ -12,22 +12,20 @@ namespace Dormitory_Winform
     using System;
     using System.Collections.Generic;
     
-    public partial class ThietBi
+    public partial class THIETBI
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ThietBi()
+        public THIETBI()
         {
-            this.HaoPhis = new HashSet<HaoPhi>();
+            this.HAOPHIs = new HashSet<HAOPHI>();
         }
     
         public int MaThietBi { get; set; }
-        public int MaPhong { get; set; }
         public string TenThietBi { get; set; }
         public int SoLuong { get; set; }
         public string TinhTrang { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HaoPhi> HaoPhis { get; set; }
-        public virtual Phong Phong { get; set; }
+        public virtual ICollection<HAOPHI> HAOPHIs { get; set; }
     }
 }

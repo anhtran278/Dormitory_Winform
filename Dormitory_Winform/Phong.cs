@@ -12,26 +12,22 @@ namespace Dormitory_Winform
     using System;
     using System.Collections.Generic;
     
-    public partial class Phong
+    public partial class PHONG
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Phong()
+        public PHONG()
         {
-            this.HaoPhis = new HashSet<HaoPhi>();
-            this.ThietBis = new HashSet<ThietBi>();
+            this.HAOPHIs = new HashSet<HAOPHI>();
+            this.SINHVIENVAOPHONGs = new HashSet<SINHVIENVAOPHONG>();
         }
     
-        public int MaPhong { get; set; }
-        public int MaSV { get; set; }
-        public string KiHieu { get; set; }
+        public string MaPhong { get; set; }
         public decimal GiaPhong { get; set; }
-        public string LoaiPhong { get; set; }
-        public Nullable<System.DateTime> NgayVao { get; set; }
+        public string TrangThaiPhong { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HaoPhi> HaoPhis { get; set; }
-        public virtual SinhVien SinhVien { get; set; }
+        public virtual ICollection<HAOPHI> HAOPHIs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ThietBi> ThietBis { get; set; }
+        public virtual ICollection<SINHVIENVAOPHONG> SINHVIENVAOPHONGs { get; set; }
     }
 }

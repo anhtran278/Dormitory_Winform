@@ -70,12 +70,13 @@ namespace Dormitory_Winform
             userControlDevices1.Hide();
             userControlConsume1.Hide();
             userControlStatistical1.Hide();
+
         }
 
         private void btnRoom_Click(object sender, EventArgs e)
         {
             movePanel(btnRoom);
-            //userControlRooms1.Clear();
+            userControlRooms1.Clear();
             userControlRooms1.Show();
             userControlAdmins1.Hide();
             userControlStudents1.Hide();
@@ -157,7 +158,7 @@ namespace Dormitory_Winform
         private void btnConsume_Click(object sender, EventArgs e)
         {
             movePanel(btnConsume);
-            //userControlConsume1.Clear();
+            userControlConsume1.Clear();
             userControlConsume1.Show();
             userControlAdmins1.Hide();
             userControlStudents1.Hide();
@@ -168,9 +169,19 @@ namespace Dormitory_Winform
             userControlStatistical1.Hide();
         }
 
-        private void userControlStudents1_Load(object sender, EventArgs e)
+        private void btnIntoRoom_Click(object sender, EventArgs e)
         {
-
+            movePanel(btnIntoRoom);
+            //userControlIntoRoom1.Clear();
+            userControlIntoRoom1.Show();
+            userControlAdmins1.Hide();
+            userControlStudents1.Hide();
+            userControlRelatives1.Hide();
+            userControlFee1.Hide();
+            userControlRooms1.Hide();
+            userControlDevices1.Hide();
+            userControlStatistical1.Hide();
+            userControlConsume1.Hide();
         }
     }
 }

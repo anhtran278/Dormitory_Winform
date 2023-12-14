@@ -16,11 +16,11 @@ namespace Dormitory_Winform.Class
             db = dbContext;
         }
 
-        public List<NguoiThan> SearchRelatives(string searchText)
+        public List<NGUOITHAN> SearchRelatives(string searchText)
         {
             try
             {
-                var searchResult = db.NguoiThans
+                var searchResult = db.NGUOITHANs
                     .Where(r => r.MaNT.ToString().Contains(searchText))
                     .ToList();
                 return searchResult;
@@ -28,7 +28,7 @@ namespace Dormitory_Winform.Class
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while searching for relatives. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new List<NguoiThan>();
+                return new List<NGUOITHAN>();
             }
         }
 
@@ -36,7 +36,7 @@ namespace Dormitory_Winform.Class
         {
             try
             {
-                NguoiThan newRelative = new NguoiThan
+                NGUOITHAN newRelative = new NGUOITHAN
                 {
                     MaSV = studentID,
                     Ten = relativeName,
@@ -45,7 +45,7 @@ namespace Dormitory_Winform.Class
                     DienThoai = phoneNumber
                 };
 
-                db.NguoiThans.Add(newRelative);
+                db.NGUOITHANs.Add(newRelative);
                 db.SaveChanges();
 
                 MessageBox.Show("Relative added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -63,7 +63,7 @@ namespace Dormitory_Winform.Class
         {
             try
             {
-                NguoiThan relativeToUpdate = db.NguoiThans.FirstOrDefault(r => r.MaSV == maSinhVien);
+                NGUOITHAN relativeToUpdate = db.NGUOITHANs.FirstOrDefault(r => r.MaSV == maSinhVien);
 
                 if (relativeToUpdate == null)
                 {
@@ -95,7 +95,7 @@ namespace Dormitory_Winform.Class
             {
                 int maSinhVien = int.Parse(maNguoiThan);
 
-                NguoiThan relativeToDelete = db.NguoiThans.FirstOrDefault(r => r.MaSV == maSinhVien);
+                NGUOITHAN relativeToDelete = db.NGUOITHANs.FirstOrDefault(r => r.MaSV == maSinhVien);
 
                 if (relativeToDelete == null)
                 {
@@ -103,7 +103,7 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                db.NguoiThans.Remove(relativeToDelete);
+                db.NGUOITHANs.Remove(relativeToDelete);
                 db.SaveChanges();
 
                 MessageBox.Show("Relative deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

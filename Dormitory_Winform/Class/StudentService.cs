@@ -17,11 +17,11 @@ namespace Dormitory_Winform.Class
             db = dbContext;
         }
 
-        public List<SinhVien> SearchStudents(string searchText)
+        public List<SINHVIEN> SearchStudents(string searchText)
         {
             try
             {
-                var searchResult = db.SinhViens.
+                var searchResult = db.SINHVIENs.
                     Where(s => s.MaSV.ToString().Contains(searchText))
                     .ToList();
                 return searchResult;
@@ -29,7 +29,7 @@ namespace Dormitory_Winform.Class
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while searching for students. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new List<SinhVien>();
+                return new List<SINHVIEN>();
             }
         }
 
@@ -44,7 +44,7 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                if (db.SinhViens.Any(s => s.MaSV == maSVID))
+                if (db.SINHVIENs.Any(s => s.MaSV == maSVID))
                 {
                     MessageBox.Show("SinhVien already exists. Please choose a different SinhVien ID.", "Duplicate SinhVien ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
@@ -57,7 +57,7 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                SinhVien newSinhVien = new SinhVien
+                SINHVIEN newSinhVien = new SINHVIEN
                 {
                     MaSV = maSVID,
                     Ten = ten,
@@ -67,7 +67,7 @@ namespace Dormitory_Winform.Class
                     TrangThaiDki = trangThaiDki
                 };
 
-                db.SinhViens.Add(newSinhVien);
+                db.SINHVIENs.Add(newSinhVien);
                 db.SaveChanges();
 
                 MessageBox.Show("SinhVien added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -91,7 +91,7 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                SinhVien existingSinhVien = db.SinhViens.FirstOrDefault(s => s.MaSV == maSVID);
+                SINHVIEN existingSinhVien = db.SINHVIENs.FirstOrDefault(s => s.MaSV == maSVID);
 
                 if (existingSinhVien == null)
                 {
@@ -138,7 +138,7 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                SinhVien SinhVienToDelete = db.SinhViens.FirstOrDefault(s => s.MaSV == maSVID);
+                SINHVIEN SinhVienToDelete = db.SINHVIENs.FirstOrDefault(s => s.MaSV == maSVID);
 
                 if (SinhVienToDelete == null)
                 {
@@ -146,7 +146,7 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                db.SinhViens.Remove(SinhVienToDelete);
+                db.SINHVIENs.Remove(SinhVienToDelete);
                 db.SaveChanges();
 
                 MessageBox.Show("SinhVien deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

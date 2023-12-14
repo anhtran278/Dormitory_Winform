@@ -16,11 +16,11 @@ namespace Dormitory_Winform.Class
         {
             db = dbContext;
         }
-        public List<HaoPhi> SearchConsume(string searchConsume)
+        public List<HAOPHI> SearchConsume(string searchConsume)
         {
             try
             {
-                return db.HaoPhis
+                return db.HAOPHIs
                     .Where(c => c.MaThietBi.ToString().Contains(searchConsume)
                              || c.MaPhong.ToString().Contains(searchConsume))
                     .ToList();
@@ -28,7 +28,7 @@ namespace Dormitory_Winform.Class
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while searching for Consume. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new List<HaoPhi>();
+                return new List<HAOPHI>();
             }
         }
         public bool AddConsume(string maThietBi, string maPhong, string tienBaoTriTB, string tienBaoTriPhong, string ngayHaoPhi)
@@ -41,11 +41,7 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                if (!int.TryParse(maPhong, out int parsedMaPhong))
-                {
-                    MessageBox.Show("Invalid MaPhong. Please enter a valid integer.", "Invalid MaPhong", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
+               
                 if (!int.TryParse(maThietBi, out int parsedMaTB))
                 {
                     MessageBox.Show("Invalid MaThietBi. Please enter a valid integer.", "Invalid MaThietBi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -59,16 +55,16 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                HaoPhi newConsume = new HaoPhi
+                HAOPHI newConsume = new HAOPHI
                 {
-                    MaPhong = parsedMaPhong,
+                    MaPhong = maPhong,
                     MaThietBi = parsedMaTB,
                     TienBaoTriPhong = parsedTienBaoTriPhong,
                     TienBaoTriThietBi = parsedTienBaoTriThietBi,
                     NgayHaoPhi = parsedNgayHaoPhi,
                 };
 
-                db.HaoPhis.Add(newConsume);
+                db.HAOPHIs.Add(newConsume);
                 db.SaveChanges();
 
                 MessageBox.Show("Consume added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -85,14 +81,13 @@ namespace Dormitory_Winform.Class
         {
             try
             {
-                if (!int.TryParse(maPhong, out int parsedMaPhong) || !int.TryParse(maThietBi, out int parsedMaThietBi))
+                if (!int.TryParse(maThietBi, out int parsedMaThietBi))
                 {
                     MessageBox.Show("Invalid MaPhong or MaThietBi. Please enter valid integers.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
 
-                HaoPhi ConsumeToUpdate = db.HaoPhis.FirstOrDefault(Consume => Consume.MaPhong == parsedMaPhong && Consume.MaThietBi == parsedMaThietBi);
-
+                HAOPHI ConsumeToUpdate = db.HAOPHIs.FirstOrDefault(Consume => Consume.MaThietBi == parsedMaThietBi);
                 if (ConsumeToUpdate == null)
                 {
                     MessageBox.Show("Consume not found for the given MaPhong and MaThietBi.", "Consume Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -131,13 +126,13 @@ namespace Dormitory_Winform.Class
         {
             try
             {
-                if (!int.TryParse(maPhong, out int parsedMaPhong) || !int.TryParse(maThietBi, out int parsedMaThietBi))
+                if (!int.TryParse(maThietBi, out int parsedMaThietBi))
                 {
                     MessageBox.Show("Invalid MaPhong or MaThietBi. Please enter valid integers.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
 
-                HaoPhi consumeToDelete = db.HaoPhis.FirstOrDefault(consume => consume.MaPhong == parsedMaPhong && consume.MaThietBi == parsedMaThietBi);
+                HAOPHI consumeToDelete = db.HAOPHIs.FirstOrDefault(consume => consume.MaThietBi == parsedMaThietBi);
 
                 if (consumeToDelete == null)
                 {
@@ -145,7 +140,7 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                db.HaoPhis.Remove(consumeToDelete);
+                db.HAOPHIs.Remove(consumeToDelete);
                 db.SaveChanges();
 
                 MessageBox.Show("Consume deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

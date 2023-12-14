@@ -16,11 +16,11 @@ namespace Dormitory_Winform.Class
         {
             db = dbContext;
         }
-        public List<KhoanPhi> SearchFee(string searchFee)
+        public List<KHOANPHI> SearchFee(string searchFee)
         {
             try
             {
-                return db.KhoanPhis
+                return db.KHOANPHIs
                     .Where(r => r.MaKhoanPhi.ToString().Contains(searchFee)
                              || r.MaSV.ToString().Contains(searchFee))
                     .ToList();
@@ -28,7 +28,7 @@ namespace Dormitory_Winform.Class
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while searching for Fees. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new List<KhoanPhi>();
+                return new List<KHOANPHI>();
             }
         }
         public bool AddFee(string ngayThanhToan, string tienPhong, string maSV, string tienDienNuoc, string tienInternet, string tienGuiXe)
@@ -56,7 +56,7 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                KhoanPhi newFee = new KhoanPhi
+                KHOANPHI newFee = new KHOANPHI
                 {
                     NgayThanhToan = parsedNgayThanhToan,
                     MaSV = parsedMaSV,
@@ -66,7 +66,7 @@ namespace Dormitory_Winform.Class
                     TienGuiXe = parsedTienGuiXe
                 };
 
-                db.KhoanPhis.Add(newFee);
+                db.KHOANPHIs.Add(newFee);
                 db.SaveChanges();
 
                 MessageBox.Show("Fee added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -91,7 +91,7 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                KhoanPhi feeToUpdate = db.KhoanPhis.FirstOrDefault(fee => fee.MaSV == parsedMaSV);
+                KHOANPHI feeToUpdate = db.KHOANPHIs.FirstOrDefault(fee => fee.MaSV == parsedMaSV);
 
                 if (feeToUpdate == null)
                 {
@@ -141,7 +141,7 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                KhoanPhi feeToDelete = db.KhoanPhis.FirstOrDefault(fee => fee.MaSV == parsedMaSV);
+                KHOANPHI feeToDelete = db.KHOANPHIs.FirstOrDefault(fee => fee.MaSV == parsedMaSV);
 
                 if (feeToDelete == null)
                 {
@@ -149,7 +149,7 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                db.KhoanPhis.Remove(feeToDelete);
+                db.KHOANPHIs.Remove(feeToDelete);
                 db.SaveChanges();
 
                 MessageBox.Show("Fee deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

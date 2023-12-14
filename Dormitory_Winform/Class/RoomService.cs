@@ -17,69 +17,33 @@ namespace Dormitory_Winform.Class
         {
             db = dbContext;
         }
-        public List<Phong> SearchRoom(string searchRoom)
+        public List<PHONG> SearchRoom(string searchRoom)
         {
             try
             {
-                return db.Phongs
+                return db.PHONGs
                     .Where(r => r.MaPhong.ToString().Contains(searchRoom)
-                             || r.LoaiPhong.Contains(searchRoom)
-                             || r.KiHieu.Contains(searchRoom)
-                             || r.GiaPhong.ToString().Contains(searchRoom))
+                             || r.GiaPhong.ToString().Contains(searchRoom)
+                             || r.TrangThaiPhong.ToString().Contains(searchRoom))
                     .ToList();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while searching for rooms. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new List<Phong>();
+                return new List<PHONG>();
             }
         }
 
-        public bool AddRoom(string maPhong, string loaiPhong, string maSV, string kiHieu, string giaPhong, string ngayVao)
+        public bool AddRoom(string maPhong, string loaiPhong, string giaPhong, string trangThai)
         {
             try
             {
-                if (!DateTime.TryParse(ngayVao, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedNgayVao))
+                PHONG newPhong = new PHONG
                 {
-                    MessageBox.Show("Invalid date format. Please enter a date in the format dd/MM/yyyy.", "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-                int parsedMaPhong;
-                if (!int.TryParse(maPhong, out parsedMaPhong))
-                {
-                    MessageBox.Show("Invalid Room ID. Please enter a valid integer.", "Invalid Room ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
-                if (db.Phongs.Any(u => u.MaPhong == parsedMaPhong))
-                {
-                    MessageBox.Show("Room already exists. Please choose a different Room ID.", "Duplicate Room ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-                int parsedMaSV;
-                if (!int.TryParse(maSV, out parsedMaSV))
-                {
-                    MessageBox.Show("Invalid MaSV. Please enter a valid integer.", "Invalid MaSV", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
-                if (db.Phongs.Any(p => p.MaSV == parsedMaSV))
-                {
-                    MessageBox.Show("This student is already assigned to a room. One student can only stay in one room.", "Student Assignment Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
-                Phong newPhong = new Phong
-                {
-                    MaPhong = parsedMaPhong,
-                    MaSV = parsedMaSV, 
-                    KiHieu = kiHieu,
-                    LoaiPhong = loaiPhong,
                     GiaPhong = decimal.Parse(giaPhong),
-                    NgayVao = parsedNgayVao,
                 };
 
-                db.Phongs.Add(newPhong);
+                db.PHONGs.Add(newPhong);
                 db.SaveChanges();
 
                 MessageBox.Show("Room added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -92,15 +56,10 @@ namespace Dormitory_Winform.Class
                 return false;
             }
         }
-        public bool UpdateRoom(string maPhong, string loaiPhong, string maSV, string kiHieu, string giaPhong, string ngayVao)
+        public bool UpdateRoom(string maPhong, string giaPhong, string trangThai)
         {
             try
             {
-                if (!DateTime.TryParse(ngayVao, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedNgayVao))
-                {
-                    MessageBox.Show("Invalid date format. Please enter a date in the format dd/MM/yyyy.", "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
                 int parsedMaPhong;
                 if (!int.TryParse(maPhong, out parsedMaPhong) || parsedMaPhong <= 0)
                 {
@@ -108,25 +67,13 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                Phong existingRoom = db.Phongs.Find(parsedMaPhong);
+                PHONG existingRoom = db.PHONGs.Find(parsedMaPhong);
 
                 if (existingRoom == null)
                 {
                     MessageBox.Show("Room not found in the database.", "Room Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
-
-                existingRoom.NgayVao = parsedNgayVao;
-                existingRoom.LoaiPhong = loaiPhong;
-                existingRoom.KiHieu = kiHieu;
-
-                int parsedMaSV;
-                if (!int.TryParse(maSV, out parsedMaSV))
-                {
-                    MessageBox.Show("Invalid MaSV. Please enter a valid integer.", "Invalid MaSV", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-                existingRoom.MaSV = parsedMaSV;
 
                 decimal parsedGiaPhong;
                 if (!decimal.TryParse(giaPhong, out parsedGiaPhong))
@@ -161,7 +108,7 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                Phong roomToDelete = db.Phongs.Find(parsedMaPhong);
+                PHONG roomToDelete = db.PHONGs.Find(parsedMaPhong);
 
                 if (roomToDelete == null)
                 {
@@ -169,7 +116,7 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                db.Phongs.Remove(roomToDelete);
+                db.PHONGs.Remove(roomToDelete);
                 db.SaveChanges();
 
                 MessageBox.Show("Room deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

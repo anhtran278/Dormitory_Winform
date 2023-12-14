@@ -12,14 +12,13 @@ namespace Dormitory_Winform
     using System;
     using System.Collections.Generic;
     
-    public partial class SinhVien
+    public partial class SINHVIEN
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SinhVien()
+        public SINHVIEN()
         {
-            this.KhoanPhis = new HashSet<KhoanPhi>();
-            this.NguoiThans = new HashSet<NguoiThan>();
-            this.Phongs = new HashSet<Phong>();
+            this.KHOANPHIs = new HashSet<KHOANPHI>();
+            this.NGUOITHANs = new HashSet<NGUOITHAN>();
         }
     
         public int MaSV { get; set; }
@@ -27,13 +26,12 @@ namespace Dormitory_Winform
         public string DiaChi { get; set; }
         public System.DateTime NgaySinh { get; set; }
         public string DienThoai { get; set; }
+        public string LoaiPhongSVDangKi { get; set; }
         public string TrangThaiDki { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KhoanPhi> KhoanPhis { get; set; }
+        public virtual ICollection<KHOANPHI> KHOANPHIs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NguoiThan> NguoiThans { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Phong> Phongs { get; set; }
+        public virtual ICollection<NGUOITHAN> NGUOITHANs { get; set; }
     }
 }

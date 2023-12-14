@@ -68,7 +68,7 @@ namespace Dormitory_Winform
 
             try
             {
-                var user = db.Admins.SingleOrDefault(u => u.Ten == username && u.MatKhau == userPassword);
+                var user = db.ADMINS.SingleOrDefault(u => u.Ten == username && u.MatKhau == userPassword);
                 
                 if (user != null)
                 {

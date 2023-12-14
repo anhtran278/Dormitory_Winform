@@ -25,13 +25,13 @@ namespace Dormitory_Winform
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Admin> Admins { get; set; }
-        public virtual DbSet<HaoPhi> HaoPhis { get; set; }
-        public virtual DbSet<KhoanPhi> KhoanPhis { get; set; }
-        public virtual DbSet<NguoiThan> NguoiThans { get; set; }
-        public virtual DbSet<Phong> Phongs { get; set; }
-        public virtual DbSet<SinhVien> SinhViens { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<ThietBi> ThietBis { get; set; }
+        public virtual DbSet<ADMIN> ADMINS { get; set; }
+        public virtual DbSet<HAOPHI> HAOPHIs { get; set; }
+        public virtual DbSet<KHOANPHI> KHOANPHIs { get; set; }
+        public virtual DbSet<NGUOITHAN> NGUOITHANs { get; set; }
+        public virtual DbSet<PHONG> PHONGs { get; set; }
+        public virtual DbSet<SINHVIEN> SINHVIENs { get; set; }
+        public virtual DbSet<SINHVIENVAOPHONG> SINHVIENVAOPHONGs { get; set; }
+        public virtual DbSet<THIETBI> THIETBIs { get; set; }
     }
 }
