@@ -66,18 +66,31 @@ namespace Dormitory_Winform.UserControls
 
                 List<string> maSVList = db.SINHVIENs
                     .Where(s => s.TrangThaiDki == "Duyet")
-                    .Select(s => s.MaSV.ToString() + " - " + s.LoaiPhongSVDangKi)
+                    .Select(s => s.MaSV.ToString())
+                    .ToList();
+                List<string> loaiPhongDkiList = db.SINHVIENs
+                    .Where(s => s.TrangThaiDki == "Duyet")
+                    .Select(s => s.LoaiPhongSVDangKi)
                     .ToList();
 
                 if (cbBoxAddMaSVIntoRoom == null)
                 {
                     return;
                 }
-
                 cbBoxAddMaSVIntoRoom.Items.Clear();
                 foreach (string maSV in maSVList)
                 {
                     cbBoxAddMaSVIntoRoom.Items.Add(maSV);
+                }
+
+                if (cbBoxAddLoaiPhongDkiIntoRoom == null)
+                {
+                    return;
+                }
+                cbBoxAddLoaiPhongDkiIntoRoom.Items.Clear();
+                foreach (string loaiPhongDki in loaiPhongDkiList)
+                {
+                    cbBoxAddMaSVIntoRoom.Items.Add(loaiPhongDki);
                 }
             }
             catch (Exception ex)
