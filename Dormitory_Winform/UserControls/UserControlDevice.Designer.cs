@@ -43,13 +43,14 @@
             this.rdbAddBaoTriDevice = new System.Windows.Forms.RadioButton();
             this.tabPageSearchDevices = new System.Windows.Forms.TabPage();
             this.dataGridViewDevices = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearchMaThietBiDevices = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPageUpDeDevices = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnDeleteDevices = new System.Windows.Forms.Button();
-            this.btnUpdateDevices = new System.Windows.Forms.Button();
             this.txtUpAndDeTenTBDevice = new System.Windows.Forms.TextBox();
             this.txtUpAndDeSoLuongDevice = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,10 +59,9 @@
             this.rdbUpAndDeHoatDongDevice = new System.Windows.Forms.RadioButton();
             this.rdbUpAndDeHongDevice = new System.Windows.Forms.RadioButton();
             this.rdbUpAndDeBaoTriDevice = new System.Windows.Forms.RadioButton();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnDeleteDevices = new System.Windows.Forms.Button();
+            this.btnUpdateDevices = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
             this.tabControlDevices.SuspendLayout();
             this.tabPageAddDevices.SuspendLayout();
@@ -245,6 +245,38 @@
             this.dataGridViewDevices.TabIndex = 6;
             this.dataGridViewDevices.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDevice_CellClick);
             // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.DataPropertyName = "MaThietBi";
+            this.Column1.HeaderText = "Ma Thiet Bi";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.DataPropertyName = "TenThietBi";
+            this.Column3.HeaderText = "Ten Thiet Bi";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.DataPropertyName = "SoLuong";
+            this.Column4.HeaderText = "So Luong";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column5.DataPropertyName = "TinhTrang";
+            this.Column5.HeaderText = "Tinh Trang";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
             // txtSearchMaThietBiDevices
             // 
             this.txtSearchMaThietBiDevices.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -298,51 +330,6 @@
             this.tabPageUpDeDevices.Text = "Update and Delete ";
             this.tabPageUpDeDevices.UseVisualStyleBackColor = true;
             this.tabPageUpDeDevices.Leave += new System.EventHandler(this.tabPageUpDeDevices_Leave);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Navy;
-            this.label5.Location = new System.Drawing.Point(3, 3);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(215, 18);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Update and Delete Devices:";
-            // 
-            // btnDeleteDevices
-            // 
-            this.btnDeleteDevices.BackColor = System.Drawing.Color.DarkRed;
-            this.btnDeleteDevices.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDeleteDevices.BackgroundImage")));
-            this.btnDeleteDevices.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDeleteDevices.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeleteDevices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteDevices.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteDevices.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteDevices.Location = new System.Drawing.Point(407, 271);
-            this.btnDeleteDevices.Name = "btnDeleteDevices";
-            this.btnDeleteDevices.Size = new System.Drawing.Size(111, 41);
-            this.btnDeleteDevices.TabIndex = 9;
-            this.btnDeleteDevices.Text = "Delete";
-            this.btnDeleteDevices.UseVisualStyleBackColor = false;
-            this.btnDeleteDevices.Click += new System.EventHandler(this.btnDeleteDevices_Click);
-            // 
-            // btnUpdateDevices
-            // 
-            this.btnUpdateDevices.BackColor = System.Drawing.Color.Navy;
-            this.btnUpdateDevices.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnUpdateDevices.BackgroundImage")));
-            this.btnUpdateDevices.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnUpdateDevices.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdateDevices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateDevices.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateDevices.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateDevices.Location = new System.Drawing.Point(258, 271);
-            this.btnUpdateDevices.Name = "btnUpdateDevices";
-            this.btnUpdateDevices.Size = new System.Drawing.Size(111, 41);
-            this.btnUpdateDevices.TabIndex = 9;
-            this.btnUpdateDevices.Text = "Update";
-            this.btnUpdateDevices.UseVisualStyleBackColor = false;
-            this.btnUpdateDevices.Click += new System.EventHandler(this.btnUpdateDevices_Click);
             // 
             // txtUpAndDeTenTBDevice
             // 
@@ -423,37 +410,50 @@
             this.rdbUpAndDeBaoTriDevice.Text = "Bao Tri";
             this.rdbUpAndDeBaoTriDevice.UseVisualStyleBackColor = true;
             // 
-            // Column1
+            // label5
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.DataPropertyName = "MaThietBi";
-            this.Column1.HeaderText = "Ma Thiet Bi";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Navy;
+            this.label5.Location = new System.Drawing.Point(3, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(215, 18);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Update and Delete Devices:";
             // 
-            // Column3
+            // btnDeleteDevices
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.DataPropertyName = "TenThietBi";
-            this.Column3.HeaderText = "Ten Thiet Bi";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.btnDeleteDevices.BackColor = System.Drawing.Color.DarkRed;
+            this.btnDeleteDevices.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDeleteDevices.BackgroundImage")));
+            this.btnDeleteDevices.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDeleteDevices.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteDevices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteDevices.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteDevices.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteDevices.Location = new System.Drawing.Point(407, 271);
+            this.btnDeleteDevices.Name = "btnDeleteDevices";
+            this.btnDeleteDevices.Size = new System.Drawing.Size(111, 41);
+            this.btnDeleteDevices.TabIndex = 9;
+            this.btnDeleteDevices.Text = "Delete";
+            this.btnDeleteDevices.UseVisualStyleBackColor = false;
+            this.btnDeleteDevices.Click += new System.EventHandler(this.btnDeleteDevices_Click);
             // 
-            // Column4
+            // btnUpdateDevices
             // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.DataPropertyName = "SoLuong";
-            this.Column4.HeaderText = "So Luong";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column5.DataPropertyName = "TinhTrang";
-            this.Column5.HeaderText = "Tinh Trang";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
+            this.btnUpdateDevices.BackColor = System.Drawing.Color.Navy;
+            this.btnUpdateDevices.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnUpdateDevices.BackgroundImage")));
+            this.btnUpdateDevices.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnUpdateDevices.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdateDevices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateDevices.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateDevices.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateDevices.Location = new System.Drawing.Point(258, 271);
+            this.btnUpdateDevices.Name = "btnUpdateDevices";
+            this.btnUpdateDevices.Size = new System.Drawing.Size(111, 41);
+            this.btnUpdateDevices.TabIndex = 9;
+            this.btnUpdateDevices.Text = "Update";
+            this.btnUpdateDevices.UseVisualStyleBackColor = false;
+            this.btnUpdateDevices.Click += new System.EventHandler(this.btnUpdateDevices_Click);
             // 
             // UserControlDevice
             // 

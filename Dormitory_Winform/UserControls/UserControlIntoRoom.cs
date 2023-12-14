@@ -29,6 +29,8 @@ namespace Dormitory_Winform.UserControls
         private void UserControlIntoRoom_Load(object sender, EventArgs e)
         {
             loadDataIntoDataGridView();
+            GetMaSVIntoComboBox();
+            GetMaPhongIntoComboBox();
         }
 
         private void loadDataIntoDataGridView()
@@ -53,7 +55,66 @@ namespace Dormitory_Winform.UserControls
                 Console.WriteLine(ex.Message);
             }
         }
+        public void GetMaSVIntoComboBox()
+        {
+            try
+            {
+                if (db == null)
+                {
+                    return;
+                }
 
+                List<string> maSVList = db.SINHVIENs
+                    .Where(s => s.TrangThaiDki == "Duyet")
+                    .Select(s => s.MaSV.ToString() + " - " + s.LoaiPhongSVDangKi)
+                    .ToList();
+
+                if (cbBoxAddMaSVIntoRoom == null)
+                {
+                    return;
+                }
+
+                cbBoxAddMaSVIntoRoom.Items.Clear();
+                foreach (string maSV in maSVList)
+                {
+                    cbBoxAddMaSVIntoRoom.Items.Add(maSV);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while populating the ComboBox. Error details: " + ex.Message);
+            }
+        }
+        public void GetMaPhongIntoComboBox()
+        {
+            try
+            {
+                if (db == null)
+                {
+                    return;
+                }
+
+                List<string> maSVList = db.SINHVIENs
+                    .Where(s => s.TrangThaiDki == "Duyet")
+                    .Select(s => s.MaSV.ToString())
+                    .ToList();
+
+                if (cbBoxAddMaSVIntoRoom == null)
+                {
+                    return;
+                }
+
+                cbBoxAddMaSVIntoRoom.Items.Clear();
+                foreach (string maSV in maSVList)
+                {
+                    cbBoxAddMaSVIntoRoom.Items.Add(maSV);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while populating the ComboBox. Error details: " + ex.Message);
+            }
+        }
         private void RefreshDataGridView()
         {
             db.SaveChanges();

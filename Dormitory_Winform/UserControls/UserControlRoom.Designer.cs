@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlRooms));
             this.tabControlRoom = new System.Windows.Forms.TabControl();
             this.tabPageAddRoom = new System.Windows.Forms.TabPage();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.cbBoxAddTrangThaiRoom = new System.Windows.Forms.ComboBox();
             this.cbBoxAddLoaiPhongRoom = new System.Windows.Forms.ComboBox();
             this.btnAddRoom = new System.Windows.Forms.Button();
             this.txtAddGiaPhongRoom = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.txtAddMaPhongRoom = new System.Windows.Forms.TextBox();
@@ -43,26 +43,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageSearchRoom = new System.Windows.Forms.TabPage();
             this.dataGridViewRoom = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearchRoom = new System.Windows.Forms.TextBox();
             this.lblSearchRoom = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPageUpDeRoom = new System.Windows.Forms.TabPage();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnDeleteRoom = new System.Windows.Forms.Button();
-            this.btnUpdateRoom = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbBoxAddTrangThaiRoom = new System.Windows.Forms.ComboBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbBoxUpAndDeTrangThaiRoom = new System.Windows.Forms.ComboBox();
             this.txtUpAndDeGiaPhongRoom = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtUpAndDeMaPhongRoom = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnDeleteRoom = new System.Windows.Forms.Button();
+            this.btnUpdateRoom = new System.Windows.Forms.Button();
             this.tabControlRoom.SuspendLayout();
             this.tabPageAddRoom.SuspendLayout();
             this.tabPageSearchRoom.SuspendLayout();
@@ -78,7 +74,7 @@
             this.tabControlRoom.Controls.Add(this.tabPageSearchRoom);
             this.tabControlRoom.Controls.Add(this.tabPageUpDeRoom);
             this.tabControlRoom.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControlRoom.Location = new System.Drawing.Point(5, 15);
+            this.tabControlRoom.Location = new System.Drawing.Point(0, 4);
             this.tabControlRoom.Name = "tabControlRoom";
             this.tabControlRoom.SelectedIndex = 0;
             this.tabControlRoom.Size = new System.Drawing.Size(1156, 438);
@@ -87,8 +83,6 @@
             // 
             // tabPageAddRoom
             // 
-            this.tabPageAddRoom.Controls.Add(this.label8);
-            this.tabPageAddRoom.Controls.Add(this.label7);
             this.tabPageAddRoom.Controls.Add(this.cbBoxAddTrangThaiRoom);
             this.tabPageAddRoom.Controls.Add(this.cbBoxAddLoaiPhongRoom);
             this.tabPageAddRoom.Controls.Add(this.btnAddRoom);
@@ -110,25 +104,18 @@
             this.tabPageAddRoom.UseVisualStyleBackColor = true;
             this.tabPageAddRoom.Leave += new System.EventHandler(this.tabPageAddRoom_Leave);
             // 
-            // label8
+            // cbBoxAddTrangThaiRoom
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(690, 32);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(449, 16);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "(Phong loai B: 4 giuong, 1 may lanh, 4 tu, 4 ban, 1 TV, 1 bep, 2 nha vs)";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(690, 5);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(452, 16);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "(Phong loai A: 2 giuong, 1 may lanh, 2 tu, 2 ban, 1 TV, 1 bep, 1 nha vs)";
+            this.cbBoxAddTrangThaiRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBoxAddTrangThaiRoom.FormattingEnabled = true;
+            this.cbBoxAddTrangThaiRoom.Items.AddRange(new object[] {
+            "Please select ...",
+            "A",
+            "B"});
+            this.cbBoxAddTrangThaiRoom.Location = new System.Drawing.Point(608, 215);
+            this.cbBoxAddTrangThaiRoom.Name = "cbBoxAddTrangThaiRoom";
+            this.cbBoxAddTrangThaiRoom.Size = new System.Drawing.Size(263, 25);
+            this.cbBoxAddTrangThaiRoom.TabIndex = 7;
             // 
             // cbBoxAddLoaiPhongRoom
             // 
@@ -167,6 +154,16 @@
             this.txtAddGiaPhongRoom.Name = "txtAddGiaPhongRoom";
             this.txtAddGiaPhongRoom.Size = new System.Drawing.Size(263, 23);
             this.txtAddGiaPhongRoom.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(608, 178);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Trang thai:";
             // 
             // label9
             // 
@@ -247,6 +244,30 @@
             this.dataGridViewRoom.TabIndex = 6;
             this.dataGridViewRoom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRoom_CellClick);
             // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.DataPropertyName = "MaPhong";
+            this.Column1.HeaderText = "Ma Phong";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column5.DataPropertyName = "GiaPhong";
+            this.Column5.HeaderText = "Gia Phong";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.DataPropertyName = "TrangThaiPhong";
+            this.Column4.HeaderText = "Trang Thai";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
             // txtSearchRoom
             // 
             this.txtSearchRoom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -287,8 +308,6 @@
             this.tabPageUpDeRoom.Controls.Add(this.label13);
             this.tabPageUpDeRoom.Controls.Add(this.txtUpAndDeMaPhongRoom);
             this.tabPageUpDeRoom.Controls.Add(this.label14);
-            this.tabPageUpDeRoom.Controls.Add(this.label10);
-            this.tabPageUpDeRoom.Controls.Add(this.label11);
             this.tabPageUpDeRoom.Controls.Add(this.label5);
             this.tabPageUpDeRoom.Controls.Add(this.btnDeleteRoom);
             this.tabPageUpDeRoom.Controls.Add(this.btnUpdateRoom);
@@ -299,118 +318,6 @@
             this.tabPageUpDeRoom.TabIndex = 2;
             this.tabPageUpDeRoom.Text = "Update and Delete ";
             this.tabPageUpDeRoom.UseVisualStyleBackColor = true;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(690, 32);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(449, 16);
-            this.label10.TabIndex = 20;
-            this.label10.Text = "(Phong loai B: 4 giuong, 1 may lanh, 4 tu, 4 ban, 1 TV, 1 bep, 2 nha vs)";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(690, 5);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(452, 16);
-            this.label11.TabIndex = 21;
-            this.label11.Text = "(Phong loai A: 2 giuong, 1 may lanh, 2 tu, 2 ban, 1 TV, 1 bep, 1 nha vs)";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Navy;
-            this.label5.Location = new System.Drawing.Point(3, 3);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(152, 18);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Update and Delete:";
-            // 
-            // btnDeleteRoom
-            // 
-            this.btnDeleteRoom.BackColor = System.Drawing.Color.DarkRed;
-            this.btnDeleteRoom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDeleteRoom.BackgroundImage")));
-            this.btnDeleteRoom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDeleteRoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeleteRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteRoom.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteRoom.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteRoom.Location = new System.Drawing.Point(402, 291);
-            this.btnDeleteRoom.Name = "btnDeleteRoom";
-            this.btnDeleteRoom.Size = new System.Drawing.Size(111, 41);
-            this.btnDeleteRoom.TabIndex = 9;
-            this.btnDeleteRoom.Text = "Delete";
-            this.btnDeleteRoom.UseVisualStyleBackColor = false;
-            this.btnDeleteRoom.Click += new System.EventHandler(this.btnDeleteRoom_Click);
-            // 
-            // btnUpdateRoom
-            // 
-            this.btnUpdateRoom.BackColor = System.Drawing.Color.Navy;
-            this.btnUpdateRoom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnUpdateRoom.BackgroundImage")));
-            this.btnUpdateRoom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnUpdateRoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdateRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateRoom.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateRoom.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateRoom.Location = new System.Drawing.Point(261, 291);
-            this.btnUpdateRoom.Name = "btnUpdateRoom";
-            this.btnUpdateRoom.Size = new System.Drawing.Size(111, 41);
-            this.btnUpdateRoom.TabIndex = 9;
-            this.btnUpdateRoom.Text = "Update";
-            this.btnUpdateRoom.UseVisualStyleBackColor = false;
-            this.btnUpdateRoom.Click += new System.EventHandler(this.btnUpdateRoom_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(608, 178);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 16);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Trang thai:";
-            // 
-            // cbBoxAddTrangThaiRoom
-            // 
-            this.cbBoxAddTrangThaiRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBoxAddTrangThaiRoom.FormattingEnabled = true;
-            this.cbBoxAddTrangThaiRoom.Items.AddRange(new object[] {
-            "Please select ...",
-            "A",
-            "B"});
-            this.cbBoxAddTrangThaiRoom.Location = new System.Drawing.Point(608, 215);
-            this.cbBoxAddTrangThaiRoom.Name = "cbBoxAddTrangThaiRoom";
-            this.cbBoxAddTrangThaiRoom.Size = new System.Drawing.Size(263, 25);
-            this.cbBoxAddTrangThaiRoom.TabIndex = 7;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.DataPropertyName = "MaPhong";
-            this.Column1.HeaderText = "Ma Phong";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column5.DataPropertyName = "GiaPhong";
-            this.Column5.HeaderText = "Gia Phong";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.DataPropertyName = "TrangThaiPhong";
-            this.Column4.HeaderText = "Trang Thai";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             // 
             // cbBoxUpAndDeTrangThaiRoom
             // 
@@ -471,6 +378,51 @@
             this.label14.TabIndex = 25;
             this.label14.Text = "Ma phong:";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Navy;
+            this.label5.Location = new System.Drawing.Point(3, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(152, 18);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Update and Delete:";
+            // 
+            // btnDeleteRoom
+            // 
+            this.btnDeleteRoom.BackColor = System.Drawing.Color.DarkRed;
+            this.btnDeleteRoom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDeleteRoom.BackgroundImage")));
+            this.btnDeleteRoom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDeleteRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteRoom.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteRoom.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteRoom.Location = new System.Drawing.Point(402, 291);
+            this.btnDeleteRoom.Name = "btnDeleteRoom";
+            this.btnDeleteRoom.Size = new System.Drawing.Size(111, 41);
+            this.btnDeleteRoom.TabIndex = 9;
+            this.btnDeleteRoom.Text = "Delete";
+            this.btnDeleteRoom.UseVisualStyleBackColor = false;
+            this.btnDeleteRoom.Click += new System.EventHandler(this.btnDeleteRoom_Click);
+            // 
+            // btnUpdateRoom
+            // 
+            this.btnUpdateRoom.BackColor = System.Drawing.Color.Navy;
+            this.btnUpdateRoom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnUpdateRoom.BackgroundImage")));
+            this.btnUpdateRoom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnUpdateRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdateRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateRoom.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateRoom.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateRoom.Location = new System.Drawing.Point(261, 291);
+            this.btnUpdateRoom.Name = "btnUpdateRoom";
+            this.btnUpdateRoom.Size = new System.Drawing.Size(111, 41);
+            this.btnUpdateRoom.TabIndex = 9;
+            this.btnUpdateRoom.Text = "Update";
+            this.btnUpdateRoom.UseVisualStyleBackColor = false;
+            this.btnUpdateRoom.Click += new System.EventHandler(this.btnUpdateRoom_Click);
+            // 
             // UserControlRooms
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -478,7 +430,7 @@
             this.Controls.Add(this.tabControlRoom);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UserControlRooms";
-            this.Size = new System.Drawing.Size(1166, 461);
+            this.Size = new System.Drawing.Size(1156, 438);
             this.Load += new System.EventHandler(this.UserControlRooms_Load);
             this.tabControlRoom.ResumeLayout(false);
             this.tabPageAddRoom.ResumeLayout(false);
@@ -510,10 +462,6 @@
         private System.Windows.Forms.Button btnDeleteRoom;
         private System.Windows.Forms.Button btnUpdateRoom;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtAddGiaPhongRoom;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox cbBoxAddLoaiPhongRoom;

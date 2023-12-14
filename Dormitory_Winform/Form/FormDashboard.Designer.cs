@@ -60,6 +60,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.picInformationShow = new System.Windows.Forms.PictureBox();
             this.userControlStudents1 = new Dormitory_Winform.UserControls.UserControlStudent();
             this.userControlAdmins1 = new Dormitory_Winform.UserControlAdmin();
             this.userControlStatistical1 = new Dormitory_Winform.UserControls.UserControlStatistical();
@@ -80,6 +81,7 @@
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picInformationShow)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -516,6 +518,7 @@
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.picInformationShow);
             this.panel7.Controls.Add(this.userControlStudents1);
             this.panel7.Controls.Add(this.userControlAdmins1);
             this.panel7.Controls.Add(this.userControlStatistical1);
@@ -530,6 +533,19 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1332, 531);
             this.panel7.TabIndex = 5;
+            // 
+            // picInformationShow
+            // 
+            this.picInformationShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+            this.picInformationShow.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picInformationShow.Image = ((System.Drawing.Image)(resources.GetObject("picInformationShow.Image")));
+            this.picInformationShow.Location = new System.Drawing.Point(1190, 58);
+            this.picInformationShow.Name = "picInformationShow";
+            this.picInformationShow.Size = new System.Drawing.Size(35, 32);
+            this.picInformationShow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picInformationShow.TabIndex = 9;
+            this.picInformationShow.TabStop = false;
+            this.picInformationShow.Click += new System.EventHandler(this.picInformationShow_Click);
             // 
             // userControlStudents1
             // 
@@ -651,6 +667,7 @@
             this.panel4.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picInformationShow)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -693,8 +710,9 @@
         private UserControls.UserControlDevice userControlDevices1;
         private UserControls.UserControlConsume userControlConsume1;
         private UserControls.UserControlStatistical userControlStatistical1;
-        private UserControls.UserControlStudent userControlStudents1;
         private System.Windows.Forms.Button btnIntoRoom;
         private UserControls.UserControlIntoRoom userControlIntoRoom1;
+        private System.Windows.Forms.PictureBox picInformationShow;
+        private UserControls.UserControlStudent userControlStudents1;
     }
 }

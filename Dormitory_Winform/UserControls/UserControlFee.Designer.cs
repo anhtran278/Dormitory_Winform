@@ -91,7 +91,7 @@
             this.tabControlFee.Location = new System.Drawing.Point(0, 4);
             this.tabControlFee.Name = "tabControlFee";
             this.tabControlFee.SelectedIndex = 0;
-            this.tabControlFee.Size = new System.Drawing.Size(1156, 430);
+            this.tabControlFee.Size = new System.Drawing.Size(1156, 438);
             this.tabControlFee.TabIndex = 3;
             // 
             // tabPageAddFee
@@ -115,7 +115,7 @@
             this.tabPageAddFee.Location = new System.Drawing.Point(4, 4);
             this.tabPageAddFee.Name = "tabPageAddFee";
             this.tabPageAddFee.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAddFee.Size = new System.Drawing.Size(1148, 400);
+            this.tabPageAddFee.Size = new System.Drawing.Size(1148, 408);
             this.tabPageAddFee.TabIndex = 0;
             this.tabPageAddFee.Text = "Add";
             this.tabPageAddFee.UseVisualStyleBackColor = true;

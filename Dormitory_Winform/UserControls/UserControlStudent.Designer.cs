@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlStudent));
             this.tabControlStudent = new System.Windows.Forms.TabControl();
             this.tabPageAddStudent = new System.Windows.Forms.TabPage();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dateTimeAddNgaySinhStudent = new System.Windows.Forms.DateTimePicker();
             this.rdbAddChuaDuyetStudent = new System.Windows.Forms.RadioButton();
             this.rdbAddDuyetStudent = new System.Windows.Forms.RadioButton();
@@ -49,10 +50,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageSearchStudent = new System.Windows.Forms.TabPage();
             this.dataGridViewStudent = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearchStudent = new System.Windows.Forms.TextBox();
             this.lblSearchStudent = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPageUpDeStudent = new System.Windows.Forms.TabPage();
+            this.cbBoxUpAndDeLoaiPhongDkiSudent = new System.Windows.Forms.ComboBox();
+            this.rdbUpAndDeChuaDuyetStudent = new System.Windows.Forms.RadioButton();
+            this.rdbUpAndDeDuyetStudent = new System.Windows.Forms.RadioButton();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.dateTimeUpAndDeNgaySinhStudent = new System.Windows.Forms.DateTimePicker();
             this.txtUpAndDeDiaChiStudent = new System.Windows.Forms.TextBox();
             this.txtUpAndDeTenStudent = new System.Windows.Forms.TextBox();
@@ -66,19 +79,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnDeleteStudent = new System.Windows.Forms.Button();
             this.btnUpdateStudent = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.cbBoxUpAndDeLoaiPhongDkiSudent = new System.Windows.Forms.ComboBox();
-            this.rdbUpAndDeChuaDuyetStudent = new System.Windows.Forms.RadioButton();
-            this.rdbUpAndDeDuyetStudent = new System.Windows.Forms.RadioButton();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlStudent.SuspendLayout();
             this.tabPageAddStudent.SuspendLayout();
             this.tabPageSearchStudent.SuspendLayout();
@@ -94,7 +94,7 @@
             this.tabControlStudent.Controls.Add(this.tabPageSearchStudent);
             this.tabControlStudent.Controls.Add(this.tabPageUpDeStudent);
             this.tabControlStudent.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControlStudent.Location = new System.Drawing.Point(-1, 3);
+            this.tabControlStudent.Location = new System.Drawing.Point(-1, 0);
             this.tabControlStudent.Name = "tabControlStudent";
             this.tabControlStudent.SelectedIndex = 0;
             this.tabControlStudent.Size = new System.Drawing.Size(1156, 438);
@@ -129,6 +129,14 @@
             this.tabPageAddStudent.Text = "Add";
             this.tabPageAddStudent.UseVisualStyleBackColor = true;
             this.tabPageAddStudent.Leave += new System.EventHandler(this.tabPageAddStudent_Leave);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(626, 242);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(286, 25);
+            this.comboBox1.TabIndex = 8;
             // 
             // dateTimeAddNgaySinhStudent
             // 
@@ -328,6 +336,67 @@
             this.dataGridViewStudent.TabIndex = 6;
             this.dataGridViewStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStudent_CellClick);
             // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column1.DataPropertyName = "MaSV";
+            this.Column1.HeaderText = "MaSV";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 165;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column2.DataPropertyName = "Ten";
+            this.Column2.HeaderText = "Ten";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 164;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column3.DataPropertyName = "DienThoai";
+            this.Column3.HeaderText = "SDT";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 165;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column4.DataPropertyName = "NgaySinh";
+            this.Column4.HeaderText = "Ngay Sinh";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 164;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column5.DataPropertyName = "DiaChi";
+            this.Column5.HeaderText = "Dia Chi";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 165;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column7.DataPropertyName = "LoaiPhongSVDangKi";
+            this.Column7.HeaderText = "Loai Phong Dang Ki";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column6.DataPropertyName = "TrangThaiDki";
+            this.Column6.HeaderText = "Trang thai dang ki";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
             // txtSearchStudent
             // 
             this.txtSearchStudent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -389,6 +458,56 @@
             this.tabPageUpDeStudent.Text = "Update and Delete ";
             this.tabPageUpDeStudent.UseVisualStyleBackColor = true;
             this.tabPageUpDeStudent.Leave += new System.EventHandler(this.tabPageUpDeStudent_Leave);
+            // 
+            // cbBoxUpAndDeLoaiPhongDkiSudent
+            // 
+            this.cbBoxUpAndDeLoaiPhongDkiSudent.FormattingEnabled = true;
+            this.cbBoxUpAndDeLoaiPhongDkiSudent.Location = new System.Drawing.Point(626, 243);
+            this.cbBoxUpAndDeLoaiPhongDkiSudent.Name = "cbBoxUpAndDeLoaiPhongDkiSudent";
+            this.cbBoxUpAndDeLoaiPhongDkiSudent.Size = new System.Drawing.Size(286, 25);
+            this.cbBoxUpAndDeLoaiPhongDkiSudent.TabIndex = 30;
+            // 
+            // rdbUpAndDeChuaDuyetStudent
+            // 
+            this.rdbUpAndDeChuaDuyetStudent.AutoSize = true;
+            this.rdbUpAndDeChuaDuyetStudent.Location = new System.Drawing.Point(715, 334);
+            this.rdbUpAndDeChuaDuyetStudent.Name = "rdbUpAndDeChuaDuyetStudent";
+            this.rdbUpAndDeChuaDuyetStudent.Size = new System.Drawing.Size(94, 21);
+            this.rdbUpAndDeChuaDuyetStudent.TabIndex = 29;
+            this.rdbUpAndDeChuaDuyetStudent.TabStop = true;
+            this.rdbUpAndDeChuaDuyetStudent.Text = "Chua duyet";
+            this.rdbUpAndDeChuaDuyetStudent.UseVisualStyleBackColor = true;
+            // 
+            // rdbUpAndDeDuyetStudent
+            // 
+            this.rdbUpAndDeDuyetStudent.AutoSize = true;
+            this.rdbUpAndDeDuyetStudent.Location = new System.Drawing.Point(629, 334);
+            this.rdbUpAndDeDuyetStudent.Name = "rdbUpAndDeDuyetStudent";
+            this.rdbUpAndDeDuyetStudent.Size = new System.Drawing.Size(61, 21);
+            this.rdbUpAndDeDuyetStudent.TabIndex = 28;
+            this.rdbUpAndDeDuyetStudent.TabStop = true;
+            this.rdbUpAndDeDuyetStudent.Text = "Duyet";
+            this.rdbUpAndDeDuyetStudent.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(626, 301);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(132, 16);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Trang thai dang ki:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(626, 211);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(139, 16);
+            this.label16.TabIndex = 27;
+            this.label16.Text = "Loai phong dang ki:";
             // 
             // dateTimeUpAndDeNgaySinhStudent
             // 
@@ -525,132 +644,13 @@
             this.btnUpdateStudent.UseVisualStyleBackColor = false;
             this.btnUpdateStudent.Click += new System.EventHandler(this.btnUpdateStudent_Click);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(626, 242);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(286, 25);
-            this.comboBox1.TabIndex = 8;
-            // 
-            // cbBoxUpAndDeLoaiPhongDkiSudent
-            // 
-            this.cbBoxUpAndDeLoaiPhongDkiSudent.FormattingEnabled = true;
-            this.cbBoxUpAndDeLoaiPhongDkiSudent.Location = new System.Drawing.Point(626, 243);
-            this.cbBoxUpAndDeLoaiPhongDkiSudent.Name = "cbBoxUpAndDeLoaiPhongDkiSudent";
-            this.cbBoxUpAndDeLoaiPhongDkiSudent.Size = new System.Drawing.Size(286, 25);
-            this.cbBoxUpAndDeLoaiPhongDkiSudent.TabIndex = 30;
-            // 
-            // rdbUpAndDeChuaDuyetStudent
-            // 
-            this.rdbUpAndDeChuaDuyetStudent.AutoSize = true;
-            this.rdbUpAndDeChuaDuyetStudent.Location = new System.Drawing.Point(715, 334);
-            this.rdbUpAndDeChuaDuyetStudent.Name = "rdbUpAndDeChuaDuyetStudent";
-            this.rdbUpAndDeChuaDuyetStudent.Size = new System.Drawing.Size(94, 21);
-            this.rdbUpAndDeChuaDuyetStudent.TabIndex = 29;
-            this.rdbUpAndDeChuaDuyetStudent.TabStop = true;
-            this.rdbUpAndDeChuaDuyetStudent.Text = "Chua duyet";
-            this.rdbUpAndDeChuaDuyetStudent.UseVisualStyleBackColor = true;
-            // 
-            // rdbUpAndDeDuyetStudent
-            // 
-            this.rdbUpAndDeDuyetStudent.AutoSize = true;
-            this.rdbUpAndDeDuyetStudent.Location = new System.Drawing.Point(629, 334);
-            this.rdbUpAndDeDuyetStudent.Name = "rdbUpAndDeDuyetStudent";
-            this.rdbUpAndDeDuyetStudent.Size = new System.Drawing.Size(61, 21);
-            this.rdbUpAndDeDuyetStudent.TabIndex = 28;
-            this.rdbUpAndDeDuyetStudent.TabStop = true;
-            this.rdbUpAndDeDuyetStudent.Text = "Duyet";
-            this.rdbUpAndDeDuyetStudent.UseVisualStyleBackColor = true;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(626, 301);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(132, 16);
-            this.label10.TabIndex = 26;
-            this.label10.Text = "Trang thai dang ki:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(626, 211);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(139, 16);
-            this.label16.TabIndex = 27;
-            this.label16.Text = "Loai phong dang ki:";
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column1.DataPropertyName = "MaSV";
-            this.Column1.HeaderText = "MaSV";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 165;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column2.DataPropertyName = "Ten";
-            this.Column2.HeaderText = "Ten";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 164;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column3.DataPropertyName = "DienThoai";
-            this.Column3.HeaderText = "SDT";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 165;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column4.DataPropertyName = "NgaySinh";
-            this.Column4.HeaderText = "Ngay Sinh";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 164;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column5.DataPropertyName = "DiaChi";
-            this.Column5.HeaderText = "Dia Chi";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 165;
-            // 
-            // Column7
-            // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column7.DataPropertyName = "LoaiPhongSVDangKi";
-            this.Column7.HeaderText = "Loai Phong Dang Ki";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column6.DataPropertyName = "TrangThaiDki";
-            this.Column6.HeaderText = "Trang thai dang ki";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
             // UserControlStudent
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tabControlStudent);
             this.Name = "UserControlStudent";
-            this.Size = new System.Drawing.Size(1156, 445);
+            this.Size = new System.Drawing.Size(1156, 438);
             this.Load += new System.EventHandler(this.UserControlStudents_Load);
             this.tabControlStudent.ResumeLayout(false);
             this.tabPageAddStudent.ResumeLayout(false);

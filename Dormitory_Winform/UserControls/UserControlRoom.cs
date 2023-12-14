@@ -122,19 +122,12 @@ namespace Dormitory_Winform.UserControls
                 bool check = roomService.AddRoom(
                     txtAddMaPhongRoom.Text.Trim(),
                     txtAddGiaPhongRoom.Text.Trim(),
-                    cbBoxAddLoaiPhongRoom.SelectedItem.ToString(),
                     cbBoxAddTrangThaiRoom.SelectedIndex.ToString()
                     );
                 if (check)
                 {
                     Clear();
                     RefreshDataGridView();
-                    //comsume
-                    var consumesControl = FindForm().Controls.Find("userControlConsume1", true).FirstOrDefault() as UserControlConsume;
-                    if (consumesControl != null)
-                    {
-                        consumesControl.GetMaPhongIntoComboBox();
-                    }
 
                 }
             }
@@ -160,12 +153,6 @@ namespace Dormitory_Winform.UserControls
                     Clear1();
                     RefreshDataGridView();
 
-                    //comsume
-                    var consumesControl = FindForm().Controls.Find("userControlConsume1", true).FirstOrDefault() as UserControlConsume;
-                    if (consumesControl != null)
-                    {
-                        consumesControl.GetMaPhongIntoComboBox();
-                    }
                 }
             }
             else
@@ -187,11 +174,6 @@ namespace Dormitory_Winform.UserControls
                     {
                         Clear1();
                         RefreshDataGridView();
-
-
-                        // comsume
-                        var consumesControl = FindForm().Controls.Find("userControlConsume1", true).FirstOrDefault() as UserControlConsume;
-                        consumesControl?.GetMaPhongIntoComboBox();
                     }
                 }
             }

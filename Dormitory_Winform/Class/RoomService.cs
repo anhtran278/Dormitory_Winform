@@ -34,13 +34,15 @@ namespace Dormitory_Winform.Class
             }
         }
 
-        public bool AddRoom(string maPhong, string loaiPhong, string giaPhong, string trangThai)
+        public bool AddRoom(string maPhong, string giaPhong, string trangThai)
         {
             try
             {
                 PHONG newPhong = new PHONG
                 {
                     GiaPhong = decimal.Parse(giaPhong),
+                    MaPhong = maPhong,
+                    TrangThaiPhong = trangThai,
                 };
 
                 db.PHONGs.Add(newPhong);

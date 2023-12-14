@@ -78,7 +78,7 @@
             this.tabControlIntoRoom.Controls.Add(this.tabPageSearchIntoRoom);
             this.tabControlIntoRoom.Controls.Add(this.tabPageUpDeIntoRoom);
             this.tabControlIntoRoom.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControlIntoRoom.Location = new System.Drawing.Point(5, 11);
+            this.tabControlIntoRoom.Location = new System.Drawing.Point(0, 0);
             this.tabControlIntoRoom.Name = "tabControlIntoRoom";
             this.tabControlIntoRoom.SelectedIndex = 0;
             this.tabControlIntoRoom.Size = new System.Drawing.Size(1156, 438);
@@ -470,7 +470,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.tabControlIntoRoom);
             this.Name = "UserControlIntoRoom";
-            this.Size = new System.Drawing.Size(1166, 461);
+            this.Size = new System.Drawing.Size(1156, 438);
             this.Load += new System.EventHandler(this.UserControlIntoRoom_Load);
             this.tabControlIntoRoom.ResumeLayout(false);
             this.tabPageAddIntoRoom.ResumeLayout(false);

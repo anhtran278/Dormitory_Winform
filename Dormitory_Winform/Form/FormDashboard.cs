@@ -172,7 +172,7 @@ namespace Dormitory_Winform
         private void btnIntoRoom_Click(object sender, EventArgs e)
         {
             movePanel(btnIntoRoom);
-            //userControlIntoRoom1.Clear();
+            userControlIntoRoom1.Clear();
             userControlIntoRoom1.Show();
             userControlAdmins1.Hide();
             userControlStudents1.Hide();
@@ -182,6 +182,18 @@ namespace Dormitory_Winform
             userControlDevices1.Hide();
             userControlStatistical1.Hide();
             userControlConsume1.Hide();
+        }
+
+        private void picInformationShow_Click(object sender, EventArgs e)
+        {
+            string phongA = "2 giuong, 1 may lanh, 2 tu, 2 ban, 1 TV, 1 bep, 1 nha vs";
+            string phongB = "4 giuong, 1 may lanh, 4 tu, 4 ban, 1 TV, 1 bep, 2 nha vs";
+
+            string info = "Thông tin phòng:\n\n";
+            info += "Loại A: " + phongA + "\n\n";
+            info += "Loại B: " + phongB;
+
+            MessageBox.Show(info, "Thông tin phòng", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

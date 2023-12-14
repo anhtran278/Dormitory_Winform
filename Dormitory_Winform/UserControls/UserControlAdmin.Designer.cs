@@ -39,6 +39,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageSearchUser = new System.Windows.Forms.TabPage();
             this.dataGridViewUser = new System.Windows.Forms.DataGridView();
+            this.colum1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colum2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colum3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearchUsername = new System.Windows.Forms.TextBox();
             this.lblSearchUser = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,9 +53,6 @@
             this.btnUpdateUser = new System.Windows.Forms.Button();
             this.txtUpAndDePassword = new System.Windows.Forms.TextBox();
             this.lblUpAndDePassword = new System.Windows.Forms.Label();
-            this.colum1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colum2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colum3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlUser.SuspendLayout();
             this.tabPageAddUser.SuspendLayout();
             this.tabPageSearchUser.SuspendLayout();
@@ -189,6 +189,33 @@
             this.dataGridViewUser.TabIndex = 6;
             this.dataGridViewUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUser_CellClick);
             // 
+            // colum1
+            // 
+            this.colum1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colum1.DataPropertyName = "MaAdmins";
+            this.colum1.HeaderText = "ID";
+            this.colum1.MinimumWidth = 6;
+            this.colum1.Name = "colum1";
+            this.colum1.ReadOnly = true;
+            // 
+            // colum2
+            // 
+            this.colum2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colum2.DataPropertyName = "Ten";
+            this.colum2.HeaderText = "Username";
+            this.colum2.MinimumWidth = 6;
+            this.colum2.Name = "colum2";
+            this.colum2.ReadOnly = true;
+            // 
+            // colum3
+            // 
+            this.colum3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colum3.DataPropertyName = "MatKhau";
+            this.colum3.HeaderText = "Password";
+            this.colum3.MinimumWidth = 6;
+            this.colum3.Name = "colum3";
+            this.colum3.ReadOnly = true;
+            // 
             // txtSearchUsername
             // 
             this.txtSearchUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -321,40 +348,13 @@
             this.lblUpAndDePassword.TabIndex = 5;
             this.lblUpAndDePassword.Text = "Password:";
             // 
-            // colum1
-            // 
-            this.colum1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colum1.DataPropertyName = "MaAdmins";
-            this.colum1.HeaderText = "ID";
-            this.colum1.MinimumWidth = 6;
-            this.colum1.Name = "colum1";
-            this.colum1.ReadOnly = true;
-            // 
-            // colum2
-            // 
-            this.colum2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colum2.DataPropertyName = "Ten";
-            this.colum2.HeaderText = "Username";
-            this.colum2.MinimumWidth = 6;
-            this.colum2.Name = "colum2";
-            this.colum2.ReadOnly = true;
-            // 
-            // colum3
-            // 
-            this.colum3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colum3.DataPropertyName = "MatKhau";
-            this.colum3.HeaderText = "Password";
-            this.colum3.MinimumWidth = 6;
-            this.colum3.Name = "colum3";
-            this.colum3.ReadOnly = true;
-            // 
-            // UserControlAdmins
+            // UserControlAdmin
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tabControlUser);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "UserControlAdmins";
+            this.Name = "UserControlAdmin";
             this.Size = new System.Drawing.Size(1156, 438);
             this.Load += new System.EventHandler(this.UserControlAdmins_Load);
             this.tabControlUser.ResumeLayout(false);
