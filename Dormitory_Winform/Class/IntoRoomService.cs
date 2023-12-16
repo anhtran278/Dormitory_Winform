@@ -34,6 +34,12 @@ namespace Dormitory_Winform.Class
         {
             try
             {
+                if (!CanAddStudentToRoom(maPhong))
+                {
+                    MessageBox.Show($"Cannot add more students to room {maPhong}. It's at full capacity.", "Room Full", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+
                 int maSVID;
                 if (!int.TryParse(maSV, out maSVID))
                 {
@@ -47,7 +53,6 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                // Kiểm tra xem sinh viên đã có trong phòng nào khác chưa
                 if (db.SINHVIENVAOPHONGs.Any(sv => sv.MaSV == maSVID && sv.MaPhong == maPhong))
                 {
                     MessageBox.Show("This SinhVien is already in the room.", "SinhVien Already Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -63,10 +68,10 @@ namespace Dormitory_Winform.Class
                 };
                 db.SINHVIENVAOPHONGs.Add(newEntry);
 
-                // Lưu thay đổi vào cơ sở dữ liệu
                 db.SaveChanges();
                 UpdateRoomStatus(maPhong);
                 MessageBox.Show("SinhVien added into the room successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 return true;
             }
             catch (Exception ex)
@@ -75,6 +80,7 @@ namespace Dormitory_Winform.Class
                 return false;
             }
         }
+
         public bool UpdateSinhVienVaoPhong(int maSinhVien, string maPhong, DateTime ngayVaoPhong, string loaiPhong)
         {
             try
@@ -103,10 +109,8 @@ namespace Dormitory_Winform.Class
 
                     if (needUpdate)
                     {
-                        // Lưu các thay đổi vào cơ sở dữ liệu
                         db.SaveChanges();
 
-                        // Cập nhật thông tin của phòng
                         UpdateRoomStatus(maPhong);
 
                         MessageBox.Show("Cập nhật thông tin Sinh viên trong phòng thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -194,5 +198,12 @@ namespace Dormitory_Winform.Class
                 db.SaveChanges();
             }
         }
+        public bool CanAddStudentToRoom(string maPhong)
+        {
+            int maxCapacity = maPhong.StartsWith("A") ? 2 : maPhong.StartsWith("B") ? 4 : 0;
+            int currentStudentCount = db.SINHVIENVAOPHONGs.Count(r => r.MaPhong == maPhong);
+            return currentStudentCount < maxCapacity;
+        }
+
     }
 }

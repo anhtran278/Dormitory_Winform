@@ -26,6 +26,7 @@ namespace Dormitory_Winform.UserControls
             dataGridViewIntoRoom.DataSource = bindingSource;
             dataGridViewIntoRoom.AutoGenerateColumns = false;
         }
+
         private void UserControlIntoRoom_Load(object sender, EventArgs e)
         {
             loadDataIntoDataGridView();
@@ -77,9 +78,9 @@ namespace Dormitory_Winform.UserControls
         }
         public void Clear()
         {
-            cbBoxAddLoaiPhongDkiIntoRoom.SelectedIndex = 0;
-            cbBoxAddMaPhongIntoRoom.SelectedIndex = 0;
-            cbBoxAddMaSVIntoRoom.SelectedIndex = 0;
+            cbBoxAddLoaiPhongDkiIntoRoom.SelectedIndex = -1;
+            cbBoxAddMaPhongIntoRoom.SelectedIndex = -1;
+            cbBoxAddMaSVIntoRoom.SelectedIndex = -1;
             dateTimeAddNgayVaoIntoRoom.Value = DateTime.Now;
             tabControlIntoRoom.SelectedTab = tabPageAddIntoRoom;
         }
@@ -87,7 +88,7 @@ namespace Dormitory_Winform.UserControls
         {
             cbBoxUpAndDeLoaiPhongDkiIntoRoom.SelectedIndex = -1;
             cbBoxUpAndDeMaPhongIntoRoom.SelectedIndex = -1;
-            cbBoxUpAndDeMaSVIntoRoom.SelectedIndex = 0;
+            cbBoxUpAndDeMaSVIntoRoom.SelectedIndex = -1;
             dateTimeUpAndDeNgayVaoIntoRoom.Value = DateTime.Now;
         }
 
@@ -117,22 +118,6 @@ namespace Dormitory_Winform.UserControls
                 bindingSource.DataSource = intoRoomhResult;
             }
         }
-        private void cbBoxUpAndDeMaPhongIntoRoom_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbBoxUpAndDeMaPhongIntoRoom.SelectedItem != null)
-            {
-                string selectedMaPhong = cbBoxUpAndDeMaPhongIntoRoom.SelectedItem.ToString();
-            }
-        }
-        private void cbBoxUpAndDeLoaiPhongDkiIntoRoom_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbBoxUpAndDeLoaiPhongDkiIntoRoom.SelectedItem != null)
-            {
-                string selectedLoaiPhong = cbBoxUpAndDeLoaiPhongDkiIntoRoom.SelectedItem.ToString();
-                UpdateMaPhongComboBox(selectedLoaiPhong);
-            }
-        }
-
         public void GetMaPhongIntoComboBox()
         {
             try
@@ -174,7 +159,7 @@ namespace Dormitory_Winform.UserControls
                     return;
                 }
 
-                List<string> getMaSVList= db.SINHVIENs
+                List<string> getMaSVList = db.SINHVIENs
                     .Where(sv => sv.TrangThaiDki == "Duyet")
                     .Select(sv => sv.MaSV.ToString())
                     .ToList();
@@ -240,7 +225,7 @@ namespace Dormitory_Winform.UserControls
                 Console.WriteLine("An error occurred while populating the ComboBox. Error details: " + ex.Message);
             }
         }
-        private void UpdateMaPhongComboBox(string loaiPhong)
+        private void UpdateMaPhongUpAndDeComboBox(string loaiPhong)
         {
             using (var context = new QuanLi_DormitoryEntities())
             {
@@ -252,6 +237,21 @@ namespace Dormitory_Winform.UserControls
                 foreach (var maPhong in danhSachPhong)
                 {
                     cbBoxUpAndDeMaPhongIntoRoom.Items.Add(maPhong);
+                }
+            }
+        }
+        private void UpdateMaPhongAddComboBox(string loaiPhong)
+        {
+            using (var context = new QuanLi_DormitoryEntities())
+            {
+                var danhSachPhong = context.PHONGs
+                    .Where(p => p.MaPhong.StartsWith(loaiPhong))
+                    .Select(p => p.MaPhong)
+                    .ToList();
+                cbBoxAddMaPhongIntoRoom.Items.Clear();
+                foreach (var maPhong in danhSachPhong)
+                {
+                    cbBoxAddMaPhongIntoRoom.Items.Add(maPhong);
                 }
             }
         }
@@ -267,12 +267,31 @@ namespace Dormitory_Winform.UserControls
                         if (sinhVien != null)
                         {
                             cbBoxAddLoaiPhongDkiIntoRoom.SelectedItem = sinhVien.LoaiPhongSVDangKi;
-                            UpdateMaPhongComboBox(sinhVien.LoaiPhongSVDangKi);
+                            UpdateMaPhongAddComboBox(sinhVien.LoaiPhongSVDangKi);
                         }
                     }
                 }
             }
         }
+        private void cbBoxUpAndDeMaSVIntoRoom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbBoxUpAndDeMaSVIntoRoom.SelectedItem != null && cbBoxUpAndDeMaSVIntoRoom.SelectedItem is string selectedMaSinhVienString)
+            {
+                if (int.TryParse(selectedMaSinhVienString, out int selectedMaSinhVien))
+                {
+                    using (var context = new QuanLi_DormitoryEntities())
+                    {
+                        var sinhVien = context.SINHVIENs.FirstOrDefault(sv => sv.MaSV == selectedMaSinhVien);
+                        if (sinhVien != null)
+                        {
+                            cbBoxUpAndDeLoaiPhongDkiIntoRoom.SelectedItem = sinhVien.LoaiPhongSVDangKi;
+                            UpdateMaPhongUpAndDeComboBox(sinhVien.LoaiPhongSVDangKi);
+                        }
+                    }
+                }
+            }
+        }
+
 
         private void btnAddIntoRoom_Click(object sender, EventArgs e)
         {
@@ -292,7 +311,6 @@ namespace Dormitory_Winform.UserControls
                 {
                     Clear();
                     RefreshDataGridView();
-                    //UpdateRelatedControls();
                 }
                 else
                 {
@@ -304,8 +322,8 @@ namespace Dormitory_Winform.UserControls
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin bắt buộc.", "Trường bắt buộc", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        
-        
+
+
         private void btnUpdateIntoRoom_Click(object sender, EventArgs e)
         {
             try
@@ -323,7 +341,6 @@ namespace Dormitory_Winform.UserControls
                     {
                         Clear1();
                         RefreshDataGridView();
-                        //UpdateRelatedControls();
                     }
                     else
                     {
@@ -385,5 +402,7 @@ namespace Dormitory_Winform.UserControls
                 tabControlIntoRoom.SelectedTab = tabPageUpDeIntoRoom;
             }
         }
+
+        
     }
 }

@@ -63,7 +63,7 @@
             this.panel1.Controls.Add(this.pictureBoxShow);
             this.panel1.Controls.Add(this.pictureBoxHide);
             this.panel1.Controls.Add(this.txtPassword);
-            this.panel1.Location = new System.Drawing.Point(94, 37);
+            this.panel1.Location = new System.Drawing.Point(72, 39);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(374, 502);
             this.panel1.TabIndex = 0;
@@ -200,7 +200,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(457, -1);
+            this.pictureBox1.Location = new System.Drawing.Point(488, -1);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(614, 590);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

@@ -70,6 +70,7 @@
             this.userControlRooms1 = new Dormitory_Winform.UserControls.UserControlRooms();
             this.userControlRelatives1 = new Dormitory_Winform.UserControls.UserControlRelative();
             this.userControlIntoRoom1 = new Dormitory_Winform.UserControls.UserControlIntoRoom();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -385,9 +386,9 @@
             this.pictureMinimize.BackColor = System.Drawing.Color.Transparent;
             this.pictureMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pictureMinimize.Image")));
-            this.pictureMinimize.Location = new System.Drawing.Point(1236, 0);
+            this.pictureMinimize.Location = new System.Drawing.Point(1268, 0);
             this.pictureMinimize.Name = "pictureMinimize";
-            this.pictureMinimize.Size = new System.Drawing.Size(32, 33);
+            this.pictureMinimize.Size = new System.Drawing.Size(22, 33);
             this.pictureMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureMinimize.TabIndex = 17;
             this.pictureMinimize.TabStop = false;
@@ -397,9 +398,9 @@
             // 
             this.pictureClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureClose.Image = ((System.Drawing.Image)(resources.GetObject("pictureClose.Image")));
-            this.pictureClose.Location = new System.Drawing.Point(1280, -1);
+            this.pictureClose.Location = new System.Drawing.Point(1296, -1);
             this.pictureClose.Name = "pictureClose";
-            this.pictureClose.Size = new System.Drawing.Size(32, 35);
+            this.pictureClose.Size = new System.Drawing.Size(24, 34);
             this.pictureClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureClose.TabIndex = 18;
             this.pictureClose.TabStop = false;
@@ -462,6 +463,7 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.Navy;
             this.panel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel6.BackgroundImage")));
+            this.panel6.Controls.Add(this.btnRefresh);
             this.panel6.Controls.Add(this.lblUserName);
             this.panel6.Controls.Add(this.label4);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
@@ -632,6 +634,21 @@
             this.userControlIntoRoom1.Size = new System.Drawing.Size(1332, 529);
             this.userControlIntoRoom1.TabIndex = 8;
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.White;
+            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnRefresh.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.Navy;
+            this.btnRefresh.Location = new System.Drawing.Point(1212, 30);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(78, 34);
+            this.btnRefresh.TabIndex = 3;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // FormDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -715,5 +732,6 @@
         private UserControls.UserControlIntoRoom userControlIntoRoom1;
         private System.Windows.Forms.PictureBox picInformationShow;
         private UserControls.UserControlStudent userControlStudents1;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

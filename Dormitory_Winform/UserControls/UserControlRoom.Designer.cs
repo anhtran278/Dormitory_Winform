@@ -48,9 +48,7 @@
             this.lblSearchRoom = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPageUpDeRoom = new System.Windows.Forms.TabPage();
-            this.cbBoxUpAndDeTrangThaiRoom = new System.Windows.Forms.ComboBox();
             this.txtUpAndDeGiaPhongRoom = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtUpAndDeMaPhongRoom = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -277,9 +275,7 @@
             // 
             // tabPageUpDeRoom
             // 
-            this.tabPageUpDeRoom.Controls.Add(this.cbBoxUpAndDeTrangThaiRoom);
             this.tabPageUpDeRoom.Controls.Add(this.txtUpAndDeGiaPhongRoom);
-            this.tabPageUpDeRoom.Controls.Add(this.label6);
             this.tabPageUpDeRoom.Controls.Add(this.label13);
             this.tabPageUpDeRoom.Controls.Add(this.txtUpAndDeMaPhongRoom);
             this.tabPageUpDeRoom.Controls.Add(this.label14);
@@ -294,42 +290,19 @@
             this.tabPageUpDeRoom.Text = "Update and Delete ";
             this.tabPageUpDeRoom.UseVisualStyleBackColor = true;
             // 
-            // cbBoxUpAndDeTrangThaiRoom
-            // 
-            this.cbBoxUpAndDeTrangThaiRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBoxUpAndDeTrangThaiRoom.FormattingEnabled = true;
-            this.cbBoxUpAndDeTrangThaiRoom.Items.AddRange(new object[] {
-            "Please select ...",
-            "A",
-            "B"});
-            this.cbBoxUpAndDeTrangThaiRoom.Location = new System.Drawing.Point(261, 217);
-            this.cbBoxUpAndDeTrangThaiRoom.Name = "cbBoxUpAndDeTrangThaiRoom";
-            this.cbBoxUpAndDeTrangThaiRoom.Size = new System.Drawing.Size(263, 25);
-            this.cbBoxUpAndDeTrangThaiRoom.TabIndex = 29;
-            // 
             // txtUpAndDeGiaPhongRoom
             // 
             this.txtUpAndDeGiaPhongRoom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUpAndDeGiaPhongRoom.Location = new System.Drawing.Point(625, 114);
+            this.txtUpAndDeGiaPhongRoom.Location = new System.Drawing.Point(625, 185);
             this.txtUpAndDeGiaPhongRoom.Name = "txtUpAndDeGiaPhongRoom";
             this.txtUpAndDeGiaPhongRoom.Size = new System.Drawing.Size(263, 23);
             this.txtUpAndDeGiaPhongRoom.TabIndex = 26;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(261, 180);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 16);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "Trang thai:";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(625, 77);
+            this.label13.Location = new System.Drawing.Point(625, 148);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(81, 16);
             this.label13.TabIndex = 24;
@@ -338,7 +311,7 @@
             // txtUpAndDeMaPhongRoom
             // 
             this.txtUpAndDeMaPhongRoom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUpAndDeMaPhongRoom.Location = new System.Drawing.Point(261, 114);
+            this.txtUpAndDeMaPhongRoom.Location = new System.Drawing.Point(261, 185);
             this.txtUpAndDeMaPhongRoom.Name = "txtUpAndDeMaPhongRoom";
             this.txtUpAndDeMaPhongRoom.Size = new System.Drawing.Size(263, 23);
             this.txtUpAndDeMaPhongRoom.TabIndex = 27;
@@ -347,7 +320,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(261, 77);
+            this.label14.Location = new System.Drawing.Point(261, 148);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(78, 16);
             this.label14.TabIndex = 25;
@@ -437,9 +410,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.ComboBox cbBoxUpAndDeTrangThaiRoom;
         private System.Windows.Forms.TextBox txtUpAndDeGiaPhongRoom;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtUpAndDeMaPhongRoom;
         private System.Windows.Forms.Label label14;

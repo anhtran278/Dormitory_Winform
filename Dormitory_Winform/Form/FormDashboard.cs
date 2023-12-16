@@ -195,5 +195,10 @@ namespace Dormitory_Winform
 
             MessageBox.Show(info, "Thông tin phòng", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            Refresh();
+        }
     }
 }

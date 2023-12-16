@@ -20,11 +20,6 @@ namespace Dormitory_Winform.UserControls
             dataGridViewRoom.DataSource = bindingSource;
             dataGridViewRoom.AutoGenerateColumns = false;
         }
-        private void RoomService_RoomDeleted(string maPhong)
-        {
-            RefreshDataGridView();
-            UpdateRelatedControls();
-        }
         private void UserControlRooms_Load(object sender, EventArgs e)
         {
             loadDataIntoDataGridView();

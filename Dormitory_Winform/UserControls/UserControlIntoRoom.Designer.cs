@@ -377,6 +377,7 @@
             this.cbBoxUpAndDeMaSVIntoRoom.Name = "cbBoxUpAndDeMaSVIntoRoom";
             this.cbBoxUpAndDeMaSVIntoRoom.Size = new System.Drawing.Size(263, 25);
             this.cbBoxUpAndDeMaSVIntoRoom.TabIndex = 16;
+            this.cbBoxUpAndDeMaSVIntoRoom.SelectedIndexChanged += new System.EventHandler(this.cbBoxUpAndDeMaSVIntoRoom_SelectedIndexChanged);
             // 
             // dateTimeUpAndDeNgayVaoIntoRoom
             // 

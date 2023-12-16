@@ -174,10 +174,14 @@ namespace Dormitory_Winform.UserControls
                 string maSV = txtAddMaSVStudent.Text.Trim();
                 string ten = txtAddTenStudent.Text.Trim();
                 string dt = txtAddDTStudent.Text.Trim();
-                string ngaySinh = dateTimeUpAndDeNgaySinhStudent.Value.ToString("yyyy-MM-dd"); 
                 string diaChi = txtAddDiaChiStudent.Text.Trim();
                 string loaiPhongDki = cbBoxAddLoaiPhongDkiStudent.SelectedItem?.ToString(); 
                 string trangThaiDki = rdbAddChuaDuyetStudent.Checked ? "Chua Duyet" : "Duyet";
+                DateTime ngaySinh = dateTimeAddNgaySinhStudent.Value;
+                if (ngaySinh == DateTime.Today)
+                {
+                    ngaySinh = DateTime.MinValue;
+                }
 
                 if (string.IsNullOrEmpty(maSV) || string.IsNullOrEmpty(ten))
                 {
@@ -185,7 +189,7 @@ namespace Dormitory_Winform.UserControls
                     return;
                 }
 
-                bool check = studentService.AddSinhVien(maSV, ten, dt, ngaySinh, diaChi, loaiPhongDki, trangThaiDki);
+                bool check = studentService.AddSinhVien(maSV, ten, dt, ngaySinh.ToString("yyyy-MM-dd"), diaChi, loaiPhongDki, trangThaiDki);
                 if (check)
                 {
                     Clear();
@@ -260,7 +264,7 @@ namespace Dormitory_Winform.UserControls
 
         private void dataGridViewStudent_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1)
+            if (e.RowIndex != 0)
             {
                 DataGridViewRow row = dataGridViewStudent.Rows[e.RowIndex];
                 txtUpAndDeMaSVStudent.Text = row.Cells[0].Value.ToString();

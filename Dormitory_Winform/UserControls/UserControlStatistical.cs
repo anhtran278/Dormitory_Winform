@@ -59,7 +59,6 @@ namespace Dormitory_Winform.UserControls
             ConsumeChart.Series["Series2"].YValueMembers = "TongPhiPhong";
             ConsumeChart.Series["Series2"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double; 
 
-           // ConsumeChart.Refresh();
         }
 
         private void btnLoadStudentChart_Click(object sender, EventArgs e)
