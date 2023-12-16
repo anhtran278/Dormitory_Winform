@@ -174,6 +174,25 @@ namespace Dormitory_Winform.UserControls
                 {
                     cbBoxAddMaSVIntoRoom.Items.Add(maSV);
                 }
+                /////////////////////////////////////
+                List<string> maSVAdded = db.SINHVIENVAOPHONGs
+                    .Select(sv => sv.MaSV.ToString())
+                    .ToList();
+
+                if (cbBoxAddMaSVIntoRoom == null)
+                {
+                    return;
+                }
+
+                cbBoxAddMaSVIntoRoom.Items.Clear();
+                foreach (string maSV in getMaSVList)
+                {
+                    // Kiểm tra xem sinh viên đã được thêm vào phòng hay chưa
+                    if (!maSVAdded.Contains(maSV))
+                    {
+                        cbBoxAddMaSVIntoRoom.Items.Add(maSV);
+                    }
+                }
                 //////////////////////////////////////////////////
                 List<string> loaiPhongDkiList = db.LOAIPHONGSVDKIs
                     .Select(sv => sv.LoaiPhongSVDangKi.ToString())
@@ -293,6 +312,7 @@ namespace Dormitory_Winform.UserControls
         }
 
 
+
         private void btnAddIntoRoom_Click(object sender, EventArgs e)
         {
             bool check;
@@ -311,6 +331,7 @@ namespace Dormitory_Winform.UserControls
                 {
                     Clear();
                     RefreshDataGridView();
+                    GetMaSVIntoComboBox();
                 }
                 else
                 {

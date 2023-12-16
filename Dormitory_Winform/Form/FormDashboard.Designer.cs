@@ -54,6 +54,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblLogOut = new System.Windows.Forms.LinkLabel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.lblUserName = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -70,7 +71,6 @@
             this.userControlRooms1 = new Dormitory_Winform.UserControls.UserControlRooms();
             this.userControlRelatives1 = new Dormitory_Winform.UserControls.UserControlRelative();
             this.userControlIntoRoom1 = new Dormitory_Winform.UserControls.UserControlIntoRoom();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -386,9 +386,9 @@
             this.pictureMinimize.BackColor = System.Drawing.Color.Transparent;
             this.pictureMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pictureMinimize.Image")));
-            this.pictureMinimize.Location = new System.Drawing.Point(1268, 0);
+            this.pictureMinimize.Location = new System.Drawing.Point(1260, 0);
             this.pictureMinimize.Name = "pictureMinimize";
-            this.pictureMinimize.Size = new System.Drawing.Size(22, 33);
+            this.pictureMinimize.Size = new System.Drawing.Size(24, 34);
             this.pictureMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureMinimize.TabIndex = 17;
             this.pictureMinimize.TabStop = false;
@@ -471,6 +471,21 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1332, 92);
             this.panel6.TabIndex = 4;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.White;
+            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnRefresh.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.Navy;
+            this.btnRefresh.Location = new System.Drawing.Point(1212, 30);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(78, 34);
+            this.btnRefresh.TabIndex = 3;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // lblUserName
             // 
@@ -633,21 +648,6 @@
             this.userControlIntoRoom1.Name = "userControlIntoRoom1";
             this.userControlIntoRoom1.Size = new System.Drawing.Size(1332, 529);
             this.userControlIntoRoom1.TabIndex = 8;
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.BackColor = System.Drawing.Color.White;
-            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnRefresh.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.ForeColor = System.Drawing.Color.Navy;
-            this.btnRefresh.Location = new System.Drawing.Point(1212, 30);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(78, 34);
-            this.btnRefresh.TabIndex = 3;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = false;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // FormDashboard
             // 
