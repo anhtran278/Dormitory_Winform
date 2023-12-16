@@ -31,14 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlRooms));
             this.tabControlRoom = new System.Windows.Forms.TabControl();
             this.tabPageAddRoom = new System.Windows.Forms.TabPage();
-            this.cbBoxAddTrangThaiRoom = new System.Windows.Forms.ComboBox();
             this.cbBoxAddLoaiPhongRoom = new System.Windows.Forms.ComboBox();
             this.btnAddRoom = new System.Windows.Forms.Button();
             this.txtAddGiaPhongRoom = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtAddMaPhongRoom = new System.Windows.Forms.TextBox();
+            this.txtAddKiHieuPhongRoom = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageSearchRoom = new System.Windows.Forms.TabPage();
@@ -77,20 +75,18 @@
             this.tabControlRoom.Location = new System.Drawing.Point(0, 4);
             this.tabControlRoom.Name = "tabControlRoom";
             this.tabControlRoom.SelectedIndex = 0;
-            this.tabControlRoom.Size = new System.Drawing.Size(1156, 438);
+            this.tabControlRoom.Size = new System.Drawing.Size(1156, 431);
             this.tabControlRoom.TabIndex = 2;
             this.tabControlRoom.Leave += new System.EventHandler(this.tabPageUpDeRoom_Leave);
             // 
             // tabPageAddRoom
             // 
-            this.tabPageAddRoom.Controls.Add(this.cbBoxAddTrangThaiRoom);
             this.tabPageAddRoom.Controls.Add(this.cbBoxAddLoaiPhongRoom);
             this.tabPageAddRoom.Controls.Add(this.btnAddRoom);
             this.tabPageAddRoom.Controls.Add(this.txtAddGiaPhongRoom);
-            this.tabPageAddRoom.Controls.Add(this.label3);
             this.tabPageAddRoom.Controls.Add(this.label9);
             this.tabPageAddRoom.Controls.Add(this.label16);
-            this.tabPageAddRoom.Controls.Add(this.txtAddMaPhongRoom);
+            this.tabPageAddRoom.Controls.Add(this.txtAddKiHieuPhongRoom);
             this.tabPageAddRoom.Controls.Add(this.label2);
             this.tabPageAddRoom.Controls.Add(this.label1);
             this.tabPageAddRoom.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -98,27 +94,16 @@
             this.tabPageAddRoom.Location = new System.Drawing.Point(4, 4);
             this.tabPageAddRoom.Name = "tabPageAddRoom";
             this.tabPageAddRoom.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAddRoom.Size = new System.Drawing.Size(1148, 408);
+            this.tabPageAddRoom.Size = new System.Drawing.Size(1148, 401);
             this.tabPageAddRoom.TabIndex = 0;
             this.tabPageAddRoom.Text = "Add";
             this.tabPageAddRoom.UseVisualStyleBackColor = true;
             this.tabPageAddRoom.Leave += new System.EventHandler(this.tabPageAddRoom_Leave);
             // 
-            // cbBoxAddTrangThaiRoom
-            // 
-            this.cbBoxAddTrangThaiRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBoxAddTrangThaiRoom.FormattingEnabled = true;
-            this.cbBoxAddTrangThaiRoom.Items.AddRange(new object[] {
-            "Please select ...",
-            "A",
-            "B"});
-            this.cbBoxAddTrangThaiRoom.Location = new System.Drawing.Point(608, 215);
-            this.cbBoxAddTrangThaiRoom.Name = "cbBoxAddTrangThaiRoom";
-            this.cbBoxAddTrangThaiRoom.Size = new System.Drawing.Size(263, 25);
-            this.cbBoxAddTrangThaiRoom.TabIndex = 7;
-            // 
             // cbBoxAddLoaiPhongRoom
             // 
+            this.cbBoxAddLoaiPhongRoom.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbBoxAddLoaiPhongRoom.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbBoxAddLoaiPhongRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBoxAddLoaiPhongRoom.FormattingEnabled = true;
             this.cbBoxAddLoaiPhongRoom.Items.AddRange(new object[] {
@@ -155,16 +140,6 @@
             this.txtAddGiaPhongRoom.Size = new System.Drawing.Size(263, 23);
             this.txtAddGiaPhongRoom.TabIndex = 3;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(608, 178);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 16);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Trang thai:";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -185,13 +160,13 @@
             this.label16.TabIndex = 2;
             this.label16.Text = "Gia phong:";
             // 
-            // txtAddMaPhongRoom
+            // txtAddKiHieuPhongRoom
             // 
-            this.txtAddMaPhongRoom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAddMaPhongRoom.Location = new System.Drawing.Point(244, 112);
-            this.txtAddMaPhongRoom.Name = "txtAddMaPhongRoom";
-            this.txtAddMaPhongRoom.Size = new System.Drawing.Size(263, 23);
-            this.txtAddMaPhongRoom.TabIndex = 3;
+            this.txtAddKiHieuPhongRoom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAddKiHieuPhongRoom.Location = new System.Drawing.Point(244, 112);
+            this.txtAddKiHieuPhongRoom.Name = "txtAddKiHieuPhongRoom";
+            this.txtAddKiHieuPhongRoom.Size = new System.Drawing.Size(263, 23);
+            this.txtAddKiHieuPhongRoom.TabIndex = 3;
             // 
             // label2
             // 
@@ -199,9 +174,9 @@
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(244, 75);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 16);
+            this.label2.Size = new System.Drawing.Size(101, 16);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Ma phong:";
+            this.label2.Text = "Ki hieu phong:";
             // 
             // label1
             // 
@@ -223,7 +198,7 @@
             this.tabPageSearchRoom.Location = new System.Drawing.Point(4, 4);
             this.tabPageSearchRoom.Name = "tabPageSearchRoom";
             this.tabPageSearchRoom.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSearchRoom.Size = new System.Drawing.Size(1148, 408);
+            this.tabPageSearchRoom.Size = new System.Drawing.Size(1148, 401);
             this.tabPageSearchRoom.TabIndex = 1;
             this.tabPageSearchRoom.Text = "Search";
             this.tabPageSearchRoom.UseVisualStyleBackColor = true;
@@ -314,7 +289,7 @@
             this.tabPageUpDeRoom.Location = new System.Drawing.Point(4, 4);
             this.tabPageUpDeRoom.Name = "tabPageUpDeRoom";
             this.tabPageUpDeRoom.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageUpDeRoom.Size = new System.Drawing.Size(1148, 408);
+            this.tabPageUpDeRoom.Size = new System.Drawing.Size(1148, 401);
             this.tabPageUpDeRoom.TabIndex = 2;
             this.tabPageUpDeRoom.Text = "Update and Delete ";
             this.tabPageUpDeRoom.UseVisualStyleBackColor = true;
@@ -449,8 +424,6 @@
         private System.Windows.Forms.TabControl tabControlRoom;
         private System.Windows.Forms.TabPage tabPageAddRoom;
         private System.Windows.Forms.Button btnAddRoom;
-        private System.Windows.Forms.TextBox txtAddMaPhongRoom;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPageSearchRoom;
         private System.Windows.Forms.DataGridView dataGridViewRoom;
@@ -461,12 +434,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnDeleteRoom;
         private System.Windows.Forms.Button btnUpdateRoom;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtAddGiaPhongRoom;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ComboBox cbBoxAddLoaiPhongRoom;
-        private System.Windows.Forms.ComboBox cbBoxAddTrangThaiRoom;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
@@ -476,5 +443,11 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtUpAndDeMaPhongRoom;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox cbBoxAddLoaiPhongRoom;
+        private System.Windows.Forms.TextBox txtAddGiaPhongRoom;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtAddKiHieuPhongRoom;
+        private System.Windows.Forms.Label label2;
     }
 }

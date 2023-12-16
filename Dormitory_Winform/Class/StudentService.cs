@@ -33,12 +33,11 @@ namespace Dormitory_Winform.Class
             }
         }
 
-        public bool AddSinhVien(string maSV, string ten, string dt, string ngaySinh, string diaChi, string trangThaiDki)
+        public bool AddSinhVien(string maSV, string ten, string dt, string ngaySinh, string diaChi, string loaiPhongDki, string trangThaiDki)
         {
             try
             {
-                int maSVID;
-                if (!int.TryParse(maSV, out maSVID))
+                if (!int.TryParse(maSV, out int maSVID))
                 {
                     MessageBox.Show("Invalid SinhVien ID. Please enter a valid integer.", "Invalid SinhVien ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
@@ -50,8 +49,7 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-                DateTime ngaySinhDate;
-                if (!DateTime.TryParse(ngaySinh, out ngaySinhDate))
+                if (!DateTime.TryParse(ngaySinh, out DateTime ngaySinhDate))
                 {
                     MessageBox.Show("Invalid date format for NgaySinh. Please enter a valid date.", "Invalid NgaySinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
@@ -64,6 +62,7 @@ namespace Dormitory_Winform.Class
                     NgaySinh = ngaySinhDate,
                     DienThoai = dt,
                     DiaChi = diaChi,
+                    LoaiPhongSVDangKi = loaiPhongDki,
                     TrangThaiDki = trangThaiDki
                 };
 
@@ -80,12 +79,12 @@ namespace Dormitory_Winform.Class
                 return false;
             }
         }
-        public bool UpdateSinhVien(string maSV, string ten, string dt, string ngaySinh, string diaChi, bool trangThaiDki)
+
+        public bool UpdateSinhVien(string maSV, string ten, string dt, string ngaySinh, string diaChi, string loaiPhongDki, string trangThaiDki)
         {
             try
             {
-                int maSVID;
-                if (!int.TryParse(maSV, out maSVID))
+                if (!int.TryParse(maSV, out int maSVID))
                 {
                     MessageBox.Show("Invalid SinhVien ID. Please enter a valid integer.", "Invalid SinhVien ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
@@ -102,8 +101,7 @@ namespace Dormitory_Winform.Class
                 existingSinhVien.Ten = ten;
                 existingSinhVien.DienThoai = dt;
 
-                DateTime ngaySinhDate;
-                if (!DateTime.TryParse(ngaySinh, out ngaySinhDate))
+                if (!DateTime.TryParse(ngaySinh, out DateTime ngaySinhDate))
                 {
                     MessageBox.Show("Invalid date format for NgaySinh. Please enter a valid date.", "Invalid NgaySinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
@@ -111,8 +109,8 @@ namespace Dormitory_Winform.Class
                 existingSinhVien.NgaySinh = ngaySinhDate;
 
                 existingSinhVien.DiaChi = diaChi;
-
-                existingSinhVien.TrangThaiDki = trangThaiDki ? "Duyet" : "Chua Duyet";
+                existingSinhVien.LoaiPhongSVDangKi = loaiPhongDki;
+                existingSinhVien.TrangThaiDki = trangThaiDki;
 
                 db.SaveChanges();
 
@@ -126,6 +124,7 @@ namespace Dormitory_Winform.Class
                 return false;
             }
         }
+
 
         public bool DeleteSinhVien(string maSV)
         {

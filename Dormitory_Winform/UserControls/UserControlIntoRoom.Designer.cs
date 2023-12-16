@@ -45,9 +45,9 @@
             this.dataGridViewIntoRoom = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearchIntoRoom = new System.Windows.Forms.TextBox();
             this.lblSearchRoom = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -122,6 +122,7 @@
             this.btnAddIntoRoom.TabIndex = 4;
             this.btnAddIntoRoom.Text = "Add";
             this.btnAddIntoRoom.UseVisualStyleBackColor = false;
+            this.btnAddIntoRoom.Click += new System.EventHandler(this.btnAddIntoRoom_Click);
             // 
             // label18
             // 
@@ -156,6 +157,8 @@
             // 
             // cbBoxAddMaSVIntoRoom
             // 
+            this.cbBoxAddMaSVIntoRoom.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbBoxAddMaSVIntoRoom.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbBoxAddMaSVIntoRoom.FormattingEnabled = true;
             this.cbBoxAddMaSVIntoRoom.Items.AddRange(new object[] {
             "Please select ..."});
@@ -163,6 +166,7 @@
             this.cbBoxAddMaSVIntoRoom.Name = "cbBoxAddMaSVIntoRoom";
             this.cbBoxAddMaSVIntoRoom.Size = new System.Drawing.Size(263, 25);
             this.cbBoxAddMaSVIntoRoom.TabIndex = 7;
+            this.cbBoxAddMaSVIntoRoom.SelectedIndexChanged += new System.EventHandler(this.cbBoxAddMaSVIntoRoom_SelectedIndexChanged);
             // 
             // dateTimeAddNgayVaoIntoRoom
             // 
@@ -173,11 +177,11 @@
             // 
             // cbBoxAddMaPhongIntoRoom
             // 
+            this.cbBoxAddMaPhongIntoRoom.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbBoxAddMaPhongIntoRoom.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbBoxAddMaPhongIntoRoom.FormattingEnabled = true;
             this.cbBoxAddMaPhongIntoRoom.Items.AddRange(new object[] {
-            "Please select ...",
-            "A",
-            "B"});
+            "Please select ..."});
             this.cbBoxAddMaPhongIntoRoom.Location = new System.Drawing.Point(244, 190);
             this.cbBoxAddMaPhongIntoRoom.Name = "cbBoxAddMaPhongIntoRoom";
             this.cbBoxAddMaPhongIntoRoom.Size = new System.Drawing.Size(263, 25);
@@ -195,6 +199,8 @@
             // 
             // cbBoxAddLoaiPhongDkiIntoRoom
             // 
+            this.cbBoxAddLoaiPhongDkiIntoRoom.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbBoxAddLoaiPhongDkiIntoRoom.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbBoxAddLoaiPhongDkiIntoRoom.FormattingEnabled = true;
             this.cbBoxAddLoaiPhongDkiIntoRoom.Items.AddRange(new object[] {
             "Please select ...",
@@ -237,14 +243,15 @@
             this.dataGridViewIntoRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
-            this.Column5,
             this.Column3,
-            this.Column6});
+            this.Column4,
+            this.Column5});
             this.dataGridViewIntoRoom.Location = new System.Drawing.Point(63, 135);
             this.dataGridViewIntoRoom.Name = "dataGridViewIntoRoom";
             this.dataGridViewIntoRoom.ReadOnly = true;
             this.dataGridViewIntoRoom.Size = new System.Drawing.Size(1030, 244);
             this.dataGridViewIntoRoom.TabIndex = 6;
+            this.dataGridViewIntoRoom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewIntoRoom_CellClick);
             // 
             // Column1
             // 
@@ -263,29 +270,29 @@
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column5.DataPropertyName = "LoaiPhongSVDangKi";
-            this.Column5.HeaderText = "Loai phong dang ki";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
             // Column3
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.DataPropertyName = "KiHieu";
-            this.Column3.HeaderText = "Ma phong";
+            this.Column3.DataPropertyName = "LoaiPhongSVDangKi";
+            this.Column3.HeaderText = "Loai phong dang ki";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
-            // Column6
+            // Column4
             // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column6.DataPropertyName = "NgayVao";
-            this.Column6.HeaderText = "Ngay Vao";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.DataPropertyName = "MaPhong";
+            this.Column4.HeaderText = "Ma phong";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column5.DataPropertyName = "NgayVao";
+            this.Column5.HeaderText = "Ngay Vao";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // txtSearchIntoRoom
             // 
@@ -363,9 +370,9 @@
             // 
             // cbBoxUpAndDeMaSVIntoRoom
             // 
+            this.cbBoxUpAndDeMaSVIntoRoom.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbBoxUpAndDeMaSVIntoRoom.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbBoxUpAndDeMaSVIntoRoom.FormattingEnabled = true;
-            this.cbBoxUpAndDeMaSVIntoRoom.Items.AddRange(new object[] {
-            "Please select ..."});
             this.cbBoxUpAndDeMaSVIntoRoom.Location = new System.Drawing.Point(625, 128);
             this.cbBoxUpAndDeMaSVIntoRoom.Name = "cbBoxUpAndDeMaSVIntoRoom";
             this.cbBoxUpAndDeMaSVIntoRoom.Size = new System.Drawing.Size(263, 25);
@@ -380,11 +387,9 @@
             // 
             // cbBoxUpAndDeMaPhongIntoRoom
             // 
+            this.cbBoxUpAndDeMaPhongIntoRoom.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbBoxUpAndDeMaPhongIntoRoom.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbBoxUpAndDeMaPhongIntoRoom.FormattingEnabled = true;
-            this.cbBoxUpAndDeMaPhongIntoRoom.Items.AddRange(new object[] {
-            "Please select ...",
-            "A",
-            "B"});
             this.cbBoxUpAndDeMaPhongIntoRoom.Location = new System.Drawing.Point(261, 207);
             this.cbBoxUpAndDeMaPhongIntoRoom.Name = "cbBoxUpAndDeMaPhongIntoRoom";
             this.cbBoxUpAndDeMaPhongIntoRoom.Size = new System.Drawing.Size(263, 25);
@@ -402,11 +407,9 @@
             // 
             // cbBoxUpAndDeLoaiPhongDkiIntoRoom
             // 
+            this.cbBoxUpAndDeLoaiPhongDkiIntoRoom.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbBoxUpAndDeLoaiPhongDkiIntoRoom.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbBoxUpAndDeLoaiPhongDkiIntoRoom.FormattingEnabled = true;
-            this.cbBoxUpAndDeLoaiPhongDkiIntoRoom.Items.AddRange(new object[] {
-            "Please select ...",
-            "A",
-            "B"});
             this.cbBoxUpAndDeLoaiPhongDkiIntoRoom.Location = new System.Drawing.Point(261, 128);
             this.cbBoxUpAndDeLoaiPhongDkiIntoRoom.Name = "cbBoxUpAndDeLoaiPhongDkiIntoRoom";
             this.cbBoxUpAndDeLoaiPhongDkiIntoRoom.Size = new System.Drawing.Size(263, 25);
@@ -448,6 +451,7 @@
             this.btnDeleteIntoRoom.TabIndex = 9;
             this.btnDeleteIntoRoom.Text = "Delete";
             this.btnDeleteIntoRoom.UseVisualStyleBackColor = false;
+            this.btnDeleteIntoRoom.Click += new System.EventHandler(this.btnDeleteIntoRoom_Click);
             // 
             // btnUpdateIntoRoom
             // 
@@ -464,6 +468,7 @@
             this.btnUpdateIntoRoom.TabIndex = 9;
             this.btnUpdateIntoRoom.Text = "Update";
             this.btnUpdateIntoRoom.UseVisualStyleBackColor = false;
+            this.btnUpdateIntoRoom.Click += new System.EventHandler(this.btnUpdateIntoRoom_Click);
             // 
             // UserControlIntoRoom
             // 
@@ -517,8 +522,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

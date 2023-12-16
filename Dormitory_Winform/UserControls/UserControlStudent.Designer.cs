@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlStudent));
             this.tabControlStudent = new System.Windows.Forms.TabControl();
             this.tabPageAddStudent = new System.Windows.Forms.TabPage();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbBoxAddLoaiPhongDkiStudent = new System.Windows.Forms.ComboBox();
             this.dateTimeAddNgaySinhStudent = new System.Windows.Forms.DateTimePicker();
             this.rdbAddChuaDuyetStudent = new System.Windows.Forms.RadioButton();
             this.rdbAddDuyetStudent = new System.Windows.Forms.RadioButton();
@@ -43,12 +43,17 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtAddMaSVStudent = new System.Windows.Forms.TextBox();
-            this.cbBoxAddLoaiPhongDkiStudent = new System.Windows.Forms.Label();
+            this.lbl = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageSearchStudent = new System.Windows.Forms.TabPage();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtFilename = new System.Windows.Forms.TextBox();
+            this.btnBrowse = new System.Windows.Forms.Button();
+            this.cbSheet = new System.Windows.Forms.ComboBox();
             this.dataGridViewStudent = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,7 +66,7 @@
             this.lblSearchStudent = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPageUpDeStudent = new System.Windows.Forms.TabPage();
-            this.cbBoxUpAndDeLoaiPhongDkiSudent = new System.Windows.Forms.ComboBox();
+            this.cbBoxUpAndDeLoaiPhongDkiStudent = new System.Windows.Forms.ComboBox();
             this.rdbUpAndDeChuaDuyetStudent = new System.Windows.Forms.RadioButton();
             this.rdbUpAndDeDuyetStudent = new System.Windows.Forms.RadioButton();
             this.label10 = new System.Windows.Forms.Label();
@@ -79,6 +84,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnDeleteStudent = new System.Windows.Forms.Button();
             this.btnUpdateStudent = new System.Windows.Forms.Button();
+            this.btnImport = new System.Windows.Forms.Button();
             this.tabControlStudent.SuspendLayout();
             this.tabPageAddStudent.SuspendLayout();
             this.tabPageSearchStudent.SuspendLayout();
@@ -102,7 +108,7 @@
             // 
             // tabPageAddStudent
             // 
-            this.tabPageAddStudent.Controls.Add(this.comboBox1);
+            this.tabPageAddStudent.Controls.Add(this.cbBoxAddLoaiPhongDkiStudent);
             this.tabPageAddStudent.Controls.Add(this.dateTimeAddNgaySinhStudent);
             this.tabPageAddStudent.Controls.Add(this.rdbAddChuaDuyetStudent);
             this.tabPageAddStudent.Controls.Add(this.rdbAddDuyetStudent);
@@ -114,7 +120,7 @@
             this.tabPageAddStudent.Controls.Add(this.label7);
             this.tabPageAddStudent.Controls.Add(this.label8);
             this.tabPageAddStudent.Controls.Add(this.txtAddMaSVStudent);
-            this.tabPageAddStudent.Controls.Add(this.cbBoxAddLoaiPhongDkiStudent);
+            this.tabPageAddStudent.Controls.Add(this.lbl);
             this.tabPageAddStudent.Controls.Add(this.label6);
             this.tabPageAddStudent.Controls.Add(this.label3);
             this.tabPageAddStudent.Controls.Add(this.label2);
@@ -130,13 +136,15 @@
             this.tabPageAddStudent.UseVisualStyleBackColor = true;
             this.tabPageAddStudent.Leave += new System.EventHandler(this.tabPageAddStudent_Leave);
             // 
-            // comboBox1
+            // cbBoxAddLoaiPhongDkiStudent
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(626, 242);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(286, 25);
-            this.comboBox1.TabIndex = 8;
+            this.cbBoxAddLoaiPhongDkiStudent.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbBoxAddLoaiPhongDkiStudent.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbBoxAddLoaiPhongDkiStudent.FormattingEnabled = true;
+            this.cbBoxAddLoaiPhongDkiStudent.Location = new System.Drawing.Point(626, 242);
+            this.cbBoxAddLoaiPhongDkiStudent.Name = "cbBoxAddLoaiPhongDkiStudent";
+            this.cbBoxAddLoaiPhongDkiStudent.Size = new System.Drawing.Size(286, 25);
+            this.cbBoxAddLoaiPhongDkiStudent.TabIndex = 8;
             // 
             // dateTimeAddNgaySinhStudent
             // 
@@ -176,7 +184,7 @@
             this.btnAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddStudent.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddStudent.ForeColor = System.Drawing.Color.White;
-            this.btnAddStudent.Location = new System.Drawing.Point(264, 318);
+            this.btnAddStudent.Location = new System.Drawing.Point(264, 324);
             this.btnAddStudent.Name = "btnAddStudent";
             this.btnAddStudent.Size = new System.Drawing.Size(111, 41);
             this.btnAddStudent.TabIndex = 4;
@@ -247,15 +255,15 @@
             this.txtAddMaSVStudent.Size = new System.Drawing.Size(263, 22);
             this.txtAddMaSVStudent.TabIndex = 3;
             // 
-            // cbBoxAddLoaiPhongDkiStudent
+            // lbl
             // 
-            this.cbBoxAddLoaiPhongDkiStudent.AutoSize = true;
-            this.cbBoxAddLoaiPhongDkiStudent.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbBoxAddLoaiPhongDkiStudent.Location = new System.Drawing.Point(626, 210);
-            this.cbBoxAddLoaiPhongDkiStudent.Name = "cbBoxAddLoaiPhongDkiStudent";
-            this.cbBoxAddLoaiPhongDkiStudent.Size = new System.Drawing.Size(139, 16);
-            this.cbBoxAddLoaiPhongDkiStudent.TabIndex = 2;
-            this.cbBoxAddLoaiPhongDkiStudent.Text = "Loai phong dang ki:";
+            this.lbl.AutoSize = true;
+            this.lbl.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl.Location = new System.Drawing.Point(626, 210);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(139, 16);
+            this.lbl.TabIndex = 2;
+            this.lbl.Text = "Loai phong dang ki:";
             // 
             // label6
             // 
@@ -300,6 +308,12 @@
             // 
             // tabPageSearchStudent
             // 
+            this.tabPageSearchStudent.Controls.Add(this.label18);
+            this.tabPageSearchStudent.Controls.Add(this.label17);
+            this.tabPageSearchStudent.Controls.Add(this.txtFilename);
+            this.tabPageSearchStudent.Controls.Add(this.btnImport);
+            this.tabPageSearchStudent.Controls.Add(this.btnBrowse);
+            this.tabPageSearchStudent.Controls.Add(this.cbSheet);
             this.tabPageSearchStudent.Controls.Add(this.dataGridViewStudent);
             this.tabPageSearchStudent.Controls.Add(this.txtSearchStudent);
             this.tabPageSearchStudent.Controls.Add(this.lblSearchStudent);
@@ -312,6 +326,53 @@
             this.tabPageSearchStudent.TabIndex = 1;
             this.tabPageSearchStudent.Text = "Search";
             this.tabPageSearchStudent.UseVisualStyleBackColor = true;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(727, 43);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(46, 17);
+            this.label18.TabIndex = 10;
+            this.label18.Text = "Sheet:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(702, 83);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(68, 17);
+            this.label17.TabIndex = 10;
+            this.label17.Text = "File name:";
+            // 
+            // txtFilename
+            // 
+            this.txtFilename.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFilename.Location = new System.Drawing.Point(779, 77);
+            this.txtFilename.Name = "txtFilename";
+            this.txtFilename.Size = new System.Drawing.Size(256, 22);
+            this.txtFilename.TabIndex = 9;
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Location = new System.Drawing.Point(1044, 77);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(52, 23);
+            this.btnBrowse.TabIndex = 8;
+            this.btnBrowse.Text = "...";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            // 
+            // cbSheet
+            // 
+            this.cbSheet.FormattingEnabled = true;
+            this.cbSheet.Items.AddRange(new object[] {
+            "Sheet 1"});
+            this.cbSheet.Location = new System.Drawing.Point(779, 43);
+            this.cbSheet.Name = "cbSheet";
+            this.cbSheet.Size = new System.Drawing.Size(121, 25);
+            this.cbSheet.TabIndex = 7;
+            this.cbSheet.SelectedIndexChanged += new System.EventHandler(this.cbSheet_SelectedIndexChanged);
             // 
             // dataGridViewStudent
             // 
@@ -431,7 +492,7 @@
             // 
             // tabPageUpDeStudent
             // 
-            this.tabPageUpDeStudent.Controls.Add(this.cbBoxUpAndDeLoaiPhongDkiSudent);
+            this.tabPageUpDeStudent.Controls.Add(this.cbBoxUpAndDeLoaiPhongDkiStudent);
             this.tabPageUpDeStudent.Controls.Add(this.rdbUpAndDeChuaDuyetStudent);
             this.tabPageUpDeStudent.Controls.Add(this.rdbUpAndDeDuyetStudent);
             this.tabPageUpDeStudent.Controls.Add(this.label10);
@@ -459,13 +520,13 @@
             this.tabPageUpDeStudent.UseVisualStyleBackColor = true;
             this.tabPageUpDeStudent.Leave += new System.EventHandler(this.tabPageUpDeStudent_Leave);
             // 
-            // cbBoxUpAndDeLoaiPhongDkiSudent
+            // cbBoxUpAndDeLoaiPhongDkiStudent
             // 
-            this.cbBoxUpAndDeLoaiPhongDkiSudent.FormattingEnabled = true;
-            this.cbBoxUpAndDeLoaiPhongDkiSudent.Location = new System.Drawing.Point(626, 243);
-            this.cbBoxUpAndDeLoaiPhongDkiSudent.Name = "cbBoxUpAndDeLoaiPhongDkiSudent";
-            this.cbBoxUpAndDeLoaiPhongDkiSudent.Size = new System.Drawing.Size(286, 25);
-            this.cbBoxUpAndDeLoaiPhongDkiSudent.TabIndex = 30;
+            this.cbBoxUpAndDeLoaiPhongDkiStudent.FormattingEnabled = true;
+            this.cbBoxUpAndDeLoaiPhongDkiStudent.Location = new System.Drawing.Point(626, 243);
+            this.cbBoxUpAndDeLoaiPhongDkiStudent.Name = "cbBoxUpAndDeLoaiPhongDkiStudent";
+            this.cbBoxUpAndDeLoaiPhongDkiStudent.Size = new System.Drawing.Size(286, 25);
+            this.cbBoxUpAndDeLoaiPhongDkiStudent.TabIndex = 30;
             // 
             // rdbUpAndDeChuaDuyetStudent
             // 
@@ -644,6 +705,16 @@
             this.btnUpdateStudent.UseVisualStyleBackColor = false;
             this.btnUpdateStudent.Click += new System.EventHandler(this.btnUpdateStudent_Click);
             // 
+            // btnImport
+            // 
+            this.btnImport.Location = new System.Drawing.Point(906, 43);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(66, 25);
+            this.btnImport.TabIndex = 8;
+            this.btnImport.Text = "Import";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
             // UserControlStudent
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -702,8 +773,8 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DateTimePicker dateTimeAddNgaySinhStudent;
         private System.Windows.Forms.DateTimePicker dateTimeUpAndDeNgaySinhStudent;
-        private System.Windows.Forms.Label cbBoxAddLoaiPhongDkiStudent;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label lbl;
+        private System.Windows.Forms.ComboBox cbBoxAddLoaiPhongDkiStudent;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -711,10 +782,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.ComboBox cbBoxUpAndDeLoaiPhongDkiSudent;
+        private System.Windows.Forms.ComboBox cbBoxUpAndDeLoaiPhongDkiStudent;
         private System.Windows.Forms.RadioButton rdbUpAndDeChuaDuyetStudent;
         private System.Windows.Forms.RadioButton rdbUpAndDeDuyetStudent;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox cbSheet;
+        private System.Windows.Forms.TextBox txtFilename;
+        private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button btnImport;
     }
 }

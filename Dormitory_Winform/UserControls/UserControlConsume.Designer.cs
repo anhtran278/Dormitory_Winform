@@ -45,12 +45,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabPageSearchConsume = new System.Windows.Forms.TabPage();
             this.dataGridViewConsume = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearchMaThietBiPhongConsume = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -68,6 +62,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnDeleteConsume = new System.Windows.Forms.Button();
             this.btnUpdateConsume = new System.Windows.Forms.Button();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             label1 = new System.Windows.Forms.Label();
             this.tabControlConsume.SuspendLayout();
             this.tabPageAddConsume.SuspendLayout();
@@ -136,7 +135,8 @@
             // 
             // cbBoxAddMaThietBiConsume
             // 
-            this.cbBoxAddMaThietBiConsume.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBoxAddMaThietBiConsume.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbBoxAddMaThietBiConsume.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbBoxAddMaThietBiConsume.FormattingEnabled = true;
             this.cbBoxAddMaThietBiConsume.Location = new System.Drawing.Point(255, 115);
             this.cbBoxAddMaThietBiConsume.Name = "cbBoxAddMaThietBiConsume";
@@ -145,7 +145,8 @@
             // 
             // cbBoxAddMaPhongConsume
             // 
-            this.cbBoxAddMaPhongConsume.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBoxAddMaPhongConsume.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbBoxAddMaPhongConsume.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbBoxAddMaPhongConsume.FormattingEnabled = true;
             this.cbBoxAddMaPhongConsume.Location = new System.Drawing.Point(624, 115);
             this.cbBoxAddMaPhongConsume.Name = "cbBoxAddMaPhongConsume";
@@ -255,7 +256,6 @@
             this.dataGridViewConsume.AllowUserToDeleteRows = false;
             this.dataGridViewConsume.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewConsume.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
             this.Column2,
             this.Column3,
             this.Column4,
@@ -267,54 +267,6 @@
             this.dataGridViewConsume.Size = new System.Drawing.Size(1030, 244);
             this.dataGridViewConsume.TabIndex = 6;
             this.dataGridViewConsume.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewConsume_CellClick);
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.DataPropertyName = "MaHaoPhi";
-            this.Column1.HeaderText = "Ma Hao Phi";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.DataPropertyName = "MaPhong";
-            this.Column2.HeaderText = "Ma Phong";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.DataPropertyName = "MaThietBi";
-            this.Column3.HeaderText = "Ma Thiet Bi";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.DataPropertyName = "TienBaoTriPhong";
-            this.Column4.HeaderText = "Tien Bao Tri Phong";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column5.DataPropertyName = "TienBaoTriThietBi";
-            this.Column5.HeaderText = "Tien Bao Tri Thiet Bi";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column6.DataPropertyName = "NgayHaoPhi";
-            this.Column6.HeaderText = "Ngay Bao Tri";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
             // 
             // txtSearchMaThietBiPhongConsume
             // 
@@ -510,6 +462,46 @@
             this.btnUpdateConsume.UseVisualStyleBackColor = false;
             this.btnUpdateConsume.Click += new System.EventHandler(this.btnUpdateConsume_Click);
             // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.DataPropertyName = "MaPhong";
+            this.Column2.HeaderText = "Ma Phong";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.DataPropertyName = "MaThietBi";
+            this.Column3.HeaderText = "Ma Thiet Bi";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.DataPropertyName = "TienBaoTriPhong";
+            this.Column4.HeaderText = "Tien Bao Tri Phong";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column5.DataPropertyName = "TienBaoTriThietBi";
+            this.Column5.HeaderText = "Tien Bao Tri Thiet Bi";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column6.DataPropertyName = "NgayHaoPhi";
+            this.Column6.HeaderText = "Ngay Bao Tri";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
             // UserControlConsume
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -560,15 +552,14 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtUpAndDeMaThietBiConsume;
         private System.Windows.Forms.TextBox txtUpAndDeMaPhongConsume;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DateTimePicker dateTimeAddNgayHaoPhiConsume;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dateTimeUpAndDeNgayHaoPhiConsume;
+        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DateTimePicker dateTimeAddNgayHaoPhiConsume;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimeUpAndDeNgayHaoPhiConsume;
-        private System.Windows.Forms.Label label12;
     }
 }

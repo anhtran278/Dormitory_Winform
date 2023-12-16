@@ -94,12 +94,16 @@ namespace Dormitory_Winform.UserControls
         }
         public void ClearFields()
         {
+            cbBoxAddMaSvRelatives.SelectedIndex = -1;
             txtAddTenRelatives.Clear();
+            dateTimeAddNgayThamRelatives.Value = DateTime.Now;
             txtAddDiaChiRelatives.Clear();
             txtAddSoDTRelatives.Clear();
         }
         public void ClearFields1()
         {
+            txtUpAndDeMaSVRelatives.Clear();
+            dateTimeUpAndDeNgayThamRelatives.Value = DateTime.Now;
             txtUpAndDeTenRelatives.Clear();
             txtUpAndDeDiaChiRelatives.Clear();
             txtAddSoDTRelatives.Clear();
@@ -168,7 +172,7 @@ namespace Dormitory_Winform.UserControls
                 {
                     int maSinhVien = int.Parse(txtUpAndDeMaSVRelatives.Text);
                     string tenNguoiThan = txtUpAndDeTenRelatives.Text.Trim();
-                    DateTime ngayTham = dateTimeUpAnDeNgayThamRelatives.Value;
+                    DateTime ngayTham = dateTimeUpAndDeNgayThamRelatives.Value;
                     string soDienThoai = txtUpAndDeSDTRelatives.Text.Trim();
                     string diaChi = txtUpAndDeDiaChiRelatives.Text.Trim();
 
@@ -234,14 +238,14 @@ namespace Dormitory_Winform.UserControls
             if (e.RowIndex != -1)
             {
                 DataGridViewRow row = dataGridViewRelatives.Rows[e.RowIndex];
-                txtUpAndDeMaSVRelatives.Text = row.Cells[1].Value.ToString();
-                txtUpAndDeTenRelatives.Text = row.Cells[2].Value.ToString();
-                if (DateTime.TryParse(row.Cells[3].Value.ToString(), out DateTime ngayTham))
+                txtUpAndDeMaSVRelatives.Text = row.Cells[0].Value.ToString();
+                txtUpAndDeTenRelatives.Text = row.Cells[1].Value.ToString();
+                if (DateTime.TryParse(row.Cells[2].Value.ToString(), out DateTime ngayTham))
                 {
-                    dateTimeUpAnDeNgayThamRelatives.Value = ngayTham;
+                    dateTimeUpAndDeNgayThamRelatives.Value = ngayTham;
                 }
+                txtUpAndDeDiaChiRelatives.Text = row.Cells[3].Value.ToString();
                 txtUpAndDeSDTRelatives.Text = row.Cells[4].Value.ToString();
-                txtUpAndDeDiaChiRelatives.Text = row.Cells[5].Value.ToString();
 
             }
         }

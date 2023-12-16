@@ -43,14 +43,11 @@
             this.rdbAddBaoTriDevice = new System.Windows.Forms.RadioButton();
             this.tabPageSearchDevices = new System.Windows.Forms.TabPage();
             this.dataGridViewDevices = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearchMaThietBiDevices = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPageUpDeDevices = new System.Windows.Forms.TabPage();
+            this.txtUpAndDeMaThietBiDevice = new System.Windows.Forms.TextBox();
             this.txtUpAndDeTenTBDevice = new System.Windows.Forms.TextBox();
             this.txtUpAndDeSoLuongDevice = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -62,6 +59,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnDeleteDevices = new System.Windows.Forms.Button();
             this.btnUpdateDevices = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             label1 = new System.Windows.Forms.Label();
             this.tabControlDevices.SuspendLayout();
             this.tabPageAddDevices.SuspendLayout();
@@ -235,47 +236,15 @@
             this.dataGridViewDevices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDevices.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
+            this.Column2,
             this.Column3,
-            this.Column4,
-            this.Column5});
+            this.Column4});
             this.dataGridViewDevices.Location = new System.Drawing.Point(63, 135);
             this.dataGridViewDevices.Name = "dataGridViewDevices";
             this.dataGridViewDevices.ReadOnly = true;
             this.dataGridViewDevices.Size = new System.Drawing.Size(1030, 244);
             this.dataGridViewDevices.TabIndex = 6;
             this.dataGridViewDevices.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDevice_CellClick);
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.DataPropertyName = "MaThietBi";
-            this.Column1.HeaderText = "Ma Thiet Bi";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.DataPropertyName = "TenThietBi";
-            this.Column3.HeaderText = "Ten Thiet Bi";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.DataPropertyName = "SoLuong";
-            this.Column4.HeaderText = "So Luong";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column5.DataPropertyName = "TinhTrang";
-            this.Column5.HeaderText = "Tinh Trang";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
             // 
             // txtSearchMaThietBiDevices
             // 
@@ -311,6 +280,7 @@
             // 
             // tabPageUpDeDevices
             // 
+            this.tabPageUpDeDevices.Controls.Add(this.txtUpAndDeMaThietBiDevice);
             this.tabPageUpDeDevices.Controls.Add(this.txtUpAndDeTenTBDevice);
             this.tabPageUpDeDevices.Controls.Add(this.txtUpAndDeSoLuongDevice);
             this.tabPageUpDeDevices.Controls.Add(this.label2);
@@ -330,6 +300,15 @@
             this.tabPageUpDeDevices.Text = "Update and Delete ";
             this.tabPageUpDeDevices.UseVisualStyleBackColor = true;
             this.tabPageUpDeDevices.Leave += new System.EventHandler(this.tabPageUpDeDevices_Leave);
+            // 
+            // txtUpAndDeMaThietBiDevice
+            // 
+            this.txtUpAndDeMaThietBiDevice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUpAndDeMaThietBiDevice.Location = new System.Drawing.Point(627, 215);
+            this.txtUpAndDeMaThietBiDevice.Name = "txtUpAndDeMaThietBiDevice";
+            this.txtUpAndDeMaThietBiDevice.Size = new System.Drawing.Size(263, 23);
+            this.txtUpAndDeMaThietBiDevice.TabIndex = 23;
+            this.txtUpAndDeMaThietBiDevice.Visible = false;
             // 
             // txtUpAndDeTenTBDevice
             // 
@@ -455,6 +434,38 @@
             this.btnUpdateDevices.UseVisualStyleBackColor = false;
             this.btnUpdateDevices.Click += new System.EventHandler(this.btnUpdateDevices_Click);
             // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.DataPropertyName = "MaThietBi";
+            this.Column1.HeaderText = "Ma Thiet Bi";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.DataPropertyName = "TenThietBi";
+            this.Column2.HeaderText = "Ten Thiet Bi";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.DataPropertyName = "SoLuong";
+            this.Column3.HeaderText = "So Luong";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.DataPropertyName = "TinhTrang";
+            this.Column4.HeaderText = "Tinh Trang";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
             // UserControlDevice
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -497,10 +508,6 @@
         private System.Windows.Forms.RadioButton rdbAddHoatDongDevice;
         private System.Windows.Forms.RadioButton rdbAddHongDevice;
         private System.Windows.Forms.RadioButton rdbAddBaoTriDevice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.TextBox txtUpAndDeTenTBDevice;
         private System.Windows.Forms.TextBox txtUpAndDeSoLuongDevice;
         private System.Windows.Forms.Label label2;
@@ -509,5 +516,10 @@
         private System.Windows.Forms.RadioButton rdbUpAndDeHoatDongDevice;
         private System.Windows.Forms.RadioButton rdbUpAndDeHongDevice;
         private System.Windows.Forms.RadioButton rdbUpAndDeBaoTriDevice;
+        private System.Windows.Forms.TextBox txtUpAndDeMaThietBiDevice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

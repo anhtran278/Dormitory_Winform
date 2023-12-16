@@ -20,15 +20,17 @@ namespace Dormitory_Winform.UserControls
             dataGridViewRoom.DataSource = bindingSource;
             dataGridViewRoom.AutoGenerateColumns = false;
         }
-
+        private void RoomService_RoomDeleted(string maPhong)
+        {
+            RefreshDataGridView();
+            UpdateRelatedControls();
+        }
         private void UserControlRooms_Load(object sender, EventArgs e)
         {
             loadDataIntoDataGridView();
-            cbBoxAddLoaiPhongRoom.SelectedIndex = 0;
-            cbBoxAddTrangThaiRoom.SelectedIndex = 0;
-            cbBoxUpAndDeTrangThaiRoom.SelectedIndex = 0;
+            cbBoxAddLoaiPhongRoom.SelectedIndex = -1;
         }
-        
+
 
         private void loadDataIntoDataGridView()
         {
@@ -53,26 +55,26 @@ namespace Dormitory_Winform.UserControls
                 Console.WriteLine(ex.Message);
             }
         }
-
         private void RefreshDataGridView()
         {
             try
             {
+                bindingSource.DataSource = null;
                 db.SaveChanges();
                 loadDataIntoDataGridView();
+                var data = db.PHONGs.ToList();
+                bindingSource.DataSource = data;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
         }
-
         public void Clear()
         {
             txtAddGiaPhongRoom.Clear();
-            txtAddMaPhongRoom.Clear();
-            cbBoxAddLoaiPhongRoom.SelectedIndex = 0;
-            cbBoxAddTrangThaiRoom.SelectedIndex = 0;
+            txtAddKiHieuPhongRoom.Clear();
+            cbBoxAddLoaiPhongRoom.SelectedIndex = -1;
             tabControlRoom.SelectedTab = tabPageAddRoom;
         }
 
@@ -80,7 +82,6 @@ namespace Dormitory_Winform.UserControls
         {
             txtUpAndDeGiaPhongRoom.Clear();
             txtUpAndDeMaPhongRoom.Clear();
-            cbBoxAddTrangThaiRoom.SelectedIndex = 0;
         }
 
         private void tabPageAddRoom_Leave(object sender, EventArgs e)
@@ -112,47 +113,51 @@ namespace Dormitory_Winform.UserControls
                 RefreshDataGridView();
             }
         }
-
+        private void UpdateRelatedControls()
+        {
+            var intoRoomControl = FindForm().Controls.Find("userControlIntoRoom1", true).FirstOrDefault() as UserControlIntoRoom;
+            intoRoomControl?.GetMaSVIntoComboBox();
+            var intoIDRoomControl = FindForm().Controls.Find("userControlIntoRoom1", true).FirstOrDefault() as UserControlIntoRoom;
+            intoIDRoomControl?.GetMaPhongIntoComboBox();
+        }
         private void btnAddRoom_Click(object sender, EventArgs e)
         {
-
-            if (!string.IsNullOrEmpty(txtAddMaPhongRoom.Text)
-                && !string.IsNullOrEmpty(txtAddGiaPhongRoom.Text))
+            if (!string.IsNullOrEmpty(txtAddKiHieuPhongRoom.Text) &&
+                !string.IsNullOrEmpty(txtAddGiaPhongRoom.Text))
             {
-                bool check = roomService.AddRoom(
-                    txtAddMaPhongRoom.Text.Trim(),
-                    txtAddGiaPhongRoom.Text.Trim(),
-                    cbBoxAddTrangThaiRoom.SelectedIndex.ToString()
-                    );
+                string kiHieuPhong = txtAddKiHieuPhongRoom.Text.Trim();
+                string giaPhong = txtAddGiaPhongRoom.Text.Trim();
+                string loaiPhong = cbBoxAddLoaiPhongRoom.SelectedItem.ToString();
+
+                string maPhong = loaiPhong + kiHieuPhong;
+
+                bool check = roomService.AddRoom(maPhong, giaPhong, "Trống");
                 if (check)
                 {
                     Clear();
                     RefreshDataGridView();
-
+                    UpdateRelatedControls();
+                }
+                else
+                {
+                    MessageBox.Show("Please fill out all required fields.", "Required fields", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            else
-            {
-                MessageBox.Show("Please fill out all required fields.", "Required fields", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
-
         private void btnUpdateRoom_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtUpAndDeMaPhongRoom.Text)
-                && !string.IsNullOrEmpty(txtUpAndDeGiaPhongRoom.Text))
+            string maPhong = txtUpAndDeMaPhongRoom.Text.Trim();
+            string giaPhong = txtUpAndDeGiaPhongRoom.Text.Trim();
+
+            if (!string.IsNullOrEmpty(maPhong) && !string.IsNullOrEmpty(giaPhong))
             {
-                bool check = roomService.UpdateRoom(
-                    txtUpAndDeMaPhongRoom.Text.Trim(),
-                    txtUpAndDeGiaPhongRoom.Text.Trim(),
-                    cbBoxUpAndDeTrangThaiRoom.SelectedIndex.ToString()
-                    );
+                bool check = roomService.UpdateRoom(maPhong, giaPhong);
 
                 if (check)
                 {
                     Clear1();
                     RefreshDataGridView();
-
+                    UpdateRelatedControls();
                 }
             }
             else
@@ -160,7 +165,6 @@ namespace Dormitory_Winform.UserControls
                 MessageBox.Show("Please fill out all required fields.", "Required fields", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void btnDeleteRoom_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtUpAndDeMaPhongRoom.Text))
@@ -168,28 +172,33 @@ namespace Dormitory_Winform.UserControls
                 DialogResult result = MessageBox.Show("Are you sure you want to delete this room?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    bool check = roomService.DeleteRoom(txtUpAndDeMaPhongRoom.Text.Trim());
+                    string maPhong = txtUpAndDeMaPhongRoom.Text.Trim();
 
-                    if (check)
+                    bool checkDeleteRoom = roomService.DeleteRoom(maPhong);
+                    if (checkDeleteRoom)
                     {
                         Clear1();
                         RefreshDataGridView();
+                        UpdateRelatedControls();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to delete the room. It might be due to existing students or other constraints.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Please select a room to delete.", "Selection required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please enter a room number to delete.", "Input Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void dataGridViewRoom_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1)
+            if (e.RowIndex != 0)
             {
                 DataGridViewRow row = dataGridViewRoom.Rows[e.RowIndex];
                 txtUpAndDeMaPhongRoom.Text = row.Cells[0].Value.ToString();
-                txtUpAndDeGiaPhongRoom.Text = row.Cells[2].Value.ToString();
+                txtUpAndDeGiaPhongRoom.Text = row.Cells[1].Value.ToString();
             }
         }
     }

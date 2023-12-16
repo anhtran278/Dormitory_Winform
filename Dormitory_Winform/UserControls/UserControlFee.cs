@@ -236,12 +236,12 @@ namespace Dormitory_Winform.UserControls
             if (e.RowIndex != -1)
             {
                 DataGridViewRow row = dataGridViewFee.Rows[e.RowIndex];
-                txtUpAndDeMaSVFee.Text = row.Cells[1].Value.ToString();
-                dateTimeUpAndDeNgayThanhToanFee.Value = DateTime.Parse(row.Cells[2].Value.ToString());
-                txtUpAndDeTienPhongFee.Text = row.Cells[3].Value.ToString();
-                txtUpAndDeTienInternetFee.Text = row.Cells[4].Value.ToString();
-                txtUpAndDeTienGuiXeFee.Text= row.Cells[5].Value.ToString();
-                txtUpAndDeTienDienNuocFee.Text = row.Cells[6].Value.ToString();
+                txtUpAndDeMaSVFee.Text = row.Cells[0].Value.ToString();
+                dateTimeUpAndDeNgayThanhToanFee.Value = DateTime.Parse(row.Cells[1].Value.ToString());
+                txtUpAndDeTienPhongFee.Text = row.Cells[2].Value.ToString();
+                txtUpAndDeTienInternetFee.Text = row.Cells[3].Value.ToString();
+                txtUpAndDeTienGuiXeFee.Text= row.Cells[4].Value.ToString();
+                txtUpAndDeTienDienNuocFee.Text = row.Cells[5].Value.ToString();
             }
         }
     }

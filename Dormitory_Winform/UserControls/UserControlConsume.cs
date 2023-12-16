@@ -63,6 +63,7 @@ namespace Dormitory_Winform.UserControls
                 Console.WriteLine("An error occurred while populating the ComboBox. Error details: " + ex.Message);
             }
         }
+
         public void GetMaPhongIntoComboBox()
         {
             try
@@ -178,66 +179,51 @@ namespace Dormitory_Winform.UserControls
         }
         private void btnAddConsume_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(cbBoxAddMaPhongConsume.Text) &&
-                !string.IsNullOrEmpty(cbBoxAddMaThietBiConsume.Text) && 
-                !string.IsNullOrEmpty(txtAddTienBaoTriPhongConsume.Text) &&
-                !string.IsNullOrEmpty(txtAddTienBaoTriThietBiConsume.Text))
+            try
             {
-                bool check = consumeService.AddConsume(
-                    cbBoxAddMaPhongConsume.Text.Trim(),
-                    cbBoxAddMaThietBiConsume.Text.Trim(),
-                    txtAddTienBaoTriPhongConsume.Text.Trim(),
-                    txtAddTienBaoTriThietBiConsume.Text.Trim(),
-                    dateTimeAddNgayHaoPhiConsume.Text.Trim());
+                string maPhong = cbBoxAddMaPhongConsume.Text.Trim();
+                string maThietBi = cbBoxAddMaThietBiConsume.Text.Trim();
+                string tienBaoTriPhong = txtAddTienBaoTriPhongConsume.Text.Trim();
+                string tienBaoTriThietBi = txtAddTienBaoTriThietBiConsume.Text.Trim();
+                string ngayHaoPhi = dateTimeAddNgayHaoPhiConsume.Value.ToString("yyyy-MM-dd");
+
+                if (string.IsNullOrEmpty(maPhong) || string.IsNullOrEmpty(maThietBi))
+                {
+                    MessageBox.Show("Please fill out all required fields.", "Required fields", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                bool check = consumeService.AddConsume(maThietBi, maPhong, tienBaoTriPhong, tienBaoTriThietBi, ngayHaoPhi);
                 if (check)
                 {
                     Clear();
                     RefreshDataGridView();
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Please fill out all required fields.", "Required fields", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("An error occurred while adding the consume. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnUpdateConsume_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtUpAndDeMaPhongConsume.Text) &&
-                !string.IsNullOrEmpty(txtUpAndDeMaThietBiConsume.Text) &&
-                !string.IsNullOrEmpty(dateTimeUpAndDeNgayHaoPhiConsume.Text) &&
-                !string.IsNullOrEmpty(txtUpAndDeTienBaoTriPhongConsume.Text) &&
-                !string.IsNullOrEmpty(txtUpAndDeTienBaoTriThietBiConsume.Text))
+            try
             {
-                bool check = consumeService.UpdateConsume(
-                    txtUpAndDeMaPhongConsume.Text.Trim(),
-                    txtUpAndDeMaThietBiConsume.Text.Trim(),
-                    txtUpAndDeTienBaoTriPhongConsume.Text.Trim(),
-                    txtUpAndDeTienBaoTriThietBiConsume.Text.Trim(),
-                    dateTimeUpAndDeNgayHaoPhiConsume.Text.Trim());
+                string maPhong = txtUpAndDeMaPhongConsume.Text.Trim();
+                string maThietBi = txtUpAndDeMaThietBiConsume.Text.Trim();
+                string tienBaoTriPhong = txtUpAndDeTienBaoTriPhongConsume.Text.Trim();
+                string tienBaoTriThietBi = txtUpAndDeTienBaoTriThietBiConsume.Text.Trim();
+                string ngayHaoPhi = dateTimeUpAndDeNgayHaoPhiConsume.Value.ToString("yyyy-MM-dd");
 
-                if (check)
+                if (!string.IsNullOrEmpty(maPhong) &&
+                    !string.IsNullOrEmpty(maThietBi) &&
+                    !string.IsNullOrEmpty(tienBaoTriPhong) &&
+                    !string.IsNullOrEmpty(tienBaoTriThietBi) &&
+                    !string.IsNullOrEmpty(ngayHaoPhi))
                 {
-                    Clear1();
-                    RefreshDataGridView();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please fill out all required fields.", "Required fields", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        private void btnDeleteConsume_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtUpAndDeMaPhongConsume.Text) &&
-                !string.IsNullOrEmpty(txtUpAndDeMaThietBiConsume.Text))
-            {
-                DialogResult result = MessageBox.Show("Are you sure you want to delete this consume?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
-                    bool check = consumeService.DeleteConsume(txtUpAndDeMaThietBiConsume.Text.Trim(),
-                    txtUpAndDeMaPhongConsume.Text.Trim());
+                    bool check = consumeService.UpdateConsume(maThietBi, maPhong, tienBaoTriPhong, tienBaoTriThietBi, ngayHaoPhi);
 
                     if (check)
                     {
@@ -245,23 +231,62 @@ namespace Dormitory_Winform.UserControls
                         RefreshDataGridView();
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Please fill out all required fields.", "Required fields", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Please select a consume record to delete.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("An error occurred while updating the consume. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnDeleteConsume_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string maPhong = txtUpAndDeMaPhongConsume.Text.Trim();
+                string maThietBi = txtUpAndDeMaThietBiConsume.Text.Trim();
+
+                if (!string.IsNullOrEmpty(maPhong) && !string.IsNullOrEmpty(maThietBi))
+                {
+                    DialogResult result = MessageBox.Show("Are you sure you want to delete this consume?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        bool check = consumeService.DeleteConsume(maThietBi, maPhong);
+
+                        if (check)
+                        {
+                            Clear1();
+                            RefreshDataGridView();
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select a consume record to delete.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("An error occurred while deleting the consume. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         private void dataGridViewConsume_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
             {
                 DataGridViewRow row = dataGridViewConsume.Rows[e.RowIndex];
-                txtUpAndDeMaPhongConsume.Text = row.Cells[1].Value.ToString();
-                txtUpAndDeMaThietBiConsume.Text = row.Cells[2].Value.ToString();
-                txtUpAndDeTienBaoTriPhongConsume.Text = row.Cells[3].Value.ToString();
-                txtUpAndDeTienBaoTriThietBiConsume.Text = row.Cells[4].Value.ToString();
-                dateTimeUpAndDeNgayHaoPhiConsume.Value = DateTime.Parse(row.Cells[5].Value.ToString());
+                txtUpAndDeMaPhongConsume.Text = row.Cells[0].Value.ToString();
+                txtUpAndDeMaThietBiConsume.Text = row.Cells[1].Value.ToString();
+                txtUpAndDeTienBaoTriPhongConsume.Text = row.Cells[2].Value.ToString();
+                txtUpAndDeTienBaoTriThietBiConsume.Text = row.Cells[3].Value.ToString();
+                dateTimeUpAndDeNgayHaoPhiConsume.Value = DateTime.Parse(row.Cells[4].Value.ToString());
             }
         }
     }

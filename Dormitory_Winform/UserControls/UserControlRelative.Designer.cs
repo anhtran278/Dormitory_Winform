@@ -48,14 +48,13 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearchMaSVRelatives = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPageUpDeRelatives = new System.Windows.Forms.TabPage();
-            this.dateTimeUpAnDeNgayThamRelatives = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeUpAndDeNgayThamRelatives = new System.Windows.Forms.DateTimePicker();
             this.txtUpAndDeTenRelatives = new System.Windows.Forms.TextBox();
             this.txtUpAndDeSDTRelatives = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -134,7 +133,8 @@
             // 
             // cbBoxAddMaSvRelatives
             // 
-            this.cbBoxAddMaSvRelatives.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBoxAddMaSvRelatives.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbBoxAddMaSvRelatives.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbBoxAddMaSvRelatives.FormattingEnabled = true;
             this.cbBoxAddMaSvRelatives.Location = new System.Drawing.Point(255, 87);
             this.cbBoxAddMaSvRelatives.Name = "cbBoxAddMaSvRelatives";
@@ -256,7 +256,6 @@
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Column6,
             this.Column4,
             this.Column5});
             this.dataGridViewRelatives.Location = new System.Drawing.Point(63, 135);
@@ -270,48 +269,40 @@
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.DataPropertyName = "MaNT";
-            this.Column1.HeaderText = "Ma Nguoi Than";
+            this.Column1.DataPropertyName = "MaSV";
+            this.Column1.HeaderText = "Ma SV";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.DataPropertyName = "MaSV";
-            this.Column2.HeaderText = "Ma SV";
+            this.Column2.DataPropertyName = "Ten";
+            this.Column2.HeaderText = "Ten";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.DataPropertyName = "Ten";
-            this.Column3.HeaderText = "Ten";
+            this.Column3.DataPropertyName = "NgayTham";
+            this.Column3.HeaderText = "Ngay Tham";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column6.DataPropertyName = "NgayTham";
-            this.Column6.HeaderText = "Ngay Tham";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.DataPropertyName = "DienThoai";
-            this.Column4.HeaderText = "So Dien Thoai";
+            this.Column4.DataPropertyName = "DiaChi";
+            this.Column4.HeaderText = "Dia Chi";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column5.DataPropertyName = "DiaChi";
-            this.Column5.HeaderText = "Dia Chi";
+            this.Column5.DataPropertyName = "DienThoai";
+            this.Column5.HeaderText = "So Dien Thoai";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
@@ -348,7 +339,7 @@
             // 
             // tabPageUpDeRelatives
             // 
-            this.tabPageUpDeRelatives.Controls.Add(this.dateTimeUpAnDeNgayThamRelatives);
+            this.tabPageUpDeRelatives.Controls.Add(this.dateTimeUpAndDeNgayThamRelatives);
             this.tabPageUpDeRelatives.Controls.Add(this.txtUpAndDeTenRelatives);
             this.tabPageUpDeRelatives.Controls.Add(this.txtUpAndDeSDTRelatives);
             this.tabPageUpDeRelatives.Controls.Add(this.label8);
@@ -369,12 +360,12 @@
             this.tabPageUpDeRelatives.Text = "Update and Delete ";
             this.tabPageUpDeRelatives.UseVisualStyleBackColor = true;
             // 
-            // dateTimeUpAnDeNgayThamRelatives
+            // dateTimeUpAndDeNgayThamRelatives
             // 
-            this.dateTimeUpAnDeNgayThamRelatives.Location = new System.Drawing.Point(258, 171);
-            this.dateTimeUpAnDeNgayThamRelatives.Name = "dateTimeUpAnDeNgayThamRelatives";
-            this.dateTimeUpAnDeNgayThamRelatives.Size = new System.Drawing.Size(263, 23);
-            this.dateTimeUpAnDeNgayThamRelatives.TabIndex = 33;
+            this.dateTimeUpAndDeNgayThamRelatives.Location = new System.Drawing.Point(258, 171);
+            this.dateTimeUpAndDeNgayThamRelatives.Name = "dateTimeUpAndDeNgayThamRelatives";
+            this.dateTimeUpAndDeNgayThamRelatives.Size = new System.Drawing.Size(263, 23);
+            this.dateTimeUpAndDeNgayThamRelatives.TabIndex = 33;
             // 
             // txtUpAndDeTenRelatives
             // 
@@ -557,13 +548,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimeUpAnDeNgayThamRelatives;
+        private System.Windows.Forms.DateTimePicker dateTimeUpAndDeNgayThamRelatives;
         private System.Windows.Forms.TextBox txtUpAndDeTenRelatives;
         private System.Windows.Forms.TextBox txtUpAndDeMaSVRelatives;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }

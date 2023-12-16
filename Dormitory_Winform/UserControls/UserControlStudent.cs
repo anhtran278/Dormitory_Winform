@@ -3,11 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Infrastructure;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ExcelDataReader;
+
+
 
 namespace Dormitory_Winform.UserControls
 {
@@ -30,6 +35,9 @@ namespace Dormitory_Winform.UserControls
         private void UserControlStudents_Load(object sender, EventArgs e)
         {
             loadDataIntoDataGridView();
+            cbBoxAddLoaiPhongDkiStudent.SelectedIndex = -1;
+            cbBoxUpAndDeLoaiPhongDkiStudent.SelectedIndex = -1;
+            GetLoaiPhongSVDkiIntoComboBox();
         }
 
         private void loadDataIntoDataGridView()
@@ -54,7 +62,44 @@ namespace Dormitory_Winform.UserControls
                 Console.WriteLine(ex.Message);
             }
         }
+        public void GetLoaiPhongSVDkiIntoComboBox()
+        {
+            try
+            {
+                if (db == null)
+                {
+                    return;
+                }
 
+                List<string> loaiPhongDkiList = db.LOAIPHONGSVDKIs 
+                    .Select(s => s.LoaiPhongSVDangKi)
+                    .ToList();
+
+                if (cbBoxAddLoaiPhongDkiStudent == null)
+                {
+                    return;
+                }
+                cbBoxAddLoaiPhongDkiStudent.Items.Clear();
+                foreach (string loaiPhongDki in loaiPhongDkiList)
+                {
+                    cbBoxAddLoaiPhongDkiStudent.Items.Add(loaiPhongDki);
+                }
+                ///////////////////////////////////////
+                if(cbBoxUpAndDeLoaiPhongDkiStudent == null)
+                {
+                    return;
+                }
+                cbBoxUpAndDeLoaiPhongDkiStudent.Items.Clear();
+                foreach (string loaiPhongDki in loaiPhongDkiList)
+                {
+                    cbBoxUpAndDeLoaiPhongDkiStudent.Items.Add(loaiPhongDki);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while populating the ComboBox. Error details: " + ex.Message);
+            }
+        }
         private void RefreshDataGridView()
         {
             db.SaveChanges();
@@ -67,6 +112,7 @@ namespace Dormitory_Winform.UserControls
             txtAddDTStudent.Clear();
             dateTimeAddNgaySinhStudent.Value = DateTime.Now;
             txtAddDiaChiStudent.Clear();
+            cbBoxAddLoaiPhongDkiStudent.SelectedIndex = -1;
             rdbAddChuaDuyetStudent.Checked = false;
             rdbAddDuyetStudent.Checked = false;
             tabControlStudent.SelectedTab = tabPageAddStudent;
@@ -79,6 +125,7 @@ namespace Dormitory_Winform.UserControls
             txtUpAndDeDTStudent.Clear();
             dateTimeUpAndDeNgaySinhStudent.Value = DateTime.Now;
             txtUpAndDeDiaChiStudent.Clear();
+            cbBoxUpAndDeLoaiPhongDkiStudent.SelectedIndex = -1;
             rdbUpAndDeChuaDuyetStudent.Checked = false;
             rdbUpAndDeDuyetStudent.Checked = false;
         }
@@ -109,82 +156,84 @@ namespace Dormitory_Winform.UserControls
                 bindingSource.DataSource = searchResult;
             }
         }
-
-        private void btnAddStudent_Click(object sender, EventArgs e)
+        private void UpdateRelatedControls()
         {
-            bool check;
-            bool trangThaiDki = rdbAddDuyetStudent.Checked;
-            string chuaDuyet = rdbAddChuaDuyetStudent.Checked ? "Chua Duyet" : "Duyet";
+            var intoRoomControl = FindForm().Controls.Find("userControlIntoRoom1", true).FirstOrDefault() as UserControlIntoRoom;
+            intoRoomControl?.GetMaSVIntoComboBox();
 
-            if (!string.IsNullOrEmpty(txtAddMaSVStudent.Text) && !string.IsNullOrEmpty(txtAddTenStudent.Text))
+            var relativesControl = FindForm().Controls.Find("userControlRelatives1", true).FirstOrDefault() as UserControlRelative;
+            relativesControl?.GetMaSVIntoComboBox();
+
+            var feesControl = FindForm().Controls.Find("userControlFee1", true).FirstOrDefault() as UserControlFee;
+            feesControl?.GetMaSVIntoComboBox();
+        }
+        public void btnAddStudent_Click(object sender, EventArgs e)
+        {
+            try
             {
-                check = studentService.AddSinhVien(txtAddMaSVStudent.Text.Trim(), 
-                    txtAddTenStudent.Text.Trim(), txtAddDTStudent.Text.Trim(), 
-                    dateTimeUpAndDeNgaySinhStudent.Value.ToString(), 
-                    txtAddDiaChiStudent.Text.Trim(), 
-                    chuaDuyet);
+                string maSV = txtAddMaSVStudent.Text.Trim();
+                string ten = txtAddTenStudent.Text.Trim();
+                string dt = txtAddDTStudent.Text.Trim();
+                string ngaySinh = dateTimeUpAndDeNgaySinhStudent.Value.ToString("yyyy-MM-dd"); 
+                string diaChi = txtAddDiaChiStudent.Text.Trim();
+                string loaiPhongDki = cbBoxAddLoaiPhongDkiStudent.SelectedItem?.ToString(); 
+                string trangThaiDki = rdbAddChuaDuyetStudent.Checked ? "Chua Duyet" : "Duyet";
+
+                if (string.IsNullOrEmpty(maSV) || string.IsNullOrEmpty(ten))
+                {
+                    MessageBox.Show("Please fill out all required fields.", "Required fields", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                bool check = studentService.AddSinhVien(maSV, ten, dt, ngaySinh, diaChi, loaiPhongDki, trangThaiDki);
                 if (check)
                 {
                     Clear();
                     RefreshDataGridView();
 
-                    //rl
-                    var relativesControl = FindForm().Controls.Find("userControlRelatives1", true).FirstOrDefault() as UserControlRelative;
-                    if (relativesControl != null)
-                    {
-                        relativesControl.GetMaSVIntoComboBox();
-                    }
-
-                    //fee
-                    var feesControl = FindForm().Controls.Find("userControlFee1", true).FirstOrDefault() as UserControlFee;
-                    if (feesControl != null)
-                    {
-                        feesControl.GetMaSVIntoComboBox();
-                    }
+                    UpdateRelatedControls();
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Please fill out all required fields.", "Required fields", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("An error occurred while adding the student. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnUpdateStudent_Click(object sender, EventArgs e)
         {
-            bool check;
-            if (!string.IsNullOrEmpty(txtUpAndDeMaSVStudent.Text))
+            try
             {
-                bool trangThaiDki = rdbUpAndDeDuyetStudent.Checked;
-                string chuaDuyet = rdbUpAndDeChuaDuyetStudent.Checked ? "Chua Duyet" : "Duyet";
+                string maSV = txtUpAndDeMaSVStudent.Text.Trim();
+                string ten = txtUpAndDeTenStudent.Text.Trim();
+                string dt = txtUpAndDeDTStudent.Text.Trim();
+                string ngaySinh = dateTimeUpAndDeNgaySinhStudent.Value.ToString("yyyy-MM-dd");
+                string diaChi = txtUpAndDeDiaChiStudent.Text.Trim();
+                string loaiPhongDki = cbBoxUpAndDeLoaiPhongDkiStudent.SelectedItem?.ToString();
+                string trangThaiDki = rdbUpAndDeChuaDuyetStudent.Checked ? "Chua Duyet" : "Duyet";
 
-                check = studentService.UpdateSinhVien(txtUpAndDeMaSVStudent.Text.Trim(), txtUpAndDeTenStudent.Text.Trim(), txtUpAndDeDTStudent.Text.Trim(), dateTimeUpAndDeNgaySinhStudent.Value.ToString(), txtUpAndDeDiaChiStudent.Text.Trim(), trangThaiDki);
+                if (string.IsNullOrEmpty(maSV))
+                {
+                    MessageBox.Show("Please select a student to update.", "Selection required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                bool check = studentService.UpdateSinhVien(maSV, ten, dt, ngaySinh, diaChi, loaiPhongDki, trangThaiDki);
                 if (check)
                 {
                     Clear1();
                     RefreshDataGridView();
 
-
-                    //rl
-                    var relativesControl = FindForm().Controls.Find("userControlRelatives1", true).FirstOrDefault() as UserControlRelative;
-                    if (relativesControl != null)
-                    {
-                        relativesControl.GetMaSVIntoComboBox();
-                    }
-
-                    //fee
-                    var feesControl = FindForm().Controls.Find("userControlFee1", true).FirstOrDefault() as UserControlFee;
-                    if (feesControl != null)
-                    {
-                        feesControl.GetMaSVIntoComboBox();
-                    }
+                    UpdateRelatedControls();
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Please select a student to update.", "Selection required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("An error occurred while updating the student. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         private void btnDeleteStudent_Click(object sender, EventArgs e)
         {
@@ -199,20 +248,7 @@ namespace Dormitory_Winform.UserControls
                     {
                         Clear1();
                         RefreshDataGridView();
-
-                        //rl
-                        var relativesControl = FindForm().Controls.Find("userControlRelatives1", true).FirstOrDefault() as UserControlRelative;
-                        if (relativesControl != null)
-                        {
-                            relativesControl.GetMaSVIntoComboBox();
-                        }
-
-                        //fee
-                        var feesControl = FindForm().Controls.Find("userControlFee1", true).FirstOrDefault() as UserControlFee;
-                        if (feesControl != null)
-                        {
-                            feesControl.GetMaSVIntoComboBox();
-                        }
+                        UpdateRelatedControls();
                     }
                 }
             }
@@ -232,7 +268,7 @@ namespace Dormitory_Winform.UserControls
                 txtUpAndDeDTStudent.Text = row.Cells[2].Value.ToString();
                 dateTimeUpAndDeNgaySinhStudent.Value = DateTime.Parse(row.Cells[3].Value.ToString());
                 txtUpAndDeDiaChiStudent.Text = row.Cells[4].Value.ToString();
-                cbBoxUpAndDeLoaiPhongDkiSudent.Text = row.Cells[5].Value.ToString();
+                cbBoxUpAndDeLoaiPhongDkiStudent.Text = row.Cells[5].Value.ToString();
                 TrangThaiDki = row.Cells[6].Value.ToString();
 
                 if (TrangThaiDki == "Duyet")
@@ -242,5 +278,106 @@ namespace Dormitory_Winform.UserControls
                     rdbUpAndDeChuaDuyetStudent.Checked = true;
             }
         }
+        private void cbSheet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataTable dt = tableCollection[cbSheet.SelectedItem.ToString()];
+            //dataGridViewStudent.DataSource = dt;
+            if (dt != null)
+            {
+                List<SINHVIEN> sINHVIENs = new List<SINHVIEN>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    SINHVIEN sINHVIEN = new SINHVIEN();
+                    sINHVIEN.MaSV = int.Parse(dt.Rows[i]["MaSV"].ToString());
+                    sINHVIEN.Ten = dt.Rows[i]["Ten"].ToString();
+                    sINHVIEN.DienThoai = dt.Rows[i]["DienThoai"].ToString();
+                    sINHVIEN.NgaySinh = DateTime.Parse(dt.Rows[i]["NgaySinh"].ToString());
+                    sINHVIEN.DiaChi = dt.Rows[i]["DiaChi"].ToString();
+                    sINHVIEN.TrangThaiDki = dt.Rows[i]["TrangThaiDki"].ToString();
+                    sINHVIEN.LoaiPhongSVDangKi = dt.Rows[i]["LoaiPhongSVDangKi"].ToString();
+                    sINHVIENs.Add(sINHVIEN);
+
+
+
+                }
+                bindingSource.DataSource = sINHVIENs;
+
+            }
+
+
+        }
+        DataTableCollection tableCollection;
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog() { Filter = "Excel 97-2003 Workbook |*.xls|Excel Workbook|*.xlsx" })
+            {
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    txtFilename.Text = openFileDialog.FileName;
+                    using (var stream = File.Open(openFileDialog.FileName, FileMode.Open, FileAccess.Read))
+                    {
+                        using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream))
+                        {
+                            DataSet result = reader.AsDataSet(new ExcelDataSetConfiguration()
+                            {
+                                ConfigureDataTable = (_) => new ExcelDataTableConfiguration() { UseHeaderRow = true }
+                            });
+                        }
+                    }
+
+                }
+            }
+        }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<SINHVIEN> sinhViens = bindingSource.DataSource as List<SINHVIEN>;
+                if (sinhViens != null)
+                {
+                    foreach (var sinhVien in sinhViens)
+                    {
+                        var existingRecord = db.SINHVIENs.Find(sinhVien.MaSV);
+                        if (existingRecord != null)
+                        {
+                            // Update non-primary key fields only
+                            existingRecord.Ten = sinhVien.Ten;
+                            existingRecord.DiaChi = sinhVien.DiaChi;
+                            existingRecord.NgaySinh = sinhVien.NgaySinh;
+                            existingRecord.DienThoai = sinhVien.DienThoai;
+                            existingRecord.TrangThaiDki = sinhVien.TrangThaiDki;
+                            // Do not update MaSV as it's a primary key
+                        }
+                        else
+                        {
+                            db.SINHVIENs.Add(sinhVien);
+                        }
+                    }
+                    db.SaveChanges();
+                    RefreshDataGridView(); // Refresh DataGridView to show updated data
+                    MessageBox.Show("Data imported successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+
+            catch (DbUpdateException ex)
+            {
+                var innerException = ex.InnerException;
+                while (innerException.InnerException != null)
+                {
+                    innerException = innerException.InnerException;
+                }
+                MessageBox.Show($"Error importing data: {innerException.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error importing data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        
+
     }
 }

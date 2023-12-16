@@ -47,13 +47,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.tabPageSearchRoom = new System.Windows.Forms.TabPage();
             this.dataGridViewFee = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearchMaKPFee = new System.Windows.Forms.TextBox();
             this.lblSearchFee = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -73,6 +66,12 @@
             this.btnUpdateFee = new System.Windows.Forms.Button();
             this.dateTimeUpAndDeNgayThanhToanFee = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlFee.SuspendLayout();
             this.tabPageAddFee.SuspendLayout();
             this.tabPageSearchRoom.SuspendLayout();
@@ -91,7 +90,7 @@
             this.tabControlFee.Location = new System.Drawing.Point(0, 4);
             this.tabControlFee.Name = "tabControlFee";
             this.tabControlFee.SelectedIndex = 0;
-            this.tabControlFee.Size = new System.Drawing.Size(1156, 438);
+            this.tabControlFee.Size = new System.Drawing.Size(1156, 431);
             this.tabControlFee.TabIndex = 3;
             // 
             // tabPageAddFee
@@ -115,7 +114,7 @@
             this.tabPageAddFee.Location = new System.Drawing.Point(4, 4);
             this.tabPageAddFee.Name = "tabPageAddFee";
             this.tabPageAddFee.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAddFee.Size = new System.Drawing.Size(1148, 408);
+            this.tabPageAddFee.Size = new System.Drawing.Size(1148, 401);
             this.tabPageAddFee.TabIndex = 0;
             this.tabPageAddFee.Text = "Add";
             this.tabPageAddFee.UseVisualStyleBackColor = true;
@@ -123,7 +122,8 @@
             // 
             // cbBoxAddMaSVFee
             // 
-            this.cbBoxAddMaSVFee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBoxAddMaSVFee.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbBoxAddMaSVFee.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbBoxAddMaSVFee.FormattingEnabled = true;
             this.cbBoxAddMaSVFee.Location = new System.Drawing.Point(259, 85);
             this.cbBoxAddMaSVFee.Name = "cbBoxAddMaSVFee";
@@ -266,7 +266,7 @@
             this.tabPageSearchRoom.Location = new System.Drawing.Point(4, 4);
             this.tabPageSearchRoom.Name = "tabPageSearchRoom";
             this.tabPageSearchRoom.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSearchRoom.Size = new System.Drawing.Size(1148, 400);
+            this.tabPageSearchRoom.Size = new System.Drawing.Size(1148, 401);
             this.tabPageSearchRoom.TabIndex = 1;
             this.tabPageSearchRoom.Text = "Search";
             this.tabPageSearchRoom.UseVisualStyleBackColor = true;
@@ -278,7 +278,6 @@
             this.dataGridViewFee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewFee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
             this.Column2,
             this.Column3,
             this.Column4,
@@ -291,65 +290,6 @@
             this.dataGridViewFee.Size = new System.Drawing.Size(1030, 244);
             this.dataGridViewFee.TabIndex = 6;
             this.dataGridViewFee.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFee_CellClick);
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.DataPropertyName = "MaKhoanPhi";
-            this.Column1.HeaderText = "Ma Khoan Phi";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.DataPropertyName = "MaSV";
-            this.Column2.HeaderText = "Ma SV";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.DataPropertyName = "NgayThanhToan";
-            this.Column3.HeaderText = "Ngay Thanh Toan";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column4.DataPropertyName = "TienPhong";
-            this.Column4.HeaderText = "Tien Phong";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 95;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column5.DataPropertyName = "TienInternet";
-            this.Column5.HeaderText = "Tien Internet";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 101;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column6.DataPropertyName = "TienGuiXe";
-            this.Column6.HeaderText = "Tien Gui Xe";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 80;
-            // 
-            // Column7
-            // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column7.DataPropertyName = "TienDienVaNuoc";
-            this.Column7.HeaderText = "Tien Dien Va Nuoc";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
             // 
             // txtSearchMaKPFee
             // 
@@ -403,7 +343,7 @@
             this.tabPageUpDeFee.Location = new System.Drawing.Point(4, 4);
             this.tabPageUpDeFee.Name = "tabPageUpDeFee";
             this.tabPageUpDeFee.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageUpDeFee.Size = new System.Drawing.Size(1148, 400);
+            this.tabPageUpDeFee.Size = new System.Drawing.Size(1148, 401);
             this.tabPageUpDeFee.TabIndex = 2;
             this.tabPageUpDeFee.Text = "Update and Delete ";
             this.tabPageUpDeFee.UseVisualStyleBackColor = true;
@@ -563,6 +503,57 @@
             this.label11.TabIndex = 12;
             this.label11.Text = "Ngay thanh toan:";
             // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.DataPropertyName = "MaSV";
+            this.Column2.HeaderText = "Ma SV";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.DataPropertyName = "NgayThanhToan";
+            this.Column3.HeaderText = "Ngay Thanh Toan";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column4.DataPropertyName = "TienPhong";
+            this.Column4.HeaderText = "Tien Phong";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 103;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column5.DataPropertyName = "TienInternet";
+            this.Column5.HeaderText = "Tien Internet";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 110;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column6.DataPropertyName = "TienGuiXe";
+            this.Column6.HeaderText = "Tien Gui Xe";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 103;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column7.DataPropertyName = "TienDienVaNuoc";
+            this.Column7.HeaderText = "Tien Dien Va Nuoc";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
             // UserControlFee
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -622,7 +613,6 @@
         private System.Windows.Forms.DateTimePicker dateTimeAddNgayThanhToanFee;
         private System.Windows.Forms.DateTimePicker dateTimeUpAndDeNgayThanhToanFee;
         private System.Windows.Forms.TextBox txtUpAndDeMaSVFee;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;

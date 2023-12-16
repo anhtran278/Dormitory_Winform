@@ -26,6 +26,7 @@ namespace Dormitory_Winform.UserControls
             bindingSource = new BindingSource();
             dataGridViewDevices.DataSource = bindingSource;
             dataGridViewDevices.AutoGenerateColumns = false;
+            
         }
         private void UserControlDevice_Load(object sender, EventArgs e)
         {
@@ -116,117 +117,124 @@ namespace Dormitory_Winform.UserControls
                 loadDataIntoDataGridView();
             }
         }
-
+        private void UpdateConsumeControl()
+        {
+            var consumesControl = FindForm().Controls.Find("userControlConsume1", true).FirstOrDefault() as UserControlConsume;
+            if (consumesControl != null)
+            {
+                consumesControl.GetMaThietBiIntoComboBox();
+            }
+        }
         private void btnAddDevices_Click(object sender, EventArgs e)
         {
-            string hongBaotri = rdbAddHongDevice.Checked ? "Hong" : (rdbAddBaoTriDevice.Checked ? "Bao Tri" : "Hoat Dong");
-
-            if (!string.IsNullOrEmpty(txtAddSoLuongDevice.Text) 
-                && !string.IsNullOrEmpty(txtAddTenTBDevice.Text))
+            try
             {
-                bool check = devicesService.AddDevice(
-                    txtAddTenTBDevice.Text.Trim(),
-                    txtAddSoLuongDevice.Text.Trim(),
-                    hongBaotri);
+                string tenThietBi = txtAddTenTBDevice.Text.Trim();
+                string soLuong = txtAddSoLuongDevice.Text.Trim();
+                string tinhTrang = rdbAddHoatDongDevice.Checked ? "Hoat Dong" : (rdbAddHongDevice.Checked ? "Hong" : "Bao Tri");
 
-                if (check)
+                if (!string.IsNullOrWhiteSpace(tenThietBi) && int.TryParse(soLuong, out int parsedSoLuong) && parsedSoLuong > 0)
                 {
-                    Clear();
-                    RefreshDataGridView();
-                    // consume
-                    var consumesControl = FindForm().Controls.Find("userControlConsume1", true).FirstOrDefault() as UserControlConsume;
-                    if (consumesControl != null)
+                    bool isAdded = devicesService.AddDevice(tenThietBi, parsedSoLuong, tinhTrang);
+
+                    if (isAdded)
                     {
-                        consumesControl.GetMaThietBiIntoComboBox();
+                        Clear();
+                        RefreshDataGridView();
+                        UpdateConsumeControl();
+                        MessageBox.Show("Device added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error occurred while adding the device. Please check your input.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Please fill out all required fields and enter valid input.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Please fill out all required fields.", "Required fields", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("An error occurred while adding the device. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnUpdateDevices_Click(object sender, EventArgs e)
         {
-            string hongBaotri = rdbUpAndDeHongDevice.Checked ? "Hong" : (rdbUpAndDeBaoTriDevice.Checked ? "Bao Tri" : "Hoat Dong");
-
-            if (!string.IsNullOrEmpty(txtUpAndDeTenTBDevice.Text) && 
-                !string.IsNullOrEmpty(txtUpAndDeSoLuongDevice.Text))
+            try
             {
-                if (!int.TryParse(txtUpAndDeSoLuongDevice.Text.Trim(), out int soLuongDevices))
+                if (int.TryParse(txtUpAndDeMaThietBiDevice.Text.Trim(), out int maThietBi))
                 {
-                    MessageBox.Show("Invalid value for So Luong Devices. Please enter a valid integer.", "Invalid So Luong Devices", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                    string tenThietBi = txtUpAndDeTenTBDevice.Text.Trim();
+                    string soLuong = txtUpAndDeSoLuongDevice.Text.Trim();
+                    string tinhTrang = rdbUpAndDeHoatDongDevice.Checked ? "Hoat Dong" : (rdbUpAndDeHongDevice.Checked ? "Hong" : "Bao Tri");
 
-                if (soLuongDevices <= 0)
-                {
-                    MessageBox.Show("So Luong Devices must be a positive integer.", "Invalid So Luong Devices", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                bool check = devicesService.UpdateDevice(
-                    txtUpAndDeTenTBDevice.Text.Trim(),
-                    soLuongDevices.ToString(),
-                    hongBaotri);
-
-                if (check)
-                {
-                    Clear1();
-                    RefreshDataGridView();
-                    // consume
-                    var consumesControl = FindForm().Controls.Find("userControlConsume1", true).FirstOrDefault() as UserControlConsume;
-                    if (consumesControl != null)
+                    if (!string.IsNullOrWhiteSpace(tenThietBi) && !string.IsNullOrWhiteSpace(soLuong) && int.TryParse(soLuong, out int parsedSoLuong) && parsedSoLuong > 0)
                     {
-                        consumesControl.GetMaThietBiIntoComboBox();
+                        bool isUpdated = devicesService.UpdateDevice(maThietBi, tenThietBi, parsedSoLuong, tinhTrang);
+
+                        if (isUpdated)
+                        {
+                            Clear1();
+                            RefreshDataGridView();
+                            UpdateConsumeControl();
+                            MessageBox.Show("Device updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error occurred while updating the device. Please check your input.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please fill out all required fields and enter valid input.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Error occurred while updating the device. Please check your input.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please enter a valid Device ID.", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Please enter values for Ten TB Devices and So Luong Devices.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("An error occurred while updating the device. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnDeleteDevices_Click(object sender, EventArgs e)
         {
-            string deviceNameToDelete = txtUpAndDeTenTBDevice.Text.Trim();
-
-            if (!string.IsNullOrEmpty(deviceNameToDelete))
+            try
             {
-                DialogResult result = MessageBox.Show("Are you sure you want to delete this device?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+                if (int.TryParse(txtUpAndDeMaThietBiDevice.Text.Trim(), out int maThietBi))
                 {
-                    bool check = devicesService.DeleteDevice(deviceNameToDelete);
+                    bool isDeleted = devicesService.DeleteDevice(maThietBi);
 
-                    if (check)
+                    if (isDeleted)
                     {
                         Clear1();
                         RefreshDataGridView();
-                        // consume
-                        var consumesControl = FindForm().Controls.Find("userControlConsume1", true).FirstOrDefault() as UserControlConsume;
-                        if (consumesControl != null)
-                        {
-                            consumesControl.GetMaThietBiIntoComboBox();
-                        }
+                        UpdateConsumeControl();
+                        MessageBox.Show("Device deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Device deletion failed or the device was not found.", "Deletion Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Device deletion failed or the device was not found.", "Deletion Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please enter a valid Device ID.", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Please enter the device name to delete.", "Device Name Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("An error occurred while deleting the device. Error details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void dataGridViewDevice_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
@@ -244,6 +252,7 @@ namespace Dormitory_Winform.UserControls
 
                 if (TinhTrang == "Bao Tri")
                     rdbUpAndDeBaoTriDevice.Checked = true;
+                txtUpAndDeMaThietBiDevice.Text = row.Cells[0].Value.ToString();
             }
         }
     }

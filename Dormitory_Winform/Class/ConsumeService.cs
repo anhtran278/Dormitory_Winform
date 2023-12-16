@@ -41,7 +41,6 @@ namespace Dormitory_Winform.Class
                     return false;
                 }
 
-               
                 if (!int.TryParse(maThietBi, out int parsedMaTB))
                 {
                     MessageBox.Show("Invalid MaThietBi. Please enter a valid integer.", "Invalid MaThietBi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -81,6 +80,7 @@ namespace Dormitory_Winform.Class
         {
             try
             {
+
                 if (!int.TryParse(maThietBi, out int parsedMaThietBi))
                 {
                     MessageBox.Show("Invalid MaPhong or MaThietBi. Please enter valid integers.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -126,6 +126,7 @@ namespace Dormitory_Winform.Class
         {
             try
             {
+
                 if (!int.TryParse(maThietBi, out int parsedMaThietBi))
                 {
                     MessageBox.Show("Invalid MaPhong or MaThietBi. Please enter valid integers.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);

@@ -371,22 +371,23 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.Silver;
+            this.panel3.BackColor = System.Drawing.Color.LightGray;
             this.panel3.Controls.Add(this.pictureMinimize);
             this.panel3.Controls.Add(this.pictureClose);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(268, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1332, 31);
+            this.panel3.Size = new System.Drawing.Size(1332, 33);
             this.panel3.TabIndex = 1;
             // 
             // pictureMinimize
             // 
+            this.pictureMinimize.BackColor = System.Drawing.Color.Transparent;
             this.pictureMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pictureMinimize.Image")));
-            this.pictureMinimize.Location = new System.Drawing.Point(1255, 2);
+            this.pictureMinimize.Location = new System.Drawing.Point(1236, 0);
             this.pictureMinimize.Name = "pictureMinimize";
-            this.pictureMinimize.Size = new System.Drawing.Size(23, 29);
+            this.pictureMinimize.Size = new System.Drawing.Size(32, 33);
             this.pictureMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureMinimize.TabIndex = 17;
             this.pictureMinimize.TabStop = false;
@@ -396,9 +397,9 @@
             // 
             this.pictureClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureClose.Image = ((System.Drawing.Image)(resources.GetObject("pictureClose.Image")));
-            this.pictureClose.Location = new System.Drawing.Point(1293, 0);
+            this.pictureClose.Location = new System.Drawing.Point(1280, -1);
             this.pictureClose.Name = "pictureClose";
-            this.pictureClose.Size = new System.Drawing.Size(27, 31);
+            this.pictureClose.Size = new System.Drawing.Size(32, 35);
             this.pictureClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureClose.TabIndex = 18;
             this.pictureClose.TabStop = false;
@@ -411,7 +412,7 @@
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.lblLogOut);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(268, 31);
+            this.panel5.Location = new System.Drawing.Point(268, 33);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1332, 69);
             this.panel5.TabIndex = 3;
@@ -464,7 +465,7 @@
             this.panel6.Controls.Add(this.lblUserName);
             this.panel6.Controls.Add(this.label4);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(268, 100);
+            this.panel6.Location = new System.Drawing.Point(268, 102);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1332, 92);
             this.panel6.TabIndex = 4;
@@ -529,9 +530,9 @@
             this.panel7.Controls.Add(this.userControlRelatives1);
             this.panel7.Controls.Add(this.userControlIntoRoom1);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(268, 192);
+            this.panel7.Location = new System.Drawing.Point(268, 194);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1332, 531);
+            this.panel7.Size = new System.Drawing.Size(1332, 529);
             this.panel7.TabIndex = 5;
             // 
             // picInformationShow
@@ -554,7 +555,7 @@
             this.userControlStudents1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControlStudents1.Location = new System.Drawing.Point(0, 0);
             this.userControlStudents1.Name = "userControlStudents1";
-            this.userControlStudents1.Size = new System.Drawing.Size(1332, 531);
+            this.userControlStudents1.Size = new System.Drawing.Size(1332, 529);
             this.userControlStudents1.TabIndex = 1;
             // 
             // userControlAdmins1
@@ -565,7 +566,7 @@
             this.userControlAdmins1.Location = new System.Drawing.Point(0, 0);
             this.userControlAdmins1.Margin = new System.Windows.Forms.Padding(4);
             this.userControlAdmins1.Name = "userControlAdmins1";
-            this.userControlAdmins1.Size = new System.Drawing.Size(1332, 531);
+            this.userControlAdmins1.Size = new System.Drawing.Size(1332, 529);
             this.userControlAdmins1.TabIndex = 0;
             // 
             // userControlStatistical1
@@ -574,7 +575,7 @@
             this.userControlStatistical1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControlStatistical1.Location = new System.Drawing.Point(0, 0);
             this.userControlStatistical1.Name = "userControlStatistical1";
-            this.userControlStatistical1.Size = new System.Drawing.Size(1332, 531);
+            this.userControlStatistical1.Size = new System.Drawing.Size(1332, 529);
             this.userControlStatistical1.TabIndex = 7;
             // 
             // userControlConsume1
@@ -583,7 +584,7 @@
             this.userControlConsume1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControlConsume1.Location = new System.Drawing.Point(0, 0);
             this.userControlConsume1.Name = "userControlConsume1";
-            this.userControlConsume1.Size = new System.Drawing.Size(1332, 531);
+            this.userControlConsume1.Size = new System.Drawing.Size(1332, 529);
             this.userControlConsume1.TabIndex = 6;
             // 
             // userControlDevices1
@@ -592,7 +593,7 @@
             this.userControlDevices1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControlDevices1.Location = new System.Drawing.Point(0, 0);
             this.userControlDevices1.Name = "userControlDevices1";
-            this.userControlDevices1.Size = new System.Drawing.Size(1332, 531);
+            this.userControlDevices1.Size = new System.Drawing.Size(1332, 529);
             this.userControlDevices1.TabIndex = 5;
             // 
             // userControlFee1
@@ -601,7 +602,7 @@
             this.userControlFee1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControlFee1.Location = new System.Drawing.Point(0, 0);
             this.userControlFee1.Name = "userControlFee1";
-            this.userControlFee1.Size = new System.Drawing.Size(1332, 531);
+            this.userControlFee1.Size = new System.Drawing.Size(1332, 529);
             this.userControlFee1.TabIndex = 4;
             // 
             // userControlRooms1
@@ -611,7 +612,7 @@
             this.userControlRooms1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userControlRooms1.Location = new System.Drawing.Point(0, 0);
             this.userControlRooms1.Name = "userControlRooms1";
-            this.userControlRooms1.Size = new System.Drawing.Size(1332, 531);
+            this.userControlRooms1.Size = new System.Drawing.Size(1332, 529);
             this.userControlRooms1.TabIndex = 3;
             // 
             // userControlRelatives1
@@ -620,7 +621,7 @@
             this.userControlRelatives1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControlRelatives1.Location = new System.Drawing.Point(0, 0);
             this.userControlRelatives1.Name = "userControlRelatives1";
-            this.userControlRelatives1.Size = new System.Drawing.Size(1332, 531);
+            this.userControlRelatives1.Size = new System.Drawing.Size(1332, 529);
             this.userControlRelatives1.TabIndex = 2;
             // 
             // userControlIntoRoom1
@@ -628,7 +629,7 @@
             this.userControlIntoRoom1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControlIntoRoom1.Location = new System.Drawing.Point(0, 0);
             this.userControlIntoRoom1.Name = "userControlIntoRoom1";
-            this.userControlIntoRoom1.Size = new System.Drawing.Size(1332, 531);
+            this.userControlIntoRoom1.Size = new System.Drawing.Size(1332, 529);
             this.userControlIntoRoom1.TabIndex = 8;
             // 
             // FormDashboard

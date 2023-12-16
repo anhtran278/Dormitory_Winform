@@ -58,18 +58,18 @@ namespace Dormitory_Winform.Class
                 return false;
             }
         }
-        public bool UpdateRoom(string maPhong, string giaPhong, string trangThai)
+        public bool UpdateRoom(string maPhong, string giaPhong)
         {
             try
             {
-                int parsedMaPhong;
-                if (!int.TryParse(maPhong, out parsedMaPhong) || parsedMaPhong <= 0)
+                // Bỏ qua việc kiểm tra int.TryParse vì maPhong là một chuỗi
+                if (string.IsNullOrEmpty(maPhong))
                 {
                     MessageBox.Show("Please first select a room from the table.", "Selection of Room", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return false;
                 }
 
-                PHONG existingRoom = db.PHONGs.Find(parsedMaPhong);
+                PHONG existingRoom = db.PHONGs.FirstOrDefault(p => p.MaPhong == maPhong);
 
                 if (existingRoom == null)
                 {
@@ -83,6 +83,7 @@ namespace Dormitory_Winform.Class
                     MessageBox.Show("Invalid GiaPhong. Please enter a valid decimal number.", "Invalid GiaPhong", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
+
                 existingRoom.GiaPhong = parsedGiaPhong;
 
                 db.SaveChanges();
@@ -97,33 +98,26 @@ namespace Dormitory_Winform.Class
                 return false;
             }
         }
-
-
         public bool DeleteRoom(string maPhong)
         {
             try
             {
-                int parsedMaPhong;
-                if (!int.TryParse(maPhong, out parsedMaPhong) || parsedMaPhong <= 0)
+                PHONG roomToDelete = db.PHONGs.FirstOrDefault(p => p.MaPhong == maPhong);
+
+                if (roomToDelete != null)
                 {
-                    MessageBox.Show("Please first select a room from the table.", "Selection of Room", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return false;
+                    db.PHONGs.Remove(roomToDelete);
+                    db.SaveChanges();
+
+                    MessageBox.Show("Room deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    return true;
                 }
-
-                PHONG roomToDelete = db.PHONGs.Find(parsedMaPhong);
-
-                if (roomToDelete == null)
+                else
                 {
                     MessageBox.Show("Room not found in the database.", "Room Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
-
-                db.PHONGs.Remove(roomToDelete);
-                db.SaveChanges();
-
-                MessageBox.Show("Room deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                return true;
             }
             catch (Exception ex)
             {
@@ -131,6 +125,5 @@ namespace Dormitory_Winform.Class
                 return false;
             }
         }
-
     }
 }

@@ -20,6 +20,8 @@ namespace Dormitory_Winform
         public string MaPhong { get; set; }
         public System.DateTime NgayVao { get; set; }
     
+        public virtual LOAIPHONGSVDKI LOAIPHONGSVDKI { get; set; }
         public virtual PHONG PHONG { get; set; }
+        public virtual SINHVIEN SINHVIEN { get; set; }
     }
 }

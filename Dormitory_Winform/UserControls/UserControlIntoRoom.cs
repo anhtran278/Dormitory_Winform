@@ -29,8 +29,9 @@ namespace Dormitory_Winform.UserControls
         private void UserControlIntoRoom_Load(object sender, EventArgs e)
         {
             loadDataIntoDataGridView();
-            GetMaSVIntoComboBox();
             GetMaPhongIntoComboBox();
+            GetMaPhongIntoUpandDeComboBox();
+            GetMaSVIntoComboBox();
         }
 
         private void loadDataIntoDataGridView()
@@ -55,85 +56,25 @@ namespace Dormitory_Winform.UserControls
                 Console.WriteLine(ex.Message);
             }
         }
-        public void GetMaSVIntoComboBox()
-        {
-            try
-            {
-                if (db == null)
-                {
-                    return;
-                }
 
-                List<string> maSVList = db.SINHVIENs
-                    .Where(s => s.TrangThaiDki == "Duyet")
-                    .Select(s => s.MaSV.ToString())
-                    .ToList();
-                List<string> loaiPhongDkiList = db.SINHVIENs
-                    .Where(s => s.TrangThaiDki == "Duyet")
-                    .Select(s => s.LoaiPhongSVDangKi)
-                    .ToList();
-
-                if (cbBoxAddMaSVIntoRoom == null)
-                {
-                    return;
-                }
-                cbBoxAddMaSVIntoRoom.Items.Clear();
-                foreach (string maSV in maSVList)
-                {
-                    cbBoxAddMaSVIntoRoom.Items.Add(maSV);
-                }
-
-                if (cbBoxAddLoaiPhongDkiIntoRoom == null)
-                {
-                    return;
-                }
-                cbBoxAddLoaiPhongDkiIntoRoom.Items.Clear();
-                foreach (string loaiPhongDki in loaiPhongDkiList)
-                {
-                    cbBoxAddMaSVIntoRoom.Items.Add(loaiPhongDki);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error occurred while populating the ComboBox. Error details: " + ex.Message);
-            }
-        }
-        public void GetMaPhongIntoComboBox()
-        {
-            try
-            {
-                if (db == null)
-                {
-                    return;
-                }
-
-                List<string> maSVList = db.SINHVIENs
-                    .Where(s => s.TrangThaiDki == "Duyet")
-                    .Select(s => s.MaSV.ToString())
-                    .ToList();
-
-                if (cbBoxAddMaSVIntoRoom == null)
-                {
-                    return;
-                }
-
-                cbBoxAddMaSVIntoRoom.Items.Clear();
-                foreach (string maSV in maSVList)
-                {
-                    cbBoxAddMaSVIntoRoom.Items.Add(maSV);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error occurred while populating the ComboBox. Error details: " + ex.Message);
-            }
-        }
         private void RefreshDataGridView()
         {
-            db.SaveChanges();
-            loadDataIntoDataGridView();
-        }
+            try
+            {
+                db.SaveChanges();
 
+                bindingSource.DataSource = db.SINHVIENVAOPHONGs.ToList();
+
+                dataGridViewIntoRoom.DataSource = null;
+                dataGridViewIntoRoom.DataSource = bindingSource;
+
+                dataGridViewIntoRoom.Refresh();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while refreshing DataGridView: " + ex.Message);
+            }
+        }
         public void Clear()
         {
             cbBoxAddLoaiPhongDkiIntoRoom.SelectedIndex = 0;
@@ -144,8 +85,8 @@ namespace Dormitory_Winform.UserControls
         }
         private void Clear1()
         {
-            cbBoxUpAndDeLoaiPhongDkiIntoRoom.SelectedIndex = 0;
-            cbBoxUpAndDeMaPhongIntoRoom.SelectedIndex = 0;
+            cbBoxUpAndDeLoaiPhongDkiIntoRoom.SelectedIndex = -1;
+            cbBoxUpAndDeMaPhongIntoRoom.SelectedIndex = -1;
             cbBoxUpAndDeMaSVIntoRoom.SelectedIndex = 0;
             dateTimeUpAndDeNgayVaoIntoRoom.Value = DateTime.Now;
         }
@@ -174,6 +115,274 @@ namespace Dormitory_Winform.UserControls
             {
                 var intoRoomhResult = intoRoomService.SearchIntoRoom(searchText);
                 bindingSource.DataSource = intoRoomhResult;
+            }
+        }
+        private void cbBoxUpAndDeMaPhongIntoRoom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbBoxUpAndDeMaPhongIntoRoom.SelectedItem != null)
+            {
+                string selectedMaPhong = cbBoxUpAndDeMaPhongIntoRoom.SelectedItem.ToString();
+            }
+        }
+        private void cbBoxUpAndDeLoaiPhongDkiIntoRoom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbBoxUpAndDeLoaiPhongDkiIntoRoom.SelectedItem != null)
+            {
+                string selectedLoaiPhong = cbBoxUpAndDeLoaiPhongDkiIntoRoom.SelectedItem.ToString();
+                UpdateMaPhongComboBox(selectedLoaiPhong);
+            }
+        }
+
+        public void GetMaPhongIntoComboBox()
+        {
+            try
+            {
+                if (db == null)
+                {
+                    return;
+                }
+
+                List<string> maPhongList = db.PHONGs
+                    .Select(p => p.MaPhong)
+                    .ToList();
+
+                if (cbBoxAddMaPhongIntoRoom == null)
+                {
+                    return;
+                }
+
+                cbBoxAddMaPhongIntoRoom.Items.Clear();
+                foreach (string maPhong in maPhongList)
+                {
+                    Console.WriteLine(maPhong);
+                    cbBoxAddMaPhongIntoRoom.Items.Add(maPhong);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while populating the ComboBox. Error details: " + ex.Message);
+            }
+        }
+        public void GetMaSVIntoComboBox()
+        {
+
+            try
+            {
+
+                if (db == null)
+                {
+                    return;
+                }
+
+                List<string> getMaSVList= db.SINHVIENs
+                    .Where(sv => sv.TrangThaiDki == "Duyet")
+                    .Select(sv => sv.MaSV.ToString())
+                    .ToList();
+
+                if (cbBoxAddMaSVIntoRoom == null)
+                {
+                    return;
+                }
+
+                cbBoxAddMaSVIntoRoom.Items.Clear();
+                foreach (string maSV in getMaSVList)
+                {
+                    cbBoxAddMaSVIntoRoom.Items.Add(maSV);
+                }
+                //////////////////////////////////////////////////
+                List<string> loaiPhongDkiList = db.LOAIPHONGSVDKIs
+                    .Select(sv => sv.LoaiPhongSVDangKi.ToString())
+                    .ToList();
+
+                if (cbBoxAddLoaiPhongDkiIntoRoom == null)
+                {
+                    return;
+                }
+
+                cbBoxAddLoaiPhongDkiIntoRoom.Items.Clear();
+                foreach (string loaiPhongDki in loaiPhongDkiList)
+                {
+                    cbBoxAddLoaiPhongDkiIntoRoom.Items.Add(loaiPhongDki);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while populating the ComboBox. Error details: " + ex.Message);
+            }
+        }
+        public void GetMaPhongIntoUpandDeComboBox()
+        {
+            try
+            {
+                if (db == null)
+                {
+                    return;
+                }
+
+                List<string> maPhongList = db.PHONGs
+                .Select(p => p.MaPhong)
+                    .ToList();
+
+                if (cbBoxUpAndDeMaPhongIntoRoom == null)
+                {
+                    return;
+                }
+
+                cbBoxUpAndDeMaPhongIntoRoom.Items.Clear();
+                foreach (string maPhong in maPhongList)
+                {
+                    Console.WriteLine(maPhong);
+                    cbBoxUpAndDeMaPhongIntoRoom.Items.Add(maPhong);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while populating the ComboBox. Error details: " + ex.Message);
+            }
+        }
+        private void UpdateMaPhongComboBox(string loaiPhong)
+        {
+            using (var context = new QuanLi_DormitoryEntities())
+            {
+                var danhSachPhong = context.PHONGs
+                    .Where(p => p.MaPhong.StartsWith(loaiPhong))
+                    .Select(p => p.MaPhong)
+                    .ToList();
+                cbBoxUpAndDeMaPhongIntoRoom.Items.Clear();
+                foreach (var maPhong in danhSachPhong)
+                {
+                    cbBoxUpAndDeMaPhongIntoRoom.Items.Add(maPhong);
+                }
+            }
+        }
+        private void cbBoxAddMaSVIntoRoom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbBoxAddMaSVIntoRoom.SelectedItem != null && cbBoxAddMaSVIntoRoom.SelectedItem is string selectedMaSinhVienString)
+            {
+                if (int.TryParse(selectedMaSinhVienString, out int selectedMaSinhVien))
+                {
+                    using (var context = new QuanLi_DormitoryEntities())
+                    {
+                        var sinhVien = context.SINHVIENs.FirstOrDefault(sv => sv.MaSV == selectedMaSinhVien);
+                        if (sinhVien != null)
+                        {
+                            cbBoxAddLoaiPhongDkiIntoRoom.SelectedItem = sinhVien.LoaiPhongSVDangKi;
+                            UpdateMaPhongComboBox(sinhVien.LoaiPhongSVDangKi);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnAddIntoRoom_Click(object sender, EventArgs e)
+        {
+            bool check;
+
+            if (!string.IsNullOrEmpty(cbBoxAddLoaiPhongDkiIntoRoom.Text) &&
+                !string.IsNullOrEmpty(cbBoxAddMaPhongIntoRoom.Text) &&
+                cbBoxAddMaSVIntoRoom.SelectedItem != null)
+            {
+                string selectedMaSV = cbBoxAddMaSVIntoRoom.SelectedItem.ToString();
+
+                check = intoRoomService.AddSinhVienVaoPhong(selectedMaSV,
+                    cbBoxAddLoaiPhongDkiIntoRoom.Text.Trim(), cbBoxAddMaPhongIntoRoom.Text.Trim(),
+                    dateTimeAddNgayVaoIntoRoom.Value);
+
+                if (check)
+                {
+                    Clear();
+                    RefreshDataGridView();
+                    //UpdateRelatedControls();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm sinh viên vào phòng thất bại. Vui lòng kiểm tra đầu vào hoặc thử lại sau.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin bắt buộc.", "Trường bắt buộc", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        
+        
+        private void btnUpdateIntoRoom_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(cbBoxUpAndDeMaSVIntoRoom.Text))
+                {
+                    int maSinhVien = int.Parse(cbBoxUpAndDeMaSVIntoRoom.Text);
+                    string maPhong = cbBoxUpAndDeMaPhongIntoRoom.Text.Trim();
+                    DateTime ngayVao = dateTimeUpAndDeNgayVaoIntoRoom.Value;
+                    string loaiPhong = cbBoxUpAndDeLoaiPhongDkiIntoRoom.Text.Trim();
+
+                    bool check = intoRoomService.UpdateSinhVienVaoPhong(maSinhVien, maPhong, ngayVao, loaiPhong);
+
+                    if (check)
+                    {
+                        Clear1();
+                        RefreshDataGridView();
+                        //UpdateRelatedControls();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập nhật thất bại. Vui lòng kiểm tra đầu vào hoặc thử lại sau.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn Sinh viên cần cập nhật.", "Trường bắt buộc", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+                MessageBox.Show("Có lỗi xảy ra. Vui lòng thử lại sau.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void btnDeleteIntoRoom_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(cbBoxUpAndDeMaSVIntoRoom.Text))
+                {
+                    int maSinhVien = int.Parse(cbBoxUpAndDeMaSVIntoRoom.Text);
+
+                    bool check = intoRoomService.DeleteSinhVienFromPhong(maSinhVien);
+
+                    if (check)
+                    {
+                        Clear1();
+                        RefreshDataGridView();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Delete failed. The student may not exist or there was an error.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select a student to delete.", "Required field", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+                MessageBox.Show("An error occurred. Please try again later.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void dataGridViewIntoRoom_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                DataGridViewRow row = dataGridViewIntoRoom.Rows[e.RowIndex];
+                cbBoxUpAndDeMaSVIntoRoom.Text = row.Cells[1].Value.ToString();
+                cbBoxUpAndDeLoaiPhongDkiIntoRoom.Text = row.Cells[2].Value.ToString();
+                cbBoxUpAndDeMaPhongIntoRoom.Text = row.Cells[3].Value.ToString();
+                dateTimeUpAndDeNgayVaoIntoRoom.Value = (DateTime)row.Cells[4].Value;
+
+                tabControlIntoRoom.SelectedTab = tabPageUpDeIntoRoom;
             }
         }
     }

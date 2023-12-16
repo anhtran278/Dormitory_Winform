@@ -28,6 +28,7 @@ namespace Dormitory_Winform
         public virtual DbSet<ADMIN> ADMINS { get; set; }
         public virtual DbSet<HAOPHI> HAOPHIs { get; set; }
         public virtual DbSet<KHOANPHI> KHOANPHIs { get; set; }
+        public virtual DbSet<LOAIPHONGSVDKI> LOAIPHONGSVDKIs { get; set; }
         public virtual DbSet<NGUOITHAN> NGUOITHANs { get; set; }
         public virtual DbSet<PHONG> PHONGs { get; set; }
         public virtual DbSet<SINHVIEN> SINHVIENs { get; set; }

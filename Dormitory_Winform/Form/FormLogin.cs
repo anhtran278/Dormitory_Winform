@@ -19,6 +19,7 @@ namespace Dormitory_Winform
         public FormLogin()
         {
             InitializeComponent();
+            this.AcceptButton = btnLogIn;
         }
 
         private void FormLogin_Load(object sender, EventArgs e)
@@ -99,5 +100,6 @@ namespace Dormitory_Winform
         {
             MessageBox.Show("Please contact the developer to retrieve your password !!.", "Forgot Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
     }
 }

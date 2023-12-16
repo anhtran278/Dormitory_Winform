@@ -36,6 +36,12 @@
           <Property Name="TienGuiXe" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="TienDienVaNuoc" Type="decimal" Precision="10" Scale="2" Nullable="false" />
         </EntityType>
+        <EntityType Name="LOAIPHONGSVDKI">
+          <Key>
+            <PropertyRef Name="LoaiPhongSVDangKi" />
+          </Key>
+          <Property Name="LoaiPhongSVDangKi" Type="varchar" MaxLength="11" Nullable="false" />
+        </EntityType>
         <EntityType Name="NGUOITHAN">
           <Key>
             <PropertyRef Name="MaNT" />
@@ -86,7 +92,7 @@
           <Property Name="SoLuong" Type="int" Nullable="false" />
           <Property Name="TinhTrang" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__HAOPHI__MaPhong__5EBF139D">
+        <Association Name="FK__HAOPHI__MaPhong__619B8048">
           <End Role="PHONG" Type="Self.PHONG" Multiplicity="1" />
           <End Role="HAOPHI" Type="Self.HAOPHI" Multiplicity="*" />
           <ReferentialConstraint>
@@ -98,7 +104,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__HAOPHI__MaThietB__5FB337D6">
+        <Association Name="FK__HAOPHI__MaThietB__628FA481">
           <End Role="THIETBI" Type="Self.THIETBI" Multiplicity="1" />
           <End Role="HAOPHI" Type="Self.HAOPHI" Multiplicity="*" />
           <ReferentialConstraint>
@@ -110,7 +116,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__KHOANPHI__MaSV__5629CD9C">
+        <Association Name="FK__KHOANPHI__MaSV__59063A47">
           <End Role="SINHVIEN" Type="Self.SINHVIEN" Multiplicity="1" />
           <End Role="KHOANPHI" Type="Self.KHOANPHI" Multiplicity="*" />
           <ReferentialConstraint>
@@ -122,7 +128,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__NGUOITHAN__MaSV__59063A47">
+        <Association Name="FK__NGUOITHAN__MaSV__5BE2A6F2">
           <End Role="SINHVIEN" Type="Self.SINHVIEN" Multiplicity="1" />
           <End Role="NGUOITHAN" Type="Self.NGUOITHAN" Multiplicity="*" />
           <ReferentialConstraint>
@@ -134,7 +140,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SINHVIENV__MaPho__534D60F1">
+        <Association Name="FK__SINHVIEN__LoaiPh__5165187F">
+          <End Role="LOAIPHONGSVDKI" Type="Self.LOAIPHONGSVDKI" Multiplicity="1" />
+          <End Role="SINHVIEN" Type="Self.SINHVIEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAIPHONGSVDKI">
+              <PropertyRef Name="LoaiPhongSVDangKi" />
+            </Principal>
+            <Dependent Role="SINHVIEN">
+              <PropertyRef Name="LoaiPhongSVDangKi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SINHVIENV__LoaiP__5629CD9C">
+          <End Role="LOAIPHONGSVDKI" Type="Self.LOAIPHONGSVDKI" Multiplicity="1" />
+          <End Role="SINHVIENVAOPHONG" Type="Self.SINHVIENVAOPHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAIPHONGSVDKI">
+              <PropertyRef Name="LoaiPhongSVDangKi" />
+            </Principal>
+            <Dependent Role="SINHVIENVAOPHONG">
+              <PropertyRef Name="LoaiPhongSVDangKi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SINHVIENV__MaPho__5535A963">
           <End Role="PHONG" Type="Self.PHONG" Multiplicity="1" />
           <End Role="SINHVIENVAOPHONG" Type="Self.SINHVIENVAOPHONG" Multiplicity="*" />
           <ReferentialConstraint>
@@ -146,36 +176,58 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-warning 6035: The relationship 'FK__SINHVIENVAOPHONG__52593CB8' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="FK__SINHVIENVAOPHONG__52593CB8" />-->
+        <Association Name="FK__SINHVIENVA__MaSV__5441852A">
+          <End Role="SINHVIEN" Type="Self.SINHVIEN" Multiplicity="1" />
+          <End Role="SINHVIENVAOPHONG" Type="Self.SINHVIENVAOPHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SINHVIEN">
+              <PropertyRef Name="MaSV" />
+            </Principal>
+            <Dependent Role="SINHVIENVAOPHONG">
+              <PropertyRef Name="MaSV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="QuanLi_DormitoryModelStoreContainer">
           <EntitySet Name="ADMINS" EntityType="Self.ADMINS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HAOPHI" EntityType="Self.HAOPHI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHOANPHI" EntityType="Self.KHOANPHI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOAIPHONGSVDKI" EntityType="Self.LOAIPHONGSVDKI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NGUOITHAN" EntityType="Self.NGUOITHAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHONG" EntityType="Self.PHONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SINHVIEN" EntityType="Self.SINHVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SINHVIENVAOPHONG" EntityType="Self.SINHVIENVAOPHONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THIETBI" EntityType="Self.THIETBI" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__HAOPHI__MaPhong__5EBF139D" Association="Self.FK__HAOPHI__MaPhong__5EBF139D">
+          <AssociationSet Name="FK__HAOPHI__MaPhong__619B8048" Association="Self.FK__HAOPHI__MaPhong__619B8048">
             <End Role="PHONG" EntitySet="PHONG" />
             <End Role="HAOPHI" EntitySet="HAOPHI" />
           </AssociationSet>
-          <AssociationSet Name="FK__HAOPHI__MaThietB__5FB337D6" Association="Self.FK__HAOPHI__MaThietB__5FB337D6">
+          <AssociationSet Name="FK__HAOPHI__MaThietB__628FA481" Association="Self.FK__HAOPHI__MaThietB__628FA481">
             <End Role="THIETBI" EntitySet="THIETBI" />
             <End Role="HAOPHI" EntitySet="HAOPHI" />
           </AssociationSet>
-          <AssociationSet Name="FK__KHOANPHI__MaSV__5629CD9C" Association="Self.FK__KHOANPHI__MaSV__5629CD9C">
+          <AssociationSet Name="FK__KHOANPHI__MaSV__59063A47" Association="Self.FK__KHOANPHI__MaSV__59063A47">
             <End Role="SINHVIEN" EntitySet="SINHVIEN" />
             <End Role="KHOANPHI" EntitySet="KHOANPHI" />
           </AssociationSet>
-          <AssociationSet Name="FK__NGUOITHAN__MaSV__59063A47" Association="Self.FK__NGUOITHAN__MaSV__59063A47">
+          <AssociationSet Name="FK__NGUOITHAN__MaSV__5BE2A6F2" Association="Self.FK__NGUOITHAN__MaSV__5BE2A6F2">
             <End Role="SINHVIEN" EntitySet="SINHVIEN" />
             <End Role="NGUOITHAN" EntitySet="NGUOITHAN" />
           </AssociationSet>
-          <AssociationSet Name="FK__SINHVIENV__MaPho__534D60F1" Association="Self.FK__SINHVIENV__MaPho__534D60F1">
+          <AssociationSet Name="FK__SINHVIEN__LoaiPh__5165187F" Association="Self.FK__SINHVIEN__LoaiPh__5165187F">
+            <End Role="LOAIPHONGSVDKI" EntitySet="LOAIPHONGSVDKI" />
+            <End Role="SINHVIEN" EntitySet="SINHVIEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SINHVIENV__LoaiP__5629CD9C" Association="Self.FK__SINHVIENV__LoaiP__5629CD9C">
+            <End Role="LOAIPHONGSVDKI" EntitySet="LOAIPHONGSVDKI" />
+            <End Role="SINHVIENVAOPHONG" EntitySet="SINHVIENVAOPHONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SINHVIENV__MaPho__5535A963" Association="Self.FK__SINHVIENV__MaPho__5535A963">
             <End Role="PHONG" EntitySet="PHONG" />
+            <End Role="SINHVIENVAOPHONG" EntitySet="SINHVIENVAOPHONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SINHVIENVA__MaSV__5441852A" Association="Self.FK__SINHVIENVA__MaSV__5441852A">
+            <End Role="SINHVIEN" EntitySet="SINHVIEN" />
             <End Role="SINHVIENVAOPHONG" EntitySet="SINHVIENVAOPHONG" />
           </AssociationSet>
         </EntityContainer>
@@ -202,8 +254,8 @@ warning 6035: The relationship 'FK__SINHVIENVAOPHONG__52593CB8' has columns that
           <Property Name="TienBaoTriPhong" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="TienBaoTriThietBi" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="NgayHaoPhi" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="PHONG" Relationship="Self.FK__HAOPHI__MaPhong__5EBF139D" FromRole="HAOPHI" ToRole="PHONG" />
-          <NavigationProperty Name="THIETBI" Relationship="Self.FK__HAOPHI__MaThietB__5FB337D6" FromRole="HAOPHI" ToRole="THIETBI" />
+          <NavigationProperty Name="PHONG" Relationship="Self.FK__HAOPHI__MaPhong__619B8048" FromRole="HAOPHI" ToRole="PHONG" />
+          <NavigationProperty Name="THIETBI" Relationship="Self.FK__HAOPHI__MaThietB__628FA481" FromRole="HAOPHI" ToRole="THIETBI" />
         </EntityType>
         <EntityType Name="KHOANPHI">
           <Key>
@@ -216,7 +268,15 @@ warning 6035: The relationship 'FK__SINHVIENVAOPHONG__52593CB8' has columns that
           <Property Name="TienInternet" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="TienGuiXe" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="TienDienVaNuoc" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <NavigationProperty Name="SINHVIEN" Relationship="Self.FK__KHOANPHI__MaSV__5629CD9C" FromRole="KHOANPHI" ToRole="SINHVIEN" />
+          <NavigationProperty Name="SINHVIEN" Relationship="Self.FK__KHOANPHI__MaSV__59063A47" FromRole="KHOANPHI" ToRole="SINHVIEN" />
+        </EntityType>
+        <EntityType Name="LOAIPHONGSVDKI">
+          <Key>
+            <PropertyRef Name="LoaiPhongSVDangKi" />
+          </Key>
+          <Property Name="LoaiPhongSVDangKi" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SINHVIENs" Relationship="Self.FK__SINHVIEN__LoaiPh__5165187F" FromRole="LOAIPHONGSVDKI" ToRole="SINHVIEN" />
+          <NavigationProperty Name="SINHVIENVAOPHONGs" Relationship="Self.FK__SINHVIENV__LoaiP__5629CD9C" FromRole="LOAIPHONGSVDKI" ToRole="SINHVIENVAOPHONG" />
         </EntityType>
         <EntityType Name="NGUOITHAN">
           <Key>
@@ -228,7 +288,7 @@ warning 6035: The relationship 'FK__SINHVIENVAOPHONG__52593CB8' has columns that
           <Property Name="NgayTham" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="SINHVIEN" Relationship="Self.FK__NGUOITHAN__MaSV__59063A47" FromRole="NGUOITHAN" ToRole="SINHVIEN" />
+          <NavigationProperty Name="SINHVIEN" Relationship="Self.FK__NGUOITHAN__MaSV__5BE2A6F2" FromRole="NGUOITHAN" ToRole="SINHVIEN" />
         </EntityType>
         <EntityType Name="PHONG">
           <Key>
@@ -237,8 +297,8 @@ warning 6035: The relationship 'FK__SINHVIENVAOPHONG__52593CB8' has columns that
           <Property Name="MaPhong" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="GiaPhong" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="TrangThaiPhong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="HAOPHIs" Relationship="Self.FK__HAOPHI__MaPhong__5EBF139D" FromRole="PHONG" ToRole="HAOPHI" />
-          <NavigationProperty Name="SINHVIENVAOPHONGs" Relationship="Self.FK__SINHVIENV__MaPho__534D60F1" FromRole="PHONG" ToRole="SINHVIENVAOPHONG" />
+          <NavigationProperty Name="HAOPHIs" Relationship="Self.FK__HAOPHI__MaPhong__619B8048" FromRole="PHONG" ToRole="HAOPHI" />
+          <NavigationProperty Name="SINHVIENVAOPHONGs" Relationship="Self.FK__SINHVIENV__MaPho__5535A963" FromRole="PHONG" ToRole="SINHVIENVAOPHONG" />
         </EntityType>
         <EntityType Name="SINHVIEN">
           <Key>
@@ -251,8 +311,10 @@ warning 6035: The relationship 'FK__SINHVIENVAOPHONG__52593CB8' has columns that
           <Property Name="DienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LoaiPhongSVDangKi" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TrangThaiDki" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="KHOANPHIs" Relationship="Self.FK__KHOANPHI__MaSV__5629CD9C" FromRole="SINHVIEN" ToRole="KHOANPHI" />
-          <NavigationProperty Name="NGUOITHANs" Relationship="Self.FK__NGUOITHAN__MaSV__59063A47" FromRole="SINHVIEN" ToRole="NGUOITHAN" />
+          <NavigationProperty Name="KHOANPHIs" Relationship="Self.FK__KHOANPHI__MaSV__59063A47" FromRole="SINHVIEN" ToRole="KHOANPHI" />
+          <NavigationProperty Name="LOAIPHONGSVDKI" Relationship="Self.FK__SINHVIEN__LoaiPh__5165187F" FromRole="SINHVIEN" ToRole="LOAIPHONGSVDKI" />
+          <NavigationProperty Name="NGUOITHANs" Relationship="Self.FK__NGUOITHAN__MaSV__5BE2A6F2" FromRole="SINHVIEN" ToRole="NGUOITHAN" />
+          <NavigationProperty Name="SINHVIENVAOPHONGs" Relationship="Self.FK__SINHVIENVA__MaSV__5441852A" FromRole="SINHVIEN" ToRole="SINHVIENVAOPHONG" />
         </EntityType>
         <EntityType Name="SINHVIENVAOPHONG">
           <Key>
@@ -263,7 +325,9 @@ warning 6035: The relationship 'FK__SINHVIENVAOPHONG__52593CB8' has columns that
           <Property Name="LoaiPhongSVDangKi" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MaPhong" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NgayVao" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="PHONG" Relationship="Self.FK__SINHVIENV__MaPho__534D60F1" FromRole="SINHVIENVAOPHONG" ToRole="PHONG" />
+          <NavigationProperty Name="LOAIPHONGSVDKI" Relationship="Self.FK__SINHVIENV__LoaiP__5629CD9C" FromRole="SINHVIENVAOPHONG" ToRole="LOAIPHONGSVDKI" />
+          <NavigationProperty Name="PHONG" Relationship="Self.FK__SINHVIENV__MaPho__5535A963" FromRole="SINHVIENVAOPHONG" ToRole="PHONG" />
+          <NavigationProperty Name="SINHVIEN" Relationship="Self.FK__SINHVIENVA__MaSV__5441852A" FromRole="SINHVIENVAOPHONG" ToRole="SINHVIEN" />
         </EntityType>
         <EntityType Name="THIETBI">
           <Key>
@@ -273,9 +337,9 @@ warning 6035: The relationship 'FK__SINHVIENVAOPHONG__52593CB8' has columns that
           <Property Name="TenThietBi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SoLuong" Type="Int32" Nullable="false" />
           <Property Name="TinhTrang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="HAOPHIs" Relationship="Self.FK__HAOPHI__MaThietB__5FB337D6" FromRole="THIETBI" ToRole="HAOPHI" />
+          <NavigationProperty Name="HAOPHIs" Relationship="Self.FK__HAOPHI__MaThietB__628FA481" FromRole="THIETBI" ToRole="HAOPHI" />
         </EntityType>
-        <Association Name="FK__HAOPHI__MaPhong__5EBF139D">
+        <Association Name="FK__HAOPHI__MaPhong__619B8048">
           <End Role="PHONG" Type="Self.PHONG" Multiplicity="1" />
           <End Role="HAOPHI" Type="Self.HAOPHI" Multiplicity="*" />
           <ReferentialConstraint>
@@ -287,7 +351,7 @@ warning 6035: The relationship 'FK__SINHVIENVAOPHONG__52593CB8' has columns that
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__HAOPHI__MaThietB__5FB337D6">
+        <Association Name="FK__HAOPHI__MaThietB__628FA481">
           <End Role="THIETBI" Type="Self.THIETBI" Multiplicity="1" />
           <End Role="HAOPHI" Type="Self.HAOPHI" Multiplicity="*" />
           <ReferentialConstraint>
@@ -299,7 +363,7 @@ warning 6035: The relationship 'FK__SINHVIENVAOPHONG__52593CB8' has columns that
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__KHOANPHI__MaSV__5629CD9C">
+        <Association Name="FK__KHOANPHI__MaSV__59063A47">
           <End Role="SINHVIEN" Type="Self.SINHVIEN" Multiplicity="1" />
           <End Role="KHOANPHI" Type="Self.KHOANPHI" Multiplicity="*" />
           <ReferentialConstraint>
@@ -311,7 +375,31 @@ warning 6035: The relationship 'FK__SINHVIENVAOPHONG__52593CB8' has columns that
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__NGUOITHAN__MaSV__59063A47">
+        <Association Name="FK__SINHVIEN__LoaiPh__5165187F">
+          <End Role="LOAIPHONGSVDKI" Type="Self.LOAIPHONGSVDKI" Multiplicity="1" />
+          <End Role="SINHVIEN" Type="Self.SINHVIEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAIPHONGSVDKI">
+              <PropertyRef Name="LoaiPhongSVDangKi" />
+            </Principal>
+            <Dependent Role="SINHVIEN">
+              <PropertyRef Name="LoaiPhongSVDangKi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SINHVIENV__LoaiP__5629CD9C">
+          <End Role="LOAIPHONGSVDKI" Type="Self.LOAIPHONGSVDKI" Multiplicity="1" />
+          <End Role="SINHVIENVAOPHONG" Type="Self.SINHVIENVAOPHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAIPHONGSVDKI">
+              <PropertyRef Name="LoaiPhongSVDangKi" />
+            </Principal>
+            <Dependent Role="SINHVIENVAOPHONG">
+              <PropertyRef Name="LoaiPhongSVDangKi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NGUOITHAN__MaSV__5BE2A6F2">
           <End Role="SINHVIEN" Type="Self.SINHVIEN" Multiplicity="1" />
           <End Role="NGUOITHAN" Type="Self.NGUOITHAN" Multiplicity="*" />
           <ReferentialConstraint>
@@ -323,7 +411,7 @@ warning 6035: The relationship 'FK__SINHVIENVAOPHONG__52593CB8' has columns that
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SINHVIENV__MaPho__534D60F1">
+        <Association Name="FK__SINHVIENV__MaPho__5535A963">
           <End Role="PHONG" Type="Self.PHONG" Multiplicity="1" />
           <End Role="SINHVIENVAOPHONG" Type="Self.SINHVIENVAOPHONG" Multiplicity="*" />
           <ReferentialConstraint>
@@ -335,33 +423,58 @@ warning 6035: The relationship 'FK__SINHVIENVAOPHONG__52593CB8' has columns that
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__SINHVIENVA__MaSV__5441852A">
+          <End Role="SINHVIEN" Type="Self.SINHVIEN" Multiplicity="1" />
+          <End Role="SINHVIENVAOPHONG" Type="Self.SINHVIENVAOPHONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SINHVIEN">
+              <PropertyRef Name="MaSV" />
+            </Principal>
+            <Dependent Role="SINHVIENVAOPHONG">
+              <PropertyRef Name="MaSV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="QuanLi_DormitoryEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ADMINS" EntityType="Self.ADMIN" />
           <EntitySet Name="HAOPHIs" EntityType="Self.HAOPHI" />
           <EntitySet Name="KHOANPHIs" EntityType="Self.KHOANPHI" />
+          <EntitySet Name="LOAIPHONGSVDKIs" EntityType="Self.LOAIPHONGSVDKI" />
           <EntitySet Name="NGUOITHANs" EntityType="Self.NGUOITHAN" />
           <EntitySet Name="PHONGs" EntityType="Self.PHONG" />
           <EntitySet Name="SINHVIENs" EntityType="Self.SINHVIEN" />
           <EntitySet Name="SINHVIENVAOPHONGs" EntityType="Self.SINHVIENVAOPHONG" />
           <EntitySet Name="THIETBIs" EntityType="Self.THIETBI" />
-          <AssociationSet Name="FK__HAOPHI__MaPhong__5EBF139D" Association="Self.FK__HAOPHI__MaPhong__5EBF139D">
+          <AssociationSet Name="FK__HAOPHI__MaPhong__619B8048" Association="Self.FK__HAOPHI__MaPhong__619B8048">
             <End Role="PHONG" EntitySet="PHONGs" />
             <End Role="HAOPHI" EntitySet="HAOPHIs" />
           </AssociationSet>
-          <AssociationSet Name="FK__HAOPHI__MaThietB__5FB337D6" Association="Self.FK__HAOPHI__MaThietB__5FB337D6">
+          <AssociationSet Name="FK__HAOPHI__MaThietB__628FA481" Association="Self.FK__HAOPHI__MaThietB__628FA481">
             <End Role="THIETBI" EntitySet="THIETBIs" />
             <End Role="HAOPHI" EntitySet="HAOPHIs" />
           </AssociationSet>
-          <AssociationSet Name="FK__KHOANPHI__MaSV__5629CD9C" Association="Self.FK__KHOANPHI__MaSV__5629CD9C">
+          <AssociationSet Name="FK__KHOANPHI__MaSV__59063A47" Association="Self.FK__KHOANPHI__MaSV__59063A47">
             <End Role="SINHVIEN" EntitySet="SINHVIENs" />
             <End Role="KHOANPHI" EntitySet="KHOANPHIs" />
           </AssociationSet>
-          <AssociationSet Name="FK__NGUOITHAN__MaSV__59063A47" Association="Self.FK__NGUOITHAN__MaSV__59063A47">
+          <AssociationSet Name="FK__SINHVIEN__LoaiPh__5165187F" Association="Self.FK__SINHVIEN__LoaiPh__5165187F">
+            <End Role="LOAIPHONGSVDKI" EntitySet="LOAIPHONGSVDKIs" />
+            <End Role="SINHVIEN" EntitySet="SINHVIENs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SINHVIENV__LoaiP__5629CD9C" Association="Self.FK__SINHVIENV__LoaiP__5629CD9C">
+            <End Role="LOAIPHONGSVDKI" EntitySet="LOAIPHONGSVDKIs" />
+            <End Role="SINHVIENVAOPHONG" EntitySet="SINHVIENVAOPHONGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NGUOITHAN__MaSV__5BE2A6F2" Association="Self.FK__NGUOITHAN__MaSV__5BE2A6F2">
             <End Role="SINHVIEN" EntitySet="SINHVIENs" />
             <End Role="NGUOITHAN" EntitySet="NGUOITHANs" />
           </AssociationSet>
-          <AssociationSet Name="FK__SINHVIENV__MaPho__534D60F1" Association="Self.FK__SINHVIENV__MaPho__534D60F1">
+          <AssociationSet Name="FK__SINHVIENV__MaPho__5535A963" Association="Self.FK__SINHVIENV__MaPho__5535A963">
             <End Role="PHONG" EntitySet="PHONGs" />
+            <End Role="SINHVIENVAOPHONG" EntitySet="SINHVIENVAOPHONGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SINHVIENVA__MaSV__5441852A" Association="Self.FK__SINHVIENVA__MaSV__5441852A">
+            <End Role="SINHVIEN" EntitySet="SINHVIENs" />
             <End Role="SINHVIENVAOPHONG" EntitySet="SINHVIENVAOPHONGs" />
           </AssociationSet>
         </EntityContainer>
@@ -402,6 +515,13 @@ warning 6035: The relationship 'FK__SINHVIENVAOPHONG__52593CB8' has columns that
                 <ScalarProperty Name="TienInternet" ColumnName="TienInternet" />
                 <ScalarProperty Name="TienGuiXe" ColumnName="TienGuiXe" />
                 <ScalarProperty Name="TienDienVaNuoc" ColumnName="TienDienVaNuoc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOAIPHONGSVDKIs">
+            <EntityTypeMapping TypeName="QuanLi_DormitoryModel.LOAIPHONGSVDKI">
+              <MappingFragment StoreEntitySet="LOAIPHONGSVDKI">
+                <ScalarProperty Name="LoaiPhongSVDangKi" ColumnName="LoaiPhongSVDangKi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -19,6 +19,7 @@ namespace Dormitory_Winform
         {
             this.KHOANPHIs = new HashSet<KHOANPHI>();
             this.NGUOITHANs = new HashSet<NGUOITHAN>();
+            this.SINHVIENVAOPHONGs = new HashSet<SINHVIENVAOPHONG>();
         }
     
         public int MaSV { get; set; }
@@ -31,7 +32,10 @@ namespace Dormitory_Winform
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KHOANPHI> KHOANPHIs { get; set; }
+        public virtual LOAIPHONGSVDKI LOAIPHONGSVDKI { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NGUOITHAN> NGUOITHANs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SINHVIENVAOPHONG> SINHVIENVAOPHONGs { get; set; }
     }
 }
