@@ -153,7 +153,7 @@ namespace Dormitory_Winform.UserControls
 
             try
             {
-
+                //get ma sv to cbBoxAddMaSVIntoRoom
                 if (db == null)
                 {
                     return;
@@ -174,7 +174,7 @@ namespace Dormitory_Winform.UserControls
                 {
                     cbBoxAddMaSVIntoRoom.Items.Add(maSV);
                 }
-                /////////////////////////////////////
+                // cập nhật khi tồn tại cbBoxAddMaSVIntoRoom
                 List<string> maSVAdded = db.SINHVIENVAOPHONGs
                     .Select(sv => sv.MaSV.ToString())
                     .ToList();
@@ -193,7 +193,7 @@ namespace Dormitory_Winform.UserControls
                         cbBoxAddMaSVIntoRoom.Items.Add(maSV);
                     }
                 }
-                //////////////////////////////////////////////////
+                //get loaiPhong to cbBoxAddLoaiPhongDkiIntoRoom
                 List<string> loaiPhongDkiList = db.LOAIPHONGSVDKIs
                     .Select(sv => sv.LoaiPhongSVDangKi.ToString())
                     .ToList();
@@ -244,21 +244,7 @@ namespace Dormitory_Winform.UserControls
                 Console.WriteLine("An error occurred while populating the ComboBox. Error details: " + ex.Message);
             }
         }
-        private void UpdateMaPhongUpAndDeComboBox(string loaiPhong)
-        {
-            using (var context = new QuanLi_DormitoryEntities())
-            {
-                var danhSachPhong = context.PHONGs
-                    .Where(p => p.MaPhong.StartsWith(loaiPhong))
-                    .Select(p => p.MaPhong)
-                    .ToList();
-                cbBoxUpAndDeMaPhongIntoRoom.Items.Clear();
-                foreach (var maPhong in danhSachPhong)
-                {
-                    cbBoxUpAndDeMaPhongIntoRoom.Items.Add(maPhong);
-                }
-            }
-        }
+        
         private void UpdateMaPhongAddComboBox(string loaiPhong)
         {
             using (var context = new QuanLi_DormitoryEntities())
@@ -291,6 +277,21 @@ namespace Dormitory_Winform.UserControls
                     }
                 }
             }
+        }   
+        private void UpdateMaPhongUpAndDeComboBox(string loaiPhong)
+        {
+            using (var context = new QuanLi_DormitoryEntities())
+            {
+                var danhSachPhong = context.PHONGs
+                    .Where(p => p.MaPhong.StartsWith(loaiPhong))
+                    .Select(p => p.MaPhong)
+                    .ToList();
+                cbBoxUpAndDeMaPhongIntoRoom.Items.Clear();
+                foreach (var maPhong in danhSachPhong)
+                {
+                    cbBoxUpAndDeMaPhongIntoRoom.Items.Add(maPhong);
+                }
+            }
         }
         private void cbBoxUpAndDeMaSVIntoRoom_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -311,8 +312,7 @@ namespace Dormitory_Winform.UserControls
             }
         }
 
-
-
+        ////////////////////////////////////////////////////////////////////////////////////////////////
         private void btnAddIntoRoom_Click(object sender, EventArgs e)
         {
             bool check;
@@ -362,6 +362,7 @@ namespace Dormitory_Winform.UserControls
                     {
                         Clear1();
                         RefreshDataGridView();
+                        GetMaSVIntoComboBox();
                     }
                     else
                     {
@@ -383,25 +384,30 @@ namespace Dormitory_Winform.UserControls
         {
             try
             {
+
                 if (!string.IsNullOrEmpty(cbBoxUpAndDeMaSVIntoRoom.Text))
                 {
-                    int maSinhVien = int.Parse(cbBoxUpAndDeMaSVIntoRoom.Text);
-
-                    bool check = intoRoomService.DeleteSinhVienFromPhong(maSinhVien);
-
-                    if (check)
+                    DialogResult result = MessageBox.Show("Are you sure you want to delete this Fee?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
                     {
-                        Clear1();
-                        RefreshDataGridView();
+                        int maSinhVien = int.Parse(cbBoxUpAndDeMaSVIntoRoom.Text);
+                        bool check = intoRoomService.DeleteSinhVienFromPhong(maSinhVien);
+
+                        if (check)
+                        {
+                            Clear1();
+                            RefreshDataGridView();
+                            GetMaSVIntoComboBox();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Delete failed. The student may not exist or there was an error.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Delete failed. The student may not exist or there was an error.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Please select a student to delete.", "Required field", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Please select a student to delete.", "Required field", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)

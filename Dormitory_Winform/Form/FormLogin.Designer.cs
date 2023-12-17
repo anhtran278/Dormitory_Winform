@@ -63,9 +63,9 @@
             this.panel1.Controls.Add(this.pictureBoxShow);
             this.panel1.Controls.Add(this.pictureBoxHide);
             this.panel1.Controls.Add(this.txtPassword);
-            this.panel1.Location = new System.Drawing.Point(72, 39);
+            this.panel1.Location = new System.Drawing.Point(75, 51);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(374, 502);
+            this.panel1.Size = new System.Drawing.Size(398, 480);
             this.panel1.TabIndex = 0;
             // 
             // btnLogIn
@@ -79,7 +79,7 @@
             this.btnLogIn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogIn.ForeColor = System.Drawing.Color.White;
             this.btnLogIn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLogIn.Location = new System.Drawing.Point(14, 404);
+            this.btnLogIn.Location = new System.Drawing.Point(26, 393);
             this.btnLogIn.Name = "btnLogIn";
             this.btnLogIn.Size = new System.Drawing.Size(312, 46);
             this.btnLogIn.TabIndex = 18;
@@ -94,7 +94,7 @@
             this.lblFotgotPass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblFotgotPass.Font = new System.Drawing.Font("Century Gothic", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFotgotPass.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblFotgotPass.Location = new System.Drawing.Point(115, 368);
+            this.lblFotgotPass.Location = new System.Drawing.Point(127, 357);
             this.lblFotgotPass.Name = "lblFotgotPass";
             this.lblFotgotPass.Size = new System.Drawing.Size(125, 18);
             this.lblFotgotPass.TabIndex = 15;
@@ -106,7 +106,7 @@
             this.lblPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(10, 256);
+            this.lblPassword.Location = new System.Drawing.Point(22, 245);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(70, 17);
             this.lblPassword.TabIndex = 14;
@@ -117,7 +117,7 @@
             this.txtUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUsername.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(14, 193);
+            this.txtUsername.Location = new System.Drawing.Point(26, 182);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(312, 26);
             this.txtUsername.TabIndex = 10;
@@ -128,7 +128,7 @@
             this.lblsignin.AutoSize = true;
             this.lblsignin.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblsignin.ForeColor = System.Drawing.Color.Navy;
-            this.lblsignin.Location = new System.Drawing.Point(110, 80);
+            this.lblsignin.Location = new System.Drawing.Point(122, 69);
             this.lblsignin.Name = "lblsignin";
             this.lblsignin.Size = new System.Drawing.Size(135, 44);
             this.lblsignin.TabIndex = 12;
@@ -139,7 +139,7 @@
             this.lblUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(10, 161);
+            this.lblUsername.Location = new System.Drawing.Point(22, 150);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(76, 17);
             this.lblUsername.TabIndex = 12;
@@ -151,7 +151,7 @@
             this.pictureBoxShow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxShow.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxShow.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxShow.Image")));
-            this.pictureBoxShow.Location = new System.Drawing.Point(295, 293);
+            this.pictureBoxShow.Location = new System.Drawing.Point(307, 282);
             this.pictureBoxShow.Name = "pictureBoxShow";
             this.pictureBoxShow.Size = new System.Drawing.Size(31, 26);
             this.pictureBoxShow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -164,7 +164,7 @@
             this.pictureBoxHide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxHide.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxHide.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxHide.Image")));
-            this.pictureBoxHide.Location = new System.Drawing.Point(295, 293);
+            this.pictureBoxHide.Location = new System.Drawing.Point(307, 282);
             this.pictureBoxHide.Name = "pictureBoxHide";
             this.pictureBoxHide.Size = new System.Drawing.Size(31, 26);
             this.pictureBoxHide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -177,7 +177,7 @@
             this.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(14, 293);
+            this.txtPassword.Location = new System.Drawing.Point(26, 282);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(282, 26);
             this.txtPassword.TabIndex = 11;
@@ -188,9 +188,9 @@
             this.pictureMinimize.BackColor = System.Drawing.Color.Navy;
             this.pictureMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pictureMinimize.Image")));
-            this.pictureMinimize.Location = new System.Drawing.Point(964, 12);
+            this.pictureMinimize.Location = new System.Drawing.Point(971, 12);
             this.pictureMinimize.Name = "pictureMinimize";
-            this.pictureMinimize.Size = new System.Drawing.Size(40, 40);
+            this.pictureMinimize.Size = new System.Drawing.Size(35, 35);
             this.pictureMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureMinimize.TabIndex = 16;
             this.pictureMinimize.TabStop = false;
@@ -200,9 +200,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(488, -1);
+            this.pictureBox1.Location = new System.Drawing.Point(370, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(614, 590);
+            this.pictureBox1.Size = new System.Drawing.Size(726, 588);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
@@ -214,7 +214,7 @@
             this.pictureClose.Image = ((System.Drawing.Image)(resources.GetObject("pictureClose.Image")));
             this.pictureClose.Location = new System.Drawing.Point(1018, 12);
             this.pictureClose.Name = "pictureClose";
-            this.pictureClose.Size = new System.Drawing.Size(37, 40);
+            this.pictureClose.Size = new System.Drawing.Size(35, 35);
             this.pictureClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureClose.TabIndex = 16;
             this.pictureClose.TabStop = false;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dormitory_Winform.UserControls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -194,11 +195,6 @@ namespace Dormitory_Winform
             info += "Loại B: " + phongB;
 
             MessageBox.Show(info, "Thông tin phòng", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            Refresh();
         }
     }
 }

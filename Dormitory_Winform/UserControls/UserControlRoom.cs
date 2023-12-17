@@ -54,6 +54,11 @@ namespace Dormitory_Winform.UserControls
         {
             try
             {
+                foreach (var entry in db.ChangeTracker.Entries<PHONG>())
+                {
+                    entry.Reload();
+                }
+
                 bindingSource.DataSource = null;
                 db.SaveChanges();
                 loadDataIntoDataGridView();
@@ -195,6 +200,11 @@ namespace Dormitory_Winform.UserControls
                 txtUpAndDeMaPhongRoom.Text = row.Cells[0].Value.ToString();
                 txtUpAndDeGiaPhongRoom.Text = row.Cells[1].Value.ToString();
             }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            RefreshDataGridView();
         }
     }
 }

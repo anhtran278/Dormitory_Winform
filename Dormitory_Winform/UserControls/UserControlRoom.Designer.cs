@@ -55,6 +55,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnDeleteRoom = new System.Windows.Forms.Button();
             this.btnUpdateRoom = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.tabControlRoom.SuspendLayout();
             this.tabPageAddRoom.SuspendLayout();
             this.tabPageSearchRoom.SuspendLayout();
@@ -189,6 +190,7 @@
             // 
             // tabPageSearchRoom
             // 
+            this.tabPageSearchRoom.Controls.Add(this.btnRefresh);
             this.tabPageSearchRoom.Controls.Add(this.dataGridViewRoom);
             this.tabPageSearchRoom.Controls.Add(this.txtSearchRoom);
             this.tabPageSearchRoom.Controls.Add(this.lblSearchRoom);
@@ -371,6 +373,18 @@
             this.btnUpdateRoom.UseVisualStyleBackColor = false;
             this.btnUpdateRoom.Click += new System.EventHandler(this.btnUpdateRoom_Click);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.White;
+            this.btnRefresh.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRefresh.BackgroundImage")));
+            this.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnRefresh.Location = new System.Drawing.Point(1060, 77);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(33, 32);
+            this.btnRefresh.TabIndex = 7;
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // UserControlRooms
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -420,5 +434,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtAddKiHieuPhongRoom;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }
