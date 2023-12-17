@@ -557,6 +557,7 @@
             this.userControlStudents1.Name = "userControlStudents1";
             this.userControlStudents1.Size = new System.Drawing.Size(1332, 529);
             this.userControlStudents1.TabIndex = 1;
+            this.userControlStudents1.Load += new System.EventHandler(this.userControlStudents1_Load);
             // 
             // userControlAdmins1
             // 

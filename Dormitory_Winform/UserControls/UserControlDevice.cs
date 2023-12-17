@@ -253,6 +253,7 @@ namespace Dormitory_Winform.UserControls
                 if (TinhTrang == "Bao Tri")
                     rdbUpAndDeBaoTriDevice.Checked = true;
                 txtUpAndDeMaThietBiDevice.Text = row.Cells[0].Value.ToString();
+                tabControlDevices.SelectedTab = tabPageUpDeDevices;
             }
         }
     }

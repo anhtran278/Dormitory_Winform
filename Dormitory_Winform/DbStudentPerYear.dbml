@@ -3,7 +3,7 @@
   <Table Name="dbo.vwStudentPerYear" Member="vwStudentPerYears">
     <Type Name="vwStudentPerYear">
       <Column Name="SoLuongSinhVien" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NamVao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NamVao" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

@@ -77,7 +77,7 @@ namespace Dormitory_Winform
 		
 		private System.Nullable<int> _SoLuongSinhVien;
 		
-		private System.Nullable<System.DateTime> _NamVao;
+		private System.Nullable<int> _NamVao;
 		
 		public vwStudentPerYear()
 		{
@@ -99,8 +99,8 @@ namespace Dormitory_Winform
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NamVao", DbType="Date")]
-		public System.Nullable<System.DateTime> NamVao
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NamVao", DbType="Int")]
+		public System.Nullable<int> NamVao
 		{
 			get
 			{

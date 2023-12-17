@@ -280,12 +280,13 @@ namespace Dormitory_Winform.UserControls
 
                 if (TrangThaiDki == "Chua Duyet")
                     rdbUpAndDeChuaDuyetStudent.Checked = true;
+                tabControlStudent.SelectedTab = tabPageUpDeStudent;
+
             }
         }
         private void cbSheet_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataTable dt = tableCollection[cbSheet.SelectedItem.ToString()];
-            //dataGridViewStudent.DataSource = dt;
             if (dt != null)
             {
                 List<SINHVIEN> sINHVIENs = new List<SINHVIEN>();
@@ -327,12 +328,17 @@ namespace Dormitory_Winform.UserControls
                             {
                                 ConfigureDataTable = (_) => new ExcelDataTableConfiguration() { UseHeaderRow = true }
                             });
-                        }
-                    }
+                            tableCollection = result.Tables;
+                            cbSheet.Items.Clear();
+                            foreach (DataTable table in tableCollection)
+                                cbSheet.Items.Add(table.TableName);
 
+                        } 
+                    }
                 }
             }
         }
+
 
         private void btnImport_Click(object sender, EventArgs e)
         {
@@ -346,13 +352,11 @@ namespace Dormitory_Winform.UserControls
                         var existingRecord = db.SINHVIENs.Find(sinhVien.MaSV);
                         if (existingRecord != null)
                         {
-                            // Update non-primary key fields only
                             existingRecord.Ten = sinhVien.Ten;
                             existingRecord.DiaChi = sinhVien.DiaChi;
                             existingRecord.NgaySinh = sinhVien.NgaySinh;
                             existingRecord.DienThoai = sinhVien.DienThoai;
                             existingRecord.TrangThaiDki = sinhVien.TrangThaiDki;
-                            // Do not update MaSV as it's a primary key
                         }
                         else
                         {
@@ -360,7 +364,7 @@ namespace Dormitory_Winform.UserControls
                         }
                     }
                     db.SaveChanges();
-                    RefreshDataGridView(); // Refresh DataGridView to show updated data
+                    RefreshDataGridView(); 
                     MessageBox.Show("Data imported successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -380,8 +384,5 @@ namespace Dormitory_Winform.UserControls
                 MessageBox.Show($"Error importing data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        
-
-    }
+    }   
 }

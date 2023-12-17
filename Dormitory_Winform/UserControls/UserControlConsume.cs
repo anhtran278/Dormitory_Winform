@@ -287,6 +287,8 @@ namespace Dormitory_Winform.UserControls
                 txtUpAndDeTienBaoTriPhongConsume.Text = row.Cells[2].Value.ToString();
                 txtUpAndDeTienBaoTriThietBiConsume.Text = row.Cells[3].Value.ToString();
                 dateTimeUpAndDeNgayHaoPhiConsume.Value = DateTime.Parse(row.Cells[4].Value.ToString());
+                tabControlConsume.SelectedTab = tabPageUpDeConsume;
+
             }
         }
     }

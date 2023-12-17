@@ -52,6 +52,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.txtFilename = new System.Windows.Forms.TextBox();
+            this.btnImport = new System.Windows.Forms.Button();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.cbSheet = new System.Windows.Forms.ComboBox();
             this.dataGridViewStudent = new System.Windows.Forms.DataGridView();
@@ -84,7 +85,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnDeleteStudent = new System.Windows.Forms.Button();
             this.btnUpdateStudent = new System.Windows.Forms.Button();
-            this.btnImport = new System.Windows.Forms.Button();
             this.tabControlStudent.SuspendLayout();
             this.tabPageAddStudent.SuspendLayout();
             this.tabPageSearchStudent.SuspendLayout();
@@ -353,6 +353,16 @@
             this.txtFilename.Size = new System.Drawing.Size(256, 22);
             this.txtFilename.TabIndex = 9;
             // 
+            // btnImport
+            // 
+            this.btnImport.Location = new System.Drawing.Point(906, 43);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(66, 25);
+            this.btnImport.TabIndex = 8;
+            this.btnImport.Text = "Import";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
             // btnBrowse
             // 
             this.btnBrowse.Location = new System.Drawing.Point(1044, 77);
@@ -366,8 +376,6 @@
             // cbSheet
             // 
             this.cbSheet.FormattingEnabled = true;
-            this.cbSheet.Items.AddRange(new object[] {
-            "Sheet 1"});
             this.cbSheet.Location = new System.Drawing.Point(779, 43);
             this.cbSheet.Name = "cbSheet";
             this.cbSheet.Size = new System.Drawing.Size(121, 25);
@@ -704,16 +712,6 @@
             this.btnUpdateStudent.Text = "Update";
             this.btnUpdateStudent.UseVisualStyleBackColor = false;
             this.btnUpdateStudent.Click += new System.EventHandler(this.btnUpdateStudent_Click);
-            // 
-            // btnImport
-            // 
-            this.btnImport.Location = new System.Drawing.Point(906, 43);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(66, 25);
-            this.btnImport.TabIndex = 8;
-            this.btnImport.Text = "Import";
-            this.btnImport.UseVisualStyleBackColor = true;
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // UserControlStudent
             // 

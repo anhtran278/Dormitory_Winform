@@ -196,5 +196,10 @@ namespace Dormitory_Winform
 
             MessageBox.Show(info, "Thông tin phòng", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void userControlStudents1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

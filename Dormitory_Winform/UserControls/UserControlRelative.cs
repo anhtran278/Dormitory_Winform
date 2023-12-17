@@ -246,7 +246,7 @@ namespace Dormitory_Winform.UserControls
                 }
                 txtUpAndDeDiaChiRelatives.Text = row.Cells[3].Value.ToString();
                 txtUpAndDeSDTRelatives.Text = row.Cells[4].Value.ToString();
-
+                tabControlRelatives.SelectedTab = tabPageUpDeRelatives;
             }
         }
     }

@@ -242,6 +242,7 @@ namespace Dormitory_Winform.UserControls
                 txtUpAndDeTienInternetFee.Text = row.Cells[3].Value.ToString();
                 txtUpAndDeTienGuiXeFee.Text= row.Cells[4].Value.ToString();
                 txtUpAndDeTienDienNuocFee.Text = row.Cells[5].Value.ToString();
+                tabControlFee.SelectedTab = tabPageUpDeFee;
             }
         }
     }

@@ -133,6 +133,7 @@ namespace Dormitory_Winform
                 ID = row.Cells[0].Value.ToString();
                 txtUpAndDeUser.Text = row.Cells[1].Value.ToString();
                 txtUpAndDePassword.Text = row.Cells[2].Value.ToString();
+                tabControlUser.SelectedTab = tabPageUpDeUser;
             }
         }
 
@@ -192,8 +193,6 @@ namespace Dormitory_Winform
             {
                 MessageBox.Show("Please fisrt select row form table.", "Selection of row.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
         }
-        
     }
 }

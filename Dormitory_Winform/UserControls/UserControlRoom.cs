@@ -199,6 +199,7 @@ namespace Dormitory_Winform.UserControls
                 DataGridViewRow row = dataGridViewRoom.Rows[e.RowIndex];
                 txtUpAndDeMaPhongRoom.Text = row.Cells[0].Value.ToString();
                 txtUpAndDeGiaPhongRoom.Text = row.Cells[1].Value.ToString();
+                tabControlRoom.SelectedTab = tabPageUpDeRoom;
             }
         }
 
