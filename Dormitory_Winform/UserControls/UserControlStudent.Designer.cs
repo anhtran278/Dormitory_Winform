@@ -56,13 +56,6 @@
             this.btnBrowse = new System.Windows.Forms.Button();
             this.cbSheet = new System.Windows.Forms.ComboBox();
             this.dataGridViewStudent = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearchStudent = new System.Windows.Forms.TextBox();
             this.lblSearchStudent = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -85,6 +78,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnDeleteStudent = new System.Windows.Forms.Button();
             this.btnUpdateStudent = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlStudent.SuspendLayout();
             this.tabPageAddStudent.SuspendLayout();
             this.tabPageSearchStudent.SuspendLayout();
@@ -395,8 +395,8 @@
             this.Column3,
             this.Column4,
             this.Column5,
-            this.Column7,
-            this.Column6});
+            this.Column6,
+            this.Column7});
             this.dataGridViewStudent.DataBindings.Add(new System.Windows.Forms.Binding("AutoGenerateColumns", global::Dormitory_Winform.Properties.Settings.Default, "False", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.dataGridViewStudent.Location = new System.Drawing.Point(63, 135);
             this.dataGridViewStudent.Name = "dataGridViewStudent";
@@ -404,67 +404,6 @@
             this.dataGridViewStudent.Size = new System.Drawing.Size(1030, 265);
             this.dataGridViewStudent.TabIndex = 6;
             this.dataGridViewStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStudent_CellClick);
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column1.DataPropertyName = "MaSV";
-            this.Column1.HeaderText = "MaSV";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 165;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column2.DataPropertyName = "Ten";
-            this.Column2.HeaderText = "Ten";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 164;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column3.DataPropertyName = "DienThoai";
-            this.Column3.HeaderText = "SDT";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 165;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column4.DataPropertyName = "NgaySinh";
-            this.Column4.HeaderText = "Ngay Sinh";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 164;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column5.DataPropertyName = "DiaChi";
-            this.Column5.HeaderText = "Dia Chi";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 165;
-            // 
-            // Column7
-            // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column7.DataPropertyName = "LoaiPhongSVDangKi";
-            this.Column7.HeaderText = "Loai Phong Dang Ki";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column6.DataPropertyName = "TrangThaiDki";
-            this.Column6.HeaderText = "Trang thai dang ki";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
             // 
             // txtSearchStudent
             // 
@@ -713,6 +652,67 @@
             this.btnUpdateStudent.UseVisualStyleBackColor = false;
             this.btnUpdateStudent.Click += new System.EventHandler(this.btnUpdateStudent_Click);
             // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column1.DataPropertyName = "MaSV";
+            this.Column1.HeaderText = "MaSV";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 165;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column2.DataPropertyName = "Ten";
+            this.Column2.HeaderText = "Ten";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 164;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column3.DataPropertyName = "DienThoai";
+            this.Column3.HeaderText = "SDT";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 165;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column4.DataPropertyName = "NgaySinh";
+            this.Column4.HeaderText = "Ngay Sinh";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 164;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column5.DataPropertyName = "DiaChi";
+            this.Column5.HeaderText = "Dia Chi";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 165;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column6.DataPropertyName = "LoaiPhongSVDangKi";
+            this.Column6.HeaderText = "Loai Phong Dang Ki";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column7.DataPropertyName = "TrangThaiDki";
+            this.Column7.HeaderText = "Trang thai dang ki";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
             // UserControlStudent
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -773,13 +773,6 @@
         private System.Windows.Forms.DateTimePicker dateTimeUpAndDeNgaySinhStudent;
         private System.Windows.Forms.Label lbl;
         private System.Windows.Forms.ComboBox cbBoxAddLoaiPhongDkiStudent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.ComboBox cbBoxUpAndDeLoaiPhongDkiStudent;
         private System.Windows.Forms.RadioButton rdbUpAndDeChuaDuyetStudent;
         private System.Windows.Forms.RadioButton rdbUpAndDeDuyetStudent;
@@ -791,5 +784,12 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }

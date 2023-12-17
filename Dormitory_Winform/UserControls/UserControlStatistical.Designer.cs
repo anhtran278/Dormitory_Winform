@@ -146,12 +146,12 @@
             this.FeeChart.Legends.Add(legend2);
             this.FeeChart.Location = new System.Drawing.Point(3, 3);
             this.FeeChart.Name = "FeeChart";
+            this.FeeChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
             series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series2.IsValueShownAsLabel = true;
             series2.Legend = "Legend1";
+            series2.LegendText = "Doanh thu qua từng năm (USD)";
             series2.Name = "Series1";
-            series2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
             this.FeeChart.Series.Add(series2);
             this.FeeChart.Size = new System.Drawing.Size(1142, 394);
             this.FeeChart.TabIndex = 2;
@@ -190,10 +190,11 @@
             this.ConsumeChart.Name = "ConsumeChart";
             this.ConsumeChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series3.IsValueShownAsLabel = true;
             series3.Legend = "Legend1";
+            series3.LegendText = "Hao phí qua từng năm (USD)";
             series3.Name = "Series2";
+            series3.YValueMembers = "$";
             this.ConsumeChart.Series.Add(series3);
             this.ConsumeChart.Size = new System.Drawing.Size(1142, 394);
             this.ConsumeChart.TabIndex = 4;

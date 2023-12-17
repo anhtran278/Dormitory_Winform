@@ -264,7 +264,7 @@ namespace Dormitory_Winform.UserControls
 
         private void dataGridViewStudent_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != 0)
+            if (e.RowIndex >= 0 && e.RowIndex < dataGridViewStudent.Rows.Count)
             {
                 DataGridViewRow row = dataGridViewStudent.Rows[e.RowIndex];
                 txtUpAndDeMaSVStudent.Text = row.Cells[0].Value.ToString();
