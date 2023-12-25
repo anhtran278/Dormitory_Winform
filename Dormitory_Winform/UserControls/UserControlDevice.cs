@@ -133,7 +133,7 @@ namespace Dormitory_Winform.UserControls
                 string soLuong = txtAddSoLuongDevice.Text.Trim();
                 string tinhTrang = rdbAddHoatDongDevice.Checked ? "Hoat Dong" : (rdbAddHongDevice.Checked ? "Hong" : "Bao Tri");
 
-                if (!string.IsNullOrWhiteSpace(tenThietBi) && int.TryParse(soLuong, out int parsedSoLuong) && parsedSoLuong > 0)
+                if (!string.IsNullOrEmpty(tenThietBi) && int.TryParse(soLuong, out int parsedSoLuong) && parsedSoLuong > 0)
                 {
                     bool isAdded = devicesService.AddDevice(tenThietBi, parsedSoLuong, tinhTrang);
 
@@ -171,7 +171,7 @@ namespace Dormitory_Winform.UserControls
                     string soLuong = txtUpAndDeSoLuongDevice.Text.Trim();
                     string tinhTrang = rdbUpAndDeHoatDongDevice.Checked ? "Hoat Dong" : (rdbUpAndDeHongDevice.Checked ? "Hong" : "Bao Tri");
 
-                    if (!string.IsNullOrWhiteSpace(tenThietBi) && !string.IsNullOrWhiteSpace(soLuong) && int.TryParse(soLuong, out int parsedSoLuong) && parsedSoLuong > 0)
+                    if (!string.IsNullOrEmpty(tenThietBi) && !string.IsNullOrEmpty(soLuong) && int.TryParse(soLuong, out int parsedSoLuong) && parsedSoLuong > 0)
                     {
                         bool isUpdated = devicesService.UpdateDevice(maThietBi, tenThietBi, parsedSoLuong, tinhTrang);
 

@@ -12,8 +12,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExcelDataReader;
 
-
-
 namespace Dormitory_Winform.UserControls
 {
     public partial class UserControlStudent : UserControl
@@ -338,7 +336,6 @@ namespace Dormitory_Winform.UserControls
                 }
             }
         }
-
 
         private void btnImport_Click(object sender, EventArgs e)
         {

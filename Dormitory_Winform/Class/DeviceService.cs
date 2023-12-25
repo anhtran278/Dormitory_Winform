@@ -34,13 +34,6 @@ namespace Dormitory_Winform.Class
         {
             try
             {
-                THIETBI existingDevice = db.THIETBIs.FirstOrDefault(d => d.TenThietBi.Equals(tenThietBi, StringComparison.OrdinalIgnoreCase));
-
-                if (existingDevice != null)
-                {
-                    MessageBox.Show("Device with the same name already exists.", "Duplicate Device", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
 
                 THIETBI newDevice = new THIETBI
                 {

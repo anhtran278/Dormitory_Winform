@@ -105,6 +105,7 @@
             this.StudentChart.Location = new System.Drawing.Point(3, 3);
             this.StudentChart.Name = "StudentChart";
             series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.IsValueShownAsLabel = true;
             series1.Legend = "Legend1";
             series1.LegendText = "Tổng số sinh viên";
